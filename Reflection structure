@@ -1,0 +1,31 @@
+Les classes dont on va avoir besoin :
+
+
+Server
+
+Une liste de Channel
+Une liste d utilisateur
+Des infos sur les sockets etc
+
+Il peut ajouter des utilisateurs
+Il peut ajouter des channels
+Il peut envoyer des messages aux clients
+
+User
+
+Il a un channel
+Il a des infos sur son client
+
+Il peut rejoindre un channel
+Il peut envoyer des messages
+
+Operator
+
+Il peut kick des utilisateurs
+Il doit pouvoir s'authentifier
+
+
+Channel
+
+Il a une liste d'utilisateur
+Il doit pouvoir retransmettre des messages a tous ses utilisateurs

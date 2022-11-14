@@ -1,0 +1,70 @@
+Liste des messages et des formats envoye par le client qui vont nous servir et des reponses a fournir
+
+// FORMAT DES MESSAGE EN GENERAL
+
+Command argument1 argument2 ...
+
+
+// CAP : Message a echanger entre le serveur et le client pour savoir sur quels protocoles ils travaillent
+
+Ce que le client envoie :
+
+CAP LS [version] 
+
+Ce que nous devons renvoyer :
+
+Rien du tout, notre serveur ne doit pas supporter la capability negociation
+
+
+
+// NICK : Message d'arrive sur un serveur que le client nous envoie
+
+Ce que le client envoie :
+
+NICK name
+
+Ce que nous devons renvoyer :
+
+Rien du tout mais on doit stocker le nom de l utilisateur
+
+
+//USER : 
+
+Ce que le client envoie :
+
+USER name 0 * :rmonacho
+
+Ce que nous devons renvoyer :
+
+Rien du tout mais suite a la reception du message CAP NICK et USER 
+il faut envoyer le message de bienvenue sur le serveur et enregistrer 
+l utilisateur
+
+// PING : Le client va nous envoyer un ping auquel on va devoir repondre par un PONG
+
+Ce que le client envoie :
+
+PING token
+
+Ce que nous devons renvoyer :
+
+PONG server_name token // LE MM TOKEN
+
+
+
+// OPER : L'utilisateur veut obtenir des droits d'operateurs
+
+Ce que le client envoie :
+
+OPER name password
+
+Ce que nous devons renvoyer :
+
+Un des messages d erreur si besoin sinon le RPL_YOUROPER voir la norme
+
+
+
+
+
+
+
