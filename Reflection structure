@@ -6,6 +6,7 @@ Server
 Une liste de Channel
 Une liste d utilisateur
 Des infos sur les sockets etc
+Une liste d'operateurs
 
 Il peut ajouter des utilisateurs
 Il peut ajouter des channels
@@ -29,3 +30,23 @@ Channel
 
 Il a une liste d'utilisateur
 Il doit pouvoir retransmettre des messages a tous ses utilisateurs
+
+
+
+Parties de travail :
+
+- Communication avec le client, accepter un nouvel utilisateur
+traiter les pings, envoyer des messages au bon format.
+
+- Traitement des commandes (a faire a la fin je pense)
+
+- Envoi de message aux clients (messages d'autres utilisateurs etc), envoie de message dans les channels
+
+- Implementation des Operateurs
+
+
+On pourrait aussi decider de traiter ca commande par commande. mais
+je me dis que ca sera vraiment le bordel ca
+
+
+
