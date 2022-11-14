@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:58:54 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/11 16:12:34 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/14 11:39:31 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <unistd.h>  
 #include <sys/socket.h> // DEFINIT LES FONCTIONS ET AUTRES SYMBOLES POUR L'UTILISATION DES SOCKETS
 #include <netinet/in.h>
+#include <sys/ioctl.h>
 #include <arpa/inet.h> // UTILISATION DE HTONS ET NTOHS 
 #include <netdb.h>
 #include <string.h>
@@ -53,13 +54,32 @@ int	main(void)
 		listening = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
 		if (listening < 0)
 			continue ;
-		setsockopt(listening, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)); // CA CA SERT A ENLEVER UN TYPE D'ERREUR
+
+
+		rv = setsockopt(listening, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int)); // CA CA SERT A ENLEVER UN TYPE D'ERREUR
+		if (rv < 0)
+		{
+			std::cerr << "Setsockopt failed" << std::endl;
+			close(listening);
+			continue;
+		}
+
+
+		rv = ioctl(listening, FIONBIO, (char *)&yes); // ON REND LA SOCKET NON BLOQUANTE
+		if (rv < 0)
+		{
+			std::cerr << "Failed to put the socket to non blocking state" << std::endl;
+			close(listening);
+			continue;
+		}
+
+
 		if (bind(listening, p->ai_addr, p->ai_addrlen) < 0) // TEST DU LIEN ENTRE L'ADRESSE ET LA SOCKET
 		{
 			close(listening);
 			continue;
 		}
-		break;
+		break; 
 	}
 
 	if (p == NULL) // ZERO ADRESSE VALIDE
