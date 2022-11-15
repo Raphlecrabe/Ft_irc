@@ -16,7 +16,6 @@ Ce que nous devons renvoyer :
 Rien du tout, notre serveur ne doit pas supporter la capability negociation
 
 
-
 // NICK : Message d'arrive sur un serveur que le client nous envoie
 
 Ce que le client envoie :
