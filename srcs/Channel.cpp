@@ -8,6 +8,7 @@
 #include <poll.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <cstdlib>
 
 #include "../incs/Channel.hpp"
 

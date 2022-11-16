@@ -8,12 +8,14 @@
 #include <poll.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdio.h>
+#include <cstdlib>
 
 #define PORT "9034"
 
 #include "../incs/Server.hpp"
 
-Server::Server(int fd_size) : _fd_size(fd_size), _fd_count(0) {
+Server::Server(int fd_size) : _fd_count(0), _fd_size(fd_size) {
 	this->_pfds = (struct pollfd *)malloc(sizeof(*_pfds) * _fd_size);
 
 	if (this->_pfds == NULL) {
@@ -51,7 +53,7 @@ int		Server::launch_listener() {
 
 	for (list = ai; list != NULL; list = list->ai_next) {
 		this->_listener = socket(list->ai_family, list->ai_socktype, list->ai_protocol);
-		
+
 		if (_listener < 0)
 			continue;
 
