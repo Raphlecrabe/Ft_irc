@@ -15,6 +15,12 @@
 #include <map>
 
 #include "Channel.hpp"
+#include "Sender.hpp"
+#include "Format.hpp"
+
+#include "../incs/Replier.hpp"
+#include "../incs/AReply.hpp"
+#include "../incs/Rpl_Welcome.hpp"
 
 class Server {
 	private:
@@ -25,6 +31,9 @@ class Server {
 		int				_listener;
 
 		Channel	main_channel;
+		Sender	sender;
+		Format	format;
+		Replier *replier;
 
 		void	*get_in_addr(struct sockaddr *sa);
 
@@ -35,6 +44,8 @@ class Server {
 
 		void	new_connection();
 		void	receive(int fd);
+
+		void	greeting(int fd);
 
 	public:
 		Server(int fd_size);

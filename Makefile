@@ -3,6 +3,11 @@ SRCS_DIR =	srcs/
 SRCS	= 	main.cpp \
 			Server.cpp \
 			Channel.cpp \
+			Sender.cpp \
+			AReply.cpp \
+			Rpl_Welcome.cpp \
+			Replier.cpp \
+			Format.cpp \
 
 OBJS_DIR = 	objs/
 
@@ -18,6 +23,11 @@ INC_DIR = incs/
 
 INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Channel.hpp \
+			${INC_DIR}Sender.hpp \
+			${INC_DIR}AReply.hpp \
+			${INC_DIR}Format.hpp \
+			${INC_DIR}Replier.hpp \
+			${INC_DIR}Rpl_Welcome.hpp \
 
 ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp ${INCLUDES}
 				mkdir -p objs

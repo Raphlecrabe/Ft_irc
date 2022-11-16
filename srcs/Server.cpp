@@ -14,6 +14,13 @@
 #define PORT "9034"
 
 #include "../incs/Server.hpp"
+#include "../incs/Channel.hpp"
+#include "../incs/Sender.hpp"
+#include "../incs/Format.hpp"
+
+#include "../incs/Replier.hpp"
+#include "../incs/AReply.hpp"
+#include "../incs/Rpl_Welcome.hpp"
 
 Server::Server(int fd_size) : _fd_count(0), _fd_size(fd_size) {
 	this->_pfds = (struct pollfd *)malloc(sizeof(*_pfds) * _fd_size);
@@ -21,10 +28,18 @@ Server::Server(int fd_size) : _fd_count(0), _fd_size(fd_size) {
 	if (this->_pfds == NULL) {
 		throw Server::MallocErrorException();
 	}
+
+	std::vector<AReply *> replies;
+	replies.push_back(new Rpl_Welcome());
+
+	this->replier = new Replier(replies);
+
+	Server::init();
 }
 
 Server::~Server() {
 	free(_pfds);
+	delete replier;
 }
 
 void* 	Server::get_in_addr(struct sockaddr *sa) {
@@ -140,6 +155,18 @@ void	Server::new_connection() {
 	}
 }
 
+void	Server::greeting(int fd) {
+	t_msginfo infos;
+
+	infos.src = "lebestserver.com";
+	infos.cmd = "001";
+	infos.params = replier->getReplyByName("RPL_WELCOME");
+
+	std::string msg = format.cat(infos);
+
+	sender.sendto(fd, msg);
+}
+
 void	Server::receive(int fd) {
 	char buf[256];
 
@@ -159,7 +186,9 @@ void	Server::receive(int fd) {
 		remove_fd(fd);
 
 	} else {
-		main_channel.send_all(sender_fd, buf, nbytes);
+		std::cout << "Received: " << buf << std::endl;
+		Server::greeting(sender_fd);
+		//main_channel.send_all(sender_fd, buf, nbytes);
 	}
 }
 
