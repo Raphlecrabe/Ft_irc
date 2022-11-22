@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Messager.hpp                                       :+:      :+:    :+:   */
+/*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 16:41:02 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/18 10:04:41 by raphael          ###   ########.fr       */
+/*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
+/*   Updated: 2022/11/18 15:22:01 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGER_HPP
-# define MESSAGER_HPP
+#ifndef REPLYCREATOR_HPP
+# define REPLYCREATOR_HPP
 
-class Messager
+class ReplyCreator
 {
 private:
-	Sender	_Sender;
 	
 public:
-	Messager();
-	~Messager();
+	ReplyCreator();
+	~ReplyCreator();
 
-	void	TreatMessages(std::vector<Message> Messages);
-	void	Sendone(Message Message);
+	std::map<std::string, AReply>	*CreateReplys();
 };
+
+ReplyCreator::ReplyCreator()
+{
+}
+
+ReplyCreator::~ReplyCreator()
+{
+}
+
+std::map<std::string, AReply>	*CreateReplys()
+{
+}
 
 #endif

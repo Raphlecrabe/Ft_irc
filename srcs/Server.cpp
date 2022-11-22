@@ -18,7 +18,7 @@
 #include "../incs/Sender.hpp"
 #include "../incs/Format.hpp"
 
-#include "../incs/Replier.hpp"
+#include "../incs/Replyer.hpp"
 #include "../incs/AReply.hpp"
 #include "../incs/Rpl_Welcome.hpp"
 

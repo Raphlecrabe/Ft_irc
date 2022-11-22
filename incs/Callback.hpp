@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Messager.hpp                                       :+:      :+:    :+:   */
+/*   Callback.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 16:41:02 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/18 10:04:41 by raphael          ###   ########.fr       */
+/*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
+/*   Updated: 2022/11/18 10:33:28 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGER_HPP
-# define MESSAGER_HPP
+#ifndef CALLBACK_HPP
+# define CALLBACK_HPP
 
-class Messager
+class Callback
 {
 private:
-	Sender	_Sender;
-	
-public:
-	Messager();
-	~Messager();
+	std::vector<string>		_Replys;
+	std::vector<Message>	_Messages;
 
-	void	TreatMessages(std::vector<Message> Messages);
-	void	Sendone(Message Message);
+public:
+	Callback();
+	~Callback();
+
+	std::vector<string>		&getReplys();
+	std::vector<Message>	&getMessages();
 };
 
 #endif
