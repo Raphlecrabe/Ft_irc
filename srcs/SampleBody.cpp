@@ -1,5 +1,7 @@
 #include "../incs/Name.hpp"
 
+#include <iostream>
+
 Name::Name() {
 
 }

@@ -2,7 +2,7 @@ SRCS_DIR =	srcs/
 
 SRCS	= 	main.cpp \
 			Server.cpp \
-			Channel.cpp \
+			Listener.cpp \
 			User.cpp \
 			Message.cpp \
 			Sender.cpp \
@@ -24,7 +24,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 INC_DIR = incs/
 
 INCLUDES =	${INC_DIR}Server.hpp \
-			${INC_DIR}Channel.hpp \
+			${INC_DIR}Listener.hpp \
 			${INC_DIR}Sender.hpp \
 			${INC_DIR}User.hpp \
 			${INC_DIR}Message.hpp \

@@ -9,7 +9,37 @@ Message::Message(std::string src, std::string cmd, std::string prms) :
 
 }
 
-Message::Message(char *raw) {
+Message::Message(User *sender, char *raw) {
+	this->_sender = sender;
+	parse(raw);
+}
+
+Message::Message(Message const & cpy) {
+	*this = cpy;
+}
+
+Message & Message::operator=(Message const & rhs) {
+	this->_source = rhs._source;
+	this->_command = rhs._command;
+	this->_params = rhs._params;
+
+	this->destinator = rhs.destinator;
+	return *this;
+}
+
+Message::~Message() {
+	
+}
+
+std::string Message::Format() {
+	std::string msg;
+
+	msg = ":" + this->_source + " " + this->_command + " " + this->_params + "\r\n";
+
+	return msg;
+}
+
+void Message::parse(char *raw) {
 	std::string datas = raw;
 	
 	int index = 0;
@@ -55,29 +85,4 @@ Message::Message(char *raw) {
 		paramslen++;
 		
 	this->_params = datas.substr(index, paramslen);
-}
-
-Message::Message(Message const & cpy) {
-	*this = cpy;
-}
-
-Message & Message::operator=(Message const & rhs) {
-	this->_source = rhs._source;
-	this->_command = rhs._command;
-	this->_params = rhs._params;
-
-	this->destinator = rhs.destinator;
-	return *this;
-}
-
-Message::~Message() {
-	
-}
-
-std::string Message::Format() {
-	std::string msg;
-
-	msg = ":" + this->_source + " " + this->_command + " " + this->_params + "\r\n";
-
-	return msg;
 }

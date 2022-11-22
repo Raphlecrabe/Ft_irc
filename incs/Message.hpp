@@ -13,9 +13,11 @@ class Message {
 		std::string _command;
 		std::string _params;
 
+		void parse(char *raw);
+
 	public:
 		Message(std::string src, std::string cmd, std::string prms);
-		Message(char *datas);
+		Message(User *sender, char *datas);
 		Message(Message const &);
 		Message & operator=(Message const &);
 		~Message();
