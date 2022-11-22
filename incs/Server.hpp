@@ -14,13 +14,14 @@
 
 #include <map>
 
-#include "Channel.hpp"
 #include "Sender.hpp"
-#include "Format.hpp"
 
-#include "../incs/Replier.hpp"
-#include "../incs/AReply.hpp"
-#include "../incs/Rpl_Welcome.hpp"
+#include "User.hpp"
+#include "Channel.hpp"
+
+#include "Replier.hpp"
+#include "AReply.hpp"
+#include "Rpl_Welcome.hpp"
 
 class Server {
 	private:
@@ -30,10 +31,11 @@ class Server {
 
 		int				_listener;
 
-		Channel	main_channel;
+		Channel main_channel;
 		Sender	sender;
-		Format	format;
 		Replier *replier;
+
+		std::vector<User *> _users;
 
 		void	*get_in_addr(struct sockaddr *sa);
 
@@ -45,7 +47,7 @@ class Server {
 		void	new_connection();
 		void	receive(int fd);
 
-		void	greeting(int fd);
+		void	greeting(User &);
 
 	public:
 		Server(int fd_size);

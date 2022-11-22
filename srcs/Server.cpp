@@ -14,9 +14,12 @@
 #define PORT "9034"
 
 #include "../incs/Server.hpp"
+
 #include "../incs/Channel.hpp"
+#include "../incs/User.hpp"
+
+#include "../incs/Message.hpp"
 #include "../incs/Sender.hpp"
-#include "../incs/Format.hpp"
 
 #include "../incs/Replier.hpp"
 #include "../incs/AReply.hpp"
@@ -155,16 +158,19 @@ void	Server::new_connection() {
 	}
 }
 
-void	Server::greeting(int fd) {
-	t_msginfo infos;
+void	Server::greeting(User & usr) {
+	std::string src = "lebestserver.com";
+	std::string cmd = "001";
+	std::string params = replier->getReplyByName("RPL_WELCOME");
 
-	infos.src = "lebestserver.com";
-	infos.cmd = "001";
-	infos.params = replier->getReplyByName("RPL_WELCOME");
+	Message msg(src, cmd, params);
+	msg.destinator = &usr;
 
-	std::string msg = format.cat(infos);
-
-	sender.sendto(fd, msg);
+	try {
+		sender.sendto(msg);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void	Server::receive(int fd) {
@@ -187,7 +193,9 @@ void	Server::receive(int fd) {
 
 	} else {
 		std::cout << "Received: " << buf << std::endl;
-		Server::greeting(sender_fd);
+		User *new_usr = new User(sender_fd);
+		_users.push_back(new_usr);
+		Server::greeting(*new_usr);
 		//main_channel.send_all(sender_fd, buf, nbytes);
 	}
 }

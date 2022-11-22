@@ -3,6 +3,8 @@ SRCS_DIR =	srcs/
 SRCS	= 	main.cpp \
 			Server.cpp \
 			Channel.cpp \
+			User.cpp \
+			Message.cpp \
 			Sender.cpp \
 			AReply.cpp \
 			Rpl_Welcome.cpp \
@@ -24,6 +26,8 @@ INC_DIR = incs/
 INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Channel.hpp \
 			${INC_DIR}Sender.hpp \
+			${INC_DIR}User.hpp \
+			${INC_DIR}Message.hpp \
 			${INC_DIR}AReply.hpp \
 			${INC_DIR}Format.hpp \
 			${INC_DIR}Replier.hpp \
