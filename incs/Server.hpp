@@ -17,7 +17,6 @@
 #include "Sender.hpp"
 
 #include "User.hpp"
-#include "Channel.hpp"
 
 #include "Replier.hpp"
 #include "AReply.hpp"
@@ -31,7 +30,6 @@ class Server {
 
 		int				_listener;
 
-		Channel main_channel;
 		Sender	sender;
 		Replier *replier;
 

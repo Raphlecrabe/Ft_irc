@@ -15,7 +15,6 @@
 
 #include "../incs/Server.hpp"
 
-#include "../incs/Channel.hpp"
 #include "../incs/User.hpp"
 
 #include "../incs/Message.hpp"
@@ -150,8 +149,6 @@ void	Server::new_connection() {
 	} else {
 		add_fd(newfd, POLLIN);
 
-		main_channel.add_fd(newfd);
-
 		inet_ntop(remoteaddr.ss_family, get_in_addr((struct sockaddr*)&remoteaddr), remoteIP, INET6_ADDRSTRLEN);
 
 		std::cout << "pollserver: new connection from " << remoteIP << " on socket " << newfd << std::endl;
@@ -196,7 +193,6 @@ void	Server::receive(int fd) {
 		User *new_usr = new User(sender_fd);
 		_users.push_back(new_usr);
 		Server::greeting(*new_usr);
-		//main_channel.send_all(sender_fd, buf, nbytes);
 	}
 }
 
