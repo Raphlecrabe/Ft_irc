@@ -130,7 +130,7 @@ std::string Listener::recvdatas(int fd) {
 	return datas;
 }
 
-void	Listener::new_connection() {
+int	Listener::new_connection() {
 	int newfd;
 	struct sockaddr_storage remoteaddr;
 	socklen_t addrlen;
@@ -143,12 +143,15 @@ void	Listener::new_connection() {
 
 	if (newfd == -1) {
 		std::cerr << "accept" << std::endl;
+		return -1;
 	} else {
 		add_fd(newfd, POLLIN + POLLOUT);
 
 		inet_ntop(remoteaddr.ss_family, get_in_addr((struct sockaddr*)&remoteaddr), remoteIP, INET6_ADDRSTRLEN);
 
 		std::cout << "pollserver: new connection from " << remoteIP << " on socket " << newfd << std::endl;
+
+		return newfd;
 	}
 }
 
@@ -197,16 +200,15 @@ int		Listener::pollfds() {
 	return poll_count;
 }
 
-int		Listener::Hear(int i) {
+void	Listener::Hear(int i, int *recvfd, int *ncfd) {
+	
 	if (_pfds[i].revents & POLLIN)
 	{	
-		if (_pfds[i].fd == _listenerfd)				
-			new_connection();
+		if (_pfds[i].fd == _listenerfd)
+			*ncfd = new_connection();
 		else
-			return _pfds[i].fd;
+			*recvfd = _pfds[i].fd;
 	}
-
-	return -1;
 }
 
 int		Listener::GetFdCount() {

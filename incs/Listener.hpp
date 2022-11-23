@@ -18,8 +18,6 @@ class Listener {
 		void	add_fd(int fd, int events);
 		void	remove_fd(int fd);
 
-		void	new_connection();
-
 		bool	datasComplete(const std::string &);
 
 	public:
@@ -30,10 +28,11 @@ class Listener {
 		int pollfds();
 
 		std::string recvdatas(int fd);
+		int			new_connection();
 
-		int	GetFdCount();
-		int	GetFd(int i);
-		int	Hear(int i); // Gives back fd to receive if there is datas to be pulled
+		int		GetFdCount();
+		int		GetFd(int i);
+		void	Hear(int i, int *recvfd, int *ncfd);
 
 		class MallocErrorException : public std::exception {
 			public:

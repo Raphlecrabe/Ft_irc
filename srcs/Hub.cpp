@@ -30,16 +30,34 @@ User & Hub::CreateUser(int fd) {
 
 void Hub::RemoveUserByFd(int fd) {
 	
+	std::vector<User *>::iterator it = findUserByFd(fd);
+
+	if (it != _users.end())
+		_users.erase(it);
+}
+
+User * Hub::getUserByFd(int fd) {
+	std::vector<User *>::iterator it = findUserByFd(fd);
+
+	if (it != _users.end())
+		return *(it);
+	
+	return NULL;
+}
+
+std::vector<User *>::iterator Hub::findUserByFd(int fd) {
 	if (_users.size() == 0)
-		return;
+		return _users.end();
 
 	std::vector<User*>::iterator it;
 	
 	for (it = _users.begin(); it != _users.end(); it++)
 	{
 		if ((*it)->getFd() == fd)
-			_users.erase(it);
+			break;
 	}
+
+	return it;
 }
 
 std::vector<User *> const & Hub::getUserList() const {

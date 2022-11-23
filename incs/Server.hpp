@@ -30,8 +30,7 @@ class Server {
 		Receiver	_receiver;
 
 		void	receive(int fd);
-
-		void	greeting(User &);
+		void	new_user(int fd);
 
 	public:
 		Server(int fd_size);

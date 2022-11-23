@@ -38,19 +38,8 @@ Server::Server(int fd_size) : _receiver(_hub) {
 Server::~Server() {
 }
 
-void	Server::greeting(User & usr) {
-	std::string src = "lebestserver.com";
-	std::string cmd = "001";
-	std::string params = "fbelthoi :Welcome to the Internet Relay Network fbelthoi!fbelthoi@localhost";
-
-	Message msg(src, cmd, params);
-	msg.destinator = &usr;
-
-	try {
-		_sender.sendto(msg);
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+void	Server::new_user(int fd) {
+	_hub.CreateUser(fd);
 }
 
 void	Server::receive(int fd) {
@@ -59,16 +48,18 @@ void	Server::receive(int fd) {
 
 	if (datas.empty())
 	{
-		//_hub.RemoveUserByFd(fd);
+		_hub.RemoveUserByFd(fd);
 		return;
 	}
 	
 	std::cout << "Received: " << datas << std::endl;
-	
-	User new_user = _hub.CreateUser(fd);
 
-	_receiver.Hear(new_user, datas);
-	//Server::greeting(new_user);
+	User * usr = _hub.getUserByFd(fd);
+
+	if (usr == NULL)
+		return;
+
+	_receiver.Hear(*usr, datas);
 }
 
 void Server::launch() {
@@ -87,10 +78,15 @@ void Server::launch() {
 
 		for (int i = 0; i < fd_count; i++)
 		{
-			int fd = _listener.Hear(i);
+			int	recvfd = -1;
+			int	ncfd = -1;
 
-			if (fd > 0)
-				receive(fd);
+			_listener.Hear(i, &recvfd, &ncfd);
+
+			if (ncfd > 0)
+				new_user(ncfd);
+			else if (recvfd > 0)
+				receive(recvfd);
 		}
 	}
 }
