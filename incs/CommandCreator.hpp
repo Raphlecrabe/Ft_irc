@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 13:10:27 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:05:35 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ private:
 	std::map<std::string, ACommand *> _commands;
 
 	Nick nick;
+	UserCmd usercmd;
+
+	void insert(ACommand *);
 
 public:
 	CommandCreator();

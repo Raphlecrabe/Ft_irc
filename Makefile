@@ -19,6 +19,7 @@ SRCS			= 	main.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
 					Nick.cpp \
+					UserCmd.cpp \
 
 SRCS_REPLY		=	AReply.cpp \
 					Rpl_Welcome.cpp \
@@ -55,6 +56,7 @@ INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Rpl_Welcome.hpp \
 			${INC_DIR}ACommand/ACommand.hpp \
 			${INC_DIR}ACommand/Nick.hpp \
+			${INC_DIR}ACommand/UserCmd.hpp \
 			${INC_DIR}Dispatcher.hpp \
 			${INC_DIR}Receiver.hpp \
 			${INC_DIR}CommandCreator.hpp \

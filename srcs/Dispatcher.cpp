@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 14:43:34 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:09:45 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	Dispatcher::Execute(Message & client_request)
 	{
 		//Que faire quand on connait pas la commande ?
 		//Et ensuite envoyer un message au serveur ?
+		std::cout << "Command not found: " << cmdname << std::endl;
 		return (-1);
 	}
 
 	Callback	*request = Command->cmdExecute(client_request, _hub);
 	(void)request;
-	std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
 	//this->_Replyer.TreatReplys(request->getReplys());
 	//this->_Messager.TreatMessages(request->getMessages());
 

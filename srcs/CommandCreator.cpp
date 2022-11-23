@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/23 13:10:35 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:05:38 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 CommandCreator::CommandCreator()
 {
-	_commands.insert(std::pair<std::string, ACommand *>(nick.getName(), &nick));
+	insert(&nick);
+	insert(&usercmd);
+}
+
+void CommandCreator::insert(ACommand *cmd) {
+	_commands.insert(std::pair<std::string, ACommand *>(cmd->getName(), cmd));
 }
 
 CommandCreator::~CommandCreator()
