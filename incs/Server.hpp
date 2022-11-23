@@ -15,9 +15,9 @@
 
 #include "Hub.hpp"
 
-#include "Replier.hpp"
-#include "AReply.hpp"
-#include "Rpl_Welcome.hpp"
+#include "Replyer.hpp"
+#include "AReply/AReply.hpp"
+#include "AReply/Rpl_Welcome.hpp"
 
 class Server {
 	private:

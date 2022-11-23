@@ -1,7 +1,8 @@
 #ifndef AREPLY_HPP
 # define AREPLY_HPP
 
-#include <iostream>
+# include <iostream>
+# include "../CallBack.hpp"
 
 class AReply {
 	private:
@@ -12,7 +13,7 @@ class AReply {
 		virtual ~AReply();
 
 		std::string getName();
-		virtual std::string getmsg() = 0;
+		virtual	CallBack	*getmsg(Hub hub) = 0;
 };
 
 #endif

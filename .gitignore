@@ -1,5 +1,7 @@
 a.out
 exec
 *.o
-.vscode
+weechat*
 generator.sh
+.vscode
+

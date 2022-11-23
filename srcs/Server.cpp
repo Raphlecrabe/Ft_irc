@@ -24,9 +24,9 @@
 #include "../incs/Message.hpp"
 #include "../incs/Sender.hpp"
 
-#include "../incs/Replier.hpp"
-#include "../incs/AReply.hpp"
-#include "../incs/Rpl_Welcome.hpp"
+#include "../incs/Replyer.hpp"
+#include "../incs/AReply/AReply.hpp"
+#include "../incs/AReply/Rpl_Welcome.hpp"
 
 Server::Server(int fd_size) {
 	
