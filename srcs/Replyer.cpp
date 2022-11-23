@@ -18,7 +18,7 @@ Replyer::~Replyer()
 // 	}
 // }
 
-// void	Replyer::Replyone(std::string name, Hub hub, Message message)
+// void	Replyer::Replyone(std::string name, Hub & hub, Message message)
 // {
 // 	// Message	reply;
 

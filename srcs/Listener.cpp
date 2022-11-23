@@ -144,7 +144,7 @@ void	Listener::new_connection() {
 	if (newfd == -1) {
 		std::cerr << "accept" << std::endl;
 	} else {
-		add_fd(newfd, POLLIN);
+		add_fd(newfd, POLLIN + POLLOUT);
 
 		inet_ntop(remoteaddr.ss_family, get_in_addr((struct sockaddr*)&remoteaddr), remoteIP, INET6_ADDRSTRLEN);
 
