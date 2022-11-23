@@ -8,7 +8,7 @@ Replyer::~Replyer()
 {
 }
 
-Replyer::TreatReplys(std::vector<string> Replys, Hub hub, Message message)
+void	Replyer::TreatReplys(std::vector<string> Replys, Hub hub, Message message)
 {
 	for(std::vector<string>::iterator it = Replys.begin(),
 		it != Replys.end(), it++)
@@ -17,7 +17,7 @@ Replyer::TreatReplys(std::vector<string> Replys, Hub hub, Message message)
 	}
 }
 
-Replyer::Replyone(string name, Hub hub, Message message)
+void	Replyer::Replyone(string name, Hub hub, Message message)
 {
 	Message	reply;
 	int	size = this->_Replies.size();
@@ -29,5 +29,5 @@ Replyer::Replyone(string name, Hub hub, Message message)
 		//Va falloir supprimer la ligne de reply en trop 
 		//et envoyer un message d'erreur ?
 	}
-	this->Sender.SendTo(message._sender.socket_fd, reply);
+	this->Sender.SendTo(reply);
 }

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Messager.cpp                                       :+:      :+:    :+:   */
+/*   CommandCreator.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 11:14:22 by rmonacho         ###   ########lyon.fr   */
+/*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
+/*   Updated: 2022/11/22 10:47:17 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/Messager.hpp"
+# include "../incs/CommandCreator.hpp"
 
-Messager::Messager()
+CommandCreator::CommandCreator()
 {
 }
 
-Messager::~Messager()
+CommandCreator::~CommandCreator()
 {
 }
 
-void	Messager::TreatMessages(std::vector<Message> Messages)
+std::map<std::string, ACommand>	*CommandCreator::CreateCommands()
 {
-	for (std::vector<Message>::iterator it = Messages.begin(); 
-		it != Messages.end(); it++)
-	{
-		this->Sendone(*it);
-	}
-}
-
-Messager::Sendone(Message	Message)
-{
-	this->Sender.Sendto(Message);
 }

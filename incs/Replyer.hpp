@@ -2,9 +2,13 @@
 # define REPLYER_HPP
 
 # include "AReply/Includereply.hpp"
-
 # include <vector>
 # include <map>
+# include <string>
+# include "ReplyCreator.hpp"
+# include "Sender.hpp"
+# include "Hub.hpp"
+# include "Message.hpp"
 
 class Replyer {
 	private:
@@ -15,8 +19,8 @@ class Replyer {
 		Replyer();
 		~Replyer();
 
-		TreatReplys(std::vector<string> Replys, Hub hub, Message message);
-		Replyone(string name, Hub hub, Message message);
+		void	TreatReplys(std::vector<std::string> Replys, Hub hub, Message message);
+		void	Replyone(std::string name, Hub hub, Message message);
 };
 
 #endif

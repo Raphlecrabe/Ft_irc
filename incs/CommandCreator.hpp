@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/18 14:57:25 by raphael          ###   ########.fr       */
+/*   Updated: 2022/11/22 10:47:24 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define COMMANDCREATOR_HPP
 
 # include "ACommand/Includecommand.hpp"
+# include <map>
+# include <string>
 
 class CommandCreator
 {
@@ -23,20 +25,7 @@ public:
 	CommandCreator();
 	~CommandCreator();
 
-	std::map<string, ACommand>	*CreateCommand();
+	std::map<std::string, ACommand>	*CreateCommands();
 };
-
-CommandCreator::CommandCreator()
-{
-}
-
-CommandCreator::~CommandCreator()
-{
-}
-
-std::map<string, ACommand>	*CommandCreator::CreateCommands()
-{
-	
-}
 
 #endif
