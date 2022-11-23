@@ -19,6 +19,8 @@
 
 #include "../incs/User.hpp"
 
+#include "../incs/Hub.hpp"
+
 #include "../incs/Message.hpp"
 #include "../incs/Sender.hpp"
 
@@ -56,22 +58,20 @@ void	Server::greeting(User & usr) {
 }
 
 void	Server::receive(int fd) {
-	std::string datas;
 	
-	try {
-		datas = _listener.receive(fd);
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
+	std::string datas = _listener.recvdatas(fd);
+
+	if (datas.empty())
+	{
+		_hub.RemoveUserByFd(fd);
 		return;
 	}
-
-	if (datas == "")
-		return;
 	
 	std::cout << "Received: " << datas << std::endl;
-	User *new_usr = new User(fd);
-	_users.push_back(new_usr);
-	Server::greeting(*new_usr);
+
+	User new_user = _hub.CreateUser(fd);
+	
+	Server::greeting(new_user);
 }
 
 void Server::launch() {
@@ -90,7 +90,7 @@ void Server::launch() {
 
 		for (int i = 0; i < fd_count; i++)
 		{
-			int fd = _listener.Process(i);
+			int fd = _listener.Hear(i);
 
 			if (fd > 0)
 				receive(fd);

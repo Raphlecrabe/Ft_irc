@@ -5,6 +5,7 @@
 #include <string>
 #include <cstring>
 #include <errno.h>
+#include <sstream>
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -41,7 +42,7 @@ void Sender::sendto(int fd, std::string msg) {
 	sendto(fd, msg.c_str(), msg.size() + 1);
 }
 
-void Sender::sendto(Message & msg) {
+void Sender::sendto(Message const & msg) {
 
 	if (msg.destinator == NULL)
 	{
@@ -56,7 +57,12 @@ void Sender::sendto(Message & msg) {
 }
 
 const char* Sender::SendErrorException::what() const throw() {
-	return "Sender exception: <send> returned an error, errno = " + errno;
+	std::stringstream ss;
+	ss << errno;
+
+	std::string str = "Sender exception: <send> returned an error: " + ss.str();
+
+	return str.c_str();
 }
 
 const char* Sender::NoDestinationException::what() const throw() {

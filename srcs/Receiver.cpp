@@ -10,9 +10,7 @@ Receiver::~Receiver() {
 	
 }
 
-void Receiver::Hear(int fd, char *datas, Context &) {
-	User *user = new User(fd);
-
+void Receiver::Hear(User const & user, char *datas, Context &) {
 	Message msg(user, datas);
 
 	//_dispatcher.Execute(msg);

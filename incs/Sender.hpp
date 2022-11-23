@@ -15,7 +15,7 @@ class Sender {
 
 		void sendto(int fd, const char *datas, int size);
 		void sendto(int fd, std::string msg);
-		void sendto(Message &);
+		void sendto(Message const &);
 
 		class SendErrorException : public std::exception {
 			public:

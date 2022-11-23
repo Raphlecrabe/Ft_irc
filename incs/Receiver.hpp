@@ -14,7 +14,7 @@ class Receiver {
 		Receiver();
 		~Receiver();
 
-		void Hear(int fd, char* datas, Context &);
+		void Hear(User const &, char* datas, Context &);
 };
 
 #endif

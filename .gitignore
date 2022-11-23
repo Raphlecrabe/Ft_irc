@@ -1,3 +1,5 @@
 a.out
 exec
 *.o
+.vscode
+generator.sh

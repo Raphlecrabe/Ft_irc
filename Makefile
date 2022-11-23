@@ -3,6 +3,7 @@ SRCS_DIR =	srcs/
 SRCS	= 	main.cpp \
 			Server.cpp \
 			Listener.cpp \
+			Hub.cpp \
 			User.cpp \
 			Message.cpp \
 			Sender.cpp \
@@ -26,6 +27,7 @@ INC_DIR = incs/
 INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Listener.hpp \
 			${INC_DIR}Sender.hpp \
+			${INC_DIR}Hub.hpp \
 			${INC_DIR}User.hpp \
 			${INC_DIR}Message.hpp \
 			${INC_DIR}AReply.hpp \

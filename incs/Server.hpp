@@ -13,6 +13,8 @@
 
 #include "User.hpp"
 
+#include "Hub.hpp"
+
 #include "Replier.hpp"
 #include "AReply.hpp"
 #include "Rpl_Welcome.hpp"
@@ -23,8 +25,7 @@ class Server {
 		Listener	_listener;
 		Sender		sender;
 		Replier 	*replier;
-
-		std::vector<User *> _users;
+		Hub			_hub;
 
 		void	receive(int fd);
 

@@ -20,6 +20,8 @@ class Listener {
 
 		void	new_connection();
 
+		bool	datasComplete(const std::string &);
+
 	public:
 		Listener();
 		~Listener();
@@ -27,11 +29,11 @@ class Listener {
 		int init(const char* port, int fd_size);
 		int pollfds();
 
-		std::string receive(int fd);
+		std::string recvdatas(int fd);
 
 		int	GetFdCount();
 		int	GetFd(int i);
-		int	Process(int i); // Gives fd to receive if there are datas
+		int	Hear(int i); // Gives back fd to receive if there is datas to be pulled
 
 		class MallocErrorException : public std::exception {
 			public:

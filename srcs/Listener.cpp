@@ -84,31 +84,48 @@ int		Listener::launch_listener(const char* port) {
 	return 0;
 }
 
-std::string Listener::receive(int fd) {
-	std::string datas = "";
+bool Listener::datasComplete(const std::string & datas)
+{
+	int len = datas.length();
+
+	if (len < 2)
+		return false;
+
+	if (datas.substr(len - 2, 2).compare("\r\n"))
+		return true;
+
+	return false;
+}
+
+std::string Listener::recvdatas(int fd) {
+	std::string datas;
 	
 	char buf[256];
 
-	bzero(buf, 256);
+	while (datasComplete(datas) == false) {
+		bzero(buf, 256);
 
-	int nbytes = recv(fd, buf, sizeof(buf), 0);
-	// check if bytes received until the end!
+		int nbytes = recv(fd, buf, sizeof(buf), 0);
+		// check if bytes received until the end!
 
-	int sender_fd = fd;
+		if (nbytes <= 0) {
+			// Got error or connection closed by client
+			if (nbytes == 0) {
+				// Connection closed
+				std::cout << "pollserver: socket " << fd << " hung up" << std::endl;
+			} else {
+				std::cerr << "error: recv" << std::endl;
+			}
 
-	if (nbytes <= 0) {
-		// Got error or connection closed by client
-		if (nbytes == 0) {
-			// Connection closed
-			std::cout << "pollserver: socket " << sender_fd << " hung up" << std::endl;
-		} else {
-			std::cerr << "error: recv" << std::endl;
-		}
+			remove_fd(fd);
 
-		remove_fd(fd);
+			datas.clear();
 
-	} else
-		datas += buf;
+			break;
+
+		} else
+			datas += buf;
+	}
 
 	return datas;
 }
@@ -180,7 +197,7 @@ int		Listener::pollfds() {
 	return poll_count;
 }
 
-int		Listener::Process(int i) {
+int		Listener::Hear(int i) {
 	if (_pfds[i].revents & POLLIN)
 	{	
 		if (_pfds[i].fd == _listenerfd)				
