@@ -102,7 +102,7 @@ std::string Listener::recvdatas(int fd) {
 	
 	char buf[256];
 
-	while (datasComplete(datas) == false) {
+	//while (datasComplete(datas) == false) {
 		bzero(buf, 256);
 
 		int nbytes = recv(fd, buf, sizeof(buf), 0);
@@ -121,11 +121,11 @@ std::string Listener::recvdatas(int fd) {
 
 			datas.clear();
 
-			break;
+			//break;
 
 		} else
 			datas += buf;
-	}
+	//}
 
 	return datas;
 }
