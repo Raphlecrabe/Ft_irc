@@ -79,14 +79,53 @@ void Message::parse(std::string datas) {
 	int paramslen = 0;
 
 	while (datas[index + paramslen]
-		&& !(datas[index + paramslen] == '\r' && datas[index + paramslen + 1] == '\n'))
+		&& (datas.compare(index + paramslen, 2, "\r\n") != 0))
 		paramslen++;
 		
 	this->_params = datas.substr(index, paramslen);
+
+	parseparams();
+}
+
+void Message::parseparams() {
+	std::string params = this->_params;
+	int i = 0;
+
+	while (params[0] && params[0] != ':')
+	{
+		i = 0;
+
+		while (params[i] == ' ') {
+			i++;
+		}
+
+		params = params.substr(i);
+		i = 0;
+
+		if (params[0] == ':')
+			break;
+
+		while (params[i] && params[i] != ' ') {
+			i++;
+		}
+
+		std::string p = params.substr(0, i);
+		this->_paramlist.push_back(p);
+
+		params = params.substr(i);
+	}
+
+	if (params[0] == ':')
+	{
+		int len = this->_params.length() - 1;
+		std::string lastparam = params.substr(1, len);
+		this->_paramlist.push_back(lastparam);
+	}
 }
 
 std::string const & Message::getSource() const { return this->_source; }
 std::string const & Message::getCommand() const { return this->_command; }
 std::string const & Message::getParams() const { return this->_params; }
+std::vector<std::string> const & Message::getParamList() const { return this->_paramlist; }
 
 User & Message::getSender() { return this->_sender; }

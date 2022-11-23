@@ -2,6 +2,7 @@
 # define MESSAGE_HPP
 
 # include <iostream>
+# include <vector>
 # include "User.hpp"
 
 class Message {
@@ -12,8 +13,10 @@ class Message {
 		std::string _source;
 		std::string _command;
 		std::string _params;
+		std::vector<std::string> _paramlist;
 
 		void parse(std::string raw);
+		void parseparams();
 
 	public:
 		Message(std::string src, std::string cmd, std::string prms);
@@ -27,6 +30,7 @@ class Message {
 		std::string const & getSource() const;
 		std::string const & getCommand() const;
 		std::string const & getParams() const;
+		std::vector<std::string> const & getParamList() const;
 
 		User & getSender();
 
