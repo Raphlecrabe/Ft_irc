@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/18 10:33:34 by raphael          ###   ########.fr       */
+/*   Updated: 2022/11/23 14:11:28 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Callback::~Callback()
 {
 }
 
-std::vector<string>	&Callback::getReplys()
+std::vector<std::string>	&Callback::getReplys()
 {
 	return (this->_Replys);
 }

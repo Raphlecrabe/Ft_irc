@@ -13,20 +13,22 @@ class Message {
 		std::string _command;
 		std::string _params;
 
-		void parse(char *raw);
+		void parse(std::string raw);
 
 	public:
 		Message(std::string src, std::string cmd, std::string prms);
-		Message(User const & sender, char *datas);
+		Message(User const & sender, std::string datas);
 		Message(Message const &);
 		Message & operator=(Message const &);
 		~Message();
 
 		User *destinator;
 
-		std::string const & getSource();
-		std::string const & getCommand();
-		std::string const & getParams();
+		std::string const & getSource() const;
+		std::string const & getCommand() const;
+		std::string const & getParams() const;
+
+		User & getSender();
 
 		std::string Format() const;
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/22 10:47:24 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/23 13:10:27 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@
 class CommandCreator
 {
 private:
-	
+	std::map<std::string, ACommand *> _commands;
+
+	Nick nick;
+
 public:
 	CommandCreator();
 	~CommandCreator();
 
-	std::map<std::string, ACommand>	*CreateCommands();
+	ACommand * getCommandByName(std::string name);
 };
 
 #endif

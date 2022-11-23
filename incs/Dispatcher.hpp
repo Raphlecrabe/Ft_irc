@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/22 11:09:32 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/23 14:13:47 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DISPATCHER_HPP
 
 # include "ACommand/Includecommand.hpp"
-# include "Messager.hpp"
+//# include "Messager.hpp"
 # include "Replyer.hpp"
 # include "CommandCreator.hpp"
 # include <map>
@@ -24,15 +24,16 @@
 class Dispatcher
 {
 private:
-	std::map<std::string, ACommand>	*_Commands;
 	Replyer					_Replyer;
-	Messager				_Messager;
+	//Messager				_Messager;
 	CommandCreator			_CommandCreator;
+	Hub						_hub;
+
 public:
-	Dispatcher();
+	Dispatcher(Hub & hub);
 	~Dispatcher();
 
-	int	Execute(Message	client_request, Hub hub);
+	int	Execute(Message	& client_request);
 };
 
 #endif

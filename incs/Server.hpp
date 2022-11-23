@@ -15,6 +15,8 @@
 
 #include "Hub.hpp"
 
+#include "Receiver.hpp"
+
 #include "Replyer.hpp"
 #include "AReply/AReply.hpp"
 #include "AReply/Rpl_Welcome.hpp"
@@ -23,9 +25,9 @@ class Server {
 	private:
 
 		Listener	_listener;
-		Sender		sender;
-		Replier 	*replier;
+		Sender		_sender;
 		Hub			_hub;
+		Receiver	_receiver;
 
 		void	receive(int fd);
 

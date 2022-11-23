@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/22 10:47:17 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/23 13:10:35 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,23 @@
 
 CommandCreator::CommandCreator()
 {
+	_commands.insert(std::pair<std::string, ACommand *>(nick.getName(), &nick));
 }
 
 CommandCreator::~CommandCreator()
 {
+	
 }
 
-std::map<std::string, ACommand>	*CommandCreator::CreateCommands()
+ACommand * CommandCreator::getCommandByName(std::string name)
 {
+	ACommand *cmd;
+
+	try {
+		cmd = _commands.at(name);
+	} catch (std::exception &e) {
+		cmd = NULL;
+	}
+
+	return cmd;
 }

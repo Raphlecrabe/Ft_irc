@@ -24,34 +24,30 @@
 #include "../incs/Message.hpp"
 #include "../incs/Sender.hpp"
 
+#include "../incs/Receiver.hpp"
+
 #include "../incs/Replyer.hpp"
 #include "../incs/AReply/AReply.hpp"
 #include "../incs/AReply/Rpl_Welcome.hpp"
 
-Server::Server(int fd_size) {
+Server::Server(int fd_size) : _receiver(_hub) {
 	
 	_listener.init(PORT, fd_size);
-
-	std::vector<AReply *> replies;
-	replies.push_back(new Rpl_Welcome());
-
-	this->replier = new Replier(replies);
 }
 
 Server::~Server() {
-	delete replier;
 }
 
 void	Server::greeting(User & usr) {
 	std::string src = "lebestserver.com";
 	std::string cmd = "001";
-	std::string params = replier->getReplyByName("RPL_WELCOME");
+	std::string params = "fbelthoi :Welcome to the Internet Relay Network fbelthoi!fbelthoi@localhost";
 
 	Message msg(src, cmd, params);
 	msg.destinator = &usr;
 
 	try {
-		sender.sendto(msg);
+		_sender.sendto(msg);
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
@@ -63,15 +59,16 @@ void	Server::receive(int fd) {
 
 	if (datas.empty())
 	{
-		_hub.RemoveUserByFd(fd);
+		//_hub.RemoveUserByFd(fd);
 		return;
 	}
 	
 	std::cout << "Received: " << datas << std::endl;
-
-	User new_user = _hub.CreateUser(fd);
 	
-	Server::greeting(new_user);
+	User new_user = _hub.CreateUser(fd);
+
+	_receiver.Hear(new_user, datas);
+	//Server::greeting(new_user);
 }
 
 void Server::launch() {

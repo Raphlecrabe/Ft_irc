@@ -1,5 +1,5 @@
-#include "../incs/Rpl_Welcome.hpp"
-#include "../incs/AReply.hpp"
+#include "../../incs/AReply/Rpl_Welcome.hpp"
+#include "../../incs/AReply/AReply.hpp"
 
 Rpl_Welcome::Rpl_Welcome() : AReply("RPL_WELCOME") {
 

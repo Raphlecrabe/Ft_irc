@@ -3,12 +3,13 @@
 
 # include <iostream>
 # include <map>
+# include <vector>
 
 # include "User.hpp"
 
 class Hub {
 	private:
-		std::map<int, User *> _users;
+		std::vector<User *> _users;
 
 	public:
 		Hub();
@@ -16,6 +17,8 @@ class Hub {
 
 		User & CreateUser(int fd);
 		void RemoveUserByFd(int fd);
+
+		std::vector<User *> const & getUserList() const;
 };
 
 #endif

@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/18 15:10:34 by raphael          ###   ########.fr       */
+/*   Updated: 2022/11/23 14:16:22 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../incs/Callback.hpp"
 #include "../incs/Dispatcher.hpp"
 
-Dispatcher::Dispatcher()
-{
-	_Commands = _CommandCreator.CreateCommands();
+Dispatcher::Dispatcher(Hub & hub) : _hub(hub) {
 }
 
 Dispatcher::~Dispatcher()
 {
 }
 
-CallBack	Dispatcher::Execute(Message client_request, Hub hub)
+int	Dispatcher::Execute(Message & client_request)
 {
-	int	map_size = this->_Commands.size();
+	std::string cmdname = client_request.getCommand();
 
-	ACommand	Command = this->_Commands[client_request.get_command()];
+	ACommand	*Command = this->_CommandCreator.getCommandByName(cmdname);
 
-	if (map_size != _Commands.size())
+	if (Command == NULL)
 	{
-		_Commands.erase(client_request.get_command());
 		//Que faire quand on connait pas la commande ?
 		//Et ensuite envoyer un message au serveur ?
 		return (-1);
 	}
-	else
-	{
-		CallBack	*request = Command.cmd_execute(client_request, hub);
-		this->Replyer.TreatReplys(request->getReplys(), hub);
-		this->_Messager.TreatMessages(request->getMessages(), hub);
-	}
+
+	Callback	*request = Command->cmdExecute(client_request, _hub);
+	(void)request;
+	std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
+	//this->_Replyer.TreatReplys(request->getReplys());
+	//this->_Messager.TreatMessages(request->getMessages());
+
+	return 0;
 }

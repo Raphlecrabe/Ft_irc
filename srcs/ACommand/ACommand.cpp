@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ACommand.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:26:31 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/22 11:29:01 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/23 14:09:25 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../incs/ACommand/ACommand.hpp"
+#include "../../incs/Hub.hpp"
 
-ACommand::ACommand()
+ACommand::ACommand(std::string name) : _name(name)
 {
 }
 

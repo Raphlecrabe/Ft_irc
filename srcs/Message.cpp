@@ -8,7 +8,7 @@ Message::Message(std::string src, std::string cmd, std::string prms) : _sender(U
 
 }
 
-Message::Message(User const &sender, char *raw) : _sender(sender) {
+Message::Message(User const &sender, std::string raw) : _sender(sender) {
 	parse(raw);
 }
 
@@ -39,9 +39,7 @@ std::string Message::Format() const {
 	return msg;
 }
 
-void Message::parse(char *raw) {
-	std::string datas = raw;
-	
+void Message::parse(std::string datas) {
 	int index = 0;
 
 	// Parsing src
@@ -87,6 +85,8 @@ void Message::parse(char *raw) {
 	this->_params = datas.substr(index, paramslen);
 }
 
-std::string const & Message::getSource() { return this->_source; }
-std::string const & Message::getCommand() { return this->_command; }
-std::string const & Message::getParams() { return this->_params; }
+std::string const & Message::getSource() const { return this->_source; }
+std::string const & Message::getCommand() const { return this->_command; }
+std::string const & Message::getParams() const { return this->_params; }
+
+User & Message::getSender() { return this->_sender; }

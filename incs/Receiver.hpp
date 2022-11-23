@@ -3,18 +3,20 @@
 
 # include <iostream>
 
+# include "User.hpp"
+# include "Dispatcher.hpp"
+
 class Context;
-class Dispatcher;
 
 class Receiver {
 	private:
 		Dispatcher _dispatcher;
 
 	public:
-		Receiver();
+		Receiver(Hub &);
 		~Receiver();
 
-		void Hear(User const &, char* datas, Context &);
+		void Hear(User const &, std::string datas);
 };
 
 #endif

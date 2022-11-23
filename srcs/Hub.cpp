@@ -2,30 +2,46 @@
 #include "../incs/User.hpp"
 #include <iostream>
 #include <map>
+#include <vector>
 
 Hub::Hub() {
 
 }
 
 Hub::~Hub() {
-	
+	if (_users.size() == 0)
+		return;
+
+	std::vector<User *>::iterator it;
+
+	for (it = _users.begin(); it != _users.end(); it++)
+		delete (*it);
+
+	_users.clear();
 }
 
 User & Hub::CreateUser(int fd) {
 	User * new_user = new User(fd);
 
-	std::pair<int, User *> pair(fd, new_user);
-
-	_users.insert(pair);
+	_users.push_back(new_user);
 
 	return *new_user;
 }
 
 void Hub::RemoveUserByFd(int fd) {
-	std::map<int, User*>::iterator it;
 	
-	it = _users.find(fd);
+	if (_users.size() == 0)
+		return;
 
-	if (it != _users.end())
-		_users.erase(it);
+	std::vector<User*>::iterator it;
+	
+	for (it = _users.begin(); it != _users.end(); it++)
+	{
+		if ((*it)->getFd() == fd)
+			_users.erase(it);
+	}
+}
+
+std::vector<User *> const & Hub::getUserList() const {
+	return _users;
 }
