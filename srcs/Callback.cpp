@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 14:11:28 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 13:57:35 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,32 @@ Callback::~Callback()
 {
 }
 
-std::vector<std::string>	&Callback::getReplys()
+std::vector<std::string>	const	&Callback::getReplys() const
 {
 	return (this->_Replys);
 }
 
-std::vector<Message>	&Callback::getMessages()
+std::vector<Message>	const	&Callback::getMessages() const
 {
 	return (this->_Messages);
+}
+
+void	Callback::addMessage(Message &message)
+{
+	_Messages.push_back(message);
+}
+
+void	Callback::addReply(std::string &reply)
+{
+	_Replys.push_back(reply);
+}
+
+void	Callback::resetReplys()
+{
+	_Replys.clear();
+}
+
+void	Callback::resetMessages()
+{
+	_Messages.clear();
 }

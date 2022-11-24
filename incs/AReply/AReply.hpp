@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include "../Callback.hpp"
+# include "../Hub.hpp"
 
 class AReply {
 	private:
@@ -13,7 +14,7 @@ class AReply {
 		virtual ~AReply();
 
 		std::string getName();
-		virtual	std::string getmsg() = 0;
+		virtual	Message getmsg(Hub &hub, Message message) = 0;
 };
 
 #endif

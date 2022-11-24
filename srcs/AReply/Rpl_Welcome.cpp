@@ -9,6 +9,9 @@ Rpl_Welcome::~Rpl_Welcome() {
 	
 }
 
-std::string Rpl_Welcome::getmsg() {
-	return "fbelthoi :Welcome to the Internet Relay Network fbelthoi!fbelthoi@localhost";
+Message Rpl_Welcome::getmsg(Hub &hub, Message message) {
+	Message	newmessage("src", "cmd", "params");
+	(void) hub;
+	(void) message;
+	return (newmessage);
 }

@@ -29,39 +29,45 @@ void Channel::AddFd(int fd)
 
 int	Channel::AddUser(User &new_user)
 {
-	if (_users.size() == _client_limit)
+	if (static_cast<int>(_users.size()) == _client_limit)
 	{
 		return (-1);
 	}
-	_users.push_back(new_user);
-	this->AddFd(new_user._socket_fd);
+	_users.push_back(&new_user);
+	this->AddFd(new_user.getFd());
+	return (0);
 }
 
 int	Channel::RemoveUser(User &old_user)
 {
-	std::vector<User &>::iterator	it;
+	std::vector<User *>::iterator	it;
 	for(it = _users.begin(); it != _users.end(); it++)
 	{
-		if ()
+		if ((*it)->getFd() == old_user.getFd())
+		{
+			_users.erase(it);
+			break;
+		}
 	}
+	return (0);
 }
 
-std::string	Channel::get_name()
+std::string	const	&Channel::get_name() const
 {
 	return (_name);
 }
 
-std::string	Channel::get_topic()
+std::string	const	&Channel::get_topic() const
 {
 	return (_topic);
 }
 
-std::vector<User &>	Channel::get_users()
+std::vector<User *>	const	&Channel::get_users() const
 {
 	return (_users);
 }
 
-std::vector<int>	Channel::get_users_fd()
+std::vector<int>	const	&Channel::get_users_fd() const
 {
 	return (_users_fd);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 14:43:34 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/24 13:27:41 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Callback.hpp"
 #include "../incs/Dispatcher.hpp"
 
-Dispatcher::Dispatcher(Hub & hub) : _hub(hub) {
+Dispatcher::Dispatcher(Hub & hub) : _hub(hub), _Replyer(hub) {
 }
 
 Dispatcher::~Dispatcher()
@@ -33,11 +33,10 @@ int	Dispatcher::Execute(Message & client_request)
 		return (-1);
 	}
 
-	Callback	*request = Command->cmdExecute(client_request, _hub);
-	(void)request;
-	std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
-	//this->_Replyer.TreatReplys(request->getReplys());
-	//this->_Messager.TreatMessages(request->getMessages());
+	Callback	&request = Command->cmdExecute(client_request, _hub);
+	//std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
+	this->_Replyer.TreatReplys(request, client_request);
+	this->_Messager.TreatMessages(request);
 
 	return 0;
 }

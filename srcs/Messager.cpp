@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 11:14:22 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/24 11:44:25 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@ Messager::~Messager()
 {
 }
 
-void	Messager::TreatMessages(std::vector<Message> Messages)
+void	Messager::TreatMessages(Callback &callback)
 {
-	for (std::vector<Message>::iterator it = Messages.begin(); 
+	std::vector<Message>	Messages = callback.getMessages();
+	for (std::vector<Message>::iterator it = Messages.begin();
 		it != Messages.end(); it++)
 	{
-		this->Sendone(*it);
+		this->Sendone((*it));
 	}
+	callback.resetMessages();
 }
 
-Messager::Sendone(Message	Message)
+void	Messager::Sendone(Message &Message)
 {
-	this->Sender.Sendto(Message);
+	this->_Sender.sendto(Message);
 }
