@@ -7,7 +7,7 @@
 
 class Message {
 	private:
-		User _sender;
+		User * _sender;
 
 		// the 3 elements that make up an irc message
 		std::string _source;
@@ -20,7 +20,7 @@ class Message {
 
 	public:
 		Message(std::string src, std::string cmd, std::string prms);
-		Message(User const & sender, std::string datas);
+		Message(User * sender, std::string datas);
 		Message(Message const &);
 		Message & operator=(Message const &);
 		~Message();
@@ -32,7 +32,7 @@ class Message {
 		std::string const & getParams() const;
 		std::vector<std::string> const & getParamList() const;
 
-		User & getSender();
+		User * getSender();
 
 		std::string Format() const;
 };

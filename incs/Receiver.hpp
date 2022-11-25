@@ -16,7 +16,7 @@ class Receiver {
 		Receiver(Hub &);
 		~Receiver();
 
-		void Hear(User const &, std::string datas);
+		void Hear(User *, std::string datas);
 };
 
 #endif

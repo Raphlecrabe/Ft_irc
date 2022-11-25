@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 13:54:29 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/25 14:01:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	Dispatcher::Execute(Message & client_request)
 	}
 
 	Callback	&request = Command->cmdExecute(client_request, _hub);
-	std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
+	//std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
 	this->_Replyer.TreatReplys(request, client_request);
 	this->_Messager.TreatMessages(request);
 
