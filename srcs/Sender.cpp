@@ -62,7 +62,9 @@ const char* Sender::SendErrorException::what() const throw() {
 
 	std::string str = "Sender exception: <send> returned an error: " + ss.str();
 
-	return NULL;
+	const char* c = str.c_str();
+
+	return c;
 }
 
 const char* Sender::NoDestinationException::what() const throw() {
