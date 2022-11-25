@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/24 13:27:41 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 13:43:18 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	Dispatcher::Execute(Message & client_request)
 	}
 
 	Callback	&request = Command->cmdExecute(client_request, _hub);
-	//std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
+	std::cout << "command executed: " << cmdname << " with result of " << client_request.getSender().getNickname() << std::endl;
 	this->_Replyer.TreatReplys(request, client_request);
 	this->_Messager.TreatMessages(request);
 

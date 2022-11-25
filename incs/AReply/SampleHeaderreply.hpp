@@ -1,17 +1,16 @@
 #ifndef NAME_HPP
 # define NAME_HPP
 
-# include <iostream>
+# include "AReply.hpp"
 
-class Name {
+class Name : public AReply{
 	private:
 
 	public:
 		Name();
-		Name(Name const &);
-		Name & operator=(Name const &);
 		~Name();
 
+		Message	getmsg(Hub &hub, Message message);
 };
 
 #endif

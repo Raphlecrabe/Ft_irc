@@ -1,17 +1,16 @@
 #ifndef NAME_HPP
 # define NAME_HPP
 
-# include <iostream>
+# include "ACommand.hpp"
 
-class Name {
+class Name : public ACommand{
 	private:
 
 	public:
 		Name();
-		Name(Name const &);
-		Name & operator=(Name const &);
 		~Name();
 
+		Callback	&cmdExecute(Message &message, Hub &hub);
 };
 
 #endif

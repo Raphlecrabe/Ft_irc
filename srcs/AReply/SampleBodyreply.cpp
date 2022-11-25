@@ -1,19 +1,13 @@
-#include "../incs/Name.hpp"
+#include "../../incs/AReply/Name.hpp"
 
-#include <iostream>
 
-Name::Name() {
-
-}
-
-Name::Name(Name const & cpy) {
-
-}
-
-Name & Name::operator=(Name const & rhs) {
+Name::Name() : AReply("NAME") {
 
 }
 
 Name::~Name() {
 	
+}
+
+Message Rpl_Welcome::getmsg(Hub &hub, Message message) {
 }

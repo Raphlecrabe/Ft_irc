@@ -13,6 +13,8 @@ void	Replyer::TreatReplys(Callback &callback, Message &message)
 	std::vector<std::string> Replys = callback.getReplys();
 	std::vector<std::string>::iterator it;
 
+	if (Replys.size() == 0)
+		return;
 	for(it = Replys.begin(); it != Replys.end(); it++)
 	{
 		if (Replyone(*it, message) == -1)

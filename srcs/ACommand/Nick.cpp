@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/24 14:09:12 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 13:39:01 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	Nick::used_nick(std::string &nickname, Hub &hub, Callback &callback)
 int	Nick::wrong_nick(std::string &nickname, Callback &callback)
 {
 	int size = nickname.size();
-
-	for (int i = 0; i < size; i++)
+	
+	for (int i = 0; i < size - 1; i++)
 	{
 		if (std::isalnum(nickname[i]) == 0)
 		{

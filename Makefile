@@ -44,6 +44,8 @@ CC		= clang++
 
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
+SANITIZE = -fsanitize=address -g3
+
 INC_DIR = incs/
 
 INCLUDES =	${INC_DIR}Server.hpp \
@@ -72,7 +74,7 @@ ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp
 all:		makedirs ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${FLAGS} ${OBJS} -o ${NAME}
+			${CC} ${FLAGS} ${SANITIZE} ${OBJS} -o ${NAME}
 
 makedirs:
 			@mkdir -p objs/ACommand

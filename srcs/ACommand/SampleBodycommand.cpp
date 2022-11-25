@@ -1,19 +1,13 @@
-#include "../incs/Name.hpp"
+#include "../../incs/ACommand/Name.hpp"
 
-#include <iostream>
-
-Name::Name() {
-
-}
-
-Name::Name(Name const & cpy) {
-
-}
-
-Name & Name::operator=(Name const & rhs) {
+Name::Name() : ACommand("NAME"){
 
 }
 
 Name::~Name() {
 	
+}
+
+Callback	&Nick::cmdExecute(Message & message, Hub & hub)
+{
 }
