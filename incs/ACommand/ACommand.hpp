@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ACommand.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:20:07 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/24 13:25:00 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 14:00:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class ACommand
 {
 	private:
 		std::string	_name;
+
+	protected:
 		Callback	_callback;
+	
 	public:
 		ACommand(std::string name);
 		virtual	~ACommand();
