@@ -16,8 +16,8 @@ UserCmd::~UserCmd() {
 Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	std::vector<std::string> paramlist = message.getParamList();
 	
-	message.getSender().setName(paramlist[0]);
-	message.getSender().setRealname(paramlist[3]);
+	message.getSender()->setName(paramlist[0]);
+	message.getSender()->setRealname(paramlist[3]);
 
 	(void)hub;
 
