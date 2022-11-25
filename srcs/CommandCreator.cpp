@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 13:56:12 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/25 15:57:33 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ CommandCreator::CommandCreator()
 {
 	insert(&nick);
 	insert(&usercmd);
+	insert(&ping);
+	insert(&cap);
 }
 
 void CommandCreator::insert(ACommand *cmd) {

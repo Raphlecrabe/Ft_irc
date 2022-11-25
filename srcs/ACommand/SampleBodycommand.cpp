@@ -8,6 +8,6 @@ Name::~Name() {
 	
 }
 
-Callback	&Nick::cmdExecute(Message & message, Hub & hub)
+Callback	&Name::cmdExecute(Message & message, Hub & hub)
 {
 }

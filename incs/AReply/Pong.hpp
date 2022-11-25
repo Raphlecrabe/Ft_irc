@@ -1,14 +1,14 @@
-#ifndef NAME_HPP
-# define NAME_HPP
+#ifndef PONG_HPP
+# define PONG_HPP
 
 # include "AReply.hpp"
 
-class Name : public AReply{
+class Pong : public AReply{
 	private:
 
 	public:
-		Name();
-		~Name();
+		Pong();
+		~Pong();
 
 		Message	&getmsg(Hub &hub, Message &message);
 };

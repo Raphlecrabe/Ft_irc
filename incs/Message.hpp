@@ -19,6 +19,7 @@ class Message {
 		void parseparams();
 
 	public:
+		Message() {};
 		Message(std::string src, std::string cmd, std::string prms);
 		Message(User * sender, std::string datas);
 		Message(Message const &);
@@ -35,6 +36,7 @@ class Message {
 		User * getSender();
 
 		std::string Format() const;
+		void	clearmessage();
 };
 
 #endif

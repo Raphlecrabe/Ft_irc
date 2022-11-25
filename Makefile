@@ -23,9 +23,14 @@ SRCS			= 	main.cpp \
 SRCS_COMMAND	=	ACommand.cpp \
 					Nick.cpp \
 					UserCmd.cpp \
+					Cap.cpp \
+					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
 					Rpl_Welcome.cpp \
+					Err_nicknameinuse.cpp \
+					Pong.cpp \
+					
 
 #OBJS
 
@@ -60,8 +65,6 @@ INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}AReply/Replyer.hpp \
 			${INC_DIR}Rpl_Welcome.hpp \
 			${INC_DIR}ACommand/ACommand.hpp \
-			${INC_DIR}ACommand/Nick.hpp \
-			${INC_DIR}ACommand/UserCmd.hpp \
 			${INC_DIR}Dispatcher.hpp \
 			${INC_DIR}Receiver.hpp \
 			${INC_DIR}CommandCreator.hpp \

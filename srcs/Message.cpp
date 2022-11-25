@@ -129,3 +129,13 @@ std::string const & Message::getParams() const { return this->_params; }
 std::vector<std::string> const & Message::getParamList() const { return this->_paramlist; }
 
 User * Message::getSender() { return this->_sender; }
+
+void	Message::clearmessage()
+{
+	_source.clear();
+	_command.clear();
+	_params.clear();
+	_paramlist.clear(),
+	destinator = NULL;
+	_sender = NULL;
+}

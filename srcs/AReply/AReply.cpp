@@ -9,4 +9,4 @@ AReply::~AReply() {
 	
 }
 
-std::string AReply::getName() { return _name; }
+std::string &AReply::getName() { return _name; }

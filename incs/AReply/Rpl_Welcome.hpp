@@ -12,7 +12,7 @@ class Rpl_Welcome : public AReply {
 		Rpl_Welcome();
 		~Rpl_Welcome();
 
-		Message getmsg(Hub &hub, Message messsage);
+		Message &getmsg(Hub &hub, Message &messsage);
 };
 
 #endif
