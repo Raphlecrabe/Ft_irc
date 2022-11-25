@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/24 13:57:35 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 14:08:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	Callback::addMessage(Message &message)
 	_Messages.push_back(message);
 }
 
-void	Callback::addReply(std::string &reply)
+void	Callback::addReply(std::string reply)
 {
 	_Replys.push_back(reply);
 }

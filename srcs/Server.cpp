@@ -59,7 +59,7 @@ void	Server::receive(int fd) {
 	if (usr == NULL)
 		return;
 
-	_receiver.Hear(*usr, datas);
+	_receiver.Hear(usr, datas);
 }
 
 void Server::launch() {

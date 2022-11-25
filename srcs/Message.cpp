@@ -4,11 +4,11 @@
 #include <string>
 #include <cstring>
 
-Message::Message(std::string src, std::string cmd, std::string prms) : _sender(User(0)), _source(src), _command(cmd), _params(prms) {
+Message::Message(std::string src, std::string cmd, std::string prms) : _source(src), _command(cmd), _params(prms) {
 
 }
 
-Message::Message(User const &sender, std::string raw) : _sender(sender) {
+Message::Message(User *sender, std::string raw) : _sender(sender) {
 	parse(raw);
 }
 
@@ -128,4 +128,4 @@ std::string const & Message::getCommand() const { return this->_command; }
 std::string const & Message::getParams() const { return this->_params; }
 std::vector<std::string> const & Message::getParamList() const { return this->_paramlist; }
 
-User & Message::getSender() { return this->_sender; }
+User * Message::getSender() { return this->_sender; }
