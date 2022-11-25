@@ -14,7 +14,7 @@ Message Rpl_Welcome::getmsg(Hub &hub, Message message) {
 	(void) hub;
 	(void) message;
 
-	newmessage.destinator = &(message.getSender());
+	newmessage.destinator = message.getSender();
 
 	return (newmessage);
 }
