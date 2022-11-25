@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Messager.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 11:14:22 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/25 13:42:30 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,20 @@ Messager::~Messager()
 {
 }
 
-void	Messager::TreatMessages(std::vector<Message> Messages)
+void	Messager::TreatMessages(Callback &callback)
 {
-	for (std::vector<Message>::iterator it = Messages.begin(); 
+	std::vector<Message>	Messages = callback.getMessages();
+	if (Messages.size() == 0)
+		return ;
+	for (std::vector<Message>::iterator it = Messages.begin();
 		it != Messages.end(); it++)
 	{
-		this->Sendone(*it);
+		this->Sendone((*it));
 	}
+	callback.resetMessages();
 }
 
-Messager::Sendone(Message	Message)
+void	Messager::Sendone(Message &Message)
 {
-	this->Sender.Sendto(Message);
+	this->_Sender.sendto(Message);
 }

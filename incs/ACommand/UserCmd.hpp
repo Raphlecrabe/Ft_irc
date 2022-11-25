@@ -11,7 +11,7 @@ class UserCmd : public ACommand {
 		UserCmd();
 		~UserCmd();
 
-		Callback	*cmdExecute(Message &, Hub &);
+		Callback	&cmdExecute(Message &, Hub &);
 };
 
 #endif

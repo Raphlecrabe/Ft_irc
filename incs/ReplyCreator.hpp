@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 14:01:13 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:12:35 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,13 @@
 class ReplyCreator
 {
 private:
-	
+	std::map<std::string, AReply *> _replys;
+	Rpl_Welcome	Welcome;
 public:
 	ReplyCreator();
 	~ReplyCreator();
+
+	AReply	*getReplyByName(std::string &name) const;
 };
-
-ReplyCreator::ReplyCreator()
-{
-}
-
-ReplyCreator::~ReplyCreator()
-{
-}
 
 #endif

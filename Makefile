@@ -16,6 +16,9 @@ SRCS			= 	main.cpp \
 					Receiver.cpp \
 					CommandCreator.cpp \
 					Callback.cpp \
+					Channel.cpp \
+					Messager.cpp \
+					ReplyCreator.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
 					Nick.cpp \
@@ -42,6 +45,8 @@ CC		= clang++
 
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 
+SANITIZE = -fsanitize=address -g3
+
 INC_DIR = incs/
 
 INCLUDES =	${INC_DIR}Server.hpp \
@@ -61,6 +66,8 @@ INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Receiver.hpp \
 			${INC_DIR}CommandCreator.hpp \
 			${INC_DIR}Callback.hpp \
+			${INC_DIR}ReplyCreator.hpp \
+			${INC_DIR}Messager.hpp \
 
 
 ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp
@@ -69,7 +76,7 @@ ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp
 all:		makedirs ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${FLAGS} ${OBJS} -o ${NAME}
+			${CC} ${FLAGS} ${SANITIZE} ${OBJS} -o ${NAME}
 
 makedirs:
 			@mkdir -p objs/ACommand

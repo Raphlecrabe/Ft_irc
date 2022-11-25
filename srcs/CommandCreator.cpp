@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/23 16:05:38 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:56:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ void CommandCreator::insert(ACommand *cmd) {
 
 CommandCreator::~CommandCreator()
 {
-	
 }
 
-ACommand * CommandCreator::getCommandByName(std::string name)
+ACommand * CommandCreator::getCommandByName(std::string &name) const
 {
 	ACommand *cmd;
 

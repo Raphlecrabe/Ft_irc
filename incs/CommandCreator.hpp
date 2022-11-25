@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 16:05:35 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:56:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	CommandCreator();
 	~CommandCreator();
 
-	ACommand * getCommandByName(std::string name);
+	ACommand * getCommandByName(std::string &name) const;
 };
 
 #endif

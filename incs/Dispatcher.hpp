@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 14:13:47 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:05:36 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define DISPATCHER_HPP
 
 # include "ACommand/Includecommand.hpp"
-//# include "Messager.hpp"
+# include "Messager.hpp"
 # include "Replyer.hpp"
 # include "CommandCreator.hpp"
 # include <map>
@@ -24,10 +24,10 @@
 class Dispatcher
 {
 private:
-	Replyer					_Replyer;
-	//Messager				_Messager;
+	Messager				_Messager;
 	CommandCreator			_CommandCreator;
-	Hub						_hub;
+	Hub						&_hub;
+	Replyer					_Replyer;
 
 public:
 	Dispatcher(Hub & hub);

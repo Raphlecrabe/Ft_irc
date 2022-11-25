@@ -10,7 +10,7 @@ class Channel {
 	private:
 		std::string			_name;
 		std::string			_topic;
-		std::vector<User &>	_users;
+		std::vector<User *>	_users;
 		std::vector<int>	_users_fd;
 		int					_client_limit;
 
@@ -18,10 +18,10 @@ class Channel {
 		Channel();
 		~Channel();
 
-		std::string	get_name();
-		std::string	get_topic();
-		std::vector<User &>	get_users();
-		std::vector<int>	get_users_fd();
+		std::string	const &get_name() const;
+		std::string	const &get_topic() const;
+		std::vector<User *>	const &get_users() const;
+		std::vector<int>	const &get_users_fd() const;
 		Channel & operator=(Channel const &);
 		void	AddFd(int fd);
 		int	AddUser(User &);

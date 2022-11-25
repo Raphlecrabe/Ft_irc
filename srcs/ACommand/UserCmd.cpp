@@ -13,7 +13,7 @@ UserCmd::~UserCmd() {
 	
 }
 
-Callback	*UserCmd::cmdExecute(Message & message, Hub & hub) {
+Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	std::vector<std::string> paramlist = message.getParamList();
 	
 	message.getSender().setName(paramlist[0]);
@@ -21,5 +21,5 @@ Callback	*UserCmd::cmdExecute(Message & message, Hub & hub) {
 
 	(void)hub;
 
-	return new Callback();
+	return this->_callback;
 }
