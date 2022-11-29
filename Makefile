@@ -25,7 +25,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					UserCmd.cpp \
 
 SRCS_REPLY		=	AReply.cpp \
-					Rpl_Welcome.cpp \
+					RPL_Welcome.cpp \
+					RPL_YourHost.cpp \
 
 #OBJS
 

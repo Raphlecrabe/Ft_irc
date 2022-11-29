@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/24 11:52:59 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 17:12:49 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 ReplyCreator::ReplyCreator()
 {
-	_replys.insert(std::pair<std::string, AReply *>(Welcome.getName(), &Welcome));
+	_replys.insert(makePair(&Welcome));
+	_replys.insert(makePair(&YourHost));
 }
 
 ReplyCreator::~ReplyCreator()
 {
+}
+
+std::pair<std::string, AReply *> ReplyCreator::makePair(AReply *reply) {
+	return std::pair<std::string, AReply *>(reply->getName(), reply);
 }
 
 AReply	*ReplyCreator::getReplyByName(std::string &name) const
@@ -31,6 +36,7 @@ AReply	*ReplyCreator::getReplyByName(std::string &name) const
 	catch (std::exception &e)
 	{
 		reply = NULL;
+		std::cout << "Could not find reply " + name << std::endl;
 	}
 	return (reply);
 }

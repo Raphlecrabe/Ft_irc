@@ -11,15 +11,11 @@
 
 #include "Sender.hpp"
 
-#include "User.hpp"
-
 #include "Hub.hpp"
 
 #include "Receiver.hpp"
 
-#include "Replyer.hpp"
-#include "AReply/AReply.hpp"
-#include "AReply/Rpl_Welcome.hpp"
+class Hub;
 
 class Server {
 	private:
@@ -29,14 +25,20 @@ class Server {
 		Hub			_hub;
 		Receiver	_receiver;
 
+		std::string _serverName;
+		std::string _networkName;
+
 		void	receive(int fd);
 		void	new_user(int fd);
 
 	public:
-		Server(int fd_size);
+		Server(std::string const &serverName, std::string const &networkName);
 		~Server();
 
 		void launch();
+
+		std::string const &getServerName() const;
+		std::string const &getNetworkName() const;
 };
 
 #endif

@@ -2,7 +2,7 @@
 
 int main()
 {
-	Server server(5);
+	Server server("AwesomeIrc.com", "FT_IRC");
 	
 	server.launch();
 }

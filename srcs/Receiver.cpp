@@ -11,6 +11,8 @@ Receiver::~Receiver() {
 }
 
 void Receiver::Hear(User * user, std::string datas) {
+	//split line
+	
 	Message msg(user, datas);
 
 	_dispatcher.Execute(msg);

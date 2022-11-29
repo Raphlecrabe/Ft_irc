@@ -1,17 +1,21 @@
-#include "../../incs/AReply/Rpl_Welcome.hpp"
+#include "../../incs/AReply/RPL_Welcome.hpp"
 #include "../../incs/AReply/AReply.hpp"
 
-Rpl_Welcome::Rpl_Welcome() : AReply("RPL_WELCOME") {
+RPL_Welcome::RPL_Welcome() : AReply("RPL_WELCOME") {
 
 }
 
-Rpl_Welcome::~Rpl_Welcome() {
+RPL_Welcome::~RPL_Welcome() {
 	
 }
 
-Message Rpl_Welcome::getmsg(Hub &hub, Message message) {
-	Message	newmessage(":lebestserver.com", "001", "fbelthoi :Welcome to the Internet Relay Network, fbelthoi");
-	(void) hub;
+Message RPL_Welcome::getmsg(Hub &hub, Message message) {
+	std::string client = message.getSender()->getNickname();
+	std::string nick = message.getSender()->getNickname();
+
+	std::string params = client + " :Welcome to the " + hub.getNetworkName() + ", " + nick;
+
+	Message	newmessage(hub.getServerName(), "001", params);
 	(void) message;
 
 	newmessage.destinator = message.getSender();

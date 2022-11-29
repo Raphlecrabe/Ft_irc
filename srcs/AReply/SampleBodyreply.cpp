@@ -9,5 +9,5 @@ Name::~Name() {
 	
 }
 
-Message Rpl_Welcome::getmsg(Hub &hub, Message message) {
+Message Name::getmsg(Hub &hub, Message message) {
 }

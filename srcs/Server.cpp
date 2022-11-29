@@ -14,25 +14,14 @@
 #define PORT "9034"
 
 #include "../incs/Server.hpp"
-
 #include "../incs/Listener.hpp"
-
-#include "../incs/User.hpp"
-
 #include "../incs/Hub.hpp"
-
 #include "../incs/Message.hpp"
-#include "../incs/Sender.hpp"
-
 #include "../incs/Receiver.hpp"
 
-#include "../incs/Replyer.hpp"
-#include "../incs/AReply/AReply.hpp"
-#include "../incs/AReply/Rpl_Welcome.hpp"
+Server::Server(std::string const &serverName, std::string const &networkName) : _receiver(_hub), _serverName(serverName), _networkName(networkName) {
 
-Server::Server(int fd_size) : _receiver(_hub) {
-	
-	_listener.init(PORT, fd_size);
+	_listener.init(PORT, 5);
 }
 
 Server::~Server() {
@@ -90,3 +79,6 @@ void Server::launch() {
 		}
 	}
 }
+
+	std::string const &Server::getServerName() const { return this->_serverName; }
+	std::string const &Server::getNetworkName() const { return this->_networkName; }

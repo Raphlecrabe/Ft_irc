@@ -31,6 +31,7 @@ int	Replyer::Replyone(std::string &name, Message &message)
 	AReply	*reply = this->_ReplyCreator.getReplyByName(name);
 	if (reply == NULL)
 	{
+		std::cout << "Replyer: " << name << " not found" << std::cout;
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
