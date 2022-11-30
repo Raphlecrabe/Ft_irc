@@ -45,9 +45,8 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 		_callback.addReply("RPL_TOPIC", params[i]);
 		_callback.addReply("RPL_NAMEREPLY", params[i]);
 		_callback.addReply("RPL_ENDOFNAMES", params[i]);
-		// TO DO : Faire la partie ou on envoit les messages à tous les utilisateurs du channel
-		// pour leur signaler que machin vient de rejoindre
-		// TO DO : Faire un système de fonctions qui génère les messages à tout le serveur
+		Message message(message.getSender()->getNickname(), "JOIN", channel->get_name());
+		channel->addDestinatorsExceptOneInMessage(message.getSender(), message);
 	}
 	return(_callback);
 }

@@ -5,6 +5,7 @@
 # include <string>
 # include "../incs/Define.hpp"
 # include "../incs/User.hpp"
+# include "Message.hpp"
 
 class Channel {
 	private:
@@ -26,6 +27,7 @@ class Channel {
 		int	AddUser(User &);
 		int	RemoveUser(User &);
 
+		void	addDestinatorsExceptOneInMessage(User *user, Message &message);
 };
 
 #endif

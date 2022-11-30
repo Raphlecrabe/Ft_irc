@@ -71,3 +71,20 @@ std::vector<int>	const	&Channel::get_users_fd() const
 {
 	return (_users_fd);
 }
+
+void	Channel::addDestinatorsExceptOneInMessage(User *user, Message &message)
+{
+	std::vector<User *>	users = this->get_users();
+	std::vector<User *>::iterator	it;
+
+	if (users.size() == 0)
+		return ;
+
+	for (it = users.begin(); it != users.end(); it++)
+	{
+		if ((*it)->getName() != user->getName())
+		{
+			message.addDestinator(*it);
+		}
+	}
+}
