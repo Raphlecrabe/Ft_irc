@@ -9,7 +9,7 @@ Pong::~Pong() {
 	
 }
 
-Message &Pong::getmsg(Hub &hub, Message &message) 
+Message Pong::getmsg(Hub &hub, Message &message) 
 {
 	(void)hub;
 	Message	newmessage(":lebestserver.com", "PONG", message.getParamList()[0]);

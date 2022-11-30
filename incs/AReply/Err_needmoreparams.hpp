@@ -10,7 +10,7 @@ class Err_needmoreparams : public AReply{
 		Err_needmoreparams();
 		~Err_needmoreparams();
 
-		Message	&getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif

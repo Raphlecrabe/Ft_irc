@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/29 11:40:30 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 14:12:58 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ class Callback
 		void	resetReplys();
 		void	resetMessages();
 		void	resetReplyparams();
-		
-		void	generateMessagesForChannel(Channel *channel, std::string &command, User &user);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/29 11:41:49 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 14:12:40 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,4 @@ void	Callback::resetMessages()
 void	Callback::resetReplyparams()
 {
 	_Replyparams.clear();
-}
-
-void	Callback::generateMessagesForChannel(Channel *channel, std::string &command, User &user)
-{
-	std::vector<User *>::iterator it;
-	std::vector<User *> users = channel->get_users();
-
-	for (it = users.begin(); it != users.end(); it++)
-	{
-		if ((*it)->getName() != user.getName())
-		{
-			// TO DO : Générer un message de faco, globale pour les utilisatuers du channel fourni
-		}
-	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 14:01:16 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/30 13:54:08 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Dispatcher::Dispatcher(Hub & hub) : _hub(hub), _Replyer(hub) {
 
 Dispatcher::~Dispatcher()
 {
+	
 }
 
 int	Dispatcher::Execute(Message & client_request)

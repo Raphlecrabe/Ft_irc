@@ -10,7 +10,7 @@ class Err_erroneusnickname : public AReply{
 		Err_erroneusnickname();
 		~Err_erroneusnickname();
 
-		Message	&getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif

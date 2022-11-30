@@ -10,7 +10,7 @@ class Err_nonicknamegiven : public AReply{
 		Err_nonicknamegiven();
 		~Err_nonicknamegiven();
 
-		Message	&getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif

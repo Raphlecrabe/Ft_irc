@@ -10,7 +10,7 @@ class Name : public AReply{
 		Name();
 		~Name();
 
-		Message	&getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif

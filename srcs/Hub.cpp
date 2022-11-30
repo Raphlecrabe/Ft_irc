@@ -104,6 +104,8 @@ Channel	*Hub::getChannelByName(std::string &name) const
 
 void	Hub::removeChannelByName(std::string &name)
 {
+	//TO DO : A coder lol 
+	(void)name;
 }
 
 std::vector<Channel *> const &Hub::getChannelList() const

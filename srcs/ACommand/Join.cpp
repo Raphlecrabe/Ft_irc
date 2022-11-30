@@ -57,4 +57,5 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 		// pour leur signaler que machin vient de rejoindre
 		// TO DO : Faire un système de fonctions qui génère les messages à tout le serveur
 	}
+	return(_callback);
 }

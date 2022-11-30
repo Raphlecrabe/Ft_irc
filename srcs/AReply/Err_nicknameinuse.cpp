@@ -9,7 +9,7 @@ Err_nicknameinuse::~Err_nicknameinuse() {
 	
 }
 
-Message &Err_nicknameinuse::getmsg(Hub &hub, Message &message) {
+Message Err_nicknameinuse::getmsg(Hub &hub, Message &message) {
 	std::string params;
 	(void)hub;
 

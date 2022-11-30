@@ -10,7 +10,7 @@ class Pong : public AReply{
 		Pong();
 		~Pong();
 
-		Message	&getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif
