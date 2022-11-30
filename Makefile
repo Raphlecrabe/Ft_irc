@@ -21,6 +21,7 @@ SRCS			= 	main.cpp \
 					ReplyCreator.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
+					Join.cpp  \
 					Nick.cpp \
 					UserCmd.cpp \
 					Cap.cpp \
@@ -30,6 +31,9 @@ SRCS_REPLY		=	AReply.cpp \
 					RPL_Welcome.cpp \
 					RPL_YourHost.cpp \
 					ERR_nicknameinuse.cpp \
+					ERR_needmoreparams.cpp  \
+					ERR_nonicknamegiven.cpp  \
+					ERR_erroneusnickname.cpp  \
 					
 
 #OBJS

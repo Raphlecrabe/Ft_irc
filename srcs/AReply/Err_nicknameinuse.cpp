@@ -13,11 +13,11 @@ Message ERR_nicknameinuse::getmsg(Hub &hub, Message &message) {
 	std::string params;
 	(void)hub;
 
-	params += message.getSource();
+	params += message.getSource() + " ";
 	params += message.getSender()->getNickname();
-	params += " : Nickname is already in use";
+	params += " :Nickname is already in use";
 	
-	Message	newmessage(":lebestserver.com", "432", params);
+	Message	newmessage(":lebestserver.com", "433", params);
 
 	newmessage.addDestinator(message.getSender());
 	return (newmessage);

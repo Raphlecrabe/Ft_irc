@@ -15,7 +15,7 @@ class Channel {
 		int					_client_limit;
 
 	public:
-		Channel();
+		Channel(std::string &name);
 		~Channel();
 
 		std::string	const &get_name() const;
@@ -25,6 +25,7 @@ class Channel {
 		void	AddFd(int fd);
 		int	AddUser(User &);
 		int	RemoveUser(User &);
+
 };
 
 #endif

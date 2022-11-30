@@ -12,9 +12,9 @@
 
 #include "../incs/Channel.hpp"
 
-Channel::Channel() 
+Channel::Channel(std::string &name) : _name(name) 
 {
-	_client_limit = CHANNEL_LIMIT;
+	_client_limit = CHANNEL_USER_LIMIT;
 }
 
 Channel::~Channel() 

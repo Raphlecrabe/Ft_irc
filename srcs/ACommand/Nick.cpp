@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/30 14:29:45 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:48:05 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	Nick::check_nick(std::string &nickname, Hub & hub, Callback &callback)
 	{
 		return (-1);
 	}
-
 	return 0;
 }
 

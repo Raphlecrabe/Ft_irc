@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/30 14:41:10 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:52:39 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 ReplyCreator::ReplyCreator()
 {
 	insert(&Welcome);
-	insert(&ERR_nicknameinuse);
 	insert(&YourHost);
+	
+	insert(&ERR_nicknameinuse);
+	insert(&ERR_needmoreparams);
+	insert(&ERR_erroneusnickname);
+	insert(&ERR_nonicknamegiven);
 }
 
 ReplyCreator::~ReplyCreator()

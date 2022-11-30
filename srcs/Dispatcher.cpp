@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/29 17:13:09 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:48:46 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Dispatcher::Dispatcher(Hub & hub) : _hub(hub), _Replyer(hub) {
 
 Dispatcher::~Dispatcher()
 {
+	
 }
 
 int	Dispatcher::Execute(Message & client_request)
