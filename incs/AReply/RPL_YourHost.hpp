@@ -10,7 +10,7 @@ class RPL_YourHost : public AReply{
 		RPL_YourHost();
 		~RPL_YourHost();
 
-		Message	getmsg(Hub &hub, Message message);
+		Message	getmsg(Hub &hub, Message &message);
 };
 
 #endif

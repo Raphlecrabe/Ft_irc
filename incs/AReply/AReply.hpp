@@ -9,10 +9,6 @@ class AReply {
 	private:
 		std::string _name;
 
-	protected:
-
-		Message	answer;
-
 	public:
 		AReply(std::string name);
 		virtual ~AReply();

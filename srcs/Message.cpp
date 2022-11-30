@@ -136,13 +136,3 @@ std::vector<User *> const &Message::getDestinators() const { return this->_desti
 
 
 User * Message::getSender() { return this->_sender; }
-
-void	Message::clearmessage()
-{
-	_source.clear();
-	_command.clear();
-	_params.clear();
-	_paramlist.clear(),
-	destinator = NULL;
-	_sender = NULL;
-}

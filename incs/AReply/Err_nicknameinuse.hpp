@@ -3,12 +3,12 @@
 
 # include "AReply.hpp"
 
-class Err_nicknameinuse : public AReply{
+class ERR_nicknameinuse : public AReply{
 	private:
 
 	public:
-		Err_nicknameinuse();
-		~Err_nicknameinuse();
+		ERR_nicknameinuse();
+		~ERR_nicknameinuse();
 
 		Message	getmsg(Hub &hub, Message &message);
 };

@@ -1,15 +1,15 @@
-#include "../../incs/AReply/Err_nicknameinuse.hpp"
+#include "../../incs/AReply/ERR_nicknameinuse.hpp"
 
 
-Err_nicknameinuse::Err_nicknameinuse() : AReply("ERR_NICKNAMEINUSE") {
+ERR_nicknameinuse::ERR_nicknameinuse() : AReply("ERR_NICKNAMEINUSE") {
 
 }
 
-Err_nicknameinuse::~Err_nicknameinuse() {
+ERR_nicknameinuse::~ERR_nicknameinuse() {
 	
 }
 
-Message Err_nicknameinuse::getmsg(Hub &hub, Message &message) {
+Message ERR_nicknameinuse::getmsg(Hub &hub, Message &message) {
 	std::string params;
 	(void)hub;
 
@@ -19,7 +19,6 @@ Message Err_nicknameinuse::getmsg(Hub &hub, Message &message) {
 	
 	Message	newmessage(":lebestserver.com", "432", params);
 
-	newmessage.destinator = message.getSender();
-	answer = newmessage;
-	return (answer);
+	newmessage.addDestinator(message.getSender());
+	return (newmessage);
 }

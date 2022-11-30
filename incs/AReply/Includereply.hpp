@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:35:10 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:41:06 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define INCLUDEREPLY_HPP
 
 #include "AReply.hpp"
-# include "Err_nicknameinuse.hpp"
+# include "ERR_nicknameinuse.hpp"
 # include "RPL_Welcome.hpp"
 # include "RPL_YourHost.hpp"
 

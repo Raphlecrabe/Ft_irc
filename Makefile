@@ -29,8 +29,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 SRCS_REPLY		=	AReply.cpp \
 					RPL_Welcome.cpp \
 					RPL_YourHost.cpp \
-					Err_nicknameinuse.cpp \
-					Pong.cpp \
+					ERR_nicknameinuse.cpp \
 					
 
 #OBJS

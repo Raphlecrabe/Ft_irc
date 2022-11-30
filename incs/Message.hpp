@@ -38,7 +38,6 @@ class Message {
 		User * getSender();
 
 		std::string Format() const;
-		void	clearmessage();
 };
 
 #endif
