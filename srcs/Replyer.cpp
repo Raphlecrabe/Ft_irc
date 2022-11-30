@@ -12,12 +12,14 @@ void	Replyer::TreatReplys(Callback &callback, Message &message)
 {
 	std::vector<std::string> Replys = callback.getReplys();
 	std::vector<std::string>::iterator it;
+	std::vector<std::string>::const_iterator it2 = callback.getReplyParams().begin();
 
 	if (Replys.size() == 0)
 		return;
 	for(it = Replys.begin(); it != Replys.end(); it++)
 	{
-		if (Replyone(*it, message) == -1)
+		it2 ++;
+		if (Replyone(*it, message, *it2) == -1)
 		{
 			//Erreur la reply est pas dans notre base de donnée
 			continue;
@@ -27,7 +29,7 @@ void	Replyer::TreatReplys(Callback &callback, Message &message)
 	callback.resetReplyparams();
 }
 
-int	Replyer::Replyone(std::string &name, Message &message)
+int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 {
 	AReply	*reply = this->_ReplyCreator.getReplyByName(name);
 	if (reply == NULL)
@@ -36,6 +38,6 @@ int	Replyer::Replyone(std::string &name, Message &message)
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
-	this->_Sender.sendto(reply->getmsg(_hub, message));
+	this->_Sender.sendto(reply->getmsg(_hub, message, param));
 	return (0);
 }

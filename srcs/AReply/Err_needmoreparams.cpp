@@ -9,7 +9,7 @@ ERR_needmoreparams::~ERR_needmoreparams() {
 	
 }
 
-Message ERR_needmoreparams::getmsg(Hub &hub, Message &message, std::string &param) {
+Message ERR_needmoreparams::getmsg(Hub &hub, Message &message, std::string param) {
 	std::string params;
 	(void)hub;
 	(void)param;

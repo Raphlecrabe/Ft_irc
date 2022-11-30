@@ -12,7 +12,7 @@ class RPL_Welcome : public AReply {
 		RPL_Welcome();
 		~RPL_Welcome();
 
-		Message getmsg(Hub &hub, Message &messsage, std::string &param);
+		Message getmsg(Hub &hub, Message &messsage, std::string param);
 };
 
 #endif

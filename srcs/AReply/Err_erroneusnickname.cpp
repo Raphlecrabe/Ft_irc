@@ -9,7 +9,7 @@ ERR_erroneusnickname::~ERR_erroneusnickname() {
 	
 }
 
-Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message, std::string &param) {
+Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message, std::string param) {
 	std::string params;
 	(void)hub;
 	(void)param;

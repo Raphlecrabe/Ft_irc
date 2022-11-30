@@ -10,7 +10,7 @@ class Name : public AReply{
 		Name();
 		~Name();
 
-		Message	getmsg(Hub &hub, Message &message, std::string &param);
+		Message	getmsg(Hub &hub, Message &message, std::string param);
 };
 
 #endif

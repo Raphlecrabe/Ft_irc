@@ -10,7 +10,7 @@ class ERR_nonicknamegiven : public AReply{
 		ERR_nonicknamegiven();
 		~ERR_nonicknamegiven();
 
-		Message	getmsg(Hub &hub, Message &message, std::string &param);
+		Message	getmsg(Hub &hub, Message &message, std::string param);
 };
 
 #endif

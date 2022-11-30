@@ -20,7 +20,7 @@ class Replyer {
 		~Replyer();
 
 		void	TreatReplys(Callback &callback, Message &message);
-		int		Replyone(std::string &name, Message &message);
+		int		Replyone(std::string &name, Message &message, std::string param);
 };
 
 #endif

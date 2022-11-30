@@ -9,7 +9,7 @@ ERR_nonicknamegiven::~ERR_nonicknamegiven() {
 	
 }
 
-Message ERR_nonicknamegiven::getmsg(Hub &hub, Message &message, std::string &param) {
+Message ERR_nonicknamegiven::getmsg(Hub &hub, Message &message, std::string param) {
 	std::string params;
 	(void)hub;
 	(void)param;

@@ -10,7 +10,7 @@ class ERR_needmoreparams : public AReply{
 		ERR_needmoreparams();
 		~ERR_needmoreparams();
 
-		Message	getmsg(Hub &hub, Message &message, std::string &param);
+		Message	getmsg(Hub &hub, Message &message, std::string param);
 };
 
 #endif
