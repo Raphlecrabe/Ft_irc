@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 16:39:38 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 14:35:10 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define INCLUDEREPLY_HPP
 
 #include "AReply.hpp"
-# include "Rpl_Welcome.hpp"
-# include "Pong.hpp"
 # include "Err_nicknameinuse.hpp"
+# include "RPL_Welcome.hpp"
+# include "RPL_YourHost.hpp"
 
 #endif

@@ -27,7 +27,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
-					Rpl_Welcome.cpp \
+					RPL_Welcome.cpp \
+					RPL_YourHost.cpp \
 					Err_nicknameinuse.cpp \
 					Pong.cpp \
 					

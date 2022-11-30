@@ -2,6 +2,5 @@ a.out
 exec
 *.o
 weechat*
-generator.sh
+generator*
 .vscode
-

@@ -3,8 +3,9 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include "../incs/Server.hpp"
 
-Hub::Hub() {
+Hub::Hub(Server *server) : _server(server) {
 
 }
 
@@ -63,3 +64,6 @@ std::vector<User *>::iterator Hub::findUserByFd(int fd) {
 std::vector<User *> const & Hub::getUserList() const {
 	return _users;
 }
+
+std::string const &Hub::getServerName() const { return _server->getServerName(); }
+std::string const &Hub::getNetworkName() const { return _server->getNetworkName(); }

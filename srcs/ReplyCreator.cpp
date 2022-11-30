@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 16:40:10 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 14:35:31 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 ReplyCreator::ReplyCreator()
 {
 	insert(&Welcome);
-	insert(&Pong);
 	insert(&Err_nicknameinuse);
+	insert(&YourHost);
 }
 
 ReplyCreator::~ReplyCreator()
@@ -38,6 +38,7 @@ AReply	*ReplyCreator::getReplyByName(std::string &name) const
 	catch (std::exception &e)
 	{
 		reply = NULL;
+		std::cout << "Could not find reply " + name << std::endl;
 	}
 	return (reply);
 }

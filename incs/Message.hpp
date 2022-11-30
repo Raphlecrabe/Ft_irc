@@ -8,6 +8,7 @@
 class Message {
 	private:
 		User * _sender;
+		std::vector<User *> _destinators;
 
 		// the 3 elements that make up an irc message
 		std::string _source;
@@ -26,7 +27,8 @@ class Message {
 		Message & operator=(Message const &);
 		~Message();
 
-		User *destinator;
+		void addDestinator(User *dest);
+		std::vector<User *> const &getDestinators() const;
 
 		std::string const & getSource() const;
 		std::string const & getCommand() const;

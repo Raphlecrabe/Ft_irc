@@ -1,6 +1,7 @@
 # include "../incs/Receiver.hpp"
 # include "../incs/Message.hpp"
 # include <iostream>
+# include <vector>
 
 Receiver::Receiver(Hub & hub) : _dispatcher(hub) {
 
@@ -11,7 +12,23 @@ Receiver::~Receiver() {
 }
 
 void Receiver::Hear(User * user, std::string datas) {
-	Message msg(user, datas);
 
-	_dispatcher.Execute(msg);
+	while(datas.empty() == false)
+	{
+		int len = datas.find("\r\n");
+		
+		if (len == (int)std::string::npos)
+		{
+			std::cout << "Receiver: datas not ending with \r\n" << std::endl;
+			break;
+		}
+
+		std::string ndatas = datas.substr(0, len + 2);
+		
+		Message msg(user, ndatas);
+		
+		_dispatcher.Execute(msg);
+
+		datas = datas.substr(len + 2);
+	}
 }

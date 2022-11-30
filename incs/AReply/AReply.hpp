@@ -18,7 +18,7 @@ class AReply {
 		virtual ~AReply();
 
 		std::string &getName();
-		virtual	Message &getmsg(Hub &hub, Message &message) = 0;
+		virtual	Message getmsg(Hub &hub, Message &message) = 0;
 };
 
 #endif

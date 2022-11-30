@@ -7,13 +7,18 @@
 
 # include "User.hpp"
 
+class Server;
+
 class Hub {
 	private:
+		Server *_server;
+
 		std::vector<User *> _users;
 
 		std::vector<User *>::iterator findUserByFd(int fd);
+
 	public:
-		Hub();
+		Hub(Server *);
 		~Hub();
 
 		User & CreateUser(int fd);
@@ -22,6 +27,9 @@ class Hub {
 		User * getUserByFd(int fd);
 
 		std::vector<User *> const & getUserList() const;
+
+		std::string const &getServerName() const;
+		std::string const &getNetworkName() const;
 };
 
 #endif

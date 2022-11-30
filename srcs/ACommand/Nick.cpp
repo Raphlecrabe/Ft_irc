@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 15:24:52 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 14:29:45 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 		return (this->getCallback());
 
 	message.getSender()->setNickname(nickname);
+
 	return (this->getCallback());
 }
 

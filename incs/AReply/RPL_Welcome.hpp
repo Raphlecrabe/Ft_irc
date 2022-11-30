@@ -5,14 +5,14 @@
 
 # include <iostream>
 
-class Rpl_Welcome : public AReply {
+class RPL_Welcome : public AReply {
 	private:
 
 	public:
-		Rpl_Welcome();
-		~Rpl_Welcome();
+		RPL_Welcome();
+		~RPL_Welcome();
 
-		Message &getmsg(Hub &hub, Message &messsage);
+		Message getmsg(Hub &hub, Message &messsage);
 };
 
 #endif
