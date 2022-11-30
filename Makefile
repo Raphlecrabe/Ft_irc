@@ -68,7 +68,6 @@ INCLUDES =	${INC_DIR}Log.hpp \
 			${INC_DIR}Replyer.hpp \
 			${INC_DIR}AReply/AReply.hpp \
 			${INC_DIR}AReply/Replyer.hpp \
-			${INC_DIR}Rpl_Welcome.hpp \
 			${INC_DIR}ACommand/ACommand.hpp \
 			${INC_DIR}Dispatcher.hpp \
 			${INC_DIR}Receiver.hpp \
