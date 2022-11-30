@@ -9,9 +9,10 @@ ERR_nonicknamegiven::~ERR_nonicknamegiven() {
 	
 }
 
-Message ERR_nonicknamegiven::getmsg(Hub &hub, Message &message) {
+Message ERR_nonicknamegiven::getmsg(Hub &hub, Message &message, std::string &param) {
 	std::string params;
 	(void)hub;
+	(void)param;
 
 	params += message.getSource();
 	params += " :No nickname given";

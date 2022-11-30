@@ -9,9 +9,10 @@ ERR_erroneusnickname::~ERR_erroneusnickname() {
 	
 }
 
-Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message) {
+Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message, std::string &param) {
 	std::string params;
 	(void)hub;
+	(void)param;
 
 	params += message.getSource() + " ";
 	params += message.getSender()->getNickname();
@@ -20,5 +21,5 @@ Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message) {
 	Message	newmessage(":lebestserver.com", "432", params);
 
 	newmessage.addDestinator(message.getSender());
-	return (message);
+	return (newmessage);
 }

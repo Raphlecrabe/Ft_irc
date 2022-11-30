@@ -10,7 +10,7 @@ class ERR_nicknameinuse : public AReply{
 		ERR_nicknameinuse();
 		~ERR_nicknameinuse();
 
-		Message	getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message, std::string &param);
 };
 
 #endif

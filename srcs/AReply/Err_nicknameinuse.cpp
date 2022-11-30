@@ -9,9 +9,10 @@ ERR_nicknameinuse::~ERR_nicknameinuse() {
 	
 }
 
-Message ERR_nicknameinuse::getmsg(Hub &hub, Message &message) {
+Message ERR_nicknameinuse::getmsg(Hub &hub, Message &message, std::string &param) {
 	std::string params;
 	(void)hub;
+	(void)param;
 
 	params += message.getSource() + " ";
 	params += message.getSender()->getNickname();
