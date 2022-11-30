@@ -13,7 +13,7 @@ Message RPL_Welcome::getmsg(Hub &hub, Message message) {
 	std::string client = message.getSender()->getNickname();
 	std::string nick = message.getSender()->getNickname();
 
-	std::string params = client + " :Welcome to the " + hub.getNetworkName() + ", " + nick;
+	std::string params = client + " :Welcome to the " + hub.getNetworkName() + " Network, " + nick;
 
 	Message	newmessage(hub.getServerName(), "001", params);
 	(void) message;

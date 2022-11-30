@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 13:56:23 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/30 11:18:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ private:
 
 	Nick nick;
 	UserCmd usercmd;
+	Ping ping;
 
 	void insert(ACommand *);
 

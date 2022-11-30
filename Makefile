@@ -23,6 +23,7 @@ SRCS			= 	main.cpp \
 SRCS_COMMAND	=	ACommand.cpp \
 					Nick.cpp \
 					UserCmd.cpp \
+					Ping.cpp \
 
 SRCS_REPLY		=	AReply.cpp \
 					RPL_Welcome.cpp \
