@@ -6,7 +6,7 @@
 /*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 16:40:10 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/28 11:44:18 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ ReplyCreator::ReplyCreator()
 	insert(&Welcome);
 	insert(&Pong);
 	insert(&Err_nicknameinuse);
+	insert(&Err_needmoreparams);
+	insert(&Err_erroneusnickname);
+	insert(&Err_nonicknamegiven);
 }
 
 ReplyCreator::~ReplyCreator()

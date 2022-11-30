@@ -63,3 +63,55 @@ std::vector<User *>::iterator Hub::findUserByFd(int fd) {
 std::vector<User *> const & Hub::getUserList() const {
 	return _users;
 }
+
+Channel	&Hub::CreateChannel(std::string &name, User &user)
+{	
+	if (user.getNumberOfChannels() == CHANNEL_LIMIT)
+		throw Hub::TooManyChannels();
+	if (_numberofchannels == CHANNEL_MAX)
+		throw Hub::ChannelMaxReached();
+	for (unsigned int i = 0; i < name.size(); i++)
+	{
+		if (isalnum(name[i]) == 0)
+		{
+			throw Hub::BadChannelName();
+		}
+	}
+	Channel	*newchannel = new Channel(name);
+	if (newchannel->AddUser(user) == -1)
+		throw Hub::ChannelIsFull();
+	newchannel->AddFd(user.getFd());
+	user.AddChannel(*newchannel);
+	_numberofchannels ++;
+	return *newchannel;
+}
+
+Channel	*Hub::getChannelByName(std::string &name) const
+{
+	std::vector<Channel*>::const_iterator	it;
+
+	if (_channels.size() == 0)
+		return (NULL);
+	for (it = _channels.begin(); it != _channels.end(); it++)
+	{
+		if ((*it)->get_name() == name)
+		{
+			return (*it);
+		}
+	}
+	return (NULL);
+}
+
+void	Hub::removeChannelByName(std::string &name)
+{
+}
+
+std::vector<Channel *> const &Hub::getChannelList() const
+{
+	return (_channels);
+}
+
+int	Hub::getNumberOfChannels() const
+{
+	return (_numberofchannels);
+}

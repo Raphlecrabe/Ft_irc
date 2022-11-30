@@ -6,7 +6,7 @@
 /*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 16:39:57 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/28 11:43:29 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ private:
 	Rpl_Welcome	Welcome;
 	Pong		Pong;
 	Err_nicknameinuse	Err_nicknameinuse;
+	Err_needmoreparams	Err_needmoreparams;
+	Err_erroneusnickname	Err_erroneusnickname;
+	Err_nonicknamegiven		Err_nonicknamegiven;
 
 	void	insert(AReply *newreply);
 public:

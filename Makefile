@@ -21,12 +21,16 @@ SRCS			= 	main.cpp \
 					ReplyCreator.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
+					Join.cpp  \
 					Nick.cpp \
 					UserCmd.cpp \
 					Cap.cpp \
 					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
+					Err_needmoreparams.cpp  \
+					Err_nonicknamegiven.cpp  \
+					Err_erroneusnickname.cpp  \
 					Rpl_Welcome.cpp \
 					Err_nicknameinuse.cpp \
 					Pong.cpp \

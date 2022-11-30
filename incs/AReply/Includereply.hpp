@@ -6,7 +6,7 @@
 /*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 16:39:38 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/28 11:42:43 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@
 # include "Rpl_Welcome.hpp"
 # include "Pong.hpp"
 # include "Err_nicknameinuse.hpp"
+# include "Err_erroneusnickname.hpp"
+# include "Err_needmoreparams.hpp"
+# include "Err_nonicknamegiven.hpp"
 
 #endif

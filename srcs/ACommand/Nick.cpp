@@ -6,7 +6,7 @@
 /*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 15:24:52 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/28 11:11:38 by rafy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	Nick::check_nick(std::string &nickname, Hub & hub, Callback &callback)
 	{
 		return (-1);
 	}
-
 	return 0;
 }
 

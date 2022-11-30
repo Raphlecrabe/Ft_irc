@@ -24,6 +24,7 @@ void	Replyer::TreatReplys(Callback &callback, Message &message)
 		}
 	}
 	callback.resetReplys();
+	callback.resetReplyparams();
 }
 
 int	Replyer::Replyone(std::string &name, Message &message)
