@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:45:25 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:06:06 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ class Callback
 		std::vector<Message>		const	&getMessages() const;
 		std::vector<std::string>	const	&getReplyParams() const;
 
-		void	addReply(std::string reply);
+		void	addReply(std::string reply, std::string param);
 		void	addMessage(Message &message);
-		void	addReplyparam(std::string &param);
 		void	resetReplys();
 		void	resetMessages();
 		void	resetReplyparams();

@@ -21,8 +21,8 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 
 	(void)hub;
 
-	this->_callback.addReply("RPL_WELCOME");
-	this->_callback.addReply("RPL_YOURHOST");
+	this->_callback.addReply("RPL_WELCOME", "");
+	this->_callback.addReply("RPL_YOURHOST", "");
 
 	return this->_callback;
 }
