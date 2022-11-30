@@ -19,6 +19,7 @@ SRCS			= 	main.cpp \
 					Channel.cpp \
 					Messager.cpp \
 					ReplyCreator.cpp \
+					Debug.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
 					Join.cpp  \
@@ -34,7 +35,6 @@ SRCS_REPLY		=	AReply.cpp \
 					ERR_needmoreparams.cpp  \
 					ERR_nonicknamegiven.cpp  \
 					ERR_erroneusnickname.cpp  \
-					
 
 #OBJS
 
@@ -58,7 +58,7 @@ SANITIZE = -fsanitize=address -g3
 
 INC_DIR = incs/
 
-INCLUDES =	${INC_DIR}Log.hpp \
+INCLUDES =	${INC_DIR}Debug.hpp \
 			${INC_DIR}Server.hpp \
 			${INC_DIR}Listener.hpp \
 			${INC_DIR}Sender.hpp \
