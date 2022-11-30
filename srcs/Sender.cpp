@@ -1,3 +1,4 @@
+#include "../incs/Debug.hpp"
 #include "../incs/Sender.hpp"
 #include "../incs/Message.hpp"
 
@@ -36,7 +37,7 @@ void Sender::sendto(int fd, const char *datas, int size) {
 		sent += res;
 	}
 
-	//std::cout << "sent " << datas << std::endl;
+	Debug::Log(std::string("Sender: sent ") + std::string(datas));
 }
 
 void Sender::sendto(int fd, std::string msg) {
