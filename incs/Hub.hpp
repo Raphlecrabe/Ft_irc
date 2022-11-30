@@ -18,7 +18,7 @@ class Hub {
 		std::vector<User *>::iterator findUserByFd(int fd);
 
 	public:
-		Hub();
+		Hub(Server *);
 		~Hub();
 
 		User & CreateUser(int fd);

@@ -36,7 +36,7 @@ void Sender::sendto(int fd, const char *datas, int size) {
 		sent += res;
 	}
 
-	std::cout << "sent " << datas << std::endl;
+	//std::cout << "sent " << datas << std::endl;
 }
 
 void Sender::sendto(int fd, std::string msg) {

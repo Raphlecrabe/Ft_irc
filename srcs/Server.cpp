@@ -19,7 +19,7 @@
 #include "../incs/Message.hpp"
 #include "../incs/Receiver.hpp"
 
-Server::Server(std::string const &serverName, std::string const &networkName) : _receiver(_hub), _serverName(serverName), _networkName(networkName) {
+Server::Server(std::string const &serverName, std::string const &networkName) : _hub(this), _receiver(_hub), _serverName(serverName), _networkName(networkName) {
 
 	_listener.init(PORT, 5);
 }

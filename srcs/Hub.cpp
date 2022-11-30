@@ -5,7 +5,7 @@
 #include <vector>
 #include "../incs/Server.hpp"
 
-Hub::Hub() {
+Hub::Hub(Server *server) : _server(server) {
 
 }
 
