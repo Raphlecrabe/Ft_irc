@@ -16,7 +16,7 @@ Message RPL_YourHost::getmsg(Hub &hub, Message message) {
 
 	Message	newmessage(hub.getServerName(), "002", params);
 	
-	newmessage.destinator = message.getSender();
+	newmessage.addDestinator(message.getSender());
 
 	return (newmessage);
 }

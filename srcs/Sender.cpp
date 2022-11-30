@@ -46,16 +46,23 @@ void Sender::sendto(int fd, std::string msg) {
 
 void Sender::sendto(Message const & msg) {
 
-	if (msg.destinator == NULL)
+	std::vector<User *> const destinators = msg.getDestinators();
+	
+	if (destinators.size() == 0)
 	{
 		throw Sender::SendErrorException();
 		return;
 	}
 
-	int	destfd = msg.destinator->getFd();
-	std::string str = msg.Format();
+	std::vector<User *>::const_iterator it;
 
-	sendto(destfd, str);
+	for (it = destinators.cbegin(); it != destinators.cend(); it++)
+	{
+		int	destfd = (*it)->getFd();
+		std::string str = msg.Format();
+		sendto(destfd, str);
+	}
+
 }
 
 const char* Sender::SendErrorException::what() const throw() {

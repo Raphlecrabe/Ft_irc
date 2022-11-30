@@ -14,7 +14,7 @@ Callback	&Ping::cmdExecute(Message & message, Hub & hub)
 
 	Message pong("", "PONG", params);
 
-	pong.destinator = message.getSender();
+	pong.addDestinator(message.getSender());
 
 	_callback.addMessage(pong);
 

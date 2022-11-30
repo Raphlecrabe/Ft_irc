@@ -22,8 +22,9 @@ Message & Message::operator=(Message const & rhs) {
 	this->_source = rhs._source;
 	this->_command = rhs._command;
 	this->_params = rhs._params;
+	this->_paramlist = rhs._paramlist;
 
-	this->destinator = rhs.destinator;
+	this->_destinators = rhs._destinators;
 	return *this;
 }
 
@@ -123,9 +124,15 @@ void Message::parseparams() {
 	}
 }
 
+void Message::addDestinator(User *dest) {
+	_destinators.push_back(dest);
+}
+
 std::string const & Message::getSource() const { return this->_source; }
 std::string const & Message::getCommand() const { return this->_command; }
 std::string const & Message::getParams() const { return this->_params; }
 std::vector<std::string> const & Message::getParamList() const { return this->_paramlist; }
+std::vector<User *> const &Message::getDestinators() const { return this->_destinators; }
+
 
 User * Message::getSender() { return this->_sender; }
