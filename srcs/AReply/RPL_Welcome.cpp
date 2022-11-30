@@ -20,5 +20,6 @@ Message RPL_Welcome::getmsg(Hub &hub, Message &message) {
 
 	newmessage.addDestinator(message.getSender());
 
+	//lol
 	return (newmessage);
 }
