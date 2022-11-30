@@ -58,7 +58,8 @@ SANITIZE = -fsanitize=address -g3
 
 INC_DIR = incs/
 
-INCLUDES =	${INC_DIR}Server.hpp \
+INCLUDES =	${INC_DIR}Log.hpp \
+			${INC_DIR}Server.hpp \
 			${INC_DIR}Listener.hpp \
 			${INC_DIR}Sender.hpp \
 			${INC_DIR}Hub.hpp \
