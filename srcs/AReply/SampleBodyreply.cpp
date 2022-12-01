@@ -9,5 +9,5 @@ Name::~Name() {
 	
 }
 
-Message Name::getmsg(Hub &hub, Message message, std::string param) {
+Message Name::getmsg(Hub &hub, Message &message, std::string param) {
 }

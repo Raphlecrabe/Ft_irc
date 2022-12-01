@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:52:34 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:53:45 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 # define INCLUDEREPLY_HPP
 
 #include "AReply.hpp"
-# include "ERR_nicknameinuse.hpp"
+
 # include "RPL_Welcome.hpp"
 # include "RPL_YourHost.hpp"
+# include "RPL_Topic.hpp"
+
+
 # include "ERR_erroneusnickname.hpp"
 # include "ERR_needmoreparams.hpp"
 # include "ERR_nonicknamegiven.hpp"
+# include "ERR_nicknameinuse.hpp"
 
 #endif

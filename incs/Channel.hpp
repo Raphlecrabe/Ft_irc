@@ -7,6 +7,8 @@
 # include "../incs/User.hpp"
 # include "Message.hpp"
 
+class	Message;
+
 class Channel {
 	private:
 		std::string			_name;
