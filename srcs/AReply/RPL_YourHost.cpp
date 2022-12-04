@@ -10,6 +10,9 @@ RPL_YourHost::~RPL_YourHost() {
 }
 
 Message RPL_YourHost::getmsg(Hub &hub, Message &message) {
+	std::string log = getName() + " called";
+	Debug::Log(log);
+
 	std::string client = message.getSender()->getNickname();
 
 	std::string params = client + " :Your host is " + hub.getServerName() + ", running version1";

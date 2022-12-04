@@ -4,6 +4,7 @@
 # include <iostream>
 # include "../Callback.hpp"
 # include "../Hub.hpp"
+# include "../Debug.hpp"
 
 class AReply {
 	private:

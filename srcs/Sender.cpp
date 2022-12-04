@@ -37,7 +37,8 @@ void Sender::sendto(int fd, const char *datas, int size) {
 		sent += res;
 	}
 
-	Debug::Log(std::string("Sender: sent ") + std::string(datas));
+	std::string log = "Sender: sent " + std::string(datas);
+	Debug::Log(log);
 }
 
 void Sender::sendto(int fd, std::string msg) {
@@ -57,7 +58,7 @@ void Sender::sendto(Message const & msg) {
 
 	std::vector<User *>::const_iterator it;
 
-	for (it = destinators.cbegin(); it != destinators.cend(); it++)
+	for (it = destinators.begin(); it != destinators.end(); it++)
 	{
 		int	destfd = (*it)->getFd();
 		std::string str = msg.Format();

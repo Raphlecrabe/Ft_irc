@@ -10,6 +10,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <cstdlib>
+#include <sstream>
 
 #define PORT "9034"
 
@@ -21,6 +22,8 @@
 #include "../incs/Receiver.hpp"
 
 Server::Server(std::string const &serverName, std::string const &networkName) : _hub(this), _receiver(_hub), _serverName(serverName), _networkName(networkName) {
+	
+	initTime();
 
 	_listener.init(PORT, 5);
 
@@ -28,6 +31,17 @@ Server::Server(std::string const &serverName, std::string const &networkName) : 
 }
 
 Server::~Server() {
+}
+
+void	Server::initTime() {
+	time_t now_c = time(NULL);
+    struct tm *parts = localtime(&now_c);
+
+	std::stringstream stream;
+
+	stream << parts->tm_mday << "/" << 1 + parts->tm_mon << "/" << 1900 + parts->tm_year;
+
+	stream >> this->_startTime;
 }
 
 void	Server::new_user(int fd) {
@@ -44,7 +58,7 @@ void	Server::receive(int fd) {
 		return;
 	}
 	
-	std::cout << "Received: " << datas << std::endl;
+	std::cout << "Received: " << datas;
 
 	User * usr = _hub.getUserByFd(fd);
 
@@ -83,5 +97,6 @@ void Server::launch() {
 	}
 }
 
-	std::string const &Server::getServerName() const { return this->_serverName; }
-	std::string const &Server::getNetworkName() const { return this->_networkName; }
+std::string const &Server::getServerName() const { return this->_serverName; }
+std::string const &Server::getNetworkName() const { return this->_networkName; }
+std::string	const &Server::getStartTime() const { return this->_startTime; }

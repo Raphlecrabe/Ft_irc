@@ -29,6 +29,9 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
+					RPL_IsSupport.cpp  \
+					RPL_MyInfo.cpp  \
+					RPL_Created.cpp  \
 					RPL_Welcome.cpp \
 					RPL_YourHost.cpp \
 					ERR_nicknameinuse.cpp \

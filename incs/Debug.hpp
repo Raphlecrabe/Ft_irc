@@ -5,8 +5,9 @@
 
 class Debug {
 	private:
-		static Debug *_instance;
-		std::string _fileName;
+		static Debug	*_instance;
+		std::string		_fileName;
+		long int		_startTime;
 
 		void _log(std::string &);
 

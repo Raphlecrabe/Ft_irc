@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:52:24 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/04 23:41:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ private:
 
 	RPL_Welcome				Welcome;
 	RPL_YourHost 			YourHost;
+	RPL_Created				Created;
+	RPL_MyInfo				MyInfo;
+	RPL_IsSupport			IsSupport;
 
 	ERR_nicknameinuse		ERR_nicknameinuse;
 	ERR_needmoreparams		ERR_needmoreparams;

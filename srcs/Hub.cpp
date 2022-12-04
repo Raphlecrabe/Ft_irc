@@ -67,6 +67,7 @@ std::vector<User *> const & Hub::getUserList() const {
 
 std::string const &Hub::getServerName() const { return _server->getServerName(); }
 std::string const &Hub::getNetworkName() const { return _server->getNetworkName(); }
+std::string	const &Hub::getStartTime() const { return _server->getStartTime(); }
 
 Channel	&Hub::CreateChannel(std::string &name, User &user)
 {	

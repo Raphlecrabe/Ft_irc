@@ -1,9 +1,27 @@
-Init server with port 9034
-Dispatcher: executing commmand CAP
-Dispatcher: executing commmand NICK
-Dispatcher: executing commmand USER
-Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
-
-Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
-
-Dispatcher: Command not found: QUIT
+[0] Init server with port 9034
+[4480] Listener: received: NICK fbelthoi
+[4480] Dispatcher: executing commmand NICK
+[4480] Listener: received: USER fbelthoi 0 * :fbelthoi
+[4480] Dispatcher: executing commmand USER
+[4480] RPL_WELCOME called
+[4480] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
+[4480] RPL_YOURHOST called
+[4480] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
+[4480] RPL_CREATED called
+[4480] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 5/12/2022
+[4481] RPL_MYINFO called
+[4481] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
+[4481] RPL_ISSUPPORT called
+[4481] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
+[19094] Listener: received: PING 127.0.0.1
+[19094] Dispatcher: executing commmand PING
+[19095] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
+[41226] Listener: received: PING QIqiuzdqsdhqUZHD
+[41227] Dispatcher: executing commmand PING
+[41227] Sender: sent : PONG AwesomeIrc.com QIqiuzdqsdhqUZHD
+[64787] Listener: received: PING 127.0.0.1
+[64788] Dispatcher: executing commmand PING
+[64788] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
+[77057] Listener: received: QUIT :WeeChat 3.0
+[77057] Dispatcher: Command not found: QUIT
+[77061] Listener: received: 

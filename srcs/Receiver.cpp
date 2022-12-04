@@ -1,5 +1,6 @@
 # include "../incs/Receiver.hpp"
 # include "../incs/Message.hpp"
+# include "../incs/Debug.hpp"
 # include <iostream>
 # include <vector>
 
