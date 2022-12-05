@@ -12,5 +12,6 @@ Callback	&Cap::cmdExecute(Message & message, Hub & hub)
 {
 	(void)message;
 	(void)hub;
+	Debug::Log("Executing command CAP");
 	return _callback;
 }

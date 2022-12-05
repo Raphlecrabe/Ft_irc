@@ -10,4 +10,5 @@ Name::~Name() {
 
 Callback	&Name::cmdExecute(Message & message, Hub & hub)
 {
+	Debug::Log("Executing command NAME");
 }

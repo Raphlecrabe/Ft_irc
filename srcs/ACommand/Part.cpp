@@ -10,6 +10,7 @@ Part::~Part() {
 
 Callback	&Part::cmdExecute(Message & message, Hub & hub)
 {
+	Debug::Log("Executing command PART");
 	std::vector<std::string>	Paramlist = Utils::split(message.getParamList()[0], ',');
 	std::vector<std::string>::iterator	it;
 

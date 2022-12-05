@@ -59,6 +59,7 @@ void	Join::addReplys(std::string &param)
 
 Callback	&Join::cmdExecute(Message & message, Hub & hub)
 {
+	Debug::Log("Executing command JOIN");
 	if (checkparams(message) == -1)
 		return (_callback);
 	std::vector<std::string> params = Utils::split(message.getParamList()[0], ',');
