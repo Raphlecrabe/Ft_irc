@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ACommand.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:20:07 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/25 14:00:23 by marvin           ###   ########.fr       */
+/*   Updated: 2022/12/02 16:45:26 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string>
 # include "../Callback.hpp"
 # include "../Hub.hpp"
+# include "../Utils.hpp"
 
 class ACommand
 {

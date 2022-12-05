@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/30 14:52:39 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:36:48 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,17 @@ ReplyCreator::ReplyCreator()
 {
 	insert(&Welcome);
 	insert(&YourHost);
+	insert(&Topic);
+	insert(&Namereply);
+	insert(&Endofnames);
 	
 	insert(&ERR_nicknameinuse);
 	insert(&ERR_needmoreparams);
 	insert(&ERR_erroneusnickname);
 	insert(&ERR_nonicknamegiven);
+	insert(&ERR_Toomanychannels);
+	insert(&ERR_Channelisfull);
+	insert(&ERR_Badchanmask);
 }
 
 ReplyCreator::~ReplyCreator()

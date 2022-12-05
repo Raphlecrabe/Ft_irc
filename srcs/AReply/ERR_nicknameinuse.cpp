@@ -18,7 +18,7 @@ Message ERR_nicknameinuse::getmsg(Hub &hub, Message &message, std::string param)
 	params += message.getSender()->getNickname();
 	params += " :Nickname is already in use";
 	
-	Message	newmessage(":lebestserver.com", "433", params);
+	Message	newmessage(hub.getServerName(), "433", params);
 
 	newmessage.addDestinator(message.getSender());
 	return (newmessage);
