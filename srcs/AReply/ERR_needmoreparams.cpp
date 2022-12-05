@@ -18,7 +18,7 @@ Message ERR_needmoreparams::getmsg(Hub &hub, Message &message, std::string param
 	params += message.getCommand();
 	params += " :Not enough parameters";
 	
-	Message	newmessage(":lebestserver.com", "461", params);
+	Message	newmessage(hub.getServerName(), "461", params);
 
 	newmessage.addDestinator(message.getSender());
 	return (newmessage);

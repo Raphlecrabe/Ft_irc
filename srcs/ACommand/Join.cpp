@@ -1,5 +1,7 @@
 #include "../../incs/ACommand/Join.hpp"
 
+//TO DO : A corriger avec la bonne gestion des params avec le split sur une virgule pour les channels
+
 Join::Join() : ACommand("JOIN"){
 
 }
@@ -41,7 +43,7 @@ int	Join::addChannel(Hub &hub, Message &message, std::string &param)
 		}
 		catch(const std::exception &e)
 		{
-			_callback.addReply(e.what(), "");
+			_callback.addReply(e.what(), param);
 			return (-1);
 		}
 		addReplys(param);
@@ -59,9 +61,12 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 {
 	if (checkparams(message) == -1)
 		return (_callback);
-	std::vector<std::string> params = message.getParamList();
-	for (unsigned int i = 0; i < message.getParamList().size(); i++)
+	std::vector<std::string> params = Utils::split(message.getParamList()[0], ',');
+
+	for (unsigned int i = 0; i < params.size(); i++)
 	{
+		if (params[i].size() == 0)
+			continue;
 		Channel	*channel = hub.getChannelByName(params[i]);
 		if (channel == NULL)
 		{

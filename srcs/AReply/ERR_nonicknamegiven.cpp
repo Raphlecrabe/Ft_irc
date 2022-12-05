@@ -17,7 +17,7 @@ Message ERR_nonicknamegiven::getmsg(Hub &hub, Message &message, std::string para
 	params += message.getSource();
 	params += " :No nickname given";
 	
-	Message	newmessage(":lebestserver.com", "431", params);
+	Message	newmessage(hub.getServerName(), "431", params);
 
 	newmessage.addDestinator(message.getSender());
 	return (newmessage);

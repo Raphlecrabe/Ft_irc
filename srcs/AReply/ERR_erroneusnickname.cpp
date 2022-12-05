@@ -18,7 +18,7 @@ Message ERR_erroneusnickname::getmsg(Hub &hub, Message &message, std::string par
 	params += message.getSender()->getNickname();
 	params += " :Erroneus nickname";
 	
-	Message	newmessage(":lebestserver.com", "432", params);
+	Message	newmessage(hub.getServerName(), "432", params);
 
 	newmessage.addDestinator(message.getSender());
 	return (newmessage);

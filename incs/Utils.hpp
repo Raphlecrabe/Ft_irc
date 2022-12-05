@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CommandCreator.hpp                                 :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/01 16:02:25 by rmonacho         ###   ########lyon.fr   */
+/*   Created: 2022/12/02 13:17:19 by rmonacho          #+#    #+#             */
+/*   Updated: 2022/12/02 14:28:48 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMMANDCREATOR_HPP
-# define COMMANDCREATOR_HPP
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
-# include "ACommand/Includecommand.hpp"
-# include <map>
 # include <string>
+# include <vector>
 
-class CommandCreator
+class Utils
 {
 private:
-	std::map<std::string, ACommand *> _commands;
-
-	Nick nick;
-	UserCmd usercmd;
-	Ping	ping;
-	Cap		cap;
-	Join	join;
-	Part	part;
-
-	void insert(ACommand *);
-
 public:
-	CommandCreator();
-	~CommandCreator();
+	Utils();
+	~Utils();
 
-	ACommand * getCommandByName(std::string &name) const;
+	//Split un string en fonction du delimiteur, si le delimiteur est en premier 
+	//cree un argument vide, si le delimiteur est en dernier, ne cree pas d'argument
+	static std::vector<std::string>	split(std::string param, char delimiteur);
 };
 
 #endif

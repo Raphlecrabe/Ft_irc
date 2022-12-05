@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Define.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:56:28 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/28 16:07:57 by rafy             ###   ########.fr       */
+/*   Updated: 2022/12/02 14:49:46 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # define NICKLEN 20 // Taille max des nicknames de User
 # define CHANNEL_MAX 2500 // Nombre de channel max sur le serveur
 # define CHANNEL_USER_LIMIT 500 // Nombre d'utilisateur max dans un channel
+
+# include "Utils.hpp"
 
 #endif

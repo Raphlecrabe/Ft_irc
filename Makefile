@@ -19,8 +19,10 @@ SRCS			= 	main.cpp \
 					Channel.cpp \
 					Messager.cpp \
 					ReplyCreator.cpp \
+					Utils.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
+					Part.cpp  \
 					Join.cpp  \
 					Nick.cpp \
 					UserCmd.cpp \
@@ -28,6 +30,10 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
+					ERR_Badchanmask.cpp  \
+					ERR_Channelisfull.cpp  \
+					ERR_Toomanychannels.cpp  \
+					RPL_Endofnames.cpp  \
 					RPL_Namereply.cpp  \
 					RPL_Topic.cpp  \
 					RPL_Welcome.cpp \
@@ -77,6 +83,7 @@ INCLUDES =	${INC_DIR}Server.hpp \
 			${INC_DIR}Callback.hpp \
 			${INC_DIR}ReplyCreator.hpp \
 			${INC_DIR}Messager.hpp \
+			${INC_DIR}Utils.hpp \
 
 
 ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp
