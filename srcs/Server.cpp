@@ -13,6 +13,7 @@
 
 #define PORT "9034"
 
+#include "../incs/Define.hpp"
 #include "../incs/Server.hpp"
 #include "../incs/Listener.hpp"
 #include "../incs/Hub.hpp"
@@ -22,6 +23,8 @@
 Server::Server(std::string const &serverName, std::string const &networkName) : _hub(this), _receiver(_hub), _serverName(serverName), _networkName(networkName) {
 
 	_listener.init(PORT, 5);
+
+	Debug::Log(std::string("Init server with port ") + std::string(PORT));
 }
 
 Server::~Server() {

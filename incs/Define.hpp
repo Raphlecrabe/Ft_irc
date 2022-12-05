@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Define.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:56:28 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/28 16:07:57 by rafy             ###   ########.fr       */
+/*   Updated: 2022/11/30 16:08:03 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_HPP
 # define DEFINE_HPP
+
+# include "Debug.hpp"
 
 # define CHANNEL_LIMIT 20 // Nombre de channel max par utilisateur
 # define USERLEN 15 // Taille max des noms de User 

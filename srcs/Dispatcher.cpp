@@ -6,10 +6,11 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:48:46 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:04:12 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../incs/Debug.hpp"
 #include "../incs/Callback.hpp"
 #include "../incs/Dispatcher.hpp"
 
@@ -31,10 +32,12 @@ int	Dispatcher::Execute(Message & client_request)
 	{
 		//Que faire quand on connait pas la commande ?
 		//Et ensuite envoyer un message au serveur ?
-		std::cout << "Command not found: " << cmdname << std::endl;
+		Debug::Log(std::string("Dispatcher: Command not found: ") + std::string(cmdname));
 		return (-1);
 	}
 
+	std::string log = std::string("Dispatcher: executing commmand ") + std::string(cmdname);
+	Debug::Log(log);
 	Callback	&request = Command->cmdExecute(client_request, _hub);
 	this->_Replyer.TreatReplys(request, client_request);
 	this->_Messager.TreatMessages(request);
