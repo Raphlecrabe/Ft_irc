@@ -34,7 +34,7 @@ class User {
 		void setName(std::string & name);
 		void setRealname(std::string & realname);
 		void setNumberOfChannels(int number);
-		void AddChannel(Channel &channel);
+		void AddChannel(Channel *channel);
 };
 
 # include "Channel.hpp"

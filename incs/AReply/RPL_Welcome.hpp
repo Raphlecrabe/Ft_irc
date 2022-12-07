@@ -16,6 +16,8 @@ class RPL_Welcome : public AReply {
 			std::string log = getName() + " called";
 			Debug::Log(log);
 
+			(void)param;
+
 			std::string client = message.getSender()->getNickname();
 			std::string nick = message.getSender()->getNickname();
 

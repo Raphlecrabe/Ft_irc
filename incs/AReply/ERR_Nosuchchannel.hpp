@@ -7,8 +7,8 @@ class ERR_Nosuchchannel : public AReply{
 	private:
 
 	public:
-		ERR_Nosuchchannel();
-		~ERR_Nosuchchannel();
+		ERR_Nosuchchannel() : AReply("ERR_NOSUCHCHANNEL") {}
+		~ERR_Nosuchchannel() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			std::string messageparam;

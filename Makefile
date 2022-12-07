@@ -78,11 +78,14 @@ REPLIES =		AReply.hpp \
 				ERR_needmoreparams.hpp \
 				ERR_nicknameinuse.hpp \
 				ERR_nonicknamegiven.hpp \
+				ERR_notonchannel.hpp \
+				ERR_Nosuchchannel.hpp \
 				RPL_Created.hpp \
 				RPL_IsSupport.hpp \
 				RPL_MyInfo.hpp \
 				RPL_Welcome.hpp \
 				RPL_YourHost.hpp \
+				RPL_Topic.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

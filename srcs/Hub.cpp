@@ -69,9 +69,9 @@ std::string const &Hub::getServerName() const { return _server->getServerName();
 std::string const &Hub::getNetworkName() const { return _server->getNetworkName(); }
 std::string	const &Hub::getStartTime() const { return _server->getStartTime(); }
 
-Channel	&Hub::CreateChannel(std::string &name, User &user)
+Channel	&Hub::CreateChannel(std::string &name, User *user)
 {	
-	if (user.getNumberOfChannels() == CHANNEL_LIMIT)
+	if (user->getNumberOfChannels() == CHANNEL_LIMIT)
 		throw Hub::TooManyChannels();
 	if (_numberofchannels == CHANNEL_MAX)
 		throw Hub::ChannelMaxReached();
@@ -85,8 +85,9 @@ Channel	&Hub::CreateChannel(std::string &name, User &user)
 	Channel	*newchannel = new Channel(name);
 	if (newchannel->AddUser(user) == -1)
 		throw Hub::ChannelIsFull();
-	newchannel->AddFd(user.getFd());
-	user.AddChannel(*newchannel);
+	newchannel->AddFd(user->getFd());
+	user->AddChannel(newchannel);
+	_channels.push_back(newchannel);
 	_numberofchannels ++;
 	return *newchannel;
 }

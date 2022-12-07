@@ -14,6 +14,8 @@ class RPL_IsSupport : public AReply{
 			std::string log = getName() + " called";
 			Debug::Log(log);
 
+			(void)param;
+
 			std::string client = message.getSender()->getNickname();
 
 			std::string params = client + " AWAYLEN=200" + " :are supported by this server";

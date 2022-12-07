@@ -26,7 +26,7 @@ class Channel {
 		std::vector<User *>	const &get_users() const;
 		std::vector<int>	const &get_users_fd() const;
 		void	AddFd(int fd);
-		int		AddUser(User &);
+		int		AddUser(User *);
 		int		RemoveUser(User &);
 
 		void	ChangeTopic(std::string name);

@@ -32,8 +32,8 @@ void User::setName(std::string & name) { this->_name = name; }
 void User::setRealname(std::string & realname) { this->_realname = realname; }
 void User::setNumberOfChannels(int number) { this->_number_of_channels = number; }
 
-void User::AddChannel(Channel &channel)
+void User::AddChannel(Channel *channel)
 {
 	_number_of_channels ++;
-	_channels.push_back(&channel);
+	_channels.push_back(channel);
 }

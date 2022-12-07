@@ -27,14 +27,18 @@ void Channel::AddFd(int fd)
 	_users_fd.push_back(fd);
 }
 
-int	Channel::AddUser(User &new_user)
+int	Channel::AddUser(User *new_user)
 {
+	std::cout << "lol0" << std::endl;
 	if (static_cast<int>(_users.size()) == _client_limit)
 	{
+		Debug::Log("Max user channel hit");
 		return (-1);
 	}
-	_users.push_back(&new_user);
-	this->AddFd(new_user.getFd());
+	std::cout << "lol1" << std::endl;
+	_users.push_back(new_user);
+	std::cout << "lol2" << std::endl;
+	this->AddFd(new_user->getFd());
 	return (0);
 }
 

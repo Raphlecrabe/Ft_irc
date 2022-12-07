@@ -13,7 +13,7 @@ class ERR_needmoreparams : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			std::string params;
 			(void)hub;
-			(void)params;
+			(void)param;
 
 			params += message.getSource() + " ";
 			params += message.getCommand();

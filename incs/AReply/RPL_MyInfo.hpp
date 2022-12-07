@@ -14,6 +14,8 @@ class RPL_MyInfo : public AReply{
 			std::string log = getName() + " called";
 			Debug::Log(log);
 
+			(void)param;
+
 			std::string client = message.getSender()->getNickname();
 
 			std::string params = client + " " + hub.getServerName() + " 1.0";

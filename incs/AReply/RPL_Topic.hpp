@@ -11,10 +11,13 @@ class RPL_Topic : public AReply{
 		~RPL_Topic() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Message	NewMessageNoTopic("", "", "");
 			Channel	*channel = hub.getChannelByName(param);
-			if (channel->get_topic().empty() == 1)
+			if (channel->get_topic().empty() == true)
+			{
+				Message	NewMessageNoTopic(hub.getServerName(), "332", "No Topic");
+				NewMessageNoTopic.addDestinator(message.getSender());
 				return (NewMessageNoTopic);
+			}
 
 			std::string messageparam = message.getSender()->getName();
 			messageparam += " " + channel->get_name() + " :" + channel->get_topic();
