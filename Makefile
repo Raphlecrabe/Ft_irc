@@ -57,8 +57,6 @@ HEADERS =		Debug.hpp \
 				Message.hpp \
 				Replyer.hpp \
 				AReply/AReply.hpp \
-				AReply/Includereply.hpp \
-				Replyer.hpp \
 				ACommand/ACommand.hpp \
 				Dispatcher.hpp \
 				Receiver.hpp \
@@ -67,11 +65,16 @@ HEADERS =		Debug.hpp \
 				ReplyCreator.hpp \
 				Messager.hpp \
 
+COMMANDS =		ACommand.hpp \
+				Includecommand.hpp \
+				#NEW_CMDHPP_HERE
+
 REPLIES =		AReply.hpp \
+				Includereply.hpp \
 				ERR_erroneusnickname.hpp \
 				ERR_needmoreparams.hpp \
 				ERR_nicknameinuse.hpp \
-				ERR_nonickenamegiven.hpp \
+				ERR_nonicknamegiven.hpp \
 				RPL_Created.hpp \
 				RPL_IsSupport.hpp \
 				RPL_MyInfo.hpp \

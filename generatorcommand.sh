@@ -11,6 +11,9 @@ sed -i '' "s/Name/$Class/g" $HPP $CPP
 sed -i '' "s/#NEW_CMD_HERE/$Class.cpp \\\#NC/g" Makefile
 gsed -i "s/#NC/\n\t\t\t\t\t#NEW_CMD_HERE/g" Makefile
 
+sed -i '' "s/#NEW_CMDHPP_HERE/$Class.hpp \\\#NC/g" Makefile
+gsed -i "s/#NC/\n\t\t\t\t#NEW_CMDHPP_HERE/g" Makefile
+
 class=$(echo $Class | tr 'A-Z' 'a-z')
 
 sed -i '' "s=//insert_here=insert(\&$class);//NR=g" srcs/CommandCreator.cpp
