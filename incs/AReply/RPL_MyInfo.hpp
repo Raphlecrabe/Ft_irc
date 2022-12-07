@@ -7,10 +7,23 @@ class RPL_MyInfo : public AReply{
 	private:
 
 	public:
-		RPL_MyInfo();
-		~RPL_MyInfo();
+		RPL_MyInfo() : AReply("RPL_MYINFO") {}
+		~RPL_MyInfo() {}
 
-		Message	getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message) {
+			std::string log = getName() + " called";
+			Debug::Log(log);
+
+			std::string client = message.getSender()->getNickname();
+
+			std::string params = client + " " + hub.getServerName() + " 1.0";
+
+			Message	newmessage(hub.getServerName(), "004", params);
+
+			newmessage.addDestinator(message.getSender());
+
+			return (newmessage);
+		}
 };
 
 #endif

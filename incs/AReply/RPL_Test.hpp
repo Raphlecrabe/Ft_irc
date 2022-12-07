@@ -1,14 +1,14 @@
-#ifndef NAME_HPP
-# define NAME_HPP
+#ifndef RPL_TEST_HPP
+# define RPL_TEST_HPP
 
 # include "AReply.hpp"
 
-class Name : public AReply{
+class RPL_Test : public AReply{
 	private:
 
 	public:
-		Name() : AReply("NAME") {};
-		~Name() {}
+		RPL_Test() : AReply("RPL_TEST") {};
+		~RPL_Test() {}
 
 		Message	getmsg(Hub &hub, Message &message) {
 			Message newmessage("source", "command", "params");

@@ -1,12 +1,12 @@
 #include "../../incs/AReply/AReply.hpp"
 #include <iostream>
 
-AReply::AReply(std::string name) : _name(name) {
+// AReply::AReply(std::string name) : _name(name) {
 
-}
+// }
 
-AReply::~AReply() {
+// AReply::~AReply() {
 	
-}
+// }
 
-std::string &AReply::getName() { return _name; }
+// std::string &AReply::getName() { return _name; }

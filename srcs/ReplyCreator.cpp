@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/04 23:40:42 by marvin           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:57:08 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/ReplyCreator.hpp"
+#include "../incs/AReply/Includereply.hpp"
 
 ReplyCreator::ReplyCreator()
 {
@@ -24,6 +25,7 @@ ReplyCreator::ReplyCreator()
 	insert(&ERR_needmoreparams);
 	insert(&ERR_erroneusnickname);
 	insert(&ERR_nonicknamegiven);
+	//insert_here;
 }
 
 ReplyCreator::~ReplyCreator()

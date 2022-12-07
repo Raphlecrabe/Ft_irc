@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/04 23:41:25 by marvin           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:57:05 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ private:
 	ERR_needmoreparams		ERR_needmoreparams;
 	ERR_erroneusnickname	ERR_erroneusnickname;
 	ERR_nonicknamegiven		ERR_nonicknamegiven;
+	//reply_here
 
 	void	insert(AReply *newreply);
 public:

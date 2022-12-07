@@ -11,11 +11,11 @@ class AReply {
 		std::string _name;
 
 	public:
-		AReply(std::string name);
-		virtual ~AReply();
+		AReply(std::string name) : _name(name) {}
+		virtual ~AReply() {}
 
-		std::string &getName();
-		virtual	Message getmsg(Hub &hub, Message &message) = 0; //TO DO Ajouter les params dans le getMsg
+		std::string &getName() { return _name; }
+		virtual	Message getmsg(Hub &hub, Message &message) = 0;
 };
 
 #endif

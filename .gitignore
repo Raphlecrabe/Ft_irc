@@ -2,6 +2,8 @@ a.out
 exec
 *.o
 weechat*
-generator*
+generator.sh
+generatorreply.sh
+generatorcommand.sh
 .vscode
 log.txt

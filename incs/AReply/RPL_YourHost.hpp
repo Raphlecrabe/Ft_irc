@@ -7,10 +7,23 @@ class RPL_YourHost : public AReply{
 	private:
 
 	public:
-		RPL_YourHost();
-		~RPL_YourHost();
+		RPL_YourHost() : AReply("RPL_YOURHOST") {}
+		~RPL_YourHost() {}
 
-		Message	getmsg(Hub &hub, Message &message);
+		Message	getmsg(Hub &hub, Message &message) {
+			std::string log = getName() + " called";
+			Debug::Log(log);
+
+			std::string client = message.getSender()->getNickname();
+
+			std::string params = client + " :Your host is " + hub.getServerName() + ", running version1";
+
+			Message	newmessage(hub.getServerName(), "002", params);
+			
+			newmessage.addDestinator(message.getSender());
+
+			return (newmessage);
+		}
 };
 
 #endif
