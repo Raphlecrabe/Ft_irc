@@ -9,10 +9,25 @@ class RPL_Welcome : public AReply {
 	private:
 
 	public:
-		RPL_Welcome();
-		~RPL_Welcome();
+		RPL_Welcome() : AReply("RPL_WELCOME") {}
+		~RPL_Welcome() {}
 
-		Message getmsg(Hub &hub, Message &messsage, std::string param);
+		Message getmsg(Hub &hub, Message &message, std::string param) {
+			std::string log = getName() + " called";
+			Debug::Log(log);
+
+			std::string client = message.getSender()->getNickname();
+			std::string nick = message.getSender()->getNickname();
+
+			std::string params = client + " :Welcome to the " + hub.getNetworkName() + " Network, " + nick;
+
+			Message	newmessage(hub.getServerName(), "001", params);
+			(void) message;
+
+			newmessage.addDestinator(message.getSender());
+
+			return (newmessage);
+		}
 };
 
 #endif

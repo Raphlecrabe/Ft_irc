@@ -28,21 +28,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Nick.cpp \
 					UserCmd.cpp \
 					Cap.cpp \
-					Ping.cpp\
-
-SRCS_REPLY		=	AReply.cpp \
-					ERR_Badchanmask.cpp  \
-					ERR_Channelisfull.cpp  \
-					ERR_Toomanychannels.cpp  \
-					RPL_Endofnames.cpp  \
-					RPL_Namereply.cpp  \
-					RPL_Topic.cpp  \
-					RPL_Welcome.cpp \
-					RPL_YourHost.cpp \
-					ERR_nicknameinuse.cpp \
-					ERR_needmoreparams.cpp  \
-					ERR_nonicknamegiven.cpp  \
-					ERR_erroneusnickname.cpp  \
+					Ping.cpp \
+					#NEW_CMD_HERE
 
 #OBJS
 
@@ -50,11 +37,8 @@ OBJS_DIR = 	objs/
 
 OBJS	= 	${SRCS:%.cpp=${OBJS_DIR}%.o} \
 			${SRCS_COMMAND_ABS:%.cpp=${OBJS_DIR}%.o} \
-			${SRCS_REPLY_ABS:%.cpp=${OBJS_DIR}%.o} \
 
 SRCS_COMMAND_ABS = ${SRCS_COMMAND:%.cpp=${COMMAND}%.cpp}
-
-SRCS_REPLY_ABS = ${SRCS_REPLY:%.cpp=${REPLY}%.cpp}
 
 NAME	= exec
 
@@ -64,29 +48,50 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SANITIZE = -fsanitize=address -g3
 
-INC_DIR = incs/
+INC_DIR = incs
 
-INCLUDES =	${INC_DIR}Debug.hpp \
-			${INC_DIR}Server.hpp \
-			${INC_DIR}Listener.hpp \
-			${INC_DIR}Sender.hpp \
-			${INC_DIR}Hub.hpp \
-			${INC_DIR}User.hpp \
-			${INC_DIR}Message.hpp \
-			${INC_DIR}Replyer.hpp \
-			${INC_DIR}AReply/AReply.hpp \
-			${INC_DIR}AReply/Replyer.hpp \
-			${INC_DIR}ACommand/ACommand.hpp \
-			${INC_DIR}Dispatcher.hpp \
-			${INC_DIR}Receiver.hpp \
-			${INC_DIR}CommandCreator.hpp \
-			${INC_DIR}Callback.hpp \
-			${INC_DIR}ReplyCreator.hpp \
-			${INC_DIR}Messager.hpp \
-			${INC_DIR}Utils.hpp \
+HEADERS =		Debug.hpp \
+				Server.hpp \
+				Listener.hpp \
+				Sender.hpp \
+				Hub.hpp \
+				User.hpp \
+				Message.hpp \
+				Replyer.hpp \
+				AReply/AReply.hpp \
+				ACommand/ACommand.hpp \
+				Dispatcher.hpp \
+				Receiver.hpp \
+				CommandCreator.hpp \
+				Callback.hpp \
+				ReplyCreator.hpp \
+				Messager.hpp \
 
+COMMANDS =		ACommand.hpp \
+				Includecommand.hpp \
+				#NEW_CMDHPP_HERE
 
-${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp
+REPLIES =		AReply.hpp \
+				Includereply.hpp \
+				ERR_erroneusnickname.hpp \
+				ERR_needmoreparams.hpp \
+				ERR_nicknameinuse.hpp \
+				ERR_nonicknamegiven.hpp \
+				RPL_Created.hpp \
+				RPL_IsSupport.hpp \
+				RPL_MyInfo.hpp \
+				RPL_Welcome.hpp \
+				RPL_YourHost.hpp \
+				#NEW_REPLY_HERE
+
+INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}
+
+INCS_REPLIES = 	${REPLIES:%=${INC_DIR}/AReply/%}
+
+INCLUDES = ${INCS_HEADERS} \
+			${INCS_REPLIES}
+
+${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp ${INCLUDES}
 				${CC} ${FLAGS} -c $< -o $@ -I.
 
 all:		makedirs ${NAME}

@@ -1,14 +1,14 @@
-#ifndef RPL_YOURHOST_HPP
-# define RPL_YOURHOST_HPP
+#ifndef RPL_CREATED_HPP
+# define RPL_CREATED_HPP
 
 # include "AReply.hpp"
 
-class RPL_YourHost : public AReply{
+class RPL_Created : public AReply{
 	private:
 
 	public:
-		RPL_YourHost() : AReply("RPL_YOURHOST") {}
-		~RPL_YourHost() {}
+		RPL_Created(): AReply("RPL_CREATED") {}
+		~RPL_Created() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			std::string log = getName() + " called";
@@ -16,10 +16,10 @@ class RPL_YourHost : public AReply{
 
 			std::string client = message.getSender()->getNickname();
 
-			std::string params = client + " :Your host is " + hub.getServerName() + ", running version1";
+			std::string params = client + " :This server was created " + hub.getStartTime();
 
-			Message	newmessage(hub.getServerName(), "002", params);
-			
+			Message	newmessage(hub.getServerName(), "003", params);
+
 			newmessage.addDestinator(message.getSender());
 
 			return (newmessage);

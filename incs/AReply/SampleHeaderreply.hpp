@@ -7,10 +7,14 @@ class Name : public AReply{
 	private:
 
 	public:
-		Name();
-		~Name();
+		Name() : AReply("NAME") {};
+		~Name() {}
 
-		Message	getmsg(Hub &hub, Message &message, std::string param);
+		Message	getmsg(Hub &hub, Message &message, std::string param) {
+			Message newmessage("source", "command", "params");
+
+			return newmessage;
+		}
 };
 
 #endif

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/01 15:37:14 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/07 15:11:05 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef REPLYCREATOR_HPP
 # define REPLYCREATOR_HPP
@@ -28,6 +29,9 @@ private:
 	RPL_Topic				Topic;
 	RPL_Namereply			Namereply;
 	RPL_Endofnames			Endofnames;
+	RPL_Created				Created;
+	RPL_MyInfo				MyInfo;
+	RPL_IsSupport			IsSupport;
 
 	ERR_nicknameinuse		ERR_nicknameinuse;
 	ERR_needmoreparams		ERR_needmoreparams;
@@ -36,6 +40,7 @@ private:
 	ERR_Toomanychannels		ERR_Toomanychannels;
 	ERR_Channelisfull		ERR_Channelisfull;
 	ERR_Badchanmask			ERR_Badchanmask;
+	//reply_here
 
 	void	insert(AReply *newreply);
 public:

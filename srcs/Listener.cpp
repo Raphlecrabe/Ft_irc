@@ -1,4 +1,5 @@
 #include "../incs/Listener.hpp"
+#include "../incs/Debug.hpp"
 
 #include <iostream>
 #include <string.h>
@@ -12,6 +13,7 @@
 #include <fcntl.h>
 #include <cstdlib>
 #include <stdio.h>
+#include <sstream>
 
 Listener::Listener() : _fd_count(0) {
 
@@ -126,6 +128,9 @@ std::string Listener::recvdatas(int fd) {
 		} else
 			datas += buf;
 	//}
+
+	std::string log = "Listener: received: " + datas;
+	Debug::Log(log);
 
 	return datas;
 }

@@ -27,9 +27,11 @@ class Server {
 
 		std::string _serverName;
 		std::string _networkName;
+		std::string	_startTime;
 
 		void	receive(int fd);
 		void	new_user(int fd);
+		void	initTime();
 
 	public:
 		Server(std::string const &serverName, std::string const &networkName);
@@ -39,6 +41,7 @@ class Server {
 
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
+		std::string	const &getStartTime() const;
 };
 
 #endif

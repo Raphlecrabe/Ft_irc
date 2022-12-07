@@ -32,6 +32,7 @@ class Hub {
 
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
+		std::string	const &getStartTime() const;
 
 		Channel	&CreateChannel(std::string &name, User &user);
 		Channel *getChannelByName(std::string &name) const;

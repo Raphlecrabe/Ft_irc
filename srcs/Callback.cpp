@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 16:06:46 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/07 15:12:43 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ std::vector<Message>	const	&Callback::getMessages() const
 void	Callback::addMessage(Message &message)
 {
 	_Messages.push_back(message);
+}
+
+void	Callback::addReply(std::string reply)
+{
+	_Replys.push_back(reply);
+	_Replyparams.push_back("");
 }
 
 void	Callback::addReply(std::string reply, std::string param)
