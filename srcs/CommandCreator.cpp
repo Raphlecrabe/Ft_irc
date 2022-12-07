@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/01 16:02:33 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 14:04:40 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ CommandCreator::CommandCreator()
 	insert(&cap);
 	insert(&join);
 	insert(&part);
+	insert(&topic);
 }
 
 void CommandCreator::insert(ACommand *cmd) {

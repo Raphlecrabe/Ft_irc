@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/01 15:37:14 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 13:36:42 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ private:
 	ERR_Toomanychannels		ERR_Toomanychannels;
 	ERR_Channelisfull		ERR_Channelisfull;
 	ERR_Badchanmask			ERR_Badchanmask;
+	ERR_Nosuchchannel		ERR_Nosuchchannel;
+	ERR_notonchannel		ERR_notonchannel;
 
 	void	insert(AReply *newreply);
 public:

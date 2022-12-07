@@ -29,6 +29,8 @@ class Channel {
 		int		AddUser(User &);
 		int		RemoveUser(User &);
 
+		void	ChangeTopic(std::string name);
+
 		void	addDestinatorsExceptOneInMessage(User *user, Message &message);
 
 		int	UserIsInChannel(User *user);

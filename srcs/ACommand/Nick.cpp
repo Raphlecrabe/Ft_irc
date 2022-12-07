@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/05 11:21:47 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 11:40:45 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 {
 	std::string nickname = message.getParams();
 
-	Debug::Log("Executing command NICK");
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
 		return (this->getCallback());
 
 	message.getSender()->setNickname(nickname);
-
+	//Debug
+	std::string log = "Nick : nickname has been set to : " + nickname;
+	Debug::Log(log);
 	return (this->getCallback());
 }
 

@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/01 15:36:48 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 13:36:56 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ ReplyCreator::ReplyCreator()
 	insert(&ERR_Toomanychannels);
 	insert(&ERR_Channelisfull);
 	insert(&ERR_Badchanmask);
+	insert(&ERR_Nosuchchannel);
+	insert(&ERR_notonchannel);
 }
 
 ReplyCreator::~ReplyCreator()

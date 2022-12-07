@@ -23,6 +23,7 @@ SRCS			= 	main.cpp \
 					Utils.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
+					Topic.cpp  \
 					Part.cpp  \
 					Join.cpp  \
 					Nick.cpp \
@@ -31,6 +32,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp\
 
 SRCS_REPLY		=	AReply.cpp \
+					ERR_notonchannel.cpp  \
+					ERR_Nosuchchannel.cpp  \
 					ERR_Badchanmask.cpp  \
 					ERR_Channelisfull.cpp  \
 					ERR_Toomanychannels.cpp  \

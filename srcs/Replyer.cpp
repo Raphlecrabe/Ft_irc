@@ -34,10 +34,15 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	AReply	*reply = this->_ReplyCreator.getReplyByName(name);
 	if (reply == NULL)
 	{
-		std::cout << "Replyer: " << name << " not found" << std::cout;
+		//Debug
+		std::string log = "Replyer :Reply " + reply->getName() + " :Not found";
+		Debug::Log(log);
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
+	//Debug
+	std::string log2 = "Replyer :Replying : " + reply->getName();
+	Debug::Log(log2);
 	this->_Sender.sendto(reply->getmsg(_hub, message, param));
 	return (0);
 }

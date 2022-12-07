@@ -1,9 +1,1 @@
 Init server with port 9034
-Dispatcher: executing commmand CAP
-Dispatcher: executing commmand NICK
-Dispatcher: executing commmand USER
-Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
-
-Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
-
-Dispatcher: Command not found: QUIT

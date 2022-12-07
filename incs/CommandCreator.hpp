@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/01 16:02:25 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 14:04:29 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ private:
 	Cap		cap;
 	Join	join;
 	Part	part;
+	Topic	topic;
 
 	void insert(ACommand *);
 

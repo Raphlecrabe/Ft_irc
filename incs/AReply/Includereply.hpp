@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/01 15:31:57 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 13:36:21 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@
 # include "ERR_Toomanychannels.hpp"
 # include "ERR_Channelisfull.hpp"
 # include "ERR_Badchanmask.hpp"
+# include "ERR_Nosuchchannel.hpp"
+# include "ERR_notonchannel.hpp"
 
 #endif
