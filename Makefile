@@ -23,6 +23,7 @@ SRCS			= 	main.cpp \
 					Utils.cpp \
 
 SRCS_COMMAND	=	ACommand.cpp \
+					Topic.cpp  \
 					Part.cpp  \
 					Join.cpp  \
 					Nick.cpp \

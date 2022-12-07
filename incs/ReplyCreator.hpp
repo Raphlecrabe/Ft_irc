@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:21:00 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:24:55 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ private:
 	ERR_Toomanychannels		ERR_Toomanychannels;
 	ERR_Channelisfull		ERR_Channelisfull;
 	ERR_Badchanmask			ERR_Badchanmask;
+	ERR_Nosuchchannel		ERR_Nosuchchannel;
+	ERR_notonchannel		ERR_notonchannel;
 	//reply_here
 
 	void	insert(AReply *newreply);

@@ -36,7 +36,7 @@ class Hub {
 
 		Channel	&CreateChannel(std::string &name, User &user);
 		Channel *getChannelByName(std::string &name) const;
-		void	removeChannelByName(std::string &name); // TO DO : faut encore le coder
+		void	removeChannelByName(std::string name); // TO DO : faut encore le coder
 		std::vector<Channel *> const &getChannelList() const;
 
 		int	getNumberOfChannels() const;

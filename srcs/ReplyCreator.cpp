@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/07 15:18:53 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:26:33 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ ReplyCreator::ReplyCreator()
 	insert(&ERR_Toomanychannels);
 	insert(&ERR_Channelisfull);
 	insert(&ERR_Badchanmask);
+	insert(&ERR_Nosuchchannel);
+	insert(&ERR_notonchannel);
 	//insert_here;
 }
 

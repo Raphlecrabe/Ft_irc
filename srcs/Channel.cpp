@@ -41,14 +41,22 @@ int	Channel::AddUser(User &new_user)
 int	Channel::RemoveUser(User &old_user)
 {
 	std::vector<User *>::iterator	it;
+	std::vector<int>::iterator	it2;
+
+	it2 = _users_fd.begin();
+
 	for(it = _users.begin(); it != _users.end(); it++)
 	{
 		if ((*it)->getFd() == old_user.getFd())
 		{
 			_users.erase(it);
+			_users_fd.erase(it2);
 			break;
 		}
+		it2++;
 	}
+	if (this->get_users().size() == 0)
+		return (-1);
 	return (0);
 }
 
@@ -70,6 +78,11 @@ std::vector<User *>	const	&Channel::get_users() const
 std::vector<int>	const	&Channel::get_users_fd() const
 {
 	return (_users_fd);
+}
+
+void	Channel::ChangeTopic(std::string name)
+{
+	_topic = name;
 }
 
 void	Channel::addDestinatorsExceptOneInMessage(User *user, Message &message)

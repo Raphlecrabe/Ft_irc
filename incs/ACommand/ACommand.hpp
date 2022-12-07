@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:20:07 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/02 16:45:26 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/05 11:20:08 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../Callback.hpp"
 # include "../Hub.hpp"
 # include "../Utils.hpp"
+# include "../Debug.hpp"
 
 class ACommand
 {

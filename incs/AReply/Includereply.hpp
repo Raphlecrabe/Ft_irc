@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:08:27 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:24:22 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "ERR_Toomanychannels.hpp"
 # include "ERR_Channelisfull.hpp"
 # include "ERR_Badchanmask.hpp"
+# include "ERR_Nosuchchannel.hpp"
+# include "ERR_notonchannel.hpp"
 
 # include "RPL_Welcome.hpp"
 # include "RPL_YourHost.hpp"

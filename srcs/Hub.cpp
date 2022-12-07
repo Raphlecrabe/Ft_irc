@@ -107,7 +107,7 @@ Channel	*Hub::getChannelByName(std::string &name) const
 	return (NULL);
 }
 
-void	Hub::removeChannelByName(std::string &name)
+void	Hub::removeChannelByName(std::string name)
 {
 	//TO DO : A coder lol 
 	(void)name;
