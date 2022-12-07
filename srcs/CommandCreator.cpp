@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/30 14:31:52 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:02:33 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ CommandCreator::CommandCreator()
 	insert(&usercmd);
 	insert(&ping);
 	insert(&cap);
+	insert(&join);
+	insert(&part);
 }
 
 void CommandCreator::insert(ACommand *cmd) {

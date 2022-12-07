@@ -1,5 +1,7 @@
 #include "../../incs/ACommand/Join.hpp"
 
+//TO DO : A corriger avec la bonne gestion des params avec le split sur une virgule pour les channels
+
 Join::Join() : ACommand("JOIN"){
 
 }
@@ -8,54 +10,71 @@ Join::~Join() {
 	
 }
 
-Callback	&Join::cmdExecute(Message & message, Hub & hub)
+int	Join::checkparams(Message &message)
 {
 	if (message.getParamList().size() == 0)
 	{
-		_callback.addReply("ERR_NEEDMOREPARAMS");
-		return (_callback);
+		_callback.addReply("ERR_NEEDMOREPARAMS", "");
+		return (-1);
 	}
+	return (0);
+}
 
-	std::vector<std::string> params = message.getParamList();
-	for (unsigned int i = 0; i < message.getParamList().size(); i++)
+int	Join::joinChannel(Channel *channel, Message &message, std::string param)
+{
+	if (channel->AddUser(*(message.getSender())) == -1)
 	{
+		_callback.addReply("ERR_CHANNELISFULL", param);
+		return (-1);
+	}
+	channel->AddFd(message.getSender()->getFd());
+	addReplys(param);
+	Message newmessage(message.getSender()->getNickname(), "JOIN", channel->get_name());
+	newmessage.addDestinator(message.getSender());
+	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
+	return (0);
+}
+
+int	Join::addChannel(Hub &hub, Message &message, std::string &param)
+{
+	try
+		{
+			hub.CreateChannel(param, *message.getSender());
+		}
+		catch(const std::exception &e)
+		{
+			_callback.addReply(e.what(), param);
+			return (-1);
+		}
+		addReplys(param);
+		return (0);
+}
+
+void	Join::addReplys(std::string &param)
+{
+	_callback.addReply("RPL_TOPIC", param);
+	_callback.addReply("RPL_NAMEREPLY", param);
+	_callback.addReply("RPL_ENDOFNAMES", param);
+}
+
+Callback	&Join::cmdExecute(Message & message, Hub & hub)
+{
+	if (checkparams(message) == -1)
+		return (_callback);
+	std::vector<std::string> params = Utils::split(message.getParamList()[0], ',');
+
+	for (unsigned int i = 0; i < params.size(); i++)
+	{
+		if (params[i].size() == 0)
+			continue;
 		Channel	*channel = hub.getChannelByName(params[i]);
 		if (channel == NULL)
 		{
-			try
-			{
-				hub.CreateChannel(params[i], *message.getSender());
-			}
-			catch(const std::exception &e)
-			{
-				_callback.addReply(e.what());
-				_callback.addReplyparam(params[i]);
+			if (addChannel(hub, message, params[i]) == -1)
 				continue;
-			}
-			_callback.addReply("RPL_TOPIC");
-			_callback.addReplyparam(params[i]);
-			_callback.addReply("RPL_NAMEREPLY");
-			_callback.addReplyparam(params[i]);
-			_callback.addReply("RPL_ENDOFNAMES");
-			_callback.addReplyparam(params[i]);
-			continue;
 		}
-		if (channel->AddUser(*(message.getSender())) == -1)
-		{
-			_callback.addReply("ERR_CHANNELISFULL");
-			_callback.addReplyparam(params[i]);
+		if (joinChannel(channel, message, params[i]) == -1)
 			continue;
-		}
-		channel->AddFd(message.getSender()->getFd());
-		_callback.addReply("RPL_TOPIC");
-		_callback.addReplyparam(params[i]);
-		_callback.addReply("RPL_NAMEREPLY");
-		_callback.addReplyparam(params[i]);
-		_callback.addReply("RPL_ENDOFNAMES");
-		_callback.addReplyparam(params[i]);
-		// TO DO : Faire la partie ou on envoit les messages à tous les utilisateurs du channel
-		// pour leur signaler que machin vient de rejoindre
-		// TO DO : Faire un système de fonctions qui génère les messages à tout le serveur
 	}
 	return(_callback);
 }
