@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/30 14:31:52 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:04:02 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ CommandCreator::CommandCreator()
 	insert(&usercmd);
 	insert(&ping);
 	insert(&cap);
+	//insert_here
 }
 
 void CommandCreator::insert(ACommand *cmd) {

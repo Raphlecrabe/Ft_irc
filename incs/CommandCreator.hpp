@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/30 14:27:18 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:04:04 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ private:
 	UserCmd usercmd;
 	Ping	ping;
 	Cap		cap;
+	//cmd_here
 
 	void insert(ACommand *);
 
