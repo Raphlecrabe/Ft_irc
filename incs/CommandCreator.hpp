@@ -30,6 +30,7 @@ private:
 	Part	part;
 	Topic	topic;
 	Motd	motd;
+	Lusers	lusers;
 	//cmd_here
 
 	void insert(ACommand *);

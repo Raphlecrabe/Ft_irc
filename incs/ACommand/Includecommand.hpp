@@ -24,6 +24,7 @@
 # include "Part.hpp"
 # include "Topic.hpp"
 # include "Motd.hpp"
+# include "Lusers.hpp"
 //include_here
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:20:37 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 11:16:28 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:06:15 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,8 @@ std::string Utils::toString(int n) {
 	ss << n;
 
 	return ss.str();
+}
+
+bool	Utils::isBetween(int n, int low, int high) {
+	return (n >= low && n <= high);
 }

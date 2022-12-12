@@ -31,6 +31,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Cap.cpp \
 					Ping.cpp \
 					Motd.cpp \
+					Lusers.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -72,6 +73,7 @@ HEADERS =		Debug.hpp \
 COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
 				Motd.hpp \
+				Lusers.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \

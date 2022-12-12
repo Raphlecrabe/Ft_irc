@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:17:19 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 11:16:02 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:06:17 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	//cree un argument vide, si le delimiteur est en dernier, ne cree pas d'argument
 	static std::vector<std::string>	split(std::string param, char delimiteur);
 	static std::string	toString(int n);
+	static bool			isBetween(int n, int low, int high);
 };
 
 #endif
