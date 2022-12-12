@@ -129,7 +129,7 @@ std::string Listener::recvdatas(int fd) {
 			datas += buf;
 	//}
 
-	std::string log = "Listener: received: " + datas + '$';
+	std::string log = "Listener: received: " + datas;
 	Debug::Log(log);
 
 	return datas;

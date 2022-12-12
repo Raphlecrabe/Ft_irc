@@ -12,8 +12,6 @@
 #include <cstdlib>
 #include <sstream>
 
-#define PORT "9034"
-
 #include "../incs/Define.hpp"
 #include "../incs/Server.hpp"
 #include "../incs/Listener.hpp"
@@ -21,13 +19,17 @@
 #include "../incs/Message.hpp"
 #include "../incs/Receiver.hpp"
 
-Server::Server(std::string const &serverName, std::string const &networkName) : _hub(this), _receiver(_hub), _serverName(serverName), _networkName(networkName) {
+Server::Server(std::string const &serverName, const char *port, char *password) : 	_hub(this),
+																					_receiver(_hub),
+																					_serverName(serverName),
+																					_password(password) {
 	
 	initTime();
 
-	_listener.init(PORT, 5);
+	_listener.init(port, 5);
+	this->_networkName = "FT_IRC";
 
-	Debug::Log(std::string("Init server with port ") + std::string(PORT));
+	Debug::Log(std::string("Init server with port ") + std::string(port));
 }
 
 Server::~Server() {

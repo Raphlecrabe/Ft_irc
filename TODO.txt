@@ -1,0 +1,3 @@
+Listener: check if datas are received until the end
+Sender: check if datas are sent until the end
+Sender: check if can write (poll)

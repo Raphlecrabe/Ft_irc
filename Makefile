@@ -43,7 +43,7 @@ OBJS	= 	${SRCS:%.cpp=${OBJS_DIR}%.o} \
 
 SRCS_COMMAND_ABS = ${SRCS_COMMAND:%.cpp=${COMMAND}%.cpp}
 
-NAME	= exec
+NAME	= ircserv
 
 CC		= clang++
 
