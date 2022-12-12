@@ -32,6 +32,8 @@
 # include "RPL_Topic.hpp"
 # include "RPL_Namereply.hpp"
 # include "RPL_Endofnames.hpp"
+# include "RPL_Luserclient.hpp"
+# include "RPL_Luserme.hpp"
 //include_here
 
 #endif

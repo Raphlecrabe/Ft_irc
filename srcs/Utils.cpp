@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:20:37 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/02 14:22:58 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:16:28 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Utils.hpp"
+#include <sstream>
 
 Utils::Utils()
 {
@@ -49,4 +50,12 @@ std::vector<std::string>	Utils::split(std::string param, char delimiteur)
 		i++;
 	}
 	return (result);
+}
+
+std::string Utils::toString(int n) {
+	std::stringstream ss;
+
+	ss << n;
+
+	return ss.str();
 }

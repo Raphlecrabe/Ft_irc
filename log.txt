@@ -1,31 +1,38 @@
 [0] Init server with port 9034
-[6431] Listener: received: CAP LS 302
-[6431] Dispatcher: executing commmand CAP
-[6432] Listener: received: NICK fbelthoi
+[5190] Listener: received: CAP LS 302
+[5190] Dispatcher: executing commmand CAP
+[5192] Listener: received: NICK fbelthoi
 USER fbelthoi 0 * :fbelthoi
-[6433] Dispatcher: executing commmand NICK
-[6433] Nick : nickname has been set to : fbelthoi
-[6434] Dispatcher: executing commmand USER
-[6434] Replyer :Replying : RPL_WELCOME
-[6435] RPL_WELCOME called
-[6435] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
-[6435] Replyer :Replying : RPL_YOURHOST
-[6436] RPL_YOURHOST called
-[6437] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
-[6437] Replyer :Replying : RPL_CREATED
-[6437] RPL_CREATED called
-[6438] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 7/12/2022
-[6438] Replyer :Replying : RPL_MYINFO
-[6439] RPL_MYINFO called
-[6440] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
-[6440] Replyer :Replying : RPL_ISSUPPORT
-[6441] RPL_ISSUPPORT called
-[6442] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
-[10980] Listener: received: JOIN lol
-[10980] Dispatcher: executing commmand JOIN
-[10982] Join : adding a new channel lol
-[10984] Replyer :Replying : RPL_TOPIC
-[10988] Sender: sent :AwesomeIrc.com 332 No Topic
-[10992] Replyer :Replying : RPL_NAMEREPLY
-[11002] Sender: sent :AwesomeIrc.com 353 fbelthoi =lol :fbelthoi 
-[11005] Replyer :Replying : RPL_ENDOFNAMES
+[5193] Dispatcher: executing commmand NICK
+[5193] Nick : nickname has been set to : fbelthoi
+[5194] Dispatcher: executing commmand USER
+[5195] Replyer :Replying : RPL_WELCOME
+[5196] RPL_WELCOME called
+[5197] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
+[5197] Replyer :Replying : RPL_YOURHOST
+[5200] RPL_YOURHOST called
+[5202] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
+[5204] Replyer :Replying : RPL_CREATED
+[5204] RPL_CREATED called
+[5205] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 12/12/2022
+[5206] Replyer :Replying : RPL_MYINFO
+[5206] RPL_MYINFO called
+[5207] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
+[5208] Replyer :Replying : RPL_ISSUPPORT
+[5208] RPL_ISSUPPORT called
+[5209] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
+[5209] Replyer :Replying : RPL_LUSERCLIENT
+[5211] RPL_LUSERCLIENT called
+[5212] Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+[5212] Replyer :Replying : RPL_LUSERME
+[5213] RPL_LUSERME called
+[5213] Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+[8141] Listener: received: JOIN l
+[8142] Dispatcher: executing commmand JOIN
+[8142] Join : adding a new channel l
+[8143] Replyer :Replying : RPL_TOPIC
+[8143] Sender: sent :AwesomeIrc.com 332 No Topic
+[8144] Replyer :Replying : RPL_NAMEREPLY
+[8144] Sender: sent :AwesomeIrc.com 353 fbelthoi =l :fbelthoi 
+[8145] Replyer :Replying : RPL_ENDOFNAMES
+[8145] Sender exception: <send> returned an error

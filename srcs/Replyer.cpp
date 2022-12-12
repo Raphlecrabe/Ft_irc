@@ -43,6 +43,11 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	//Debug
 	std::string log2 = "Replyer :Replying : " + reply->getName();
 	Debug::Log(log2);
-	this->_Sender.sendto(reply->getmsg(_hub, message, param));
+	try {
+		this->_Sender.sendto(reply->getmsg(_hub, message, param));
+	} catch (std::exception &e) {
+		Debug::Log(e.what());
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

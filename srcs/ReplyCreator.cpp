@@ -33,6 +33,8 @@ ReplyCreator::ReplyCreator()
 	insert(&ERR_Badchanmask);
 	insert(&ERR_Nosuchchannel);
 	insert(&ERR_notonchannel);
+	insert(&rpl_luserclient);
+	insert(&rpl_luserme);
 	//insert_here;
 }
 

@@ -68,14 +68,7 @@ void Sender::sendto(Message const & msg) {
 }
 
 const char* Sender::SendErrorException::what() const throw() {
-	std::stringstream ss;
-	ss << errno;
-
-	std::string str = "Sender exception: <send> returned an error: " + ss.str();
-
-	const char* c = str.c_str();
-
-	return c;
+	return "Sender exception: <send> returned an error";
 }
 
 const char* Sender::NoDestinationException::what() const throw() {

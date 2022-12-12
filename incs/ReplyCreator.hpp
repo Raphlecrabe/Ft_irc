@@ -42,6 +42,8 @@ private:
 	ERR_Badchanmask			ERR_Badchanmask;
 	ERR_Nosuchchannel		ERR_Nosuchchannel;
 	ERR_notonchannel		ERR_notonchannel;
+	RPL_Luserclient rpl_luserclient;
+	RPL_Luserme rpl_luserme;
 	//reply_here
 
 	void	insert(AReply *newreply);

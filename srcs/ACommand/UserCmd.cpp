@@ -26,6 +26,9 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	this->_callback.addReply("RPL_CREATED");
 	this->_callback.addReply("RPL_MYINFO");
 	this->_callback.addReply("RPL_ISSUPPORT");
+	
+	this->_callback.addReply("RPL_LUSERCLIENT");
+	this->_callback.addReply("RPL_LUSERME");
 
 	return this->_callback;
 }

@@ -29,15 +29,12 @@ void Channel::AddFd(int fd)
 
 int	Channel::AddUser(User *new_user)
 {
-	std::cout << "lol0" << std::endl;
 	if (static_cast<int>(_users.size()) == _client_limit)
 	{
 		Debug::Log("Max user channel hit");
 		return (-1);
 	}
-	std::cout << "lol1" << std::endl;
 	_users.push_back(new_user);
-	std::cout << "lol2" << std::endl;
 	this->AddFd(new_user->getFd());
 	return (0);
 }

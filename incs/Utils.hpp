@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:17:19 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/02 14:28:48 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 11:16:02 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	//Split un string en fonction du delimiteur, si le delimiteur est en premier 
 	//cree un argument vide, si le delimiteur est en dernier, ne cree pas d'argument
 	static std::vector<std::string>	split(std::string param, char delimiteur);
+	static std::string	toString(int n);
 };
 
 #endif
