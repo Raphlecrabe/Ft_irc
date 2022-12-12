@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:34 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:30:30 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ private:
 	Join	join;
 	Part	part;
 	Topic	topic;
+	Motd	motd;
 	//cmd_here
 
 	void insert(ACommand *);
@@ -37,7 +38,7 @@ public:
 	CommandCreator();
 	~CommandCreator();
 
-	ACommand * getCommandByName(std::string &name) const;
+	ACommand * getCommandByName(std::string const &name) const;
 };
 
 #endif

@@ -30,5 +30,7 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	this->_callback.addReply("RPL_LUSERCLIENT");
 	this->_callback.addReply("RPL_LUSERME");
 
+	this->_callback.addCommand("MOTD");
+
 	return this->_callback;
 }

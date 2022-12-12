@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/23 16:05:36 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/12 13:30:07 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ private:
 	CommandCreator			_CommandCreator;
 	Hub						&_hub;
 	Replyer					_Replyer;
+
+	int		TreatCommands(Callback &callback, User *sender);
+	int		Execute(std::string const &cmdname, Message &);
 
 public:
 	Dispatcher(Hub & hub);

@@ -1,38 +1,41 @@
 [0] Init server with port 9034
-[5190] Listener: received: CAP LS 302
-[5190] Dispatcher: executing commmand CAP
-[5192] Listener: received: NICK fbelthoi
+[20702] Listener: received: CAP LS 302
+[20724] Dispatcher: executing commmand CAP
+[21110] Listener: received: NICK fbelthoi
 USER fbelthoi 0 * :fbelthoi
-[5193] Dispatcher: executing commmand NICK
-[5193] Nick : nickname has been set to : fbelthoi
-[5194] Dispatcher: executing commmand USER
-[5195] Replyer :Replying : RPL_WELCOME
-[5196] RPL_WELCOME called
-[5197] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
-[5197] Replyer :Replying : RPL_YOURHOST
-[5200] RPL_YOURHOST called
-[5202] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
-[5204] Replyer :Replying : RPL_CREATED
-[5204] RPL_CREATED called
-[5205] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 12/12/2022
-[5206] Replyer :Replying : RPL_MYINFO
-[5206] RPL_MYINFO called
-[5207] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
-[5208] Replyer :Replying : RPL_ISSUPPORT
-[5208] RPL_ISSUPPORT called
-[5209] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
-[5209] Replyer :Replying : RPL_LUSERCLIENT
-[5211] RPL_LUSERCLIENT called
-[5212] Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
-[5212] Replyer :Replying : RPL_LUSERME
-[5213] RPL_LUSERME called
-[5213] Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
-[8141] Listener: received: JOIN l
-[8142] Dispatcher: executing commmand JOIN
-[8142] Join : adding a new channel l
-[8143] Replyer :Replying : RPL_TOPIC
-[8143] Sender: sent :AwesomeIrc.com 332 No Topic
-[8144] Replyer :Replying : RPL_NAMEREPLY
-[8144] Sender: sent :AwesomeIrc.com 353 fbelthoi =l :fbelthoi 
-[8145] Replyer :Replying : RPL_ENDOFNAMES
-[8145] Sender exception: <send> returned an error
+[21373] Dispatcher: executing commmand NICK
+[21680] Nick : nickname has been set to : fbelthoi
+[21988] Dispatcher: executing commmand USER
+[22179] Replyer :Replying : RPL_WELCOME
+[22519] RPL_WELCOME called
+[22982] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
+[23148] Replyer :Replying : RPL_YOURHOST
+[23438] RPL_YOURHOST called
+[23459] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
+[23472] Replyer :Replying : RPL_CREATED
+[23507] RPL_CREATED called
+[23537] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 12/12/2022
+[23563] Replyer :Replying : RPL_MYINFO
+[23593] RPL_MYINFO called
+[23625] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
+[23653] Replyer :Replying : RPL_ISSUPPORT
+[23683] RPL_ISSUPPORT called
+[23705] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
+[23751] Replyer :Replying : RPL_LUSERCLIENT
+[23781] RPL_LUSERCLIENT called
+[23812] Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+[23839] Replyer :Replying : RPL_LUSERME
+[23867] RPL_LUSERME called
+[23891] Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+[23917] Dispatcher: executing commmand MOTD
+[23944] Replyer :Replying : RPL_MOTDSTART
+[23962] RPL_MOTDSTART called
+[23972] Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+[23999] Replyer :Replying : RPL_MOTD
+[24018] RPL_MOTD called
+[24075] Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+[24103] Replyer :Replying : RPL_ENDOFMOTD
+[24130] RPL_ENDOFMOTD called
+[24156] Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+[36888] Listener: received: MOTD
+[36892] Dispatcher: Command not found: MOTD

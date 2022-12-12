@@ -23,6 +23,7 @@
 # include "Join.hpp"
 # include "Part.hpp"
 # include "Topic.hpp"
+# include "Motd.hpp"
 //include_here
 
 #endif

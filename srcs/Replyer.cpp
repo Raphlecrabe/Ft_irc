@@ -35,7 +35,7 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	if (reply == NULL)
 	{
 		//Debug
-		std::string log = "Replyer :Reply " + reply->getName() + " :Not found";
+		std::string log = "Replyer :Reply " + name + " :Not found";
 		Debug::Log(log);
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);

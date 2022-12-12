@@ -34,6 +34,11 @@
 # include "RPL_Endofnames.hpp"
 # include "RPL_Luserclient.hpp"
 # include "RPL_Luserme.hpp"
+# include "RPL_Motdstart.hpp"
+# include "RPL_Motd.hpp"
+# include "RPL_Endofmotd.hpp"
+# include "ERR_Nosucherver.hpp"
+# include "ERR_Nomotd.hpp"
 //include_here
 
 #endif

@@ -30,6 +30,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					UserCmd.cpp \
 					Cap.cpp \
 					Ping.cpp \
+					Motd.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -70,6 +71,7 @@ HEADERS =		Debug.hpp \
 
 COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
+				Motd.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -88,6 +90,11 @@ REPLIES =		AReply.hpp \
 				RPL_Topic.hpp \
 				RPL_Luserclient.hpp \
 				RPL_Luserme.hpp \
+				RPL_Motdstart.hpp \
+				RPL_Motd.hpp \
+				RPL_Endofmotd.hpp \
+				ERR_Nosucherver.hpp \
+				ERR_Nomotd.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}
