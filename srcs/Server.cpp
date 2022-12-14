@@ -26,7 +26,8 @@ Server::Server(std::string const &serverName, const char *port, char *password) 
 	
 	initTime();
 
-	_listener.init(port, 5);
+	_listener.init(port);
+
 	this->_networkName = "FT_IRC";
 
 	Debug::Log(std::string("Init server with port ") + std::string(port));
@@ -74,17 +75,15 @@ void Server::launch() {
 
 	while (true)
 	{
-		int poll_count = _listener.pollfds();
+		int fd_max = _listener.pollfds();
 
-		if (poll_count == -1)
+		if (fd_max == -1)
 		{
 			perror("poll");
 			return;
 		}
 
-		int fd_count = _listener.GetFdCount();
-
-		for (int i = 0; i < fd_count; i++)
+		for (int i = 0; i < fd_max + 1; i++)
 		{
 			int	recvfd = -1;
 			int	ncfd = -1;
