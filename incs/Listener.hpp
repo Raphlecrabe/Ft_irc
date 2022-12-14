@@ -29,6 +29,7 @@ class Listener {
 		int			new_connection();
 
 		void	Hear(int i, int *recvfd, int *ncfd);
+		bool	IsListening(int fd);
 };
 
 #endif

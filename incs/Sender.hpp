@@ -3,12 +3,15 @@
 
 #include <string>
 #include <cstring>
+#include <map>
 
 #include "Message.hpp"
 
 class Sender {
 	private:
+		std::map<int, std::vector<std::string> > _buffers;
 
+		void _send(int fd, std::string msg);
 	public:
 		Sender();
 		~Sender();
@@ -17,12 +20,14 @@ class Sender {
 		void sendto(int fd, std::string msg);
 		void sendto(Message const &);
 
+		void Speak(int fd);
+
 		class SendErrorException : public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};
 
-		class NoDestinationException : public std::exception {
+		class NoDestinatorException : public std::exception {
 			public:
 				virtual const char* what() const throw();
 		};

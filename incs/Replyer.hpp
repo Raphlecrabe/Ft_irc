@@ -13,10 +13,10 @@
 class Replyer {
 	private:
 		ReplyCreator	_ReplyCreator;
-		Sender			_Sender;
+		Sender			&_sender;
 		Hub				&_hub;
 	public:
-		Replyer(Hub &hub);
+		Replyer(Sender &sender, Hub &hub);
 		~Replyer();
 
 		void	TreatReplys(Callback &callback, Message &message);

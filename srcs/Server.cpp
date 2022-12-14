@@ -20,7 +20,7 @@
 #include "../incs/Receiver.hpp"
 
 Server::Server(std::string const &serverName, const char *port, char *password) : 	_hub(this),
-																					_receiver(_hub),
+																					_receiver(_sender, _hub),
 																					_serverName(serverName),
 																					_password(password) {
 	
@@ -94,6 +94,9 @@ void Server::launch() {
 				new_user(ncfd);
 			else if (recvfd > 0)
 				receive(recvfd);
+
+			if (_listener.IsListening(i))
+				_sender.Speak(i);
 		}
 	}
 }

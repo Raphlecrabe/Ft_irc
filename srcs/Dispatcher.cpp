@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/12 15:41:34 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:49:12 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../incs/Callback.hpp"
 #include "../incs/Dispatcher.hpp"
 
-Dispatcher::Dispatcher(Hub & hub) : _hub(hub), _Replyer(hub) {
+Dispatcher::Dispatcher(Sender &sender, Hub & hub) : _hub(hub), _Replyer(sender, hub), _Messager(sender) {
 }
 
 Dispatcher::~Dispatcher()

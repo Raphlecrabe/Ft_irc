@@ -181,6 +181,10 @@ void	Listener::Hear(int i, int *recvfd, int *ncfd) {
 	}
 }
 
+bool	Listener::IsListening(int fd) {
+	return (FD_ISSET(fd, &_writefds));
+}
+
 void* 	Listener::get_in_addr(struct sockaddr *sa) {
 	if (sa->sa_family == AF_INET) {
 		return &(((struct sockaddr_in*)sa)->sin_addr);

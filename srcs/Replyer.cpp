@@ -1,7 +1,7 @@
 #include "../incs/Replyer.hpp"
 
-Replyer::Replyer(Hub &hub) : _hub(hub) 
-{
+Replyer::Replyer(Sender &sender, Hub &hub) : _sender(sender), _hub(hub) {
+
 }
 
 Replyer::~Replyer() 
@@ -40,14 +40,15 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
-	//Debug
-	std::string log2 = "Replyer :Replying : " + reply->getName();
-	Debug::Log(log2);
+
+	Debug::Log(std::string("Replyer :Replying : " + reply->getName()));
+
 	try {
-		this->_Sender.sendto(reply->getmsg(_hub, message, param));
+		this->_sender.sendto(reply->getmsg(_hub, message, param));
 	} catch (std::exception &e) {
 		Debug::Log(e.what());
 		std::cout << e.what() << std::endl;
 	}
+
 	return (0);
 }

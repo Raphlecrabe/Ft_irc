@@ -13,7 +13,7 @@ class Receiver {
 		Dispatcher _dispatcher;
 
 	public:
-		Receiver(Hub &);
+		Receiver(Sender &, Hub &);
 		~Receiver();
 
 		void Hear(User *, std::string datas);

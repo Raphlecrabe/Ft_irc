@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/12 13:30:07 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:48:49 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@
 class Dispatcher
 {
 private:
-	Messager				_Messager;
 	CommandCreator			_CommandCreator;
 	Hub						&_hub;
 	Replyer					_Replyer;
+	Messager				_Messager;
 
 	int		TreatCommands(Callback &callback, User *sender);
 	int		Execute(std::string const &cmdname, Message &);
 
 public:
-	Dispatcher(Hub & hub);
+	Dispatcher(Sender &sender, Hub & hub);
 	~Dispatcher();
 
 	int	Execute(Message	& client_request);

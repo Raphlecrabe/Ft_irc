@@ -6,13 +6,13 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/12 11:55:30 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 13:49:38 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Messager.hpp"
 
-Messager::Messager()
+Messager::Messager(Sender &sender) : _sender(sender)
 {
 }
 
@@ -36,7 +36,7 @@ void	Messager::TreatMessages(Callback &callback)
 void	Messager::Sendone(Message &message)
 {
 	try {
-		this->_Sender.sendto(message);
+		this->_sender.sendto(message);
 	} catch (std::exception &e) {
 		Debug::Log(e.what());
 		std::cout << e.what() << std::endl;
