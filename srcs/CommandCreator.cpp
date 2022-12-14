@@ -23,6 +23,7 @@ CommandCreator::CommandCreator()
 	insert(&topic);
 	insert(&motd);
 	insert(&lusers);
+	insert(&pass);
 	//insert_here
 }
 

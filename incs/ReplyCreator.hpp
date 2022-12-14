@@ -49,6 +49,7 @@ private:
 	RPL_Endofmotd rpl_endofmotd;
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
+	PasswdMismatch passwdmismatch;
 	//reply_here
 
 	void	insert(AReply *newreply);

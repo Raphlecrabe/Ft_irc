@@ -101,6 +101,7 @@ void Server::launch() {
 	}
 }
 
+std::string const &Server::getServerPassword() const { return this->_password; }
 std::string const &Server::getServerName() const { return this->_serverName; }
 std::string const &Server::getNetworkName() const { return this->_networkName; }
 std::string	const &Server::getStartTime() const { return this->_startTime; }

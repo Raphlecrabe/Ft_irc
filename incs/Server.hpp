@@ -42,6 +42,7 @@ class Server {
 		void launch();
 
 		std::string const &getServerName() const;
+		std::string const &getServerPassword() const;
 		std::string const &getNetworkName() const;
 		std::string	const &getStartTime() const;
 };

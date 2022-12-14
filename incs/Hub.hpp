@@ -35,6 +35,7 @@ class Hub {
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
 		std::string	const &getStartTime() const;
+		std::string const &getServerPassword() const;
 
 		void				setMessageOfTheDay(std::string);
 		std::string const	*getMessageOfTheDay() const;

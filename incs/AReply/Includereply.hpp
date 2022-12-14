@@ -39,6 +39,7 @@
 # include "RPL_Endofmotd.hpp"
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
+# include "PasswdMismatch.hpp"
 //include_here
 
 #endif

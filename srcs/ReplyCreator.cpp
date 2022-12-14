@@ -40,6 +40,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_endofmotd);
 	insert(&err_nosucherver);
 	insert(&err_nomotd);
+	insert(&passwdmismatch);
 	//insert_here;
 }
 

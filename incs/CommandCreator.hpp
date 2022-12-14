@@ -31,6 +31,7 @@ private:
 	Topic	topic;
 	Motd	motd;
 	Lusers	lusers;
+	Pass	pass;
 	//cmd_here
 
 	void insert(ACommand *);

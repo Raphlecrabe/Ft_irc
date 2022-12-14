@@ -69,6 +69,7 @@ std::vector<User *> const & Hub::getUserList() const {
 	return _users;
 }
 
+std::string const &Hub::getServerPassword() const { return _server->getServerPassword(); }
 std::string const &Hub::getServerName() const { return _server->getServerName(); }
 std::string const &Hub::getNetworkName() const { return _server->getNetworkName(); }
 std::string	const &Hub::getStartTime() const { return _server->getStartTime(); }

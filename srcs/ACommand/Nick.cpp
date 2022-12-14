@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/14 14:51:42 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:44:18 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ Nick::~Nick() {
 	
 }
 
+void		Nick::wrong_password() {
+	_callback.addReply("ERR_PASSWDMISMATCH");
+	
+	//close connection
+}
+
 Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 {
 	std::string nickname = message.getParams();
@@ -30,6 +36,13 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 		return (this->getCallback());
 
 	message.getSender()->setNickname(nickname);
+
+	if (message.getSender()->isAuth() == false)
+	{
+		wrong_password();
+		//return _callback;
+	}
+
 	//Debug
 	std::string log = "Nick : nickname has been set to : " + nickname;
 	Debug::Log(log);

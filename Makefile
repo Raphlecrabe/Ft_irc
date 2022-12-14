@@ -32,6 +32,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp \
 					Motd.cpp \
 					Lusers.cpp \
+					Pass.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -74,6 +75,7 @@ COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
 				Motd.hpp \
 				Lusers.hpp \
+				Pass.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -97,6 +99,7 @@ REPLIES =		AReply.hpp \
 				RPL_Endofmotd.hpp \
 				ERR_Nosucherver.hpp \
 				ERR_Nomotd.hpp \
+				PasswdMismatch.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

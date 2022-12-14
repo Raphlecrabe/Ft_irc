@@ -18,6 +18,8 @@ class User {
 
 		int	_number_of_channels;
 
+		bool _isAuth; //is the user authenticated ? (= has sent the right password)
+
 	public:
 		User(int fd);
 		~User();
@@ -29,6 +31,9 @@ class User {
 		const std::string & getRealname() const;
 		const std::vector<Channel *> & getChannels() const;
 		int					getNumberOfChannels() const;
+
+		void setAuth();
+		bool isAuth();
 
 		void setNickname(std::string & nickname);
 		void setName(std::string & name);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:38:18 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/11/24 13:37:36 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 15:42:45 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 class Nick : public ACommand
 {
 private:
+	void	wrong_password();
+
 public:
 	Nick();
 	~Nick();
