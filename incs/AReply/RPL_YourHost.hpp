@@ -11,7 +11,6 @@ class RPL_YourHost : public AReply{
 		~RPL_YourHost() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			(void)param;
 

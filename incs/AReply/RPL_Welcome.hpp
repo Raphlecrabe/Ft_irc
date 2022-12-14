@@ -13,7 +13,6 @@ class RPL_Welcome : public AReply {
 		~RPL_Welcome() {}
 
 		Message getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			(void)param;
 

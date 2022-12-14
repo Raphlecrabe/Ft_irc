@@ -11,7 +11,6 @@ class RPL_Created : public AReply{
 		~RPL_Created() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			(void)param;
 

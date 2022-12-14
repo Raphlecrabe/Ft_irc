@@ -11,7 +11,6 @@ class ERR_Nosucherver : public AReply{
 		~ERR_Nosucherver() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			Message newmessage(hub.getServerName(), "402", param + " :No such server");
 			newmessage.addDestinator(message.getSender());

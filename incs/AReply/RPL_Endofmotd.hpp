@@ -12,7 +12,6 @@ class RPL_Endofmotd : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
-			Log();
 
 			Message newmessage(hub.getServerName(), "376", ":End of /MOTD command.");
 			newmessage.addDestinator(message.getSender());

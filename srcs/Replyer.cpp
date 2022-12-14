@@ -33,16 +33,14 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	if (reply == NULL)
 	{
 		//Debug
-		std::string log = "Replyer :Reply " + name + " :Not found";
+		std::string log = "Replyer :" + name + " :Not found";
 		Debug::Log(log);
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
 
-	Debug::Log(std::string("Replyer :Replying : " + reply->getName()));
-
 	try {
-		this->_sender.sendto(reply->getmsg(_hub, message, param));
+		this->_sender.sendto(reply->GetMsg(_hub, message, param));
 	} catch (std::exception &e) {
 		Debug::Log(e.what());
 		std::cout << e.what() << std::endl;
