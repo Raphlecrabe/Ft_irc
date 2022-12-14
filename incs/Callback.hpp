@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/12 13:22:29 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:07:35 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include "Message.hpp"
 # include "Hub.hpp"
 
+typedef std::pair<std::string, std::string> s_pair;
+
 class Callback
 {
 	private:
-		std::vector<std::string>		_Replys;
-		std::vector<std::string>		_Replyparams;
+		std::vector < s_pair >			_Replys;
 		std::vector<Message>			_Messages;
 		std::vector<std::string>		_Commands;
 
@@ -30,9 +31,8 @@ class Callback
 		Callback();
 		~Callback();
 
-		std::vector<std::string>	const	&getReplys() const;
-		std::vector<Message>		const	&getMessages() const;
-		std::vector<std::string>	const	&getReplyParams() const;
+		std::vector< s_pair >	const		&getReplys() const;
+		std::vector< Message >		const	&getMessages() const;
 		std::vector<std::string>	const	&getCommands() const;
 
 		void	addReply(std::string reply);
@@ -41,7 +41,6 @@ class Callback
 		void	addCommand(std::string cmd);
 		void	resetReplys();
 		void	resetMessages();
-		void	resetReplyparams();
 		void	resetCommands();
 };
 
