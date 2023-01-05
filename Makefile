@@ -86,6 +86,8 @@ REPLIES =		AReply.hpp \
 				RPL_Welcome.hpp \
 				RPL_YourHost.hpp \
 				RPL_Topic.hpp \
+				RPL_Endofnames.hpp \
+				RPL_Namereply.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

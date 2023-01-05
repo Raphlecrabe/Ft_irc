@@ -13,7 +13,7 @@ class RPL_Namereply : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			Channel	*channel = hub.getChannelByName(param);
 
-			std::string messageparam = message.getSender()->getName() + " =" + channel->get_name() + " :";
+			std::string messageparam = message.getSender()->getName() + " #" + channel->get_name() + " :";
 			std::vector<User *>channelusers = channel->get_users();
 			std::vector<User *>::iterator it;
 			for (it = channelusers.begin(); it != channelusers.end(); it++)
