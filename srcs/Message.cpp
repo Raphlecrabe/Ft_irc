@@ -4,19 +4,22 @@
 #include <string>
 #include <cstring>
 
-Message::Message(std::string src, std::string cmd, std::string prms) : _source(src), _command(cmd), _params(prms) {
-
+Message::Message(std::string src, std::string cmd, std::string prms) : _source(src), _command(cmd), _params(prms)
+{
 }
 
-Message::Message(User *sender, std::string raw) : _sender(sender) {
+Message::Message(User *sender, std::string raw) : _sender(sender)
+{
 	parse(raw);
 }
 
-Message::Message(Message const & cpy) : _sender(cpy._sender) {
+Message::Message(Message const &cpy) : _sender(cpy._sender)
+{
 	*this = cpy;
 }
 
-Message & Message::operator=(Message const & rhs) {
+Message &Message::operator=(Message const &rhs)
+{
 	this->_sender = rhs._sender;
 
 	this->_source = rhs._source;
@@ -28,11 +31,12 @@ Message & Message::operator=(Message const & rhs) {
 	return *this;
 }
 
-Message::~Message() {
-	
+Message::~Message()
+{
 }
 
-std::string Message::Format() const {
+std::string Message::Format() const
+{
 	std::string msg;
 
 	msg = ":" + this->_source + " " + this->_command + " " + this->_params + "\r\n";
@@ -40,7 +44,8 @@ std::string Message::Format() const {
 	return msg;
 }
 
-void Message::parse(std::string datas) {
+void Message::parse(std::string datas)
+{
 	int index = 0;
 
 	// Parsing src
@@ -54,8 +59,8 @@ void Message::parse(std::string datas) {
 
 		this->_source = datas.substr(1, srclen);
 		index = 1 + srclen;
-
-	} else
+	}
+	else
 		this->_source = "";
 
 	while (datas[index] && datas[index] == ' ')
@@ -65,7 +70,7 @@ void Message::parse(std::string datas) {
 
 	int cmdlen = 0;
 
-	while (datas[index + cmdlen] && datas[index + cmdlen] != ' ')
+	while (datas[index + cmdlen] && Utils::isBetween(datas[index + cmdlen], 32, 126) && datas[index + cmdlen] != ' ')
 		cmdlen++;
 
 	this->_command = datas.substr(index, cmdlen);
@@ -79,16 +84,16 @@ void Message::parse(std::string datas) {
 
 	int paramslen = 0;
 
-	while (datas[index + paramslen]
-		&& (datas.compare(index + paramslen, 2, "\r\n") != 0))
+	while (datas[index + paramslen] && (datas.compare(index + paramslen, 2, "\r\n") != 0))
 		paramslen++;
-		
+
 	this->_params = datas.substr(index, paramslen);
 
 	parseparams();
 }
 
-void Message::parseparams() {
+void Message::parseparams()
+{
 	std::string params = this->_params;
 	int i = 0;
 
@@ -96,7 +101,8 @@ void Message::parseparams() {
 	{
 		i = 0;
 
-		while (params[i] == ' ') {
+		while (params[i] == ' ')
+		{
 			i++;
 		}
 
@@ -106,7 +112,8 @@ void Message::parseparams() {
 		if (params[0] == ':')
 			break;
 
-		while (params[i] && params[i] != ' ') {
+		while (params[i] && params[i] != ' ')
+		{
 			i++;
 		}
 
@@ -124,15 +131,15 @@ void Message::parseparams() {
 	}
 }
 
-void Message::addDestinator(User *dest) {
+void Message::addDestinator(User *dest)
+{
 	_destinators.push_back(dest);
 }
 
-std::string const & Message::getSource() const { return this->_source; }
-std::string const & Message::getCommand() const { return this->_command; }
-std::string const & Message::getParams() const { return this->_params; }
-std::vector<std::string> const & Message::getParamList() const { return this->_paramlist; }
+std::string const &Message::getSource() const { return this->_source; }
+std::string const &Message::getCommand() const { return this->_command; }
+std::string const &Message::getParams() const { return this->_params; }
+std::vector<std::string> const &Message::getParamList() const { return this->_paramlist; }
 std::vector<User *> const &Message::getDestinators() const { return this->_destinators; }
 
-
-User * Message::getSender() { return this->_sender; }
+User *Message::getSender() { return this->_sender; }

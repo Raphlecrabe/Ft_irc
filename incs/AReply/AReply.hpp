@@ -15,6 +15,7 @@ class AReply {
 		virtual ~AReply() {}
 
 		std::string &getName() { return this->_name; }
+		void		Log() { Debug::Log(getName() + " called"); }
 		virtual	Message getmsg(Hub &hub, Message &message, std::string param) = 0;
 };
 

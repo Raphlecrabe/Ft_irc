@@ -30,6 +30,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					UserCmd.cpp \
 					Cap.cpp \
 					Ping.cpp \
+					Motd.cpp \
+					Lusers.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -41,7 +43,7 @@ OBJS	= 	${SRCS:%.cpp=${OBJS_DIR}%.o} \
 
 SRCS_COMMAND_ABS = ${SRCS_COMMAND:%.cpp=${COMMAND}%.cpp}
 
-NAME	= exec
+NAME	= ircserv
 
 CC		= clang++
 
@@ -70,6 +72,8 @@ HEADERS =		Debug.hpp \
 
 COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
+				Motd.hpp \
+				Lusers.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -86,8 +90,19 @@ REPLIES =		AReply.hpp \
 				RPL_Welcome.hpp \
 				RPL_YourHost.hpp \
 				RPL_Topic.hpp \
+<<<<<<< HEAD
 				RPL_Endofnames.hpp \
 				RPL_Namereply.hpp \
+				RPL_Luserclient.hpp \
+				RPL_Luserme.hpp \
+				RPL_Motdstart.hpp \
+				RPL_Motd.hpp \
+				RPL_Endofmotd.hpp \
+				ERR_Nosucherver.hpp \
+				ERR_Nomotd.hpp \
+=======
+
+>>>>>>> c0ceda7338bf2862cb04834b84e55774b8cb2bb1
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

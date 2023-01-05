@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Messager.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafy <rafy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/25 13:42:30 by rafy             ###   ########.fr       */
+/*   Updated: 2022/12/14 13:49:38 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Messager.hpp"
 
-Messager::Messager()
+Messager::Messager(Sender &sender) : _sender(sender)
 {
 }
 
@@ -33,7 +33,12 @@ void	Messager::TreatMessages(Callback &callback)
 	callback.resetMessages();
 }
 
-void	Messager::Sendone(Message &Message)
+void	Messager::Sendone(Message &message)
 {
-	this->_Sender.sendto(Message);
+	try {
+		this->_sender.sendto(message);
+	} catch (std::exception &e) {
+		Debug::Log(e.what());
+		std::cout << e.what() << std::endl;
+	}
 }

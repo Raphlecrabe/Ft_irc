@@ -12,8 +12,6 @@
 #include <cstdlib>
 #include <sstream>
 
-#define PORT "9034"
-
 #include "../incs/Define.hpp"
 #include "../incs/Server.hpp"
 #include "../incs/Listener.hpp"
@@ -21,13 +19,18 @@
 #include "../incs/Message.hpp"
 #include "../incs/Receiver.hpp"
 
-Server::Server(std::string const &serverName, std::string const &networkName) : _hub(this), _receiver(_hub), _serverName(serverName), _networkName(networkName) {
+Server::Server(std::string const &serverName, const char *port, char *password) : 	_hub(this),
+																					_receiver(_sender, _hub),
+																					_serverName(serverName),
+																					_password(password) {
 	
 	initTime();
 
-	_listener.init(PORT, 5);
+	_listener.init(port);
 
-	Debug::Log(std::string("Init server with port ") + std::string(PORT));
+	this->_networkName = "FT_IRC";
+
+	Debug::Log(std::string("Init server with port ") + std::string(port));
 }
 
 Server::~Server() {
@@ -72,17 +75,15 @@ void Server::launch() {
 
 	while (true)
 	{
-		int poll_count = _listener.pollfds();
+		int fd_max = _listener.pollfds();
 
-		if (poll_count == -1)
+		if (fd_max == -1)
 		{
 			perror("poll");
 			return;
 		}
 
-		int fd_count = _listener.GetFdCount();
-
-		for (int i = 0; i < fd_count; i++)
+		for (int i = 0; i < fd_max + 1; i++)
 		{
 			int	recvfd = -1;
 			int	ncfd = -1;
@@ -93,6 +94,9 @@ void Server::launch() {
 				new_user(ncfd);
 			else if (recvfd > 0)
 				receive(recvfd);
+
+			if (_listener.IsListening(i))
+				_sender.Speak(i);
 		}
 	}
 }

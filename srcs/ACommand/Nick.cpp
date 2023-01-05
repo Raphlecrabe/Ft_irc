@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/05 11:40:45 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 14:51:42 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	Nick::wrong_nick(std::string &nickname, Callback &callback)
 		if (std::isalnum(nickname[i]) == 0)
 		{
 			std::string	reply = "ERR_ERRONEUSNICKNAME";
-			callback.addReply(reply, "");
+			callback.addReply(reply);
 			return (-1);
 		}
 	}
@@ -95,7 +95,7 @@ int	Nick::empty_nick(std::string &nickname, Callback &callback)
 	if (nickname.empty() == 1)
 	{
 		std::string	reply = "ERR_NONICKNAMEGIVEN";
-		callback.addReply(reply, "");
+		callback.addReply(reply);
 		return (-1);
 	}
 	return (0);

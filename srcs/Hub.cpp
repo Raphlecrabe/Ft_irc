@@ -6,7 +6,9 @@
 #include "../incs/Server.hpp"
 
 Hub::Hub(Server *server) : _server(server) {
+	this->_messageOfTheDay = NULL;
 
+	setMessageOfTheDay("This is the message of the day!");
 }
 
 Hub::~Hub() {
@@ -19,6 +21,8 @@ Hub::~Hub() {
 		delete (*it);
 
 	_users.clear();
+
+	delete _messageOfTheDay;
 }
 
 User & Hub::CreateUser(int fd) {
@@ -68,6 +72,11 @@ std::vector<User *> const & Hub::getUserList() const {
 std::string const &Hub::getServerName() const { return _server->getServerName(); }
 std::string const &Hub::getNetworkName() const { return _server->getNetworkName(); }
 std::string	const &Hub::getStartTime() const { return _server->getStartTime(); }
+std::string const *Hub::getMessageOfTheDay() const { return this->_messageOfTheDay; }
+
+void		Hub::setMessageOfTheDay(std::string s) {
+	_messageOfTheDay = new std::string(s);
+}
 
 Channel	&Hub::CreateChannel(std::string &name, User *user)
 {	

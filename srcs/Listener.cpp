@@ -15,29 +15,22 @@
 #include <stdio.h>
 #include <sstream>
 
-Listener::Listener() : _fd_count(0) {
+Listener::Listener() {
 
 }
 
 Listener::~Listener() {
-	free(this->_pfds);
+	
 }
 
-int Listener::init(const char* port, int fd_size) {
-	this->_fd_size = fd_size;
-
-	this->_pfds = (struct pollfd *)malloc(sizeof(*_pfds) * this->_fd_size);
-
-	if (this->_pfds == NULL)
-		return -1;
+int Listener::init(const char* port) {
+	FD_ZERO(&(this->_master));
 
 	if (launch_listener(port) == -1)
-		{
-			std::cerr << "Error getting listening socket" << std::endl;
-			return 0;
-		}
-
-	add_fd(_listenerfd, POLLIN);
+	{
+		std::cerr << "Error getting listening socket" << std::endl;
+		return 0;
+	}
 
 	return 0;
 }
@@ -83,6 +76,10 @@ int		Listener::launch_listener(const char* port) {
 		return -1;
 	}
 
+	FD_SET(_listenerfd, &_master);
+
+	_fd_max = _listenerfd;
+
 	return 0;
 }
 
@@ -93,10 +90,7 @@ bool Listener::datasComplete(const std::string & datas)
 	if (len < 2)
 		return false;
 
-	if (datas.substr(len - 2, 2).compare("\r\n"))
-		return true;
-
-	return false;
+	return (datas.substr(len - 2, 2).compare("\r\n") == 0);
 }
 
 std::string Listener::recvdatas(int fd) {
@@ -104,11 +98,10 @@ std::string Listener::recvdatas(int fd) {
 	
 	char buf[256];
 
-	//while (datasComplete(datas) == false) {
+	while (datasComplete(datas) == false) {	
 		bzero(buf, 256);
 
-		int nbytes = recv(fd, buf, sizeof(buf), 0);
-		// check if bytes received until the end!
+		int nbytes = recv(fd, buf, sizeof(buf) - 1, 0);
 
 		if (nbytes <= 0) {
 			// Got error or connection closed by client
@@ -118,19 +111,20 @@ std::string Listener::recvdatas(int fd) {
 			} else {
 				std::cerr << "error: recv" << std::endl;
 			}
-
-			remove_fd(fd);
+			
+			close(fd);
+			FD_CLR(fd, &_master);
 
 			datas.clear();
 
-			//break;
+			break;
 
-		} else
+		} else {
 			datas += buf;
-	//}
+		}
+	}
 
-	std::string log = "Listener: received: " + datas;
-	Debug::Log(log);
+	Debug::Log(std::string("Listener: received: " + datas));
 
 	return datas;
 }
@@ -150,7 +144,12 @@ int	Listener::new_connection() {
 		std::cerr << "accept" << std::endl;
 		return -1;
 	} else {
-		add_fd(newfd, POLLIN + POLLOUT);
+		FD_SET(newfd, &_master);
+
+		fcntl(newfd, F_SETFL, O_NONBLOCK);
+
+		if (newfd > _fd_max)
+			_fd_max = newfd;
 
 		inet_ntop(remoteaddr.ss_family, get_in_addr((struct sockaddr*)&remoteaddr), remoteIP, INET6_ADDRSTRLEN);
 
@@ -160,68 +159,30 @@ int	Listener::new_connection() {
 	}
 }
 
-void	Listener::add_fd(int newfd, int events) {
-	if (_fd_count == _fd_size) {
-		_fd_size *= 2;
-		_pfds = (struct pollfd *)realloc(_pfds, sizeof(*_pfds) * _fd_size);
-		// PROTECTION!
-	}
-
-	fcntl(newfd, F_SETFL, O_NONBLOCK);
-
-	_pfds[_fd_count].fd = newfd;
-	_pfds[_fd_count].events = events;
-
-	_fd_count++;
-}
-
-void	Listener::remove_fd(int fd) {
-	
-	int index = -1;
-
-	for (int i = 0; i < _fd_count; i++)
-	{
-		if (_pfds[i].fd == fd)
-		{
-			index = i;
-			break;
-		}
-	}
-	
-	if (index < 0)
-		return;
-
-	close(fd);
-	
-	_pfds[index] = _pfds[_fd_count - 1];
-
-	_fd_count--;
-}
-
 int		Listener::pollfds() {
-	
-	int poll_count = poll(_pfds, _fd_count, -1);
+	_readfds = _master;
+	_writefds = _master;
 
-	return poll_count;
+	FD_CLR(_listenerfd, &_writefds);
+
+	select(_fd_max + 1, &_readfds, &_writefds, NULL, NULL);
+
+	return _fd_max;
 }
 
 void	Listener::Hear(int i, int *recvfd, int *ncfd) {
-	
-	if (_pfds[i].revents & POLLIN)
-	{	
-		if (_pfds[i].fd == _listenerfd)
+
+	if (FD_ISSET(i, &_readfds))
+	{
+		if (i == _listenerfd)
 			*ncfd = new_connection();
 		else
-			*recvfd = _pfds[i].fd;
+			*recvfd = i;
 	}
 }
 
-int		Listener::GetFdCount() {
-	return this->_fd_count;
-}
-
-int		Listener::GetFd(int i) {
-	return _pfds[i].fd;
+bool	Listener::IsListening(int fd) {
+	return (FD_ISSET(fd, &_writefds));
 }
 
 void* 	Listener::get_in_addr(struct sockaddr *sa) {
@@ -230,8 +191,4 @@ void* 	Listener::get_in_addr(struct sockaddr *sa) {
 	}
 
 	return &(((struct sockaddr_in6*)sa)->sin6_addr);
-}
-
-const char* Listener::MallocErrorException::what() const throw() {
-	return "Exception: malloc error";
 }

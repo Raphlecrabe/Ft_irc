@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/07 15:31:12 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:04:18 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ ReplyCreator::ReplyCreator()
 	insert(&ERR_Badchanmask);
 	insert(&ERR_Nosuchchannel);
 	insert(&ERR_notonchannel);
+	insert(&rpl_luserclient);
+	insert(&rpl_luserme);
+	insert(&rpl_motdstart);
+	insert(&rpl_motd);
+	insert(&rpl_endofmotd);
+	insert(&err_nosucherver);
+	insert(&err_nomotd);
 	//insert_here;
 }
 
@@ -54,8 +61,8 @@ AReply	*ReplyCreator::getReplyByName(std::string &name) const
 	}
 	catch (std::exception &e)
 	{
-		reply = NULL;
 		std::cout << "Could not find reply " + name << std::endl;
+		return NULL;
 	}
 	return (reply);
 }

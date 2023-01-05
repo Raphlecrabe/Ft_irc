@@ -4,7 +4,7 @@
 # include <iostream>
 # include <vector>
 
-Receiver::Receiver(Hub & hub) : _dispatcher(hub) {
+Receiver::Receiver(Sender &sender, Hub & hub) : _dispatcher(sender, hub) {
 
 }
 

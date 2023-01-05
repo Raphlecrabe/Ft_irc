@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:12:43 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:08:39 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,9 @@ Callback::~Callback()
 {
 }
 
-std::vector<std::string>	const	&Callback::getReplys() const
-{
-	return (this->_Replys);
-}
-
-std::vector<std::string>	const	&Callback::getReplyParams() const
-{
-	return (this->_Replyparams);
-}
-
-std::vector<Message>	const	&Callback::getMessages() const
-{
-	return (this->_Messages);
-}
+std::vector< s_pair >	const		&Callback::getReplys() const { return (this->_Replys); }
+std::vector<Message>		const	&Callback::getMessages() const { return (this->_Messages); }
+std::vector<std::string> 	const	&Callback::getCommands() const { return (this->_Commands); }
 
 void	Callback::addMessage(Message &message)
 {
@@ -42,14 +31,19 @@ void	Callback::addMessage(Message &message)
 
 void	Callback::addReply(std::string reply)
 {
-	_Replys.push_back(reply);
-	_Replyparams.push_back("");
+	s_pair p(reply, "");
+	_Replys.push_back(p);
 }
 
 void	Callback::addReply(std::string reply, std::string param)
 {
-	_Replys.push_back(reply);
-	_Replyparams.push_back(param);
+	s_pair p(reply, param);
+	_Replys.push_back(p);
+}
+
+void	Callback::addCommand(std::string cmd)
+{
+	_Commands.push_back(cmd);
 }
 
 void	Callback::resetReplys()
@@ -62,7 +56,4 @@ void	Callback::resetMessages()
 	_Messages.clear();
 }
 
-void	Callback::resetReplyparams()
-{
-	_Replyparams.clear();
-}
+void	Callback::resetCommands() { _Commands.clear(); }

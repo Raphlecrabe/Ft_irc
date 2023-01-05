@@ -14,7 +14,7 @@ int	Join::checkparams(Message &message)
 {
 	if (message.getParamList().size() == 0)
 	{
-		_callback.addReply("ERR_NEEDMOREPARAMS", "");
+		_callback.addReply("ERR_NEEDMOREPARAMS");
 		return (-1);
 	}
 	return (0);

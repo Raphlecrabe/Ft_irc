@@ -29,12 +29,14 @@ class Server {
 		std::string _networkName;
 		std::string	_startTime;
 
+		std::string _password;
+
 		void	receive(int fd);
 		void	new_user(int fd);
 		void	initTime();
 
 	public:
-		Server(std::string const &serverName, std::string const &networkName);
+		Server(std::string const &serverName, const char *port, char *password);
 		~Server();
 
 		void launch();

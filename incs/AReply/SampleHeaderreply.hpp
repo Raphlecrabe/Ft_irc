@@ -11,6 +11,8 @@ class Name : public AReply{
 		~Name() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
+			Log();
+
 			Message newmessage("source", "command", "params");
 
 			return newmessage;

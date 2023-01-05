@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Messager.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:41:02 by raphael           #+#    #+#             */
-/*   Updated: 2022/11/24 11:44:28 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 13:49:17 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 class Messager
 {
 private:
-	Sender	_Sender;
+	Sender	_sender;
 	
 public:
-	Messager();
+	Messager(Sender &);
 	~Messager();
 
 	void	TreatMessages(Callback	&callback);

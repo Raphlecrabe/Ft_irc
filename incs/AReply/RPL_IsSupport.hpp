@@ -11,8 +11,7 @@ class RPL_IsSupport : public AReply{
 		~RPL_IsSupport() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			std::string log = getName() + " called";
-			Debug::Log(log);
+			Log();
 
 			(void)param;
 

@@ -15,9 +15,11 @@ class Hub {
 	private:
 		Server *_server;
 
-		std::vector<User *> _users;
+		std::vector<User *> 	_users;
 		std::vector<Channel *>	_channels;
 		int						_numberofchannels;
+		
+		std::string				*_messageOfTheDay;
 
 		std::vector<User *>::iterator findUserByFd(int fd);
 
@@ -33,6 +35,9 @@ class Hub {
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
 		std::string	const &getStartTime() const;
+
+		void				setMessageOfTheDay(std::string);
+		std::string const	*getMessageOfTheDay() const;
 
 		Channel	&CreateChannel(std::string &name, User *user);
 		Channel *getChannelByName(std::string &name) const;
