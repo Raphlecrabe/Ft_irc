@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:22 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/06 14:37:56 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@
 # include "RPL_Endofmotd.hpp"
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
+# include "RPL_Liststart.hpp"
+# include "RPL_List.hpp"
+# include "RPL_Listend.hpp"
+# include "ERR_Useronchannel.hpp"
+# include "RPL_Inviting.hpp"
 //include_here
 
 #endif

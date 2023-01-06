@@ -15,7 +15,7 @@ class ERR_needmoreparams : public AReply{
 			(void)hub;
 			(void)param;
 
-			params += message.getSource() + " ";
+			params += message.getSender()->getNickname() + " ";
 			params += message.getCommand();
 			params += " :Not enough parameters";
 			

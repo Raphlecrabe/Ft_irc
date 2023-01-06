@@ -31,6 +31,9 @@ private:
 	Topic	topic;
 	Motd	motd;
 	Lusers	lusers;
+	Names	names;
+	List	list;
+	Invite	invite;
 	//cmd_here
 
 	void insert(ACommand *);

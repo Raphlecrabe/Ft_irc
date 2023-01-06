@@ -32,6 +32,9 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp \
 					Motd.cpp \
 					Lusers.cpp \
+					Names.cpp \
+					List.cpp \
+					Invite.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -74,6 +77,9 @@ COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
 				Motd.hpp \
 				Lusers.hpp \
+				Names.hpp \
+				List.hpp \
+				Invite.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -97,6 +103,11 @@ REPLIES =		AReply.hpp \
 				RPL_Endofmotd.hpp \
 				ERR_Nosucherver.hpp \
 				ERR_Nomotd.hpp \
+				RPL_Liststart.hpp \
+				RPL_List.hpp \
+				RPL_Listend.hpp \
+				ERR_Useronchannel.hpp \
+				RPL_Inviting.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

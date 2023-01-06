@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:55 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/06 14:38:07 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ private:
 	RPL_Endofmotd rpl_endofmotd;
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
+	RPL_Liststart rpl_liststart;
+	RPL_List rpl_list;
+	RPL_Listend rpl_listend;
+	ERR_Useronchannel err_useronchannel;
+	RPL_Inviting rpl_inviting;
 	//reply_here
 
 	void	insert(AReply *newreply);

@@ -1,6 +1,6 @@
 #include "../../incs/ACommand/Join.hpp"
 
-//TO DO : A corriger avec la bonne gestion des params avec le split sur une virgule pour les channels
+//TO DO Checker si ca marche 
 
 Join::Join() : ACommand("JOIN"){
 

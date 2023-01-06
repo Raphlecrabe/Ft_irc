@@ -29,7 +29,7 @@ Callback	&Topic::cmdExecute(Message & message, Hub & hub)
 	{
 		if (channel->get_topic().size() == 0)
 		{
-			_callback.addReply("RPL_NOTOPIC", Paramlist[0]);
+			_callback.addReply("RPL_TOPIC", Paramlist[0]);
 			return (_callback);
 		}
 		else
@@ -41,15 +41,11 @@ Callback	&Topic::cmdExecute(Message & message, Hub & hub)
 	if (istopic == 1)
 	{
 		channel->ChangeTopic(Paramlist[1]);
-		if (Paramlist[1].size() == 0)
-		{
-			std::string messageparam = channel->get_name() + " :";
-			//TO DO a terminer, supprimer le topic
-		}
-		else
-		{
-			//TO DO a terminer, changer le topic
-		}
+		std::string messageparam = channel->get_name() + " :" + Paramlist[1];
+		Message	newmessage(message.getSender()->getName(), "TOPIC", messageparam);
+		newmessage.addDestinator(message.getSender());
+		channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
+		_callback.addMessage(newmessage);
 	}
 	return (_callback);
 }

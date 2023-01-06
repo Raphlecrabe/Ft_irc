@@ -11,7 +11,7 @@ class ERR_Channelisfull : public AReply{
 		~ERR_Channelisfull() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			std::string messageparam = message.getSender()->getName() + " " + param + " :Cannot join channel (+l)";
+			std::string messageparam = message.getSender()->getNickname() + " " + param + " :Cannot join channel (+l)";
 			Message	newmessage(hub.getServerName(), "471", messageparam);
 			return (newmessage);
 		}

@@ -23,6 +23,9 @@ CommandCreator::CommandCreator()
 	insert(&topic);
 	insert(&motd);
 	insert(&lusers);
+	insert(&names);
+	insert(&list);
+	insert(&invite);
 	//insert_here
 }
 

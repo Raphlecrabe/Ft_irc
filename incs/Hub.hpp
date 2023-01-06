@@ -31,6 +31,7 @@ class Hub {
 		void RemoveUserByFd(int fd);
 		User * getUserByFd(int fd);
 		std::vector<User *> const & getUserList() const;
+		User *get_UserByNickName(std::string nickname);
 
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
@@ -41,7 +42,7 @@ class Hub {
 
 		Channel	&CreateChannel(std::string &name, User *user);
 		Channel *getChannelByName(std::string &name) const;
-		void	removeChannelByName(std::string name); // TO DO : faut encore le coder
+		void	removeChannelByName(std::string name);
 		std::vector<Channel *> const &getChannelList() const;
 
 		int	getNumberOfChannels() const;

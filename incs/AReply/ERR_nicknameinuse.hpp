@@ -16,7 +16,7 @@ class ERR_nicknameinuse : public AReply{
 			(void)param;
 
 			params += message.getSource() + " ";
-			params += message.getSender()->getNickname();
+			params += param;
 			params += " :Nickname is already in use";
 
 			Message	newmessage(":lebestserver.com", "433", params);

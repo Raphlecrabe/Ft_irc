@@ -65,6 +65,16 @@ std::vector<User *>::iterator Hub::findUserByFd(int fd) {
 	return it;
 }
 
+User *Hub::get_UserByNickName(std::string nickname)
+{
+	for (unsigned int i = 0; i < _users.size(); i++)
+	{
+		if (_users[i]->getNickname() == nickname)
+			return (_users[i]);
+	}
+	return (NULL);
+}
+
 std::vector<User *> const & Hub::getUserList() const {
 	return _users;
 }
@@ -119,8 +129,15 @@ Channel	*Hub::getChannelByName(std::string &name) const
 
 void	Hub::removeChannelByName(std::string name)
 {
-	//TO DO : A coder lol 
-	(void)name;
+	std::vector<Channel *>::iterator findChannel;
+	for (findChannel = _channels.begin(); findChannel != _channels.end(); findChannel++)
+	{
+		if ((*findChannel)->get_name() == name)
+		{
+			_channels.erase(findChannel);
+			break;
+		}
+	}
 }
 
 std::vector<Channel *> const &Hub::getChannelList() const
