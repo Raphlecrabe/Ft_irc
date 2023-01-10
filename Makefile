@@ -99,7 +99,7 @@ REPLIES =		AReply.hpp \
 				RPL_Endofmotd.hpp \
 				ERR_Nosucherver.hpp \
 				ERR_Nomotd.hpp \
-				PasswdMismatch.hpp \
+				ERR_PasswdMismatch.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/14 15:44:18 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 22:06:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Nick::~Nick() {
 void		Nick::wrong_password() {
 	_callback.addReply("ERR_PASSWDMISMATCH");
 	
+	//hub.close_connection(*sender, message);
 	//close connection
 }
 
@@ -37,15 +38,15 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 
 	message.getSender()->setNickname(nickname);
 
-	if (message.getSender()->isAuth() == false)
-	{
-		wrong_password();
-		//return _callback;
-	}
-
 	//Debug
 	std::string log = "Nick : nickname has been set to : " + nickname;
 	Debug::Log(log);
+
+	if (message.getSender()->isAuth() == false)
+	{
+		wrong_password();
+	}
+
 	return (this->getCallback());
 }
 

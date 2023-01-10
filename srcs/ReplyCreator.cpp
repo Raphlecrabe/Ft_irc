@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 14:04:18 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:43:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_endofmotd);
 	insert(&err_nosucherver);
 	insert(&err_nomotd);
-	insert(&passwdmismatch);
+	insert(&err_passwdmismatch);
 	//insert_here;
 }
 

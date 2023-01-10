@@ -14,6 +14,9 @@ UserCmd::~UserCmd() {
 }
 
 Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
+	if (message.getSender()->isAuth() == false)
+		return this->_callback;
+
 	std::vector<std::string> paramlist = message.getParamList();
 	
 	message.getSender()->setName(paramlist[0]);
