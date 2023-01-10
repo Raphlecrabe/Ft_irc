@@ -51,16 +51,29 @@ void	Server::new_user(int fd) {
 	_hub.CreateUser(fd);
 }
 
+bool Server::datasComplete(const std::string & datas)
+{
+	int len = datas.length();
+
+	if (len < 2)
+		return false;
+
+	return (datas.substr(len - 2, 2).compare("\r\n") == 0);
+}
+
 void	Server::receive(int fd) {
 	
-	std::string datas = _listener.recvdatas(fd);
-
-	if (datas.empty())
+	if (_listener.recvdatas(fd) == false)
 	{
 		_hub.RemoveUserByFd(fd);
 		return;
 	}
-	
+
+	std::string const datas = _listener.get_datas_from_fd(fd);
+
+	if (datasComplete(datas) == false)
+		return;
+
 	std::cout << "Received: " << datas;
 
 	User * usr = _hub.getUserByFd(fd);
@@ -69,6 +82,8 @@ void	Server::receive(int fd) {
 		return;
 
 	_receiver.Hear(usr, datas);
+
+	_listener.clear_datas_from_fd(fd);
 }
 
 void Server::launch() {

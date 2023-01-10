@@ -1,5 +1,7 @@
 #include "../incs/Server.hpp"
 #include "../incs/ACommand/Includecommand.hpp"
+#include <iostream>
+#include <fstream>
 
 int main(int argc, char **argv)
 {

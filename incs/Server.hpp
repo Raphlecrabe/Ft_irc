@@ -35,6 +35,8 @@ class Server {
 		void	new_user(int fd);
 		void	initTime();
 
+		bool datasComplete(const std::string & datas);
+
 	public:
 		Server(std::string const &serverName, const char *port, char *password);
 		~Server();

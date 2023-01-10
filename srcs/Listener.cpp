@@ -83,50 +83,41 @@ int		Listener::launch_listener(const char* port) {
 	return 0;
 }
 
-bool Listener::datasComplete(const std::string & datas)
-{
-	int len = datas.length();
-
-	if (len < 2)
-		return false;
-
-	return (datas.substr(len - 2, 2).compare("\r\n") == 0);
-}
-
-std::string Listener::recvdatas(int fd) {
-	std::string datas;
-	
+bool Listener::recvdatas(int fd) {	
 	char buf[256];
 
-	while (datasComplete(datas) == false) {	
-		bzero(buf, 256);
+	bzero(buf, 256);
 
-		int nbytes = recv(fd, buf, sizeof(buf) - 1, 0);
+	int nbytes = recv(fd, buf, sizeof(buf) - 1, 0);
 
-		if (nbytes <= 0) {
-			// Got error or connection closed by client
-			if (nbytes == 0) {
-				// Connection closed
-				std::cout << "pollserver: socket " << fd << " hung up" << std::endl;
-			} else {
-				std::cerr << "error: recv" << std::endl;
-			}
-			
-			close(fd);
-			FD_CLR(fd, &_master);
-
-			datas.clear();
-
-			break;
-
+	if (nbytes <= 0) {
+		// Got error or connection closed by client
+		if (nbytes == 0) {
+			// Connection closed
+			std::cout << "pollserver: socket " << fd << " hung up" << std::endl;
 		} else {
-			datas += buf;
+			std::cerr << "error: recv" << std::endl;
 		}
+		
+		close_connection(fd);
+
+		return false;
+
 	}
+	
+	_buffers[fd] += buf;
 
-	Debug::Log(std::string("Listener: received: " + datas));
+	Debug::Logstream << "Listener: received: " << buf << std::endl;
 
-	return datas;
+	return true;
+}
+
+std::string const & Listener::get_datas_from_fd(int fd) {
+	return this->_buffers[fd];
+}
+
+void	Listener::clear_datas_from_fd(int fd) {
+	this->_buffers[fd] = "";
 }
 
 int	Listener::new_connection() {
@@ -148,6 +139,9 @@ int	Listener::new_connection() {
 
 		fcntl(newfd, F_SETFL, O_NONBLOCK);
 
+		std::pair<int, std::string> pair = std::make_pair<int, std::string>(newfd, "");
+		_buffers.insert(pair);
+
 		if (newfd > _fd_max)
 			_fd_max = newfd;
 
@@ -157,6 +151,15 @@ int	Listener::new_connection() {
 
 		return newfd;
 	}
+}
+
+void	Listener::close_connection(int fd) {
+	close(fd);
+	FD_CLR(fd, &_master);
+
+	std::map<int, std::string>::iterator it = _buffers.find(fd);
+	if (it != _buffers.end())
+		_buffers.erase(fd);
 }
 
 int		Listener::pollfds() {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/14 13:49:12 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:12:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	Dispatcher::TreatCommands(Callback &callback, User *sender) {
 
 	std::vector<std::string>::const_iterator it;
 
-	for (it = commands.cbegin(); it < commands.cend(); it++) {
+	for (it = commands.begin(); it < commands.end(); it++) {
 		Message message(sender, *it);
 		Execute(message);
 	}

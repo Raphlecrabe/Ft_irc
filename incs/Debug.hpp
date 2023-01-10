@@ -2,6 +2,7 @@
 # define DEBUG_HPP
 
 # include <iostream>
+# include <fstream>
 
 class Debug {
 	private:
@@ -14,6 +15,8 @@ class Debug {
 	public:
 		Debug();
 		~Debug();
+
+		static std::ofstream Logstream;
 
 		static void Log(std::string);
 };
