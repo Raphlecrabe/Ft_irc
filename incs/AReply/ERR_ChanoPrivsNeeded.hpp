@@ -11,9 +11,10 @@ class ERR_ChanoPrivsNeeded : public AReply{
 		~ERR_ChanoPrivsNeeded() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			param += " :You're not a channel operator";
+			param += " :You're not  channel operator";
 
 			Message newmessage(hub.getServerName(), "482", param);
+
 
 			newmessage.addDestinator(message.getSender());
 			return newmessage;

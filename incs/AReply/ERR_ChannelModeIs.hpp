@@ -11,8 +11,10 @@ class ERR_ChannelModeIs : public AReply{
 		~ERR_ChannelModeIs() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
+			Channel *channel = hub.getChannelByName(param);
 
-			Message newmessage(hub.getServerName(), "324", param);
+			std::string msgparams = channel->get_name() + " " + channel->getModestring() + " " + channel->getModearguments();
+			Message newmessage(hub.getServerName(), "324", msgparams);
 
 			newmessage.addDestinator(message.getSender());
 			return newmessage;
