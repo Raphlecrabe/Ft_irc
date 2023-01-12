@@ -3,6 +3,7 @@
 
 # include <vector>
 # include <string>
+# include <map>
 # include "../incs/Define.hpp"
 # include "../incs/User.hpp"
 # include "Message.hpp"
@@ -16,6 +17,7 @@ class Channel {
 		std::vector<User *>	_users;
 		std::vector<int>	_users_fd;
 		int					_client_limit;
+		std::map<char, std::string> _modes;
 
 	public:
 		Channel(std::string &name);
@@ -34,6 +36,12 @@ class Channel {
 		void	addDestinatorsExceptOneInMessage(User *user, Message &message);
 
 		int	UserIsInChannel(User *user);
+
+		void 	SetClientLimit(int);
+		void	RemoveClientLimit();
+
+		std::string const getModestring();
+		std::string const getModearguments();
 };
 
 #endif

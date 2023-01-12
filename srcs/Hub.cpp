@@ -102,7 +102,7 @@ Channel	&Hub::CreateChannel(std::string &name, User *user)
 	return *newchannel;
 }
 
-Channel	*Hub::getChannelByName(std::string &name) const
+Channel	*Hub::getChannelByName(std::string const &name) const
 {
 	std::vector<Channel*>::const_iterator	it;
 
@@ -118,7 +118,7 @@ Channel	*Hub::getChannelByName(std::string &name) const
 	return (NULL);
 }
 
-void	Hub::removeChannelByName(std::string name)
+void	Hub::removeChannelByName(std::string const & name)
 {
 	//TO DO : A coder lol 
 	(void)name;

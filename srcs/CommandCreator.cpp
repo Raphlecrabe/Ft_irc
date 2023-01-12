@@ -24,6 +24,7 @@ CommandCreator::CommandCreator()
 	insert(&motd);
 	insert(&lusers);
 	insert(&pass);
+	insert(&mode);
 	//insert_here
 }
 

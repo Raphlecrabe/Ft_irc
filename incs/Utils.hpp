@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:17:19 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 15:06:17 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:50:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	static std::vector<std::string>	split(std::string param, char delimiteur);
 	static std::string	toString(int n);
 	static bool			isBetween(int n, int low, int high);
+	static int			toInt(std::string const &s);
 };
 
 #endif

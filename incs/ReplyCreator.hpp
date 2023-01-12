@@ -50,6 +50,8 @@ private:
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
 	ERR_PasswdMismatch err_passwdmismatch;
+	ERR_ChannelModeIs err_channelmodeis;
+	ERR_ChanoPrivsNeeded err_chanoprivsneeded;
 	//reply_here
 
 	void	insert(AReply *newreply);

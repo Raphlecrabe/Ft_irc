@@ -40,6 +40,8 @@
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
 # include "ERR_PasswdMismatch.hpp"
+# include "ERR_ChannelModeIs.hpp"
+# include "ERR_ChanoPrivsNeeded.hpp"
 //include_here
 
 #endif

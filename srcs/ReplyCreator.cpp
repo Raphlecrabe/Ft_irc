@@ -41,6 +41,8 @@ ReplyCreator::ReplyCreator()
 	insert(&err_nosucherver);
 	insert(&err_nomotd);
 	insert(&err_passwdmismatch);
+	insert(&err_channelmodeis);
+	insert(&err_chanoprivsneeded);
 	//insert_here;
 }
 
