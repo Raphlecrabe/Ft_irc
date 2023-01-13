@@ -57,7 +57,7 @@ void Sender::_send(int fd, std::string msg) {
 		sent += res;
 	}
 
-	Debug::Log << "Sender: sent " << datas << std::endl;
+	Debug::Log << "Sender: sent " << datas;
 }
 
 void Sender::sendto(int fd, const char *datas, int size) {

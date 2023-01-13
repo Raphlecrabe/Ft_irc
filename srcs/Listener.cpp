@@ -107,7 +107,7 @@ bool Listener::recvdatas(int fd) {
 	
 	_buffers[fd] += buf;
 
-	Debug::Log << "Listener: received: " << buf << std::endl;
+	Debug::Log << "Listener: received: " << buf;
 
 	return true;
 }
