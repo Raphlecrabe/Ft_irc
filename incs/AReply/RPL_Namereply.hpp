@@ -14,7 +14,7 @@ class RPL_Namereply : public AReply{
 			Channel	*channel = hub.getChannelByName(param);
 
 			std::string messageparam = message.getSender()->getNickname()
-				+ " =" + channel->get_name() + " :";
+				+ " = " + channel->get_name() + " :";
 			std::vector<User *>channelusers = channel->get_users();
 			std::vector<User *>::iterator it;
 			for (it = channelusers.begin(); it != channelusers.end(); it++)
