@@ -113,8 +113,6 @@ Channel	&Hub::CreateChannel(std::string &name, User *user)
 	Channel	*newchannel = new Channel(name);
 	if (newchannel->AddUser(user) == -1)
 		throw Hub::ChannelIsFull();
-	newchannel->AddFd(user->getFd());
-	user->AddChannel(newchannel);
 	_channels.push_back(newchannel);
 	_numberofchannels ++;
 	return *newchannel;

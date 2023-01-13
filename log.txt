@@ -1,50 +1,707 @@
-[0] Init server with port 4242
+Init server with port 4242
 Listener: received: PASS 42
 
-[6685] Dispatcher: executing commmand PASS
+Dispatcher: executing commmand PASS
 Listener: received: CAP LS 302
 
-[6685] Dispatcher: executing commmand CAP
-Listener: received: NICK fbelthoi
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
 
-[6685] Dispatcher: executing commmand NICK
-[6685] Nick : nickname has been set to : fbelthoi
-Listener: received: USER fbelthoi 0 * :fbelthoi
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
 
-[6685] Dispatcher: executing commmand USER
-[6685] RPL_WELCOME called
-[6685] RPL_YOURHOST called
-[6685] RPL_CREATED called
-[6685] RPL_MYINFO called
-[6685] RPL_ISSUPPORT called
-[6685] Dispatcher: executing commmand LUSERS
-[6685] RPL_LUSERCLIENT called
-[6685] RPL_LUSERME called
-[6685] Dispatcher: executing commmand MOTD
-[6685] RPL_MOTDSTART called
-[6685] RPL_MOTD called
-[6685] RPL_ENDOFMOTD called
-[6685] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
-[6685] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
-[6685] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 13/1/2023
-[6685] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
-[6685] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
-[6685] Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
-[6685] Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
-[6685] Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
-[6685] Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
-[6686] Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
-Listener: received: JOIN chanun
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
 
-[32666] Dispatcher: executing commmand JOIN
-[32666] Join : adding a new channel chanun
-[32666] RPL_TOPIC called
-[32666] RPL_NAMEREPLY called
-[32666] RPL_ENDOFNAMES called
-[32666] Sender: sent :AwesomeIrc.com 331 fbelthoi chanun :No Topic is set
-[32666] Sender: sent :AwesomeIrc.com 353 fbelthoi =chanun :fbelthoi 
-[32666] Sender: sent :AwesomeIrc.com 366 fbelthoi chanun :End of /Names list
-Listener: received: QUIT :WeeChat 3.7.1
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
 
-[61085] Dispatcher: executing commmand QUIT
-[61085] OPER : OPER has been called
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: JOIN lol
+
+Dispatcher: executing commmand JOIN
+Join : adding a new channel lol
+JOIN: joinchannel called 
+Join : Joined a new channel lol
+RPL_TOPIC called
+RPL_NAMEREPLY called
+RPL_ENDOFNAMES called
+Sender: sent :AwesomeIrc.com 331 rmonacho lol :No Topic is set
+
+Sender: sent :AwesomeIrc.com 353 rmonacho = lol :rmonacho rmonacho 
+
+Sender: sent :AwesomeIrc.com 366 rmonacho lol :End of /Names list
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
+
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
+
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
+
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+NICK rmonacho
+USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand CAP
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
+
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING
+Listener: received: PASS 42
+
+Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+Dispatcher: executing commmand CAP
+Listener: received: NICK rmonacho
+
+Dispatcher: executing commmand NICK
+Nick : nickname has been set to : rmonacho
+Listener: received: USER rmonacho 0 * :rmonacho
+
+Dispatcher: executing commmand USER
+RPL_WELCOME called
+RPL_YOURHOST called
+RPL_CREATED called
+RPL_MYINFO called
+RPL_ISSUPPORT called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Dispatcher: executing commmand LUSERS
+RPL_LUSERCLIENT called
+RPL_LUSERME called
+Dispatcher: executing commmand MOTD
+RPL_MOTDSTART called
+RPL_MOTD called
+RPL_ENDOFMOTD called
+Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
+
+Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
+
+Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 13/1/2023
+
+Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
+
+Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+
+Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+
+Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+
+Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+
+Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+
+Listener: received: PING 127.0.0.1
+
+Dispatcher: executing commmand PING

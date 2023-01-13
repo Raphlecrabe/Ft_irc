@@ -22,6 +22,8 @@ int	Join::checkparams(Message &message)
 
 int	Join::joinChannel(Channel *channel, Message &message, std::string param)
 {
+	Debug::Log << "JOIN: joinchannel called " << std::endl;
+
 	if (channel->AddUser(message.getSender()) == -1)
 	{
 		_callback.addReply("ERR_CHANNELISFULL", param);
@@ -31,6 +33,7 @@ int	Join::joinChannel(Channel *channel, Message &message, std::string param)
 	Message newmessage(message.getSender()->getNickname(), "JOIN", channel->get_name());
 	newmessage.addDestinator(message.getSender());
 	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
+	_callback.addMessage(newmessage);
 	return (0);
 }
 
@@ -45,7 +48,6 @@ int	Join::addChannel(Hub &hub, Message &message, std::string &param)
 		_callback.addReply(e.what(), param);
 		return (-1);
 	}
-	addReplys(param);
 	return (0);
 }
 
@@ -74,7 +76,6 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 			channel = hub.getChannelByName(params[i]);
 
 			Debug::Log << "Join : adding a new channel " << params[i] << std::endl;
-			continue;
 		}
 		if (joinChannel(channel, message, params[i]) == -1)
 			continue;
