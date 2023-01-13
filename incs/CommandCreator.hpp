@@ -34,6 +34,11 @@ private:
 	Names	names;
 	List	list;
 	Invite	invite;
+	Kick	kick;
+	Oper	oper;
+	Quit	quit;
+	Help	help;
+	Info	info;
 	//cmd_here
 
 	void insert(ACommand *);

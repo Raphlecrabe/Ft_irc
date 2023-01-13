@@ -14,7 +14,7 @@ class RPL_List : public AReply{
 			Log();
 			std::string messageparam = message.getSender()->getNickname() + " "
 				+ hub.getChannelByName(param)->get_name();
-			messageparam += " " + hub.getChannelByName(param)->get_users().size();
+			messageparam += " " + std::to_string(hub.getChannelByName(param)->get_users().size());
 			if (hub.getChannelByName(param)->get_topic().size() == 0)
 				messageparam += " :No Topic set";
 			else

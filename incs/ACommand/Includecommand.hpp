@@ -28,6 +28,11 @@
 # include "Names.hpp"
 # include "List.hpp"
 # include "Invite.hpp"
+# include "Kick.hpp"
+# include "Oper.hpp"
+# include "Quit.hpp"
+# include "Help.hpp"
+# include "Info.hpp"
 //include_here
 
 #endif

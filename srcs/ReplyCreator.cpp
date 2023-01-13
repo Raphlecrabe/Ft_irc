@@ -45,6 +45,13 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_listend);
 	insert(&err_useronchannel);
 	insert(&rpl_inviting);
+	insert(&err_usernotinchannel);
+	insert(&err_chanoprivsneeded);
+	insert(&err_passwdmismatch);
+	insert(&rpl_youreoper);
+	insert(&err_helpnotfound);
+	insert(&rpl_info);
+	insert(&rpl_endofinfo);
 	//insert_here;
 }
 

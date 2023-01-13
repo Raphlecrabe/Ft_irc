@@ -10,6 +10,7 @@ class Invite : public ACommand{
 		Invite();
 		~Invite();
 
+		int			
 		Callback	&cmdExecute(Message &message, Hub &hub);
 };
 

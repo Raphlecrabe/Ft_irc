@@ -12,6 +12,7 @@ class RPL_Listend : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			Log();
+			(void)param;
 
 			std::string messageparam = message.getSender()->getNickname() + " :End of /List";
 

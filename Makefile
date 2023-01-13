@@ -35,6 +35,11 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Names.cpp \
 					List.cpp \
 					Invite.cpp \
+					Kick.cpp \
+					Oper.cpp \
+					Quit.cpp \
+					Help.cpp \
+					Info.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -80,6 +85,11 @@ COMMANDS =		ACommand.hpp \
 				Names.hpp \
 				List.hpp \
 				Invite.hpp \
+				Kick.hpp \
+				Oper.hpp \
+				Quit.hpp \
+				Help.hpp \
+				Info.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -108,6 +118,13 @@ REPLIES =		AReply.hpp \
 				RPL_Listend.hpp \
 				ERR_Useronchannel.hpp \
 				RPL_Inviting.hpp \
+				ERR_Usernotinchannel.hpp \
+				ERR_Chanoprivsneeded.hpp \
+				ERR_Passwdmismatch.hpp \
+				RPL_Youreoper.hpp \
+				ERR_Helpnotfound.hpp \
+				RPL_Info.hpp \
+				RPL_Endofinfo.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

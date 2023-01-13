@@ -44,6 +44,13 @@
 # include "RPL_Listend.hpp"
 # include "ERR_Useronchannel.hpp"
 # include "RPL_Inviting.hpp"
+# include "ERR_Usernotinchannel.hpp"
+# include "ERR_Chanoprivsneeded.hpp"
+# include "ERR_Passwdmismatch.hpp"
+# include "RPL_Youreoper.hpp"
+# include "ERR_Helpnotfound.hpp"
+# include "RPL_Info.hpp"
+# include "RPL_Endofinfo.hpp"
 //include_here
 
 #endif

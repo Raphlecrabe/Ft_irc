@@ -12,7 +12,7 @@ class RPL_Liststart : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			Log();
-
+			(void)param;
 			std::string messageparam = message.getSender()->getNickname() + " Channel :Users Name";
 
 			Message	newmessage(hub.getServerName(), "321", messageparam);

@@ -8,6 +8,14 @@
 Hub::Hub(Server *server) : _server(server) {
 	this->_messageOfTheDay = NULL;
 
+	std::pair<std::string, std::string> config;
+	config.first = "rafymonach";
+	config.second = "mdpraf";
+	_operatorConfig.insert(config);
+	config.first = "felixlechat";
+	config.second = "mdpfelix";
+	_operatorConfig.insert(config);
+	
 	setMessageOfTheDay("This is the message of the day!");
 }
 
@@ -148,4 +156,34 @@ std::vector<Channel *> const &Hub::getChannelList() const
 int	Hub::getNumberOfChannels() const
 {
 	return (_numberofchannels);
+}
+
+
+int	Hub::isIrcOperator(User *user)
+{
+	for(unsigned int i = 0; i < _ircOperators.size(); i++)
+	{
+		if (_ircOperators[i]->getNickname() == user->getNickname())
+			return (1);
+	}
+	return (1);
+}
+
+void	Hub::addIrcOperator(User *user)
+{
+	if (this->isIrcOperator(user) == 1)
+		return ;
+	_ircOperators.push_back(user);
+}
+
+int		Hub::isInConfig(std::string name, std::string password)
+{
+	std::map<std::string, std::string>::iterator it;
+
+	it = _operatorConfig.find(name);
+	if (it == _operatorConfig.end())
+		return (0);
+	if (it->second == password)
+		return (1);
+	return (0);
 }

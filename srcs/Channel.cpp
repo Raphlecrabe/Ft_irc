@@ -115,3 +115,20 @@ int	Channel::UserIsInChannel(User *user)
 	}
 	return (0);
 }
+
+int		Channel::isChannelOperator(User *user)
+{
+	for (unsigned int i = 0; i < _channelOperators.size(); i++)
+	{
+		if (user->getNickname() == _channelOperators[i]->getNickname())
+			return (1);
+	}
+	return (0);
+}
+
+void	Channel::addChannelOperator(User *user)
+{
+	if (this->isChannelOperator(user) == 1)
+		return ;
+	_channelOperators.push_back(user);
+}

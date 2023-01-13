@@ -26,6 +26,11 @@ CommandCreator::CommandCreator()
 	insert(&names);
 	insert(&list);
 	insert(&invite);
+	insert(&kick);
+	insert(&oper);
+	insert(&quit);
+	insert(&help);
+	insert(&info);
 	//insert_here
 }
 

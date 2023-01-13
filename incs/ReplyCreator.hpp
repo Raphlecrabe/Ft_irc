@@ -54,6 +54,13 @@ private:
 	RPL_Listend rpl_listend;
 	ERR_Useronchannel err_useronchannel;
 	RPL_Inviting rpl_inviting;
+	ERR_Usernotinchannel err_usernotinchannel;
+	ERR_Chanoprivsneeded err_chanoprivsneeded;
+	ERR_Passwdmismatch err_passwdmismatch;
+	RPL_Youreoper rpl_youreoper;
+	ERR_Helpnotfound err_helpnotfound;
+	RPL_Info rpl_info;
+	RPL_Endofinfo rpl_endofinfo;
 	//reply_here
 
 	void	insert(AReply *newreply);
