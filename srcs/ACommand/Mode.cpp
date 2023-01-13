@@ -26,11 +26,11 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 		return this->_callback;
 	}
 
-	if (channel->isChannelOperator(message.getSender()) == 0) // check if irc operator? hub.isIrcOperator(message.getSender())
-	{
-		this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
-		return this->_callback;
-	}
+	// if (channel->isChannelOperator(message.getSender()) == 0) // check if irc operator? hub.isIrcOperator(message.getSender())
+	// {
+	// 	this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
+	// 	return this->_callback;
+	// }
 
 	char modeset = paramlist[1][0];
 	std::string modeflags = paramlist[1].substr(1, paramlist[1].length() - 1);
@@ -40,12 +40,12 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 
 	std::string modeparams = paramlist[2];
 
-	this->executeModes(modeset, modeflags, modeparams, channel);
+	this->executeModes(modeset, modeflags, modeparams, channel, hub);
 
 	return this->_callback;
 }
 
-void		Mode::executeModes(char modeset, std::string modeflags, std::string const modeparam, Channel *channel) {
+void		Mode::executeModes(char modeset, std::string modeflags, std::string const modeparam, Channel *channel, Hub &hub) {
 	int len = modeflags.length();
 	
 	for (int i = 0; i < len; i++)
@@ -56,24 +56,23 @@ void		Mode::executeModes(char modeset, std::string modeflags, std::string const 
 		{
 			int limit = Utils::toInt(modeparam);
 			Debug::Log << "Executing mode 'l' with limit " << limit << " on channel " << channel->get_name() << std::endl;
-			this->clientLimitChannel(modeset, limit, channel);
+			this->clientLimitChannel(modeset, limit, channel, hub);
 			break;
 		}
 	}
 }
 
-void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel) {
+void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &hub) {
 	if (modeset == '-')
-	{
 		channel->RemoveClientLimit();
-		return;
-	}
-	
-	channel->SetClientLimit(limit);
+	else
+		channel->SetClientLimit(limit);
 
-	// Send the MODE command to all users of the channel
-	// std::string params = modeset + 'l' + " " + Utils::toString(limit);
-	// Message *msg = new Message(hub.getServerName(), "MODE", params);;
-	// channel->sendToAllUsers(channel, Message);
-	// delete msg;
+	std::string mods = "";
+	mods.push_back(modeset);
+
+	std::string params = mods + "l " + Utils::toString(limit);
+	Message newmessage (hub.getServerName(), "MODE", params);;
+	channel->addAllUsersToMessage(newmessage);
+	this->_callback.addMessage(newmessage);
 }

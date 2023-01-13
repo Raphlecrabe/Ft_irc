@@ -11,7 +11,6 @@ class RPL_Liststart : public AReply{
 		~RPL_Liststart() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 			(void)param;
 			std::string messageparam = message.getSender()->getNickname() + " Channel :Users Name";
 

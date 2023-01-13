@@ -11,7 +11,6 @@ class RPL_Inviting : public AReply{
 		~RPL_Inviting() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			std::string params = message.getSender()->getNickname() + " " + param;
 			Message newmessage(hub.getServerName(), "341", params);

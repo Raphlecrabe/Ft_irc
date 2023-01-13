@@ -6,8 +6,8 @@
 class Mode : public ACommand{
 	private:
 
-		void		executeModes(char modeset, std::string modeflag, std::string modeparams, Channel *channel);
-		void		clientLimitChannel(char modeset, int limit, Channel *);
+		void		executeModes(char modeset, std::string modeflag, std::string modeparams, Channel *channel, Hub &);
+		void		clientLimitChannel(char modeset, int limit, Channel *, Hub &);
 
 	public:
 		Mode();

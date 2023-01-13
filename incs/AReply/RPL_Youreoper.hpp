@@ -11,7 +11,6 @@ class RPL_Youreoper : public AReply{
 		~RPL_Youreoper() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 			(void)param;
 
 			std::string messageparam = message.getSender()->getNickname() +  " :You are now an IRC operator";

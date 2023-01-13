@@ -11,7 +11,6 @@ class RPL_Info : public AReply{
 		~RPL_Info() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			(void)param;
 			std::string messageparam = message.getSender()->getNickname() + " : You are using the Sausage IRC server, this is the first version of it, made by 2 moron";

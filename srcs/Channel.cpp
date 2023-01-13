@@ -103,6 +103,19 @@ void	Channel::addDestinatorsExceptOneInMessage(User *user, Message &message)
 	}
 }
 
+void	Channel::addAllUsersToMessage(Message &message)
+{
+	std::vector<User *>::iterator	it;
+
+	if (_users.size() == 0)
+		return;
+
+	for (it = _users.begin(); it != _users.end(); it++)
+	{
+		message.addDestinator(*it);
+	}
+}
+
 int	Channel::UserIsInChannel(User *user)
 {
 	if (_users.size() == 0)

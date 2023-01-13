@@ -11,7 +11,6 @@ class ERR_Helpnotfound : public AReply{
 		~ERR_Helpnotfound() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 			(void)param;
 
 			std::string messageparam = message.getSender()->getNickname() + " " + param

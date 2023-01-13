@@ -35,6 +35,7 @@ class Channel {
 		void	ChangeTopic(std::string name);
 
 		void	addDestinatorsExceptOneInMessage(User *user, Message &message);
+		void	addAllUsersToMessage(Message &message);
 
 		int	UserIsInChannel(User *user);
 

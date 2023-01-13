@@ -11,7 +11,6 @@ class RPL_List : public AReply{
 		~RPL_List() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 			std::string messageparam = message.getSender()->getNickname() + " "
 				+ hub.getChannelByName(param)->get_name();
 			messageparam += " " + std::to_string(hub.getChannelByName(param)->get_users().size());

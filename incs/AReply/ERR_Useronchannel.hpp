@@ -11,8 +11,6 @@ class ERR_Useronchannel : public AReply{
 		~ERR_Useronchannel() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
-
 			std::string params = message.getSender()->getNickname() + param + " :is already on channel";
 			Message newmessage(hub.getServerName(), "443", params);
 			newmessage.addDestinator(message.getSender());

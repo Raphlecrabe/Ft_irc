@@ -11,8 +11,6 @@ class ERR_Usernotinchannel : public AReply{
 		~ERR_Usernotinchannel() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
-
 			std::string replyparam = message.getSender()->getNickname() + " " + param + " :They aren't on that channel";
 			Message newmessage(hub.getServerName(), "441", replyparam);
 
