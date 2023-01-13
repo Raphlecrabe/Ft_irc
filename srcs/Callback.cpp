@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/14 15:12:23 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:01:22 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ std::vector<std::string> 	const	&Callback::getCommands() const { return (this->_
 
 void	Callback::addMessage(Message &message)
 {
+	Debug::Log << "Callback: adding message " << message.Format();
 	_Messages.push_back(message);
 }
 

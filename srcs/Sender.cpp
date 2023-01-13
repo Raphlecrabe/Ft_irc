@@ -34,6 +34,7 @@ void Sender::Speak(int fd) {
 }
 
 void Sender::_send(int fd, std::string msg) {
+
 	int 			res;
 	unsigned int	sent = 0;
 
@@ -56,12 +57,11 @@ void Sender::_send(int fd, std::string msg) {
 		sent += res;
 	}
 
-	std::string log = "Sender: sent " + std::string(datas);
 	Debug::Log << "Sender: sent " << datas << std::endl;
 }
 
 void Sender::sendto(int fd, const char *datas, int size) {
-	//Exists only for compatibility
+	//Stays only for compatibility
 	(void)size;
 	sendto(fd, std::string(datas));
 
@@ -69,16 +69,18 @@ void Sender::sendto(int fd, const char *datas, int size) {
 }
 
 void Sender::sendto(int fd, std::string msg) {
+
 	if (_buffers.count(fd) == 0) {
 		std::vector<std::string> datas;
 		std::pair<int, std::vector<std::string> > newpair(fd, datas);
 		_buffers.insert(newpair);
 	}
 
-	_buffers[fd].push_back(msg);
+	_buffers[fd].push_back(std::string(msg));
 }
 
 void Sender::sendto(Message const & msg) {
+
 	std::vector<User *> const destinators = msg.getDestinators();
 	
 	if (destinators.size() == 0)
