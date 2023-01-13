@@ -18,4 +18,5 @@ Callback	&Info::cmdExecute(Message & message, Hub & hub)
 	(void)hub;
 	_callback.addReply("RPL_INFO", "");
 	_callback.addReply("RPL_ENDOFINFO", "");
+	return (_callback);
 }

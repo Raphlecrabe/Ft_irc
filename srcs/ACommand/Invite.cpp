@@ -8,7 +8,7 @@ Invite::~Invite() {
 	
 }
 
-int	Invite::userTest(Message message, std::string chanparam, std::string nickparam, Channel channel)
+int	Invite::userTest(Message message, std::string chanparam, std::string nickparam, Channel *channel)
 {
 
 	int	senderIsOnChannel = 0;
@@ -27,7 +27,7 @@ int	Invite::userTest(Message message, std::string chanparam, std::string nickpar
 	if (senderIsOnChannel == 0)
 	{
 		_callback.addReply("ERR_NOTONCHANNEL", chanparam);
-		return (_callback);
+		return (-1);
 	}
 
 	// On verifie que le user cible n'est pas deja sur le channel
@@ -42,8 +42,9 @@ int	Invite::userTest(Message message, std::string chanparam, std::string nickpar
 	{
 		std::string errParam = nickparam + " " + chanparam;
 		_callback.addReply("ERR_USERONCHANNEL", errParam);
-		return (_callback);
+		return (-1);
 	}
+	return (0);
 }
 
 Callback	&Invite::cmdExecute(Message & message, Hub & hub)

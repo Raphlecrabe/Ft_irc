@@ -10,8 +10,8 @@ class Invite : public ACommand{
 		Invite();
 		~Invite();
 
-		int			
 		Callback	&cmdExecute(Message &message, Hub &hub);
+		int	userTest(Message message, std::string chanparam, std::string nickparam, Channel *channel);
 };
 
 #endif
