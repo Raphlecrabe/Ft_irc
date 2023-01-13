@@ -31,6 +31,8 @@ int	Join::joinChannel(Channel *channel, Message &message, std::string param)
 	}
 	addReplys(param);
 	Message newmessage(message.getSender()->getNickname(), "JOIN", channel->get_name());
+	_callback.addMessage(newmessage);
+	Debug::Log << "Join: callback messages: " << _callback.getMessages().size() << std::endl;
 	newmessage.addDestinator(message.getSender());
 	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
 	_callback.addMessage(newmessage);
