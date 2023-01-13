@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/10 21:43:15 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/13 14:02:28 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDEREPLY_HPP
 # define INCLUDEREPLY_HPP
 
 #include "AReply.hpp"
@@ -39,9 +38,19 @@
 # include "RPL_Endofmotd.hpp"
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
-# include "ERR_PasswdMismatch.hpp"
 # include "ERR_ChannelModeIs.hpp"
-# include "ERR_ChanoPrivsNeeded.hpp"
+# include "RPL_Liststart.hpp"
+# include "RPL_List.hpp"
+# include "RPL_Listend.hpp"
+# include "ERR_Useronchannel.hpp"
+# include "RPL_Inviting.hpp"
+# include "ERR_Usernotinchannel.hpp"
+# include "ERR_Chanoprivsneeded.hpp"
+# include "ERR_Passwdmismatch.hpp"
+# include "RPL_Youreoper.hpp"
+# include "ERR_Helpnotfound.hpp"
+# include "RPL_Info.hpp"
+# include "RPL_Endofinfo.hpp"
 //include_here
 
 #endif

@@ -15,6 +15,7 @@ class Channel {
 		std::string			_name;
 		std::string			_topic;
 		std::vector<User *>	_users;
+		std::vector<User *>	_channelOperators;
 		std::vector<int>	_users_fd;
 		int					_client_limit;
 		std::map<char, std::string> _modes;
@@ -42,6 +43,9 @@ class Channel {
 
 		std::string const getModestring();
 		std::string const getModearguments();
+
+		int		isChannelOperator(User *user);
+		void	addChannelOperator(User *user);
 };
 
 #endif

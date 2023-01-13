@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/12 13:30:30 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:58:37 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ private:
 	Lusers	lusers;
 	Pass	pass;
 	Mode	mode;
+	Names	names;
+	List	list;
+	Invite	invite;
+	Kick	kick;
+	Oper	oper;
+	Quit	quit;
+	Help	help;
+	Info	info;
 	//cmd_here
 
 	void insert(ACommand *);

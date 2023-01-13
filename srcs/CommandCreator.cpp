@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 10:46:44 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 15:14:23 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:05:48 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ CommandCreator::CommandCreator()
 	insert(&lusers);
 	insert(&pass);
 	insert(&mode);
+	insert(&names);
+	insert(&list);
+	insert(&invite);
+	insert(&kick);
+	insert(&oper);
+	insert(&quit);
+	insert(&help);
+	insert(&info);
 	//insert_here
 }
 

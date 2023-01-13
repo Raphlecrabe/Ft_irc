@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/10 22:06:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/13 14:05:24 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	Nick::used_nick(std::string &nickname, Hub &hub, Callback &callback)
 		if ((*it)->getNickname() == nickname)
 		{
 			std::string	reply = "ERR_NICKNAMEINUSE";
-			callback.addReply(reply, "");
+			callback.addReply(reply, nickname);
 			return (-1);
 		}
 	}
@@ -97,7 +97,7 @@ int	Nick::wrong_nick(std::string &nickname, Callback &callback)
 		if (std::isalnum(nickname[i]) == 0)
 		{
 			std::string	reply = "ERR_ERRONEUSNICKNAME";
-			callback.addReply(reply);
+			callback.addReply(reply, nickname);
 			return (-1);
 		}
 	}

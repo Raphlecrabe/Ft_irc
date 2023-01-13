@@ -16,7 +16,7 @@ class ERR_erroneusnickname : public AReply{
 			(void)param;
 
 			params += message.getSource() + " ";
-			params += message.getSender()->getNickname();
+			params += param;
 			params += " :Erroneus nickname";
 
 			Message	newmessage(":lebestserver.com", "432", params);

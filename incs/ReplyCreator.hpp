@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/10 21:44:35 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/13 14:02:07 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,19 @@ private:
 	RPL_Endofmotd rpl_endofmotd;
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
-	ERR_PasswdMismatch err_passwdmismatch;
 	ERR_ChannelModeIs err_channelmodeis;
-	ERR_ChanoPrivsNeeded err_chanoprivsneeded;
+	RPL_Liststart rpl_liststart;
+	RPL_List rpl_list;
+	RPL_Listend rpl_listend;
+	ERR_Useronchannel err_useronchannel;
+	RPL_Inviting rpl_inviting;
+	ERR_Usernotinchannel err_usernotinchannel;
+	ERR_Chanoprivsneeded err_chanoprivsneeded;
+	ERR_Passwdmismatch err_passwdmismatch;
+	RPL_Youreoper rpl_youreoper;
+	ERR_Helpnotfound err_helpnotfound;
+	RPL_Info rpl_info;
+	RPL_Endofinfo rpl_endofinfo;
 	//reply_here
 
 	void	insert(AReply *newreply);

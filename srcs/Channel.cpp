@@ -177,4 +177,19 @@ std::string const Channel::getModearguments() {
 		modearguments = modearguments.substr(0, modearguments.length() - 1);
 
 	return modearguments;
+int		Channel::isChannelOperator(User *user)
+{
+	for (unsigned int i = 0; i < _channelOperators.size(); i++)
+	{
+		if (user->getNickname() == _channelOperators[i]->getNickname())
+			return (1);
+	}
+	return (0);
+}
+
+void	Channel::addChannelOperator(User *user)
+{
+	if (this->isChannelOperator(user) == 1)
+		return ;
+	_channelOperators.push_back(user);
 }

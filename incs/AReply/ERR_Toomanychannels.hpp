@@ -11,7 +11,7 @@ class ERR_Toomanychannels : public AReply{
 		~ERR_Toomanychannels() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			std::string	messageparam = message.getSender()->getName() + " " + param + " :You have joined too many channels";
+			std::string	messageparam = message.getSender()->getNickname() + " " + param + " :You have joined too many channels";
 			Message	newmessage(hub.getServerName(), "405", messageparam);
 			return (newmessage);
 		}

@@ -15,8 +15,10 @@ class Hub {
 	private:
 		Server *_server;
 
-		std::vector<User *> 	_users;
-		std::vector<Channel *>	_channels;
+		std::vector<User *> 				_users;
+		std::vector<Channel *>				_channels;
+		std::vector<User *> 				_ircOperators;
+		std::map<std::string, std::string>	_operatorConfig;
 		int						_numberofchannels;
 		
 		std::string				*_messageOfTheDay;
@@ -31,6 +33,7 @@ class Hub {
 		void RemoveUserByFd(int fd);
 		User * getUserByFd(int fd);
 		std::vector<User *> const & getUserList() const;
+		User *get_UserByNickName(std::string nickname);
 
 		std::string const &getServerName() const;
 		std::string const &getNetworkName() const;
@@ -46,6 +49,11 @@ class Hub {
 		std::vector<Channel *> const &getChannelList() const;
 
 		int	getNumberOfChannels() const;
+
+		int	isIrcOperator(User *user);
+		void	addIrcOperator(User *user);
+
+		int	isInConfig(std::string name, std::string password);
 
 		//EXCEPTIONS FOR CREATING A CHANNEL
 		class TooManyChannels : public std::exception

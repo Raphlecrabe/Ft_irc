@@ -12,7 +12,7 @@ class RPL_Endofnames : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 
-			std::string	messageparam = message.getSender()->getName() + " " + param + " :End of /Names list";
+			std::string	messageparam = message.getSender()->getNickname() + " " + param + " :End of /Names list";
 			Message	newmessage(hub.getServerName(), "366", messageparam);
 			newmessage.addDestinator(message.getSender());
 			return (newmessage);

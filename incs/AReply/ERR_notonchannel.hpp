@@ -13,7 +13,7 @@ class ERR_notonchannel : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			std::string messageparam;
 
-			messageparam += message.getSender()->getName() + " " + param + " :You're not on this channel";
+			messageparam += message.getSender()->getNickname() + " " + param + " :You're not on this channel";
 			Message newmessage(hub.getServerName(), "442", messageparam);
 			newmessage.addDestinator(message.getSender());
 			return(newmessage);

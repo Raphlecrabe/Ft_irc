@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
 /*   Updated: 2023/01/10 21:43:54 by marvin           ###   ########.fr       */
+=======
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
+/*   Updated: 2023/01/06 14:38:14 by rmonacho         ###   ########lyon.fr   */
+>>>>>>> Raph
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +47,19 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_endofmotd);
 	insert(&err_nosucherver);
 	insert(&err_nomotd);
-	insert(&err_passwdmismatch);
 	insert(&err_channelmodeis);
+	insert(&rpl_liststart);
+	insert(&rpl_list);
+	insert(&rpl_listend);
+	insert(&err_useronchannel);
+	insert(&rpl_inviting);
+	insert(&err_usernotinchannel);
 	insert(&err_chanoprivsneeded);
+	insert(&err_passwdmismatch);
+	insert(&rpl_youreoper);
+	insert(&err_helpnotfound);
+	insert(&rpl_info);
+	insert(&rpl_endofinfo);
 	//insert_here;
 }
 

@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:53:48 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:13 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:51:44 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 # include "Lusers.hpp"
 # include "Pass.hpp"
 # include "Mode.hpp"
+# include "Names.hpp"
+# include "List.hpp"
+# include "Invite.hpp"
+# include "Kick.hpp"
+# include "Oper.hpp"
+# include "Quit.hpp"
+# include "Help.hpp"
+# include "Info.hpp"
 //include_here
 
 #endif
