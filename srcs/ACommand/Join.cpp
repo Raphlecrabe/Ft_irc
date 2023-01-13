@@ -1,6 +1,6 @@
 #include "../../incs/ACommand/Join.hpp"
 
-//TO DO Checker si ca marche 
+//TO DO Checker si ca marche
 
 Join::Join() : ACommand("JOIN"){
 
