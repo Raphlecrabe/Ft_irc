@@ -10,9 +10,7 @@ Names::~Names() {
 
 Callback	&Names::cmdExecute(Message & message, Hub & hub)
 {
-	//Debug
-	std::string log = "Names : Names has been called";
-	Debug::Log(log);
+	Debug::Log << "Names : Names has been called" << std::endl;
 
 
 	if (message.getParamList()[0].size() == 0)

@@ -18,7 +18,7 @@ class AReply {
 		std::string 	&getName() { return this->_name; }
 
 		void			Log() {
-			Debug::Log(getName() + " called");
+			Debug::Log << getName() << " called" << std::endl;
 		}
 
 		Message			GetMsg(Hub &hub, Message &message, std::string param) {

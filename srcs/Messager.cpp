@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/14 13:49:38 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:30:34 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	Messager::Sendone(Message &message)
 	try {
 		this->_sender.sendto(message);
 	} catch (std::exception &e) {
-		Debug::Log(e.what());
+		Debug::Log << e.what() << std::endl;
 		std::cout << e.what() << std::endl;
 	}
 }

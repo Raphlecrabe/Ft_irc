@@ -6,7 +6,7 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/13 14:05:24 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:38:27 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 
 	//Debug
 	std::string log = "Nick : nickname has been set to : " + nickname;
-	Debug::Log(log);
+	Debug::Log << "Nick : nickname has been set to : " << nickname << std::endl;
 
 	if (message.getSender()->isAuth() == false)
 	{

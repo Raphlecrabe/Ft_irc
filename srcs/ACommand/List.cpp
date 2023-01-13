@@ -11,8 +11,7 @@ List::~List() {
 Callback	&List::cmdExecute(Message & message, Hub & hub)
 {
 	//Debug
-	std::string log = "List : List has been called";
-	Debug::Log(log);
+	Debug::Log << "List : List has been called" << std::endl;
 
 
 	_callback.addReply("RPL_LISTSTART", "");
@@ -24,9 +23,7 @@ Callback	&List::cmdExecute(Message & message, Hub & hub)
 			_callback.addReply("RPL_LIST", (*it)->get_name());
 		}
 		_callback.addReply("RPL_LISTEND", "");
-		//Debug
-		std::string log = "List : All channels have been listed";
-		Debug::Log(log);
+		Debug::Log << "List : All channels have been listed" << std::endl;
 		return (_callback);
 	}
 	else
@@ -44,9 +41,7 @@ Callback	&List::cmdExecute(Message & message, Hub & hub)
 			_callback.addReply("RPL_LIST", params[i]);
 		}
 		_callback.addReply("RPL_LISTEND", "");
-		//Debug
-		std::string log = "List : Some channels have been listed";
-		Debug::Log(log);
+		Debug::Log << "List : Some channels have been listed" << std::endl;
 		return (_callback);
 	}
 }

@@ -32,9 +32,7 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	AReply	*reply = this->_ReplyCreator.getReplyByName(name);
 	if (reply == NULL)
 	{
-		//Debug
-		std::string log = "Replyer :" + name + " :Not found";
-		Debug::Log(log);
+		Debug::Log << "Replyer :" << name << " :Not found" << std::endl;
 		//Erreur la reply n'est pas dans notre base de donnée
 		return (-1);
 	}
@@ -42,7 +40,7 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 	try {
 		this->_sender.sendto(reply->GetMsg(_hub, message, param));
 	} catch (std::exception &e) {
-		Debug::Log(e.what());
+		Debug::Log << e.what() << std::endl;
 		std::cout << e.what() << std::endl;
 	}
 

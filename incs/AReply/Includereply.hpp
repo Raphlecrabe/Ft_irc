@@ -6,10 +6,11 @@
 /*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 14:02:28 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:14:27 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INCLUDEREPLY_HPP
 # define INCLUDEREPLY_HPP
 
 #include "AReply.hpp"

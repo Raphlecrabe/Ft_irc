@@ -10,9 +10,7 @@ Quit::~Quit() {
 
 Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 {
-	//Debug
-	std::string log = "OPER : OPER has been called";
-	Debug::Log(log);
+	Debug::Log << "OPER : OPER has been called" << std::endl;
 
 	(void)message;
 	(void)hub;

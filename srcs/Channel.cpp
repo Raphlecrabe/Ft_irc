@@ -31,7 +31,7 @@ int	Channel::AddUser(User *new_user)
 {
 	if (static_cast<int>(_users.size()) == _client_limit)
 	{
-		Debug::Log("Max user channel hit");
+		Debug::Log << "Max user channel hit" << std::endl;
 		return (-1);
 	}
 	_users.push_back(new_user);
@@ -121,7 +121,7 @@ void Channel::SetClientLimit(int limit) {
 	if (limit <= CHANNEL_USER_LIMIT)
 	{
 		_client_limit = limit;
-		Debug::Logstream << "New client limit : " << _client_limit << std::endl;
+		Debug::Log << "New client limit : " << _client_limit << std::endl;
 		if (_modes.find('l') == _modes.end())
 		{
 			std::pair<char, std::string> newmode = std::make_pair<char, std::string>('l', Utils::toString(limit));
@@ -133,7 +133,7 @@ void Channel::SetClientLimit(int limit) {
 }
 
 void Channel::RemoveClientLimit() {
-	Debug::Logstream << "Removing client limit channel" << std::endl;
+	Debug::Log << "Removing client limit channel" << std::endl;
 	_client_limit = CHANNEL_USER_LIMIT;
 	
 	std::map<char, std::string>::iterator it;
@@ -177,6 +177,8 @@ std::string const Channel::getModearguments() {
 		modearguments = modearguments.substr(0, modearguments.length() - 1);
 
 	return modearguments;
+}
+
 int		Channel::isChannelOperator(User *user)
 {
 	for (unsigned int i = 0; i < _channelOperators.size(); i++)

@@ -1,241 +1,50 @@
-[0] Init server with port 9034
-[7546] Listener: received: CAP LS 302
-[7546] Dispatcher: executing commmand CAP
-[7549] Listener: received: NICK rmonacho
-USER rmonacho 0 * :rmonacho
-[7552] Dispatcher: executing commmand NICK
-[7556] Nick : nickname has been set to : rmonacho
-[7559] Dispatcher: executing commmand USER
-[7562] Replyer :Replying : RPL_WELCOME
-[7568] RPL_WELCOME called
-[7572] Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
-[7575] Replyer :Replying : RPL_YOURHOST
-[7581] RPL_YOURHOST called
-[7584] Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
-[7589] Replyer :Replying : RPL_CREATED
-[7594] RPL_CREATED called
-[7599] Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 7/12/2022
-[7605] Replyer :Replying : RPL_MYINFO
-[7608] RPL_MYINFO called
-[7611] Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
-[7615] Replyer :Replying : RPL_ISSUPPORT
-[7619] RPL_ISSUPPORT called
-[7622] Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
-[12583] Listener: received: JOIN lol
-[12583] Dispatcher: executing commmand JOIN
-[12586] Join : adding a new channel lol
-[12591] Replyer :Replying : RPL_TOPIC
-[12594] Sender: sent :AwesomeIrc.com 332 No Topic
-[12598] Replyer :Replying : RPL_NAMEREPLY
-[12603] Sender: sent :AwesomeIrc.com 353 rmonacho #lol :rmonacho 
-[12605] Replyer :Replying : RPL_ENDOFNAMES
-[12610] Sender: sent :AwesomeIrc.com 366 rmonacho ¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¾¸
-[66996] Listener: received: PING 127.0.0.1
-[66996] Dispatcher: executing commmand PING
-[66999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[366996] Listener: received: 
-[377005] Listener: received: CAP LS 302
-[377005] Dispatcher: executing commmand CAP
-[377005] Listener: received: NICK rmonacho
-USER rmonacho 0 * :rmonacho
-[377006] Dispatcher: executing commmand NICK
-[377006] Nick : nickname has been set to : rmonacho
-[377007] Dispatcher: executing commmand USER
-[377007] Replyer :Replying : RPL_WELCOME
-[377008] RPL_WELCOME called
-[377008] Sender: sent :AwesomeIrc.com 001 rmonacho :Welcome to the FT_IRC Network, rmonacho
-[377009] Replyer :Replying : RPL_YOURHOST
-[377010] RPL_YOURHOST called
-[377012] Sender: sent :AwesomeIrc.com 002 rmonacho :Your host is AwesomeIrc.com, running version1
-[377012] Replyer :Replying : RPL_CREATED
-[377012] RPL_CREATED called
-[377013] Sender: sent :AwesomeIrc.com 003 rmonacho :This server was created 7/12/2022
-[377014] Replyer :Replying : RPL_MYINFO
-[377014] RPL_MYINFO called
-[377015] Sender: sent :AwesomeIrc.com 004 rmonacho AwesomeIrc.com 1.0
-[377015] Replyer :Replying : RPL_ISSUPPORT
-[377016] RPL_ISSUPPORT called
-[377016] Sender: sent :AwesomeIrc.com 005 rmonacho AWAYLEN=200 :are supported by this server
-[436995] Listener: received: PING 127.0.0.1
-[436995] Dispatcher: executing commmand PING
-[436996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[496995] Listener: received: PING 127.0.0.1
-[496996] Dispatcher: executing commmand PING
-[496996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[556995] Listener: received: PING 127.0.0.1
-[556995] Dispatcher: executing commmand PING
-[556996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[616999] Listener: received: PING 127.0.0.1
-[616999] Dispatcher: executing commmand PING
-[616999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[676999] Listener: received: PING 127.0.0.1
-[677000] Dispatcher: executing commmand PING
-[677001] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[736995] Listener: received: PING 127.0.0.1
-[736999] Dispatcher: executing commmand PING
-[736999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[796994] Listener: received: PING 127.0.0.1
-[796998] Dispatcher: executing commmand PING
-[796999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[856997] Listener: received: PING 127.0.0.1
-[856998] Dispatcher: executing commmand PING
-[856999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[916997] Listener: received: PING 127.0.0.1
-[916998] Dispatcher: executing commmand PING
-[916999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[976999] Listener: received: PING 127.0.0.1
-[977002] Dispatcher: executing commmand PING
-[977004] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1036999] Listener: received: PING 127.0.0.1
-[1037003] Dispatcher: executing commmand PING
-[1037003] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1096995] Listener: received: PING 127.0.0.1
-[1096998] Dispatcher: executing commmand PING
-[1096999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1156999] Listener: received: PING 127.0.0.1
-[1157000] Dispatcher: executing commmand PING
-[1157001] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1216994] Listener: received: PING 127.0.0.1
-[1216996] Dispatcher: executing commmand PING
-[1216996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1276997] Listener: received: PING 127.0.0.1
-[1277000] Dispatcher: executing commmand PING
-[1277000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1336995] Listener: received: PING 127.0.0.1
-[1337000] Dispatcher: executing commmand PING
-[1337000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1396997] Listener: received: PING 127.0.0.1
-[1396999] Dispatcher: executing commmand PING
-[1396999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1456998] Listener: received: PING 127.0.0.1
-[1457000] Dispatcher: executing commmand PING
-[1457001] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1516995] Listener: received: PING 127.0.0.1
-[1516997] Dispatcher: executing commmand PING
-[1516997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1576995] Listener: received: PING 127.0.0.1
-[1576998] Dispatcher: executing commmand PING
-[1576998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1636995] Listener: received: PING 127.0.0.1
-[1637001] Dispatcher: executing commmand PING
-[1637001] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1696998] Listener: received: PING 127.0.0.1
-[1696998] Dispatcher: executing commmand PING
-[1696999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1756998] Listener: received: PING 127.0.0.1
-[1756999] Dispatcher: executing commmand PING
-[1756999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1816999] Listener: received: PING 127.0.0.1
-[1816999] Dispatcher: executing commmand PING
-[1816999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1876996] Listener: received: PING 127.0.0.1
-[1876997] Dispatcher: executing commmand PING
-[1876997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1936997] Listener: received: PING 127.0.0.1
-[1936999] Dispatcher: executing commmand PING
-[1937000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[1996995] Listener: received: PING 127.0.0.1
-[1996996] Dispatcher: executing commmand PING
-[1996996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2056999] Listener: received: PING 127.0.0.1
-[2057002] Dispatcher: executing commmand PING
-[2057002] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2116996] Listener: received: PING 127.0.0.1
-[2116996] Dispatcher: executing commmand PING
-[2116997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2176999] Listener: received: PING 127.0.0.1
-[2176999] Dispatcher: executing commmand PING
-[2176999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2236998] Listener: received: PING 127.0.0.1
-[2237000] Dispatcher: executing commmand PING
-[2237000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2296995] Listener: received: PING 127.0.0.1
-[2296998] Dispatcher: executing commmand PING
-[2296998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2356995] Listener: received: PING 127.0.0.1
-[2356999] Dispatcher: executing commmand PING
-[2356999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2416997] Listener: received: PING 127.0.0.1
-[2416999] Dispatcher: executing commmand PING
-[2417000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2476998] Listener: received: PING 127.0.0.1
-[2476998] Dispatcher: executing commmand PING
-[2476999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2536995] Listener: received: PING 127.0.0.1
-[2536995] Dispatcher: executing commmand PING
-[2537101] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2596999] Listener: received: PING 127.0.0.1
-[2596999] Dispatcher: executing commmand PING
-[2597000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2656995] Listener: received: PING 127.0.0.1
-[2656997] Dispatcher: executing commmand PING
-[2656998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2716999] Listener: received: PING 127.0.0.1
-[2716999] Dispatcher: executing commmand PING
-[2717000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2776998] Listener: received: PING 127.0.0.1
-[2776998] Dispatcher: executing commmand PING
-[2776999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2836995] Listener: received: PING 127.0.0.1
-[2836996] Dispatcher: executing commmand PING
-[2836998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2896995] Listener: received: PING 127.0.0.1
-[2896995] Dispatcher: executing commmand PING
-[2896996] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[2956996] Listener: received: PING 127.0.0.1
-[2956997] Dispatcher: executing commmand PING
-[2956997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3016998] Listener: received: PING 127.0.0.1
-[3017000] Dispatcher: executing commmand PING
-[3017000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3076998] Listener: received: PING 127.0.0.1
-[3077000] Dispatcher: executing commmand PING
-[3077001] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3136999] Listener: received: PING 127.0.0.1
-[3136999] Dispatcher: executing commmand PING
-[3137000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3196997] Listener: received: PING 127.0.0.1
-[3197000] Dispatcher: executing commmand PING
-[3197000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3256995] Listener: received: PING 127.0.0.1
-[3256998] Dispatcher: executing commmand PING
-[3256998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3316999] Listener: received: PING 127.0.0.1
-[3316999] Dispatcher: executing commmand PING
-[3317000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3376995] Listener: received: PING 127.0.0.1
-[3376997] Dispatcher: executing commmand PING
-[3376998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3436996] Listener: received: PING 127.0.0.1
-[3436998] Dispatcher: executing commmand PING
-[3436998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3496996] Listener: received: PING 127.0.0.1
-[3496996] Dispatcher: executing commmand PING
-[3496997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3556998] Listener: received: PING 127.0.0.1
-[3556998] Dispatcher: executing commmand PING
-[3556999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3616997] Listener: received: PING 127.0.0.1
-[3616997] Dispatcher: executing commmand PING
-[3616998] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3676995] Listener: received: PING 127.0.0.1
-[3677045] Dispatcher: executing commmand PING
-[3677045] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3736999] Listener: received: PING 127.0.0.1
-[3736999] Dispatcher: executing commmand PING
-[3736999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3796996] Listener: received: PING 127.0.0.1
-[3796996] Dispatcher: executing commmand PING
-[3796997] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3856999] Listener: received: PING 127.0.0.1
-[3857000] Dispatcher: executing commmand PING
-[3857000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3916997] Listener: received: PING 127.0.0.1
-[3916998] Dispatcher: executing commmand PING
-[3916999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[3976995] Listener: received: PING 127.0.0.1
-[3976999] Dispatcher: executing commmand PING
-[3976999] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
-[4036999] Listener: received: PING 127.0.0.1
-[4036999] Dispatcher: executing commmand PING
-[4037000] Sender: sent : PONG AwesomeIrc.com 127.0.0.1
+[0] Init server with port 4242
+Listener: received: PASS 42
+
+[6685] Dispatcher: executing commmand PASS
+Listener: received: CAP LS 302
+
+[6685] Dispatcher: executing commmand CAP
+Listener: received: NICK fbelthoi
+
+[6685] Dispatcher: executing commmand NICK
+[6685] Nick : nickname has been set to : fbelthoi
+Listener: received: USER fbelthoi 0 * :fbelthoi
+
+[6685] Dispatcher: executing commmand USER
+[6685] RPL_WELCOME called
+[6685] RPL_YOURHOST called
+[6685] RPL_CREATED called
+[6685] RPL_MYINFO called
+[6685] RPL_ISSUPPORT called
+[6685] Dispatcher: executing commmand LUSERS
+[6685] RPL_LUSERCLIENT called
+[6685] RPL_LUSERME called
+[6685] Dispatcher: executing commmand MOTD
+[6685] RPL_MOTDSTART called
+[6685] RPL_MOTD called
+[6685] RPL_ENDOFMOTD called
+[6685] Sender: sent :AwesomeIrc.com 001 fbelthoi :Welcome to the FT_IRC Network, fbelthoi
+[6685] Sender: sent :AwesomeIrc.com 002 fbelthoi :Your host is AwesomeIrc.com, running version1
+[6685] Sender: sent :AwesomeIrc.com 003 fbelthoi :This server was created 13/1/2023
+[6685] Sender: sent :AwesomeIrc.com 004 fbelthoi AwesomeIrc.com 1.0
+[6685] Sender: sent :AwesomeIrc.com 005 fbelthoi AWAYLEN=200 :are supported by this server
+[6685] Sender: sent :AwesomeIrc.com 251 :There are 1 users and 0 invisible on 1 servers
+[6685] Sender: sent :AwesomeIrc.com 255 :I have 1 clients and 0 servers
+[6685] Sender: sent :AwesomeIrc.com 375 :- AwesomeIrc.com Message of the day - 
+[6685] Sender: sent :AwesomeIrc.com 372 :This is the message of the day!
+[6686] Sender: sent :AwesomeIrc.com 376 :End of /MOTD command.
+Listener: received: JOIN chanun
+
+[32666] Dispatcher: executing commmand JOIN
+[32666] Join : adding a new channel chanun
+[32666] RPL_TOPIC called
+[32666] RPL_NAMEREPLY called
+[32666] RPL_ENDOFNAMES called
+[32666] Sender: sent :AwesomeIrc.com 331 fbelthoi chanun :No Topic is set
+[32666] Sender: sent :AwesomeIrc.com 353 fbelthoi =chanun :fbelthoi 
+[32666] Sender: sent :AwesomeIrc.com 366 fbelthoi chanun :End of /Names list
+Listener: received: QUIT :WeeChat 3.7.1
+
+[61085] Dispatcher: executing commmand QUIT
+[61085] OPER : OPER has been called
