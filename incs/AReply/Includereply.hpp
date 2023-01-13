@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:22 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:43:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@
 # include "RPL_Endofmotd.hpp"
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
+# include "ERR_PasswdMismatch.hpp"
+# include "ERR_ChannelModeIs.hpp"
+# include "ERR_ChanoPrivsNeeded.hpp"
 //include_here
 
 #endif

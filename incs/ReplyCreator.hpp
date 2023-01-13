@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/07 15:24:55 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:44:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ private:
 	RPL_Endofmotd rpl_endofmotd;
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
+	ERR_PasswdMismatch err_passwdmismatch;
+	ERR_ChannelModeIs err_channelmodeis;
+	ERR_ChanoPrivsNeeded err_chanoprivsneeded;
 	//reply_here
 
 	void	insert(AReply *newreply);

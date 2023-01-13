@@ -11,7 +11,6 @@ class RPL_Luserclient : public AReply{
 		~RPL_Luserclient() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 			
 			(void)param;
 			

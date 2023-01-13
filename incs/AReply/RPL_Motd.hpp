@@ -12,7 +12,6 @@ class RPL_Motd : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
-			Log();
 
 			std::string msgparams = ":" + *(hub.getMessageOfTheDay());
 

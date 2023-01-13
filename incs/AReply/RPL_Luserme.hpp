@@ -12,7 +12,6 @@ class RPL_Luserme : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
-			Log();
 		
 			int c = hub.getUserList().size();
 

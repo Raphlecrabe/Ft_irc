@@ -2,6 +2,10 @@
 # define LISTENER_HPP
 
 # include <iostream>
+# include <sys/time.h>
+# include <sys/types.h>
+# include <sys/select.h>
+# include <map>
 
 class Listener {
 	private:
@@ -12,11 +16,15 @@ class Listener {
 
 		int				_listenerfd;
 
+		std::map<int, std::string> _buffers;
+
 		void	*get_in_addr(struct sockaddr *sa);
 
 		int 	launch_listener(const char* port);
 
 		bool	datasComplete(const std::string &);
+
+		void	close_connection(int fd);
 
 	public:
 		Listener();
@@ -25,11 +33,14 @@ class Listener {
 		int init(const char* port);
 		int pollfds();
 
-		std::string recvdatas(int fd);
+		bool 		recvdatas(int fd);
 		int			new_connection();
 
 		void	Hear(int i, int *recvfd, int *ncfd);
 		bool	IsListening(int fd);
+
+		std::string const & get_datas_from_fd(int fd);
+		void				clear_datas_from_fd(int fd);
 };
 
 #endif

@@ -11,7 +11,6 @@ class RPL_IsSupport : public AReply{
 		~RPL_IsSupport() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
-			Log();
 
 			(void)param;
 

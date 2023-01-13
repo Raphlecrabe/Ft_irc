@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-User::User(int fd) : _fd(fd) { }
+User::User(int fd) : _fd(fd), _isAuth(false) { }
 
 User::~User() {	}
 
@@ -31,6 +31,9 @@ void User::setNickname(std::string & nickname) {
 void User::setName(std::string & name) { this->_name = name; }
 void User::setRealname(std::string & realname) { this->_realname = realname; }
 void User::setNumberOfChannels(int number) { this->_number_of_channels = number; }
+
+void User::setAuth() { _isAuth = true; }
+bool User::isAuth() { return _isAuth; }
 
 void User::AddChannel(Channel *channel)
 {

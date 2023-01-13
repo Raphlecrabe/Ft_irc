@@ -12,7 +12,6 @@ class ERR_Nomotd : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
-			Log();
 
 			Message newmessage(hub.getServerName(), "422", "Error :MOTD File is missing");
 			newmessage.addDestinator(message.getSender());

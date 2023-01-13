@@ -35,6 +35,8 @@ class Server {
 		void	new_user(int fd);
 		void	initTime();
 
+		bool datasComplete(const std::string & datas);
+
 	public:
 		Server(std::string const &serverName, const char *port, char *password);
 		~Server();
@@ -42,6 +44,7 @@ class Server {
 		void launch();
 
 		std::string const &getServerName() const;
+		std::string const &getServerPassword() const;
 		std::string const &getNetworkName() const;
 		std::string	const &getStartTime() const;
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:20:37 by rmonacho          #+#    #+#             */
-/*   Updated: 2022/12/12 15:06:15 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:51:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,20 @@ std::string Utils::toString(int n) {
 
 bool	Utils::isBetween(int n, int low, int high) {
 	return (n >= low && n <= high);
+}
+
+int		Utils::toInt(std::string const & s)
+{
+	int nb = 0;
+	int len = s.length();
+
+	for (int i = 0; i < len; i++)
+	{
+		if (s[i] < '0' || s[i] > '9')
+			break;
+			
+		nb = (nb * 10) + (s[i] - '0');
+	}
+
+	return nb;
 }

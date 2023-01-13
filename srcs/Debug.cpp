@@ -9,6 +9,8 @@
 
 Debug *Debug::_instance = NULL;
 
+std::ofstream Debug::Logstream("log.txt", std::ios::app);
+
 Debug::Debug() : _fileName("log.txt") {
 	std::ofstream file;
 	

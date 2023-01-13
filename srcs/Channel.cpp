@@ -108,10 +108,73 @@ int	Channel::UserIsInChannel(User *user)
 	if (_users.size() == 0)
 		return (0);
 	std::vector<User *>::iterator	it;
-	for (it = _users.begin(); it !=  _users.end(); it++)
+	for (it = _users.begin(); it != _users.end(); it++)
 	{
 		if ((*it)->getName() == user->getName())
 			return (1);
 	}
+
 	return (0);
+}
+
+void Channel::SetClientLimit(int limit) {
+	if (limit <= CHANNEL_USER_LIMIT)
+	{
+		_client_limit = limit;
+		Debug::Logstream << "New client limit : " << _client_limit << std::endl;
+		if (_modes.find('l') == _modes.end())
+		{
+			std::pair<char, std::string> newmode = std::make_pair<char, std::string>('l', Utils::toString(limit));
+			_modes.insert(newmode);
+		}
+		else
+			_modes['l'] = limit;
+	}
+}
+
+void Channel::RemoveClientLimit() {
+	Debug::Logstream << "Removing client limit channel" << std::endl;
+	_client_limit = CHANNEL_USER_LIMIT;
+	
+	std::map<char, std::string>::iterator it;
+
+	for (it = _modes.begin(); it != _modes.end(); it++)
+	{
+		if (it->first == 'l')
+		{
+			_modes.erase(it);
+			break;
+		}
+	}
+}
+
+std::string const Channel::getModestring() {
+	if (_modes.empty())
+		return "";
+	
+	std::string modestring = "";
+
+	std::map<char, std::string>::iterator it;
+
+	for (it = _modes.begin(); it != _modes.end(); it++)
+		modestring += it->first;
+
+	return modestring;
+}
+
+std::string const Channel::getModearguments() {
+	if (_modes.empty())
+		return "";
+	
+	std::string modearguments = "";
+
+	std::map<char, std::string>::iterator it;
+
+	for (it = _modes.begin(); it != _modes.end(); it++)
+		modearguments += it->second + " ";
+
+	if (modearguments.empty() == false)
+		modearguments = modearguments.substr(0, modearguments.length() - 1);
+
+	return modearguments;
 }

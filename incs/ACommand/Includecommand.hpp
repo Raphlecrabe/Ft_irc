@@ -25,6 +25,8 @@
 # include "Topic.hpp"
 # include "Motd.hpp"
 # include "Lusers.hpp"
+# include "Pass.hpp"
+# include "Mode.hpp"
 //include_here
 
 #endif
