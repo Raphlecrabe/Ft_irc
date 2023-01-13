@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/10 21:12:14 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/13 14:30:22 by fbelthoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	{
 		//Que faire quand on connait pas la commande ?
 		//Et ensuite envoyer un message au serveur ?
-		Debug::Log(std::string("Dispatcher: Command not found: ") + std::string(cmdname));
+		Debug::Log << "Dispatcher: Command not found: " << cmdname << std::endl;
 		return (-1);
 	}
 
-	Debug::Log(std::string("Dispatcher: executing commmand ") + std::string(cmdname));
+	Debug::Log << "Dispatcher: executing commmand " << cmdname << std::endl;
 	
 	Callback	&request = Command->cmdExecute(client_request, _hub);
 	this->_Replyer.TreatReplys(request, client_request);

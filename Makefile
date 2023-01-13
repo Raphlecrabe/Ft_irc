@@ -32,10 +32,8 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Ping.cpp \
 					Motd.cpp \
 					Lusers.cpp \
-<<<<<<< HEAD
 					Pass.cpp \
 					Mode.cpp \
-=======
 					Names.cpp \
 					List.cpp \
 					Invite.cpp \
@@ -44,7 +42,6 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Quit.cpp \
 					Help.cpp \
 					Info.cpp \
->>>>>>> Raph
 					#NEW_CMD_HERE
 
 #OBJS
@@ -87,10 +84,8 @@ COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
 				Motd.hpp \
 				Lusers.hpp \
-<<<<<<< HEAD
 				Pass.hpp \
 				Mode.hpp \
-=======
 				Names.hpp \
 				List.hpp \
 				Invite.hpp \
@@ -99,7 +94,6 @@ COMMANDS =		ACommand.hpp \
 				Quit.hpp \
 				Help.hpp \
 				Info.hpp \
->>>>>>> Raph
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -125,10 +119,7 @@ REPLIES =		AReply.hpp \
 				RPL_Endofmotd.hpp \
 				ERR_Nosucherver.hpp \
 				ERR_Nomotd.hpp \
-<<<<<<< HEAD
 				ERR_ChannelModeIs.hpp \
-				ERR_ChanoPrivsNeeded.hpp \
-=======
 				RPL_Liststart.hpp \
 				RPL_List.hpp \
 				RPL_Listend.hpp \
@@ -141,7 +132,6 @@ REPLIES =		AReply.hpp \
 				ERR_Helpnotfound.hpp \
 				RPL_Info.hpp \
 				RPL_Endofinfo.hpp \
->>>>>>> Raph
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}
@@ -157,7 +147,7 @@ ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp ${INCLUDES}
 all:		makedirs ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${FLAGS} ${SANITIZE} ${OBJS} -o ${NAME}
+			${CC} ${FLAGS} ${OBJS} -o ${NAME}
 
 makedirs:
 			@mkdir -p objs/ACommand
@@ -172,4 +162,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY	= all clean fclean re makedirs
+.PHONY:all clean fclean re makedirs

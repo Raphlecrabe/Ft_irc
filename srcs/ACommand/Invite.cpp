@@ -49,9 +49,7 @@ int	Invite::userTest(Message message, std::string chanparam, std::string nickpar
 
 Callback	&Invite::cmdExecute(Message & message, Hub & hub)
 {
-	//Debug
-	std::string log = "Invite : Invite has been called";
-	Debug::Log(log);
+	Debug::Log << "Invite : Invite has been called" << std::endl;
 
 
 	// Pas assez de paramètre pour pouvoir inviter un User

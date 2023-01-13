@@ -72,16 +72,14 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 			if (addChannel(hub, message, params[i]) == -1)
 				continue;
 			channel = hub.getChannelByName(params[i]);
-			//Debug
-			std::string log = "Join : adding a new channel " + params[i];
-			Debug::Log(log);
+
+			Debug::Log << "Join : adding a new channel " << params[i] << std::endl;
 			continue;
 		}
 		if (joinChannel(channel, message, params[i]) == -1)
 			continue;
-		//Debug
-		std::string log = "Join : Joined a new channel " + params[i];
-		Debug::Log(log);
+
+		Debug::Log << "Join : Joined a new channel " << params[i] << std::endl;
 	}
 	return(_callback);
 }

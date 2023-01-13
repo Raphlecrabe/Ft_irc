@@ -39,9 +39,8 @@ Callback	&Part::cmdExecute(Message & message, Hub & hub)
 		}
 		if (channel->RemoveUser(*message.getSender()) == -1)
 			hub.removeChannelByName(channel->get_name());
-		//Debug
-		std::string log = "Part : removed " + message.getSender()->getName() + " from " + messageparam;
-		Debug::Log(log);
+
+		Debug::Log << "Part : removed " << message.getSender()->getName() << " from " << messageparam << std::endl;
 		if (reason == 1)
 			messageparam += " " + message.getParamList()[1];
 		Message	newmessage(message.getSender()->getName(), "PART", messageparam);

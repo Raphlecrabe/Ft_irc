@@ -10,9 +10,7 @@ Kick::~Kick() {
 
 Callback	&Kick::cmdExecute(Message & message, Hub & hub)
 {
-	//Debug
-	std::string log = "Kick : Kick has been called";
-	Debug::Log(log);
+	Debug::Log << "Kick : Kick has been called" << std::endl;
 
 
 	std::vector<std::string> messageparams = Utils::split(message.getParams(), ' ');

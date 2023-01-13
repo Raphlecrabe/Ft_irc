@@ -30,7 +30,7 @@ Server::Server(std::string const &serverName, const char *port, char *password) 
 
 	this->_networkName = "FT_IRC";
 
-	Debug::Log(std::string("Init server with port ") + std::string(port));
+	Debug::Log << "Init server with port " << port << std::endl;
 }
 
 Server::~Server() {

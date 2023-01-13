@@ -10,7 +10,7 @@ Mode::~Mode() {
 
 Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 {
-	Debug::Logstream << "MODE called, parameters : " << message.getParams() << std::endl;
+	Debug::Log<< "MODE called, parameters : " << message.getParams() << std::endl;
 	std::vector<std::string> const paramlist = message.getParamList();
 	Channel *channel = hub.getChannelByName(paramlist[0]);
 
@@ -26,16 +26,16 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 		return this->_callback;
 	}
 
-	// if (message.getSender()->isNotAnOperator())
-	// {
-	// 	this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
-	// 	return this->_callback;
-	// }
+	if (channel->isChannelOperator(message.getSender()) == 0) // check if irc operator? hub.isIrcOperator(message.getSender())
+	{
+		this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
+		return this->_callback;
+	}
 
 	char modeset = paramlist[1][0];
 	std::string modeflags = paramlist[1].substr(1, paramlist[1].length() - 1);
 
-	if (paramlist.size <= 2)
+	if (paramlist.size() <= 2)
 		return this->_callback;
 
 	std::string modeparams = paramlist[2];
@@ -50,12 +50,12 @@ void		Mode::executeModes(char modeset, std::string modeflags, std::string const 
 	
 	for (int i = 0; i < len; i++)
 	{
-		Debug::Logstream << "Checking mode " << modeflags[i] << "..." << std::endl;
+		Debug::Log << "Checking mode " << modeflags[i] << "..." << std::endl;
 
 	 	if (modeflags[i] == 'l')
 		{
 			int limit = Utils::toInt(modeparam);
-			Debug::Logstream << "Executing mode 'l' with limit " << limit << " on channel " << channel->get_name() << std::endl;
+			Debug::Log << "Executing mode 'l' with limit " << limit << " on channel " << channel->get_name() << std::endl;
 			this->clientLimitChannel(modeset, limit, channel);
 			break;
 		}
@@ -75,4 +75,5 @@ void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel) {
 	// std::string params = modeset + 'l' + " " + Utils::toString(limit);
 	// Message *msg = new Message(hub.getServerName(), "MODE", params);;
 	// channel->sendToAllUsers(channel, Message);
+	// delete msg;
 }
