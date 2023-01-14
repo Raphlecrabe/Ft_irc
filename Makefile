@@ -42,6 +42,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Quit.cpp \
 					Help.cpp \
 					Info.cpp \
+					Privmsg.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -94,6 +95,7 @@ COMMANDS =		ACommand.hpp \
 				Quit.hpp \
 				Help.hpp \
 				Info.hpp \
+				Privmsg.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \

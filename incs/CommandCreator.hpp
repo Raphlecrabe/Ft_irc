@@ -41,6 +41,7 @@ private:
 	Quit	quit;
 	Help	help;
 	Info	info;
+	Privmsg    privmsg;
 	//cmd_here
 
 	void insert(ACommand *);
