@@ -5,6 +5,8 @@
 
 class Privmsg : public ACommand{
 	private:
+		void	msgToUser(User *user, Message& message);
+		void	msgToChannel(Channel *channel, Message& message);
 
 	public:
 		Privmsg();
