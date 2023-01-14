@@ -24,8 +24,6 @@ class Listener {
 
 		bool	datasComplete(const std::string &);
 
-		void	close_connection(int fd);
-
 	public:
 		Listener();
 		~Listener();
@@ -41,6 +39,8 @@ class Listener {
 
 		std::string const & get_datas_from_fd(int fd);
 		void				clear_datas_from_fd(int fd);
+
+		void	close_connection(int fd);
 };
 
 #endif

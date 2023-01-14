@@ -112,6 +112,48 @@ void Server::launch() {
 
 			if (_listener.IsListening(i))
 				_sender.Speak(i);
+
+			if (is_programmed_to_close(i))
+				close_connection(i);
+		}
+	}
+}
+
+bool		Server::is_programmed_to_close(int fd) {
+	if (_close_buffer.size() == 0)
+		return false;
+
+	std::vector<int>::iterator it;
+
+	for (it = _close_buffer.begin(); it != _close_buffer.end(); it++)
+	{
+		if (*it == fd)
+			return true;
+	}
+
+	return false;
+}
+
+void		Server::program_to_close(int fd)
+{
+	if (is_programmed_to_close(fd))
+		return;
+
+	_close_buffer.push_back(fd);
+}
+
+void		Server::close_connection(int fd) {
+
+	this->_listener.close_connection(fd);
+
+	std::vector<int>::iterator it;
+
+	for (it = _close_buffer.begin(); it != _close_buffer.end(); it++)
+	{
+		if (*it == fd)
+		{
+			_close_buffer.erase(it);
+			return;
 		}
 	}
 }

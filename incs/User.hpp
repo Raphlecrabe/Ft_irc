@@ -40,6 +40,8 @@ class User {
 		void setRealname(std::string & realname);
 		void setNumberOfChannels(int number);
 		void AddChannel(Channel *channel);
+
+		void RemoveItselfFromChannels();
 };
 
 # include "Channel.hpp"

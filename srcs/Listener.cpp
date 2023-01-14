@@ -121,6 +121,8 @@ void	Listener::clear_datas_from_fd(int fd) {
 }
 
 int	Listener::new_connection() {
+	Debug::Log << "Listener: new_connection" << std::endl;
+
 	int newfd;
 	struct sockaddr_storage remoteaddr;
 	socklen_t addrlen;

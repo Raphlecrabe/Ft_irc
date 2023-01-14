@@ -50,10 +50,12 @@ class Hub {
 
 		int	getNumberOfChannels() const;
 
-		int	isIrcOperator(User *user);
+		int		isIrcOperator(User *user);
 		void	addIrcOperator(User *user);
 
 		int	isInConfig(std::string name, std::string password);
+
+		void 		close_connection(int fd);
 
 		//EXCEPTIONS FOR CREATING A CHANNEL
 		class TooManyChannels : public std::exception

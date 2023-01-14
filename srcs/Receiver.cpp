@@ -28,7 +28,8 @@ void Receiver::Hear(User * user, std::string datas) {
 		
 		Message msg(user, ndatas);
 		
-		_dispatcher.Execute(msg);
+		if (_dispatcher.Execute(msg) == -1)
+			break;
 
 		datas = datas.substr(len + 2);
 	}

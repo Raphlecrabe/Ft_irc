@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/14 15:07:35 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/14 19:46:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Callback
 		std::vector < s_pair >			_Replys;
 		std::vector<Message>			_Messages;
 		std::vector<std::string>		_Commands;
+		
+		bool							_error;
 
 	public:
 		Callback();
@@ -34,11 +36,14 @@ class Callback
 		std::vector< s_pair >	const		&getReplys() const;
 		std::vector< Message >		const	&getMessages() const;
 		std::vector<std::string>	const	&getCommands() const;
+		bool								getError() const;
 
 		void	addReply(std::string reply);
 		void	addReply(std::string reply, std::string param);
 		void	addMessage(Message &message);
 		void	addCommand(std::string cmd);
+		void	setError(bool);
+		
 		void	resetReplys();
 		void	resetMessages();
 		void	resetCommands();

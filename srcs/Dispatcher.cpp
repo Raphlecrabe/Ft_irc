@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 15:53:30 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/14 19:57:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 		//Que faire quand on connait pas la commande ?
 		//Et ensuite envoyer un message au serveur ?
 		Debug::Log << "Dispatcher: Command not found: " << cmdname << std::endl;
-		return (-1);
+		return 0;
 	}
 
 	Debug::Log << "Dispatcher: executing commmand " << cmdname << std::endl;
@@ -48,6 +48,15 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	this->_Replyer.TreatReplys(request, client_request);
 	this->_Messager.TreatMessages(request);
 	this->TreatCommands(request, client_request.getSender());
+	
+	if (request.getError())
+	{
+		_hub.RemoveUserByFd(client_request.getSender()->getFd());
+		//_hub.close_connection(client_request.getSender()->getFd());
+		request.setError(false);
+		return -1;
+	}
+
 	return 0;
 }
 
