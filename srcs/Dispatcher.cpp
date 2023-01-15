@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 16:27:58 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 17:36:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ Dispatcher::~Dispatcher()
 	
 }
 
-void Dispatcher::PutMessageOnHold(User *user, Message &message)
+void Dispatcher::PutUserCommandOnHold(User *user, Message &message)
 {
 	Debug::Log << "Dispatcher: Putting message on hold from fd " << user->getFd() << std::endl;
 
-	if (HasMessageOnHold(user))
+	if (HasUserCommandOnHold(user))
 	{
 		on_hold[user] = message;
 		return;
@@ -36,7 +36,7 @@ void Dispatcher::PutMessageOnHold(User *user, Message &message)
 	on_hold.insert(newpair);
 }
 
-bool Dispatcher::HasMessageOnHold(User *user) {
+bool Dispatcher::HasUserCommandOnHold(User *user) {
 	if (on_hold.size() == 0)
 		return false;
 
@@ -47,33 +47,39 @@ bool Dispatcher::HasMessageOnHold(User *user) {
 	return false;
 }
 
-int	Dispatcher::Execute(Message & client_request)
-{
-	std::string cmdname = client_request.getCommand();
+bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & client_request) {
 
-	if (cmdname == "USER" && client_request.getSender()->getNickname() == "")
-	{
-		if (client_request.getSender()->isAuth())
-			PutMessageOnHold(client_request.getSender(), client_request);
-		return 0;
-	}
+	User *sender = client_request.getSender();
 
-	if (cmdname == "NICK" && HasMessageOnHold(client_request.getSender()))
+	if (cmdname == "USER" && sender->NicknameIsSet() == false)
 	{
-		std::map<User *, Message>::iterator it = on_hold.find(client_request.getSender());
+		if (sender->isAuth())
+			PutUserCommandOnHold(client_request.getSender(), client_request);
+		return true;
+	} else if (cmdname == "NICK" && HasUserCommandOnHold(sender))
+	{
+		std::map<User *, Message>::iterator it = on_hold.find(sender);
 
 		Execute(cmdname, client_request);
 
 		Debug::Log << "Dispatcher: Executing holded command" << std::endl;
 
-		Execute("USER", it->second);
+		Execute(it->second);
 		on_hold.erase(it);
-		return 0;
+		return true;
 	}
 
-	Execute(cmdname, client_request);
-	
-	return 0;
+	return false;
+}
+
+int	Dispatcher::Execute(Message & client_request)
+{
+	std::string cmdname = client_request.getCommand();
+
+	if (HoldConnectionProtocol(cmdname, client_request))
+		return 0;
+
+	return Execute(cmdname, client_request);
 }
 
 int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
@@ -94,11 +100,9 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	this->_Messager.TreatMessages(request);
 	this->TreatCommands(request, client_request.getSender());
 	
-	if (request.getError())
+	if (request.askForStop())
 	{
-		//_hub.RemoveUserByFd(client_request.getSender()->getFd());
-		//_hub.close_connection(client_request.getSender()->getFd());
-		request.setError(false);
+		request.setStop(false);
 		return -1;
 	}
 

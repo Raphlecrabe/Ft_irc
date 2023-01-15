@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 16:01:00 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 17:18:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ private:
 	int		TreatCommands(Callback &callback, User *sender);
 	int		Execute(std::string const &cmdname, Message &);
 
-	void PutMessageOnHold(User *user, Message &message);
-	bool HasMessageOnHold(User *user);
+	void PutUserCommandOnHold(User *user, Message &message);
+	bool HasUserCommandOnHold(User *user);
+
+	bool HoldConnectionProtocol(std::string const &, Message &);
 
 public:
 	Dispatcher(Sender &sender, Hub & hub);

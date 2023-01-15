@@ -117,7 +117,18 @@ std::string const & Listener::get_datas_from_fd(int fd) {
 }
 
 void	Listener::clear_datas_from_fd(int fd) {
-	this->_buffers[fd] = "";
+	
+	std::string datas = _buffers[fd];
+
+	size_t pos = datas.find("\r\n");
+
+	while (pos != std::string::npos)
+	{
+		datas = datas.substr(pos + 2);
+		pos = datas.find("\r\n");
+	}
+
+	this->_buffers[fd] = datas;
 }
 
 int	Listener::new_connection() {

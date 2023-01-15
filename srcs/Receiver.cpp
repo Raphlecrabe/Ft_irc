@@ -14,16 +14,10 @@ Receiver::~Receiver() {
 
 void Receiver::Hear(User * user, std::string datas) {
 
-	while(datas.empty() == false)
-	{
-		int len = datas.find("\r\n");
-		
-		if (len == (int)std::string::npos)
-		{
-			std::cout << "Receiver: datas not ending with \r\n" << std::endl;
-			break;
-		}
+	size_t len = datas.find("\r\n");
 
+	while(len != std::string::npos)
+	{
 		std::string ndatas = datas.substr(0, len + 2);
 		
 		Message msg(user, ndatas);
@@ -32,5 +26,7 @@ void Receiver::Hear(User * user, std::string datas) {
 			break;
 
 		datas = datas.substr(len + 2);
+
+		len = datas.find("\r\n");
 	}
 }

@@ -44,6 +44,8 @@ class User {
 
 		void RemoveItselfFromChannels();
 		Message getQuitMessage(std::string reason);
+
+		bool NicknameIsSet();
 };
 
 # include "Channel.hpp"

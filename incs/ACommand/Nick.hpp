@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 11:38:18 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/14 18:53:59 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 17:01:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 class Nick : public ACommand
 {
 private:
-	void	stop_connection(User *user, Hub &hub);
-
 	int	check_nick(std::string &nickname, Hub & hub, Callback &callback);
 	int	used_nick(std::string &nickname, Hub &hub, Callback &callback);
 	int	wrong_nick(std::string &nickname, Callback &callback);

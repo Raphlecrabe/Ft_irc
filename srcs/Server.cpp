@@ -53,12 +53,12 @@ void	Server::new_user(int fd) {
 
 bool Server::datasComplete(const std::string & datas)
 {
-	int len = datas.length();
+	size_t pos = datas.find("\r\n");
 
-	if (len < 2)
+	if (pos == std::string::npos)
 		return false;
 
-	return (datas.substr(len - 2, 2).compare("\r\n") == 0);
+	return true;
 }
 
 void	Server::receive(int fd) {

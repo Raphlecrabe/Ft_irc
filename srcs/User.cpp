@@ -66,8 +66,11 @@ Message User::getQuitMessage(std::string reason)
 
 	for (it = this->_channels.begin(); it != this->_channels.end(); it++)
 	{
+		Debug::Log << "User: getQuitMessage: adding destinators from channel " << (*it)->get_name() << std::endl;
 		(*it)->addDestinatorsExceptOneInMessage(this, newmessage);
 	}
 
 	return newmessage;
 }
+
+bool 	User::NicknameIsSet() { return _nickname != ""; }

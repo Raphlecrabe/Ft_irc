@@ -37,6 +37,7 @@ int	Channel::AddUser(User *new_user)
 	}
 	_users.push_back(new_user);
 	this->AddFd(new_user->getFd());
+	new_user->AddChannel(this);
 	return (0);
 }
 

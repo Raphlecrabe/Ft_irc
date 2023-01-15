@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/14 19:46:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 17:01:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Callback
 		std::vector<Message>			_Messages;
 		std::vector<std::string>		_Commands;
 		
-		bool							_error;
+		bool							_stop;
 
 	public:
 		Callback();
@@ -36,13 +36,13 @@ class Callback
 		std::vector< s_pair >	const		&getReplys() const;
 		std::vector< Message >		const	&getMessages() const;
 		std::vector<std::string>	const	&getCommands() const;
-		bool								getError() const;
+		bool								askForStop() const;
 
 		void	addReply(std::string reply);
 		void	addReply(std::string reply, std::string param);
 		void	addMessage(Message &message);
 		void	addCommand(std::string cmd);
-		void	setError(bool);
+		void	setStop(bool);
 		
 		void	resetReplys();
 		void	resetMessages();
