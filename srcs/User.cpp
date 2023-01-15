@@ -54,3 +54,20 @@ void User::RemoveItselfFromChannels() {
 	
 	_channels.clear();
 }
+
+Message User::getQuitMessage(std::string reason)
+{
+	Message newmessage(this->_nickname, "QUIT", reason);
+
+	if (_channels.size() == 0)
+		return newmessage;
+
+	std::vector<Channel *>::iterator it;
+
+	for (it = this->_channels.begin(); it != this->_channels.end(); it++)
+	{
+		(*it)->addDestinatorsExceptOneInMessage(this, newmessage);
+	}
+
+	return newmessage;
+}

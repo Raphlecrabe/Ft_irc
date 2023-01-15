@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/14 19:57:27 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 16:16:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Nick::~Nick() {
 
 void		Nick::stop_connection(User *user, Hub &hub) {
 	_callback.setError(true);
+	//hub.close_connection(user->getFd());
 	(void)user;
 	(void)hub;
 }
@@ -34,7 +35,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
 	{
-		stop_connection(message.getSender(), hub);
+		_callback.setError(true);
 		return this->_callback;
 	}
 
@@ -46,6 +47,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 	if (message.getSender()->isAuth() == false)
 	{
 		_callback.addReply("ERR_PASSWDMISMATCH");
+		_callback.addReply("ERROR", "Incorrect password");
 		stop_connection(message.getSender(), hub);
 	}
 

@@ -6,6 +6,7 @@
 # include <vector>
 
 class Channel;
+class Message;
 
 class User {
 	private:
@@ -42,6 +43,7 @@ class User {
 		void AddChannel(Channel *channel);
 
 		void RemoveItselfFromChannels();
+		Message getQuitMessage(std::string reason);
 };
 
 # include "Channel.hpp"

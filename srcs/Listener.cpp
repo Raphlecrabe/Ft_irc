@@ -99,7 +99,7 @@ bool Listener::recvdatas(int fd) {
 			std::cerr << "error: recv" << std::endl;
 		}
 		
-		close_connection(fd);
+		//close_connection(fd);
 
 		return false;
 
@@ -162,6 +162,18 @@ void	Listener::close_connection(int fd) {
 	std::map<int, std::string>::iterator it = _buffers.find(fd);
 	if (it != _buffers.end())
 		_buffers.erase(fd);
+}
+
+bool 	Listener::IsSet(int fd) {
+	if (fd == _listenerfd)
+		return true;
+
+	std::map<int, std::string>::iterator it = _buffers.find(fd);
+
+	if (it == _buffers.end())
+		return false;
+
+	return true;
 }
 
 int		Listener::pollfds() {

@@ -41,6 +41,8 @@ class Listener {
 		void				clear_datas_from_fd(int fd);
 
 		void	close_connection(int fd);
+
+		bool 	IsSet(int fd);
 };
 
 #endif

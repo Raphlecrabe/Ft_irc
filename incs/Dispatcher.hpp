@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:28:20 by raphael           #+#    #+#             */
-/*   Updated: 2022/12/14 13:48:49 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:01:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ private:
 	Replyer					_Replyer;
 	Messager				_Messager;
 
+	std::map<User *, Message>	on_hold;
+
 	int		TreatCommands(Callback &callback, User *sender);
 	int		Execute(std::string const &cmdname, Message &);
+
+	void PutMessageOnHold(User *user, Message &message);
+	bool HasMessageOnHold(User *user);
 
 public:
 	Dispatcher(Sender &sender, Hub & hub);

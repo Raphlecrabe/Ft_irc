@@ -34,6 +34,7 @@ CommandCreator::CommandCreator()
 	insert(&help);
 	insert(&info);
 	insert(&privmsg);
+	insert(&quit);
 	//insert_here
 }
 

@@ -12,8 +12,8 @@ Hub::Hub(Server *server) : _server(server) {
 	config.first = "rafymonach";
 	config.second = "mdpraf";
 	_operatorConfig.insert(config);
-	config.first = "felixlechat";
-	config.second = "mdpfelix";
+	config.first = "fbelthoi";
+	config.second = "mdp";
 	_operatorConfig.insert(config);
 	
 	setMessageOfTheDay("This is the message of the day!");
@@ -64,7 +64,7 @@ void Hub::RemoveUserByFd(int fd) {
 
 	if (isIrcOperator(user))
 	{
-		Debug::Log << "Hub: Removing User for ircOperators..." << std::endl;
+		Debug::Log << "Hub: Removing User from ircOperators..." << std::endl;
 
 		for (it = _ircOperators.begin(); it != _ircOperators.end(); it++)
 		{
@@ -224,7 +224,5 @@ int		Hub::isInConfig(std::string name, std::string password)
 }
 
 void	Hub::close_connection(int fd) {
-	this->RemoveUserByFd(fd);
-
 	_server->program_to_close(fd);
 }

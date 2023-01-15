@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includecommand.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:53:48 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 13:51:44 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:39:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 # include "Invite.hpp"
 # include "Kick.hpp"
 # include "Oper.hpp"
-# include "Quit.hpp"
 # include "Help.hpp"
 # include "Info.hpp"
 # include "Privmsg.hpp"
+# include "Quit.hpp"
 //include_here
 
 #endif

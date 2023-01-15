@@ -52,6 +52,7 @@
 # include "ERR_Helpnotfound.hpp"
 # include "RPL_Info.hpp"
 # include "RPL_Endofinfo.hpp"
+# include "Error.hpp"
 //include_here
 
 #endif

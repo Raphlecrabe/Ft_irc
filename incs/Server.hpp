@@ -43,6 +43,8 @@ class Server {
 		
 		void				close_connection(int fd);
 
+		void 	send(Message &);
+
 	public:
 		Server(std::string const &serverName, const char *port, char *password);
 		~Server();

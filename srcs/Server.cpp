@@ -65,7 +65,15 @@ void	Server::receive(int fd) {
 	
 	if (_listener.recvdatas(fd) == false)
 	{
-		_hub.RemoveUserByFd(fd);
+		User *user = _hub.getUserByFd(fd);
+		if (user)
+		{
+			Message newmessage = user->getQuitMessage("connection closed by client");
+			send(newmessage);
+		}
+
+		this->program_to_close(fd);
+
 		return;
 	}
 
@@ -100,6 +108,9 @@ void Server::launch() {
 
 		for (int i = 0; i < fd_max + 1; i++)
 		{
+			if (_listener.IsSet(i) == false)
+				continue;
+
 			int	recvfd = -1;
 			int	ncfd = -1;
 
@@ -144,6 +155,8 @@ void		Server::program_to_close(int fd)
 
 void		Server::close_connection(int fd) {
 
+	this->_hub.RemoveUserByFd(fd);
+
 	this->_listener.close_connection(fd);
 
 	std::vector<int>::iterator it;
@@ -155,6 +168,16 @@ void		Server::close_connection(int fd) {
 			_close_buffer.erase(it);
 			return;
 		}
+	}
+}
+
+void	Server::send(Message &m)
+{
+	try{
+		_sender.sendto(m);
+	} catch (std::exception &e) {
+		Debug::Log << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 

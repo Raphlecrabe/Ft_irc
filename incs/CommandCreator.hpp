@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 13:58:37 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:32:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ private:
 	Invite	invite;
 	Kick	kick;
 	Oper	oper;
-	Quit	quit;
 	Help	help;
 	Info	info;
 	Privmsg    privmsg;
+	Quit    quit;
 	//cmd_here
 
 	void insert(ACommand *);
