@@ -133,19 +133,27 @@ void		Hub::setMessageOfTheDay(std::string s) {
 	_messageOfTheDay = new std::string(s);
 }
 
+bool	Hub::chanNameIsValid(std::string const & name)
+{
+	if (name[0] != '#' && name[0] != '&')
+		return false;
+
+	for (unsigned int i = 1; i < name.size(); i++) {
+		if (name[i] == ' ' || name[i] == ',') // MUST CHECK FOR '^G' char
+			return false;
+	}
+
+	return true;
+}
+
 Channel	&Hub::CreateChannel(std::string &name, User *user)
-{	
+{
 	if (user->getNumberOfChannels() == CHANNEL_LIMIT)
 		throw Hub::TooManyChannels();
 	if (_numberofchannels == CHANNEL_MAX)
 		throw Hub::ChannelMaxReached();
-	for (unsigned int i = 0; i < name.size(); i++)
-	{
-		if (isalnum(name[i]) == 0)
-		{
-			throw Hub::BadChannelName();
-		}
-	}
+	if (chanNameIsValid(name) == false)
+		throw Hub::BadChannelName();
 	Channel	*newchannel = new Channel(name);
 	if (newchannel->AddUser(user) == -1)
 		throw Hub::ChannelIsFull();

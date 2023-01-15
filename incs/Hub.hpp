@@ -25,6 +25,8 @@ class Hub {
 
 		std::vector<User *>::iterator findUserByFd(int fd);
 
+		bool chanNameIsValid(std::string const &);
+
 	public:
 		Hub(Server *);
 		~Hub();
@@ -82,7 +84,7 @@ class Hub {
 
 			virtual const	char	*what() const throw()
 			{
-				return ("ERR_BADCHANNELMASK");
+				return ("ERR_BADCHANMASK");
 			}
 		};
 		class ChannelIsFull : public std::exception

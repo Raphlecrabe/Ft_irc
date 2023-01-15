@@ -14,6 +14,7 @@ class ERR_Badchanmask : public AReply{
 			(void)message;
 			std::string	messageparam = param + " :Bad Channel Mask";
 			Message	newmessage(hub.getServerName(), "476", messageparam);
+			newmessage.addDestinator(message.getSender());
 			return (newmessage);
 		}
 };
