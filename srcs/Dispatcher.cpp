@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 17:36:09 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 18:41:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,14 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 
 		Execute(cmdname, client_request);
 
+		Message userMsg = it->second;
+
+		on_hold.erase(it);
+
 		Debug::Log << "Dispatcher: Executing holded command" << std::endl;
 
-		Execute(it->second);
-		on_hold.erase(it);
+		Execute(userMsg);
+		
 		return true;
 	}
 
