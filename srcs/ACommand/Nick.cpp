@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/15 16:16:24 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 16:26:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 {
 	std::string nickname = message.getParams();
 
+	if (message.getSender()->isAuth() == false)
+	{
+		_callback.addReply("ERR_PASSWDMISMATCH");
+		_callback.addReply("ERROR", "Incorrect password");
+		stop_connection(message.getSender(), hub);
+		return this->_callback;
+	}
+
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
 	{
 		_callback.setError(true);
@@ -43,13 +51,6 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 
 	//Debug
 	Debug::Log << "Nick : nickname has been set to : " << nickname << std::endl;
-
-	if (message.getSender()->isAuth() == false)
-	{
-		_callback.addReply("ERR_PASSWDMISMATCH");
-		_callback.addReply("ERROR", "Incorrect password");
-		stop_connection(message.getSender(), hub);
-	}
 
 	return (this->_callback);
 }

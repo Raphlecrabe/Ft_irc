@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 16:07:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/15 16:27:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	Dispatcher::Execute(Message & client_request)
 
 	if (cmdname == "USER" && client_request.getSender()->getNickname() == "")
 	{
-		PutMessageOnHold(client_request.getSender(), client_request);
+		if (client_request.getSender()->isAuth())
+			PutMessageOnHold(client_request.getSender(), client_request);
 		return 0;
 	}
 
