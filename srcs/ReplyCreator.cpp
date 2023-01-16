@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/16 10:16:21 by raphael          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:41:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_endofmotd);
 	insert(&err_nosucherver);
 	insert(&err_nomotd);
-	insert(&err_channelmodeis);
 	insert(&rpl_liststart);
 	insert(&rpl_list);
 	insert(&rpl_listend);
@@ -55,6 +54,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_endofinfo);
 	insert(&error);
 	insert(&err_alreadyregistered);
+	insert(&rpl_channelmodeis);
 	//insert_here;
 }
 

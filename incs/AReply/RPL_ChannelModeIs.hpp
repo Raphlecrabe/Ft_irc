@@ -1,14 +1,14 @@
-#ifndef ERR_CHANNELMODEIS_HPP
-# define ERR_CHANNELMODEIS_HPP
+#ifndef RPL_CHANNELMODEIS_HPP
+# define RPL_CHANNELMODEIS_HPP
 
 # include "AReply.hpp"
 
-class ERR_ChannelModeIs : public AReply{
+class RPL_ChannelModeIs : public AReply{
 	private:
 
 	public:
-		ERR_ChannelModeIs() : AReply("ERR_CHANNELMODEIS") {};
-		~ERR_ChannelModeIs() {}
+		RPL_ChannelModeIs() : AReply("RPL_CHANNELMODEIS") {};
+		~RPL_ChannelModeIs() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			Channel *channel = hub.getChannelByName(param);

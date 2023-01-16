@@ -121,7 +121,6 @@ REPLIES =		AReply.hpp \
 				RPL_Endofmotd.hpp \
 				ERR_Nosucherver.hpp \
 				ERR_Nomotd.hpp \
-				ERR_ChannelModeIs.hpp \
 				RPL_Liststart.hpp \
 				RPL_List.hpp \
 				RPL_Listend.hpp \
@@ -136,6 +135,7 @@ REPLIES =		AReply.hpp \
 				RPL_Endofinfo.hpp \
 				Error.hpp \
 				ERR_AlreadyRegistered.hpp \
+				RPL_ChannelModeIs.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}
