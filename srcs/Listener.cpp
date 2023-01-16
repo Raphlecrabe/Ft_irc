@@ -96,7 +96,7 @@ bool Listener::recvdatas(int fd) {
 			// Connection closed
 			std::cout << "pollserver: socket " << fd << " hung up" << std::endl;
 		} else {
-			std::cerr << "error: recv" << std::endl;
+			std::cerr << "recv: no connection with fd " << fd << std::endl;
 		}
 		
 		//close_connection(fd);
@@ -167,6 +167,8 @@ int	Listener::new_connection() {
 }
 
 void	Listener::close_connection(int fd) {
+	Debug::Log << "Closing connection with fd: " << fd << std::endl;
+
 	close(fd);
 	FD_CLR(fd, &_master);
 

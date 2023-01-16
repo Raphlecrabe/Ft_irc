@@ -14,7 +14,7 @@ Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 
 	this->_callback.addReply("ERROR", message.getParams());
 
-	hub.close_connection(message.getSender()->getFd());
+	hub.program_to_close(message.getSender()->getFd());
 
 	std::string reason = "Quit: " + message.getParams();
 

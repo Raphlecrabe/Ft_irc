@@ -22,6 +22,8 @@ class Sender {
 
 		void Speak(int fd);
 
+		bool HasSomethingToSayTo(int fd);
+
 		class SendErrorException : public std::exception {
 			public:
 				virtual const char* what() const throw();

@@ -57,7 +57,7 @@ class Hub {
 
 		int	isInConfig(std::string name, std::string password);
 
-		void 		close_connection(int fd);
+		void 		program_to_close(int fd);
 
 		//EXCEPTIONS FOR CREATING A CHANNEL
 		class TooManyChannels : public std::exception

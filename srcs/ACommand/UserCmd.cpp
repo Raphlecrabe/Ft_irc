@@ -21,6 +21,7 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 		_callback.addReply("ERR_PASSWDMISMATCH");
 		_callback.addReply("ERROR", "incorrect password");
 		_callback.setStop(true);
+		hub.program_to_close(message.getSender()->getFd());
 		return this->_callback;
 	}
 
