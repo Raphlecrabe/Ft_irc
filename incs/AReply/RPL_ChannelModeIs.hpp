@@ -3,7 +3,7 @@
 
 # include "AReply.hpp"
 
-class RPL_ChannelModeIs : public AReply{
+class RPL_ChannelModeIs : public AReply {
 	private:
 
 	public:
@@ -11,9 +11,10 @@ class RPL_ChannelModeIs : public AReply{
 		~RPL_ChannelModeIs() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
+			User *user = message.getSender();
 			Channel *channel = hub.getChannelByName(param);
 
-			std::string msgparams = channel->get_name() + " " + channel->getModestring() + " " + channel->getModearguments();
+			std::string msgparams = user->getNickname() + " " + channel->get_name() + " " + channel->getModestring() + " " + channel->getModearguments();
 			Message newmessage(hub.getServerName(), "324", msgparams);
 
 			newmessage.addDestinator(message.getSender());

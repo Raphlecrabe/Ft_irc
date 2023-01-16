@@ -26,7 +26,7 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 		return this->_callback;
 	}
 
-	// if (channel->isChannelOperator(message.getSender()) == 0) // check if irc operator? hub.isIrcOperator(message.getSender())
+	// if (channel->isChannelOperator(message.getSender()) == 0)
 	// {
 	// 	this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
 	// 	return this->_callback;
@@ -68,10 +68,8 @@ void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &h
 	else
 		channel->SetClientLimit(limit);
 
-	std::string mods = "";
-	mods.push_back(modeset);
 
-	std::string params = mods + "l " + Utils::toString(limit);
+	std::string params = channel->get_name() + " " + modeset + "l " + Utils::toString(limit);
 	Message newmessage (hub.getServerName(), "MODE", params);;
 	channel->addAllUsersToMessage(newmessage);
 	this->_callback.addMessage(newmessage);

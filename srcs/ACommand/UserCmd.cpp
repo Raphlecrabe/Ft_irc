@@ -35,7 +35,7 @@ bool 		UserCmd::checkAuthentication(User * user) {
 	return true;
 }
 
-void		UserCmd::registerUser(User * user) {
+void		UserCmd::registerUser(User * user, Message & message) {
 	std::vector<std::string> paramlist = message.getParamList();
 
 	int paramlen = paramlist.size();
@@ -71,7 +71,7 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 
 	User *user = message.getSender();
 
-	if (checkRegister(user) == false)
+	if (checkRegisterState(user) == false)
 		return this->_callback;
 
 	if (checkAuthentication(user) == false)
@@ -79,7 +79,7 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 
 	Debug::Log << "USER: " << user->getNickname() << " has been authentified" << std::endl;
 
-	registerUser(user);
+	registerUser(user, message);
 
 	return this->_callback;
 }

@@ -8,7 +8,7 @@ class UserCmd : public ACommand {
 	private:
 		bool	checkRegisterState(User *);
 		bool	checkAuthentication(User *);
-		void	registerUser(User *);	
+		void	registerUser(User *, Message &);	
 
 	public:
 		UserCmd();
