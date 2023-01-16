@@ -5,6 +5,7 @@
 # include "../Callback.hpp"
 # include "../Hub.hpp"
 # include "../Debug.hpp"
+# include <string>
 
 class AReply {
 	private:

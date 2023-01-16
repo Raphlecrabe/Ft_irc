@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 14:02:07 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:16:06 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ private:
 	RPL_MyInfo				MyInfo;
 	RPL_IsSupport			IsSupport;
 
-	ERR_nicknameinuse		ERR_nicknameinuse;
-	ERR_needmoreparams		ERR_needmoreparams;
-	ERR_erroneusnickname	ERR_erroneusnickname;
-	ERR_nonicknamegiven		ERR_nonicknamegiven;
-	ERR_Toomanychannels		ERR_Toomanychannels;
-	ERR_Channelisfull		ERR_Channelisfull;
-	ERR_Badchanmask			ERR_Badchanmask;
-	ERR_Nosuchchannel		ERR_Nosuchchannel;
-	ERR_notonchannel		ERR_notonchannel;
+	ERR_nicknameinuse		E_nicknameinuse;
+	ERR_needmoreparams		E_needmoreparams;
+	ERR_erroneusnickname	E_erroneusnickname;
+	ERR_nonicknamegiven		E_nonicknamegiven;
+	ERR_Toomanychannels		E_Toomanychannels;
+	ERR_Channelisfull		E_Channelisfull;
+	ERR_Badchanmask			E_Badchanmask;
+	ERR_Nosuchchannel		E_Nosuchchannel;
+	ERR_notonchannel		E_notonchannel;
 	RPL_Luserclient rpl_luserclient;
 	RPL_Luserme rpl_luserme;
 	RPL_Motdstart rpl_motdstart;

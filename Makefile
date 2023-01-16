@@ -55,7 +55,7 @@ SRCS_COMMAND_ABS = ${SRCS_COMMAND:%.cpp=${COMMAND}%.cpp}
 
 NAME	= ircserv
 
-CC		= clang++
+CC		= c++
 
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 

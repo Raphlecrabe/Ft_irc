@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/13 14:09:10 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:16:21 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ ReplyCreator::ReplyCreator()
 	insert(&MyInfo);
 	insert(&IsSupport);
 	
-	insert(&ERR_nicknameinuse);
-	insert(&ERR_needmoreparams);
-	insert(&ERR_erroneusnickname);
-	insert(&ERR_nonicknamegiven);
-	insert(&ERR_Toomanychannels);
-	insert(&ERR_Channelisfull);
-	insert(&ERR_Badchanmask);
-	insert(&ERR_Nosuchchannel);
-	insert(&ERR_notonchannel);
+	insert(&E_nicknameinuse);
+	insert(&E_needmoreparams);
+	insert(&E_erroneusnickname);
+	insert(&E_nonicknamegiven);
+	insert(&E_Toomanychannels);
+	insert(&E_Channelisfull);
+	insert(&E_Badchanmask);
+	insert(&E_Nosuchchannel);
+	insert(&E_notonchannel);
 	insert(&rpl_luserclient);
 	insert(&rpl_luserme);
 	insert(&rpl_motdstart);
