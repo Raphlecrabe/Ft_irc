@@ -151,7 +151,7 @@ void Channel::SetClientLimit(int limit) {
 			_modes.insert(newmode);
 		}
 		else
-			_modes['l'] = limit;
+			_modes['l'] = Utils::toString(limit);
 	}
 }
 
