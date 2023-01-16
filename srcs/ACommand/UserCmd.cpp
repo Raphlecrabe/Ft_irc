@@ -25,9 +25,7 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	{
 		Debug::Log << "USER: wrong password detected for " << message.getSender()->getNickname() << std::endl;
 		_callback.addReply("ERR_PASSWDMISMATCH");
-		_callback.addReply("ERROR", "incorrect password");
 		_callback.setUserDelete(true);
-		//hub.program_to_close(message.getSender()->getFd());
 		return this->_callback;
 	}
 
