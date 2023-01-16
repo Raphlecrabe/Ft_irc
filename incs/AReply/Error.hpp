@@ -11,6 +11,7 @@ class Error : public AReply{
 		~Error() {}
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
+			param = ":" + param;
 			Message newmessage(hub.getServerName(), "ERROR", param);
 			newmessage.addDestinator(message.getSender());
 			return newmessage;

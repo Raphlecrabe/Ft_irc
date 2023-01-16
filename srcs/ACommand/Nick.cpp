@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/16 11:25:39 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:50:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 	std::string nickname = message.getParams();
 
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
-	{
-		_callback.setStop(true);
 		return this->_callback;
-	}
 
 	message.getSender()->setNickname(nickname);
 

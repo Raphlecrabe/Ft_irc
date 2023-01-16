@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 17:19:51 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:53:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Callback.hpp"
 
-Callback::Callback() : _stop(false) {
+Callback::Callback() : _userDelete(false) {
 	
 }
 
@@ -23,8 +23,8 @@ Callback::~Callback()
 std::vector< s_pair >	const		&Callback::getReplys() const { return (this->_Replys); }
 std::vector<Message>		const	&Callback::getMessages() const { return (this->_Messages); }
 std::vector<std::string> 	const	&Callback::getCommands() const { return (this->_Commands); }
-bool								Callback::askForStop() const { return (this->_stop); }
-void								Callback::setStop(bool b) { this->_stop = b; }
+bool								Callback::askForDeletingUser() const { return (this->_userDelete); }
+void								Callback::setUserDelete(bool b) { this->_userDelete = b; }
 
 void	Callback::addMessage(Message &message)
 {

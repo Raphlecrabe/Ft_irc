@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 12:30:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/16 12:53:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,10 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	this->_Messager.TreatMessages(request);
 	this->TreatCommands(request, client_request.getSender());
 	
-	if (request.askForStop())
+	if (request.askForDeletingUser())
 	{
-		request.setStop(false);
+		_hub.RemoveUserByFd(client_request.getSender()->getFd()); //
+		request.setUserDelete(false);
 		return -1;
 	}
 

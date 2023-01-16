@@ -156,9 +156,9 @@ void		Server::program_to_close(int fd)
 
 void		Server::close_connection(int fd) {
 
-	this->_hub.RemoveUserByFd(fd);
+	// this->_hub.RemoveUserByFd(fd);
 
-	// this->_listener.close_connection(fd);
+	this->_listener.close_connection(fd);
 
 	std::vector<int>::iterator it;
 
