@@ -14,8 +14,17 @@ UserCmd::~UserCmd() {
 }
 
 Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
+
 	if (message.getSender()->isAuth() == false)
+	{
+		Debug::Log << "USER: wrong password detected for " << message.getSender()->getNickname() << std::endl;
+		_callback.addReply("ERR_PASSWDMISMATCH");
+		_callback.addReply("ERROR", "incorrect password");
+		_callback.setStop(true);
 		return this->_callback;
+	}
+
+	Debug::Log << "USER: " << message.getSender()->getNickname() << " has been authentified" << std::endl;
 
 	std::vector<std::string> paramlist = message.getParamList();
 	

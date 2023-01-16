@@ -122,10 +122,11 @@ void Server::launch() {
 				receive(recvfd);
 
 			if (_listener.IsListening(i))
+			{
 				_sender.Speak(i);
-
-			if (is_programmed_to_close(i))
-				close_connection(i);
+				if (is_programmed_to_close(i))
+					close_connection(i);
+			}
 		}
 	}
 }
