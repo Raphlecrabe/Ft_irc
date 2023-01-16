@@ -25,6 +25,8 @@ class Hub {
 
 		std::vector<User *>::iterator findUserByFd(int fd);
 
+		bool chanNameIsValid(std::string const &);
+
 	public:
 		Hub(Server *);
 		~Hub();
@@ -50,10 +52,12 @@ class Hub {
 
 		int	getNumberOfChannels() const;
 
-		int	isIrcOperator(User *user);
+		int		isIrcOperator(User *user);
 		void	addIrcOperator(User *user);
 
 		int	isInConfig(std::string name, std::string password);
+
+		void 		close_connection(int fd);
 
 		//EXCEPTIONS FOR CREATING A CHANNEL
 		class TooManyChannels : public std::exception
@@ -80,7 +84,7 @@ class Hub {
 
 			virtual const	char	*what() const throw()
 			{
-				return ("ERR_BADCHANNELMASK");
+				return ("ERR_BADCHANMASK");
 			}
 		};
 		class ChannelIsFull : public std::exception

@@ -53,6 +53,7 @@ ReplyCreator::ReplyCreator()
 	insert(&err_helpnotfound);
 	insert(&rpl_info);
 	insert(&rpl_endofinfo);
+	insert(&error);
 	//insert_here;
 }
 

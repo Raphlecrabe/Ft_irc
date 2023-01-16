@@ -20,6 +20,10 @@ Sender::~Sender() {
 }
 
 void Sender::Speak(int fd) {
+	//Debug::Log << "Trying to speak to fd " << fd;
+	//Debug::Log << ", buffer count = " << _buffers.count(fd);
+	//Debug::Log << " and size = " << _buffers[fd].size() << std::endl;
+
 	if (_buffers.count(fd) == 0 || _buffers[fd].size() == 0)
 		return;
 
@@ -47,17 +51,17 @@ void Sender::_send(int fd, std::string msg) {
 		int	r_size = size - sent;
 
 		res = send(fd, r_datas, r_size, 0);
+		Debug::Log << "Sender: sent to fd: " << fd << ": " << r_datas;
 
 		if (res == -1)
 		{
+			Debug::Log << "Sender::SendErrorException" << std::endl;
 			throw Sender::SendErrorException();
 			return;
 		}
 
 		sent += res;
 	}
-
-	Debug::Log << "Sender: sent " << datas << std::endl;
 }
 
 void Sender::sendto(int fd, const char *datas, int size) {

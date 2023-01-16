@@ -37,6 +37,14 @@ class Server {
 
 		bool datasComplete(const std::string & datas);
 
+		std::vector<int> _close_buffer;
+
+		bool 	is_programmed_to_close(int fd);
+		
+		void				close_connection(int fd);
+
+		void 	send(Message &);
+
 	public:
 		Server(std::string const &serverName, const char *port, char *password);
 		~Server();
@@ -47,6 +55,8 @@ class Server {
 		std::string const &getServerPassword() const;
 		std::string const &getNetworkName() const;
 		std::string	const &getStartTime() const;
+
+		void	program_to_close(int fd);
 };
 
 #endif

@@ -62,6 +62,7 @@ private:
 	ERR_Helpnotfound err_helpnotfound;
 	RPL_Info rpl_info;
 	RPL_Endofinfo rpl_endofinfo;
+	Error error;
 	//reply_here
 
 	void	insert(AReply *newreply);

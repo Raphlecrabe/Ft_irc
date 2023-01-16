@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Messager.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 15:53:01 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:47:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	Messager::TreatMessages(Callback &callback)
 
 void	Messager::Sendone(Message message)
 {
-	Debug::Log << "Messager: Sendone" << std::endl;
+	Debug::Log << "Messager: Sendone: " << message.Format();
 
 	try {
 		this->_sender.sendto(message);

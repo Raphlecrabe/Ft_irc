@@ -14,3 +14,6 @@ int main(int argc, char **argv)
 	Server server("AwesomeIrc.com", argv[1], argv[2]);
 	server.launch();
 }
+
+// /server del irc
+// /server add 127.0.0.1/4242 -password=42

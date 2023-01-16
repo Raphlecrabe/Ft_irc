@@ -40,3 +40,37 @@ void User::AddChannel(Channel *channel)
 	_number_of_channels ++;
 	_channels.push_back(channel);
 }
+
+void User::RemoveItselfFromChannels() {
+	if (_channels.size() == 0)
+		return;
+
+	std::vector<Channel *>::iterator it;
+
+	for (it = _channels.begin(); it != _channels.end(); it++)
+	{
+		(*it)->RemoveUser(*this);
+	}
+	
+	_channels.clear();
+}
+
+Message User::getQuitMessage(std::string reason)
+{
+	Message newmessage(this->_nickname, "QUIT", reason);
+
+	if (_channels.size() == 0)
+		return newmessage;
+
+	std::vector<Channel *>::iterator it;
+
+	for (it = this->_channels.begin(); it != this->_channels.end(); it++)
+	{
+		Debug::Log << "User: getQuitMessage: adding destinators from channel " << (*it)->get_name() << std::endl;
+		(*it)->addDestinatorsExceptOneInMessage(this, newmessage);
+	}
+
+	return newmessage;
+}
+
+bool 	User::NicknameIsSet() { return _nickname != ""; }

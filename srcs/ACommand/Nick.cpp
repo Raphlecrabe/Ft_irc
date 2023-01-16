@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/13 14:38:27 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:42:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,30 @@ Nick::~Nick() {
 	
 }
 
-void		Nick::wrong_password() {
-	_callback.addReply("ERR_PASSWDMISMATCH");
-	
-	//hub.close_connection(*sender, message);
-	//close connection
-}
-
 Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 {
+	if (message.getSender()->isAuth() == false)
+	{
+		_callback.addReply("ERR_PASSWDMISMATCH");
+		_callback.addReply("ERROR", "incorrect password");
+		_callback.setStop(true);
+		return this->_callback;
+	}
+	
 	std::string nickname = message.getParams();
 
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
-		return (this->getCallback());
+	{
+		_callback.setStop(true);
+		return this->_callback;
+	}
 
 	message.getSender()->setNickname(nickname);
 
 	//Debug
-	std::string log = "Nick : nickname has been set to : " + nickname;
 	Debug::Log << "Nick : nickname has been set to : " << nickname << std::endl;
 
-	if (message.getSender()->isAuth() == false)
-	{
-		wrong_password();
-	}
-
-	return (this->getCallback());
+	return (this->_callback);
 }
 
 int	Nick::check_nick(std::string &nickname, Hub & hub, Callback &callback)

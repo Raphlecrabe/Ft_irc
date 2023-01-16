@@ -29,6 +29,7 @@ void Channel::AddFd(int fd)
 
 int	Channel::AddUser(User *new_user)
 {
+	Debug::Log << "Channel " << this->get_name() << ": adding user: " << new_user->getNickname() << std::endl;
 	if (static_cast<int>(_users.size()) == _client_limit)
 	{
 		Debug::Log << "Max user channel hit" << std::endl;
@@ -36,11 +37,15 @@ int	Channel::AddUser(User *new_user)
 	}
 	_users.push_back(new_user);
 	this->AddFd(new_user->getFd());
+	new_user->AddChannel(this);
 	return (0);
 }
 
 int	Channel::RemoveUser(User &old_user)
 {
+	if (_users.size() == 0)
+		return 0;
+
 	std::vector<User *>::iterator	it;
 	std::vector<int>::iterator	it2;
 
@@ -58,6 +63,7 @@ int	Channel::RemoveUser(User &old_user)
 	}
 	if (this->get_users().size() == 0)
 		return (-1);
+		
 	return (0);
 }
 
@@ -96,7 +102,7 @@ void	Channel::addDestinatorsExceptOneInMessage(User *user, Message &message)
 
 	for (it = users.begin(); it != users.end(); it++)
 	{
-		if ((*it)->getName() != user->getName())
+		if ((*it) != user)
 		{
 			message.addDestinator(*it);
 		}
@@ -112,6 +118,7 @@ void	Channel::addAllUsersToMessage(Message &message)
 
 	for (it = _users.begin(); it != _users.end(); it++)
 	{
+		Debug::Log << "Channel: addAllUsersToMessage: adding Destinator: " << (*it)->getNickname() << std::endl;
 		message.addDestinator(*it);
 	}
 }

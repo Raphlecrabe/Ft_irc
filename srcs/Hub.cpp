@@ -12,8 +12,8 @@ Hub::Hub(Server *server) : _server(server) {
 	config.first = "rafymonach";
 	config.second = "mdpraf";
 	_operatorConfig.insert(config);
-	config.first = "felixlechat";
-	config.second = "mdpfelix";
+	config.first = "fbelthoi";
+	config.second = "mdp";
 	_operatorConfig.insert(config);
 	
 	setMessageOfTheDay("This is the message of the day!");
@@ -30,6 +30,13 @@ Hub::~Hub() {
 
 	_users.clear();
 
+	std::vector<Channel *>::iterator itc;
+
+	for (itc = _channels.begin(); itc != _channels.end(); itc++)
+		delete (*itc);
+
+	_channels.clear();
+
 	delete _messageOfTheDay;
 }
 
@@ -42,11 +49,40 @@ User & Hub::CreateUser(int fd) {
 }
 
 void Hub::RemoveUserByFd(int fd) {
-	
+
+	Debug::Log << "Hub: Removing User from UserList..." << std::endl;
+
 	std::vector<User *>::iterator it = findUserByFd(fd);
+
+	if (it == _users.end())
+		return;
+
+	User *user = *it;
 
 	if (it != _users.end())
 		_users.erase(it);
+
+	if (isIrcOperator(user))
+	{
+		Debug::Log << "Hub: Removing User from ircOperators..." << std::endl;
+
+		for (it = _ircOperators.begin(); it != _ircOperators.end(); it++)
+		{
+			if ((*it)->getFd() == fd)
+			{
+				_ircOperators.erase(it);
+				break;
+			}
+		}
+	}
+
+	Debug::Log << "Hub: Removing User from Channels..." << std::endl;
+
+	user->RemoveItselfFromChannels();
+
+	Debug::Log << "Deleting User..." << std::endl;
+
+	delete user;
 }
 
 User * Hub::getUserByFd(int fd) {
@@ -97,19 +133,27 @@ void		Hub::setMessageOfTheDay(std::string s) {
 	_messageOfTheDay = new std::string(s);
 }
 
+bool	Hub::chanNameIsValid(std::string const & name)
+{
+	if (name[0] != '#' && name[0] != '&')
+		return false;
+
+	for (unsigned int i = 1; i < name.size(); i++) {
+		if (name[i] == ' ' || name[i] == ',') // MUST CHECK FOR '^G' char
+			return false;
+	}
+
+	return true;
+}
+
 Channel	&Hub::CreateChannel(std::string &name, User *user)
-{	
+{
 	if (user->getNumberOfChannels() == CHANNEL_LIMIT)
 		throw Hub::TooManyChannels();
 	if (_numberofchannels == CHANNEL_MAX)
 		throw Hub::ChannelMaxReached();
-	for (unsigned int i = 0; i < name.size(); i++)
-	{
-		if (isalnum(name[i]) == 0)
-		{
-			throw Hub::BadChannelName();
-		}
-	}
+	if (chanNameIsValid(name) == false)
+		throw Hub::BadChannelName();
 	Channel	*newchannel = new Channel(name);
 	if (newchannel->AddUser(user) == -1)
 		throw Hub::ChannelIsFull();
@@ -185,4 +229,8 @@ int		Hub::isInConfig(std::string name, std::string password)
 	if (it->second == password)
 		return (1);
 	return (0);
+}
+
+void	Hub::close_connection(int fd) {
+	_server->program_to_close(fd);
 }
