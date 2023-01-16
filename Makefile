@@ -42,6 +42,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Quit.cpp \
 					Help.cpp \
 					Info.cpp \
+					Privmsg.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -91,9 +92,10 @@ COMMANDS =		ACommand.hpp \
 				Invite.hpp \
 				Kick.hpp \
 				Oper.hpp \
-				Quit.hpp \
 				Help.hpp \
 				Info.hpp \
+				Privmsg.hpp \
+				Quit.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -132,6 +134,7 @@ REPLIES =		AReply.hpp \
 				ERR_Helpnotfound.hpp \
 				RPL_Info.hpp \
 				RPL_Endofinfo.hpp \
+				Error.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

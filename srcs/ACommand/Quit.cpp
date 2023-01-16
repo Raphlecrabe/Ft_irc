@@ -10,9 +10,17 @@ Quit::~Quit() {
 
 Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 {
-	Debug::Log << "OPER : OPER has been called" << std::endl;
-
-	(void)message;
 	(void)hub;
-	return (_callback);
+
+	this->_callback.addReply("ERROR", message.getParams());
+
+	hub.close_connection(message.getSender()->getFd());
+
+	std::string reason = "Quit: " + message.getParams();
+
+	Message clientsQuitMessage = message.getSender()->getQuitMessage(reason);
+
+	this->_callback.addMessage(clientsQuitMessage);
+
+	return this->_callback;
 }

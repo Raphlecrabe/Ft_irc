@@ -20,21 +20,22 @@ int	Join::checkparams(Message &message)
 	return (0);
 }
 
+void Join::addJoinMsgToCallback(User *user, Channel *channel) {
+	Message newmessage(user->getNickname(), "JOIN", channel->get_name());
+	channel->addAllUsersToMessage(newmessage);
+	_callback.addMessage(newmessage);
+}
+
 int	Join::joinChannel(Channel *channel, Message &message, std::string param)
 {
-	Debug::Log << "JOIN: joinchannel called " << std::endl;
-
 	if (channel->AddUser(message.getSender()) == -1)
 	{
 		_callback.addReply("ERR_CHANNELISFULL", param);
 		return (-1);
 	}
 	addReplys(param);
-	Message newmessage(message.getSender()->getNickname(), "JOIN", channel->get_name());
-	Debug::Log << "Join: callback messages: " << _callback.getMessages().size() << std::endl;
-	newmessage.addDestinator(message.getSender());
-	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
-	_callback.addMessage(newmessage);
+	addJoinMsgToCallback(message.getSender(), channel);
+	Debug::Log << "JOIN: user: " << message.getSender()->getNickname() << " joined channel: " << channel->get_name() << std::endl;
 	return (0);
 }
 
@@ -42,7 +43,9 @@ int	Join::addChannel(Hub &hub, Message &message, std::string &param)
 {
 	try
 	{
-		hub.CreateChannel(param, message.getSender());
+		Channel &channel = hub.CreateChannel(param, message.getSender());
+		addJoinMsgToCallback(message.getSender(), &channel);
+		Debug::Log << "JOIN: created channel: " << channel.get_name() << std::endl;
 	}
 	catch(const std::exception &e)
 	{
@@ -69,19 +72,12 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 	{
 		if (params[i].size() == 0)
 			continue;
+			
 		Channel	*channel = hub.getChannelByName(params[i]);
 		if (channel == NULL)
-		{
-			if (addChannel(hub, message, params[i]) == -1)
-				continue;
-			channel = hub.getChannelByName(params[i]);
-
-			Debug::Log << "Join : adding a new channel " << params[i] << std::endl;
-		}
-		if (joinChannel(channel, message, params[i]) == -1)
-			continue;
-
-		Debug::Log << "Join : Joined a new channel " << params[i] << std::endl;
+			addChannel(hub, message, params[i]);
+		else
+			joinChannel(channel, message, params[i]);
 	}
 	return(_callback);
 }

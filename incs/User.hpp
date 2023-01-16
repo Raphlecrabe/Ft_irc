@@ -6,6 +6,7 @@
 # include <vector>
 
 class Channel;
+class Message;
 
 class User {
 	private:
@@ -40,6 +41,11 @@ class User {
 		void setRealname(std::string & realname);
 		void setNumberOfChannels(int number);
 		void AddChannel(Channel *channel);
+
+		void RemoveItselfFromChannels();
+		Message getQuitMessage(std::string reason);
+
+		bool NicknameIsSet();
 };
 
 # include "Channel.hpp"

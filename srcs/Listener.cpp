@@ -99,7 +99,7 @@ bool Listener::recvdatas(int fd) {
 			std::cerr << "error: recv" << std::endl;
 		}
 		
-		close_connection(fd);
+		//close_connection(fd);
 
 		return false;
 
@@ -107,7 +107,7 @@ bool Listener::recvdatas(int fd) {
 	
 	_buffers[fd] += buf;
 
-	Debug::Log << "Listener: received: " << buf << std::endl;
+	Debug::Log << "Listener: received: " << buf;
 
 	return true;
 }
@@ -117,10 +117,23 @@ std::string const & Listener::get_datas_from_fd(int fd) {
 }
 
 void	Listener::clear_datas_from_fd(int fd) {
-	this->_buffers[fd] = "";
+	
+	std::string datas = _buffers[fd];
+
+	size_t pos = datas.find("\r\n");
+
+	while (pos != std::string::npos)
+	{
+		datas = datas.substr(pos + 2);
+		pos = datas.find("\r\n");
+	}
+
+	this->_buffers[fd] = datas;
 }
 
 int	Listener::new_connection() {
+	Debug::Log << "Listener: new_connection" << std::endl;
+
 	int newfd;
 	struct sockaddr_storage remoteaddr;
 	socklen_t addrlen;
@@ -160,6 +173,18 @@ void	Listener::close_connection(int fd) {
 	std::map<int, std::string>::iterator it = _buffers.find(fd);
 	if (it != _buffers.end())
 		_buffers.erase(fd);
+}
+
+bool 	Listener::IsSet(int fd) {
+	if (fd == _listenerfd)
+		return true;
+
+	std::map<int, std::string>::iterator it = _buffers.find(fd);
+
+	if (it == _buffers.end())
+		return false;
+
+	return true;
 }
 
 int		Listener::pollfds() {
