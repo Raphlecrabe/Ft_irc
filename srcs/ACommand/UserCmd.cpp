@@ -15,6 +15,12 @@ UserCmd::~UserCmd() {
 
 Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 
+	if (message.getSender()->IsRegistered())
+	{
+		this->_callback.addReply("ERR_ALREADYREGISTERED"); // not created yet
+		return this->_callback;
+	}
+
 	if (message.getSender()->isAuth() == false)
 	{
 		Debug::Log << "USER: wrong password detected for " << message.getSender()->getNickname() << std::endl;
@@ -28,9 +34,21 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	Debug::Log << "USER: " << message.getSender()->getNickname() << " has been authentified" << std::endl;
 
 	std::vector<std::string> paramlist = message.getParamList();
-	
-	message.getSender()->setName(paramlist[0]);
-	message.getSender()->setRealname(paramlist[3]);
+
+	int maxindex = 3;
+
+	if (paramlist.size() == 0 || paramlist[0] == "0")
+	{
+		message.getSender()->setName(message.getSender()->getNickname());
+		maxindex--;
+	} else
+		message.getSender()->setName(paramlist[0]); // truncate USERNAME if length > USERLEN ?
+
+	if ((int)paramlist.size() < (maxindex + 1))
+		message.getSender()->setRealname(message.getSender()->getNickname());
+	else
+		message.getSender()->setRealname(paramlist[maxindex]);
+
 
 	(void)hub;
 
@@ -43,6 +61,8 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	this->_callback.addCommand("LUSERS");
 
 	this->_callback.addCommand("MOTD");
+
+	message.getSender()->Register();
 
 	return this->_callback;
 }
