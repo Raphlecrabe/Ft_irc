@@ -30,11 +30,14 @@ void Channel::AddFd(int fd)
 int	Channel::AddUser(User *new_user)
 {
 	Debug::Log << "Channel " << this->get_name() << ": adding user: " << new_user->getNickname() << std::endl;
-	if (static_cast<int>(_users.size()) == _client_limit)
+	if ((_modes.find('l') != _modes.end()) &&
+		static_cast<int>(_users.size()) == _client_limit)
 	{
 		Debug::Log << "Max user channel hit" << std::endl;
 		return (-1);
 	}
+	if (this->UserIsInChannel(new_user) == 1)
+		return (0);
 	_users.push_back(new_user);
 	this->AddFd(new_user->getFd());
 	new_user->AddChannel(this);
@@ -130,7 +133,7 @@ int	Channel::UserIsInChannel(User *user)
 	std::vector<User *>::iterator	it;
 	for (it = _users.begin(); it != _users.end(); it++)
 	{
-		if ((*it)->getName() == user->getName())
+		if ((*it)->getNickname() == user->getNickname())
 			return (1);
 	}
 

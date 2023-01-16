@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 18:41:54 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/16 10:45:30 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void Dispatcher::PutUserCommandOnHold(User *user, Message &message)
 		return;
 	}
 
-	std::pair<User *, Message> newpair = std::make_pair<User *, Message>(user, message);
+	std::pair<User *, Message> newpair = std::make_pair(user, message);
 	on_hold.insert(newpair);
 }
 
