@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 10:45:30 by raphael          ###   ########.fr       */
+/*   Updated: 2023/01/16 12:30:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 
 	if (cmdname == "USER" && sender->NicknameIsSet() == false)
 	{
-		if (sender->isAuth())
-			PutUserCommandOnHold(client_request.getSender(), client_request);
+		PutUserCommandOnHold(client_request.getSender(), client_request);
 		return true;
 	} else if (cmdname == "NICK" && HasUserCommandOnHold(sender))
 	{
@@ -68,7 +67,7 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 
 		Debug::Log << "Dispatcher: Executing holded command" << std::endl;
 
-		Execute(userMsg);
+		Execute("USER", userMsg);
 		
 		return true;
 	}
@@ -81,7 +80,7 @@ int	Dispatcher::Execute(Message & client_request)
 	std::string cmdname = client_request.getCommand();
 
 	if (HoldConnectionProtocol(cmdname, client_request))
-		return 0;
+		return -1;
 
 	return Execute(cmdname, client_request);
 }
@@ -122,6 +121,8 @@ int	Dispatcher::TreatCommands(Callback &callback, User *sender) {
 		Message message(sender, *it);
 		Execute(message);
 	}
+
+	callback.resetCommands();
 
 	return 0;
 }

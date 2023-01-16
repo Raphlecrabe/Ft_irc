@@ -19,12 +19,18 @@ Sender::~Sender() {
 	
 }
 
+bool Sender::HasSomethingToSayTo(int fd) {
+	if (_buffers.count(fd) == 0 || _buffers[fd].size() == 0)
+		return false;
+	return true;
+}
+
 void Sender::Speak(int fd) {
 	//Debug::Log << "Trying to speak to fd " << fd;
 	//Debug::Log << ", buffer count = " << _buffers.count(fd);
 	//Debug::Log << " and size = " << _buffers[fd].size() << std::endl;
 
-	if (_buffers.count(fd) == 0 || _buffers[fd].size() == 0)
+	if (HasSomethingToSayTo(fd) == false)
 		return;
 
 	std::vector<std::string>::iterator it;

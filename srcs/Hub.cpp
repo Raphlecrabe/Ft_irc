@@ -231,6 +231,6 @@ int		Hub::isInConfig(std::string name, std::string password)
 	return (0);
 }
 
-void	Hub::close_connection(int fd) {
+void	Hub::program_to_close(int fd) {
 	_server->program_to_close(fd);
 }

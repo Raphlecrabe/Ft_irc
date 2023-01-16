@@ -70,9 +70,10 @@ void	Server::receive(int fd) {
 		{
 			Message newmessage = user->getQuitMessage("connection closed by client");
 			send(newmessage);
+			_hub.RemoveUserByFd(fd);
 		}
 
-		this->program_to_close(fd);
+		_listener.close_connection(fd);
 
 		return;
 	}
@@ -124,7 +125,7 @@ void Server::launch() {
 			if (_listener.IsListening(i))
 				_sender.Speak(i);
 
-			if (is_programmed_to_close(i))
+			if (is_programmed_to_close(i) && (_sender.HasSomethingToSayTo(i) == false))
 				close_connection(i);
 		}
 	}
@@ -157,7 +158,7 @@ void		Server::close_connection(int fd) {
 
 	this->_hub.RemoveUserByFd(fd);
 
-	this->_listener.close_connection(fd);
+	// this->_listener.close_connection(fd);
 
 	std::vector<int>::iterator it;
 
