@@ -54,6 +54,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_info);
 	insert(&rpl_endofinfo);
 	insert(&error);
+	insert(&err_alreadyregistered);
 	//insert_here;
 }
 

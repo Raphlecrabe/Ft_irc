@@ -63,6 +63,7 @@ private:
 	RPL_Info rpl_info;
 	RPL_Endofinfo rpl_endofinfo;
 	Error error;
+	ERR_AlreadyRegistered err_alreadyregistered;
 	//reply_here
 
 	void	insert(AReply *newreply);

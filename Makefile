@@ -135,6 +135,7 @@ REPLIES =		AReply.hpp \
 				RPL_Info.hpp \
 				RPL_Endofinfo.hpp \
 				Error.hpp \
+				ERR_AlreadyRegistered.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

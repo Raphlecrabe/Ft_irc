@@ -53,6 +53,7 @@
 # include "RPL_Info.hpp"
 # include "RPL_Endofinfo.hpp"
 # include "Error.hpp"
+# include "ERR_AlreadyRegistered.hpp"
 //include_here
 
 #endif
