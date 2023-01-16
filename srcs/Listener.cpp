@@ -152,7 +152,7 @@ int	Listener::new_connection() {
 
 		fcntl(newfd, F_SETFL, O_NONBLOCK);
 
-		std::pair<int, std::string> pair = std::make_pair<int, std::string>(newfd, "");
+		std::pair<int, std::string> pair = std::make_pair(newfd, "");
 		_buffers.insert(pair);
 
 		if (newfd > _fd_max)
