@@ -55,6 +55,7 @@
 # include "ERR_AlreadyRegistered.hpp"
 # include "RPL_ChannelModeIs.hpp"
 # include "ERR_NoSuchNick.hpp"
+# include "RPL_UModeIs.hpp"
 //include_here
 
 #endif

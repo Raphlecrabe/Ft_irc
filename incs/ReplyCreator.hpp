@@ -65,6 +65,7 @@ private:
 	ERR_AlreadyRegistered err_alreadyregistered;
 	RPL_ChannelModeIs rpl_channelmodeis;
 	ERR_NoSuchNick err_nosuchnick;
+	RPL_UModeIs rpl_umodeis;
 	//reply_here
 
 	void	insert(AReply *newreply);
