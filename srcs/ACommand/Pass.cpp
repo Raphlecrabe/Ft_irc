@@ -12,8 +12,10 @@ Callback	&Pass::cmdExecute(Message & message, Hub & hub)
 {
 	std::vector<std::string> param = message.getParamList();
 
-	if (param[0] == hub.getServerPassword())
+	if (param.size() == 0)
+		this->_callback.addReply("ERR_NEEDMOREPARAMS");
+	else if (param[0] == hub.getServerPassword())
 		message.getSender()->setAuth();
 
-	return _callback;
+	return this->_callback;
 }

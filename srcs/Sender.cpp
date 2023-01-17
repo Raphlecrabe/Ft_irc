@@ -115,5 +115,5 @@ const char* Sender::SendErrorException::what() const throw() {
 }
 
 const char* Sender::NoDestinatorException::what() const throw() {
-	return "Sender exception: no destinator specified";
+	return "Sender: no destinator specified";
 }
