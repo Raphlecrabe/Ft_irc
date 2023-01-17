@@ -13,7 +13,7 @@ class RPL_Motd : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
 
-			std::string msgparams = ":" + *(hub.getMessageOfTheDay());
+			std::string msgparams = message.getSender()->getNickname() + " :" + *(hub.getMessageOfTheDay());
 
 			Message newmessage(hub.getServerName(), "372", msgparams);
 			newmessage.addDestinator(message.getSender());

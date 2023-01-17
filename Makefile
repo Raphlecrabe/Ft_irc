@@ -121,7 +121,7 @@ REPLIES =		AReply.hpp \
 				RPL_Motdstart.hpp \
 				RPL_Motd.hpp \
 				RPL_Endofmotd.hpp \
-				ERR_Nosucherver.hpp \
+				ERR_Nosuchserver.hpp \
 				ERR_Nomotd.hpp \
 				RPL_Liststart.hpp \
 				RPL_List.hpp \
