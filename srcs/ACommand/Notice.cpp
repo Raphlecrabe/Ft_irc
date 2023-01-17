@@ -12,15 +12,16 @@ Callback	&Notice::cmdExecute(Message & message, Hub & hub)
 {
 	std::string target = message.getParamList()[0];
 	
-	User *destinator = hub.get_UserByNickName(target);
-	if (destinator)
-		msgToUser(destinator, message);
-	else {
+	if (target[0] == '#')
+	{
 		Channel *channel = hub.getChannelByName(target);
 		if (channel)
 			msgToChannel(channel, message);
+	} else {
+		User *destinator = hub.get_UserByNickName(target);
+		if (destinator)
+			msgToUser(destinator, message);
 	}
-
 	return this->_callback;
 }
 
