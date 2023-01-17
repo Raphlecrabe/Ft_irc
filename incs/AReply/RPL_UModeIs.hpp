@@ -13,7 +13,7 @@ class RPL_UModeIs : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
 
-			Message newmessage(hub.getServerName(), "221", message.getSender()->getNickname() + " ");
+			Message newmessage(hub.getServerName(), "221", message.getSender()->getNickname() + " r");
 			newmessage.addDestinator(message.getSender());
 			return newmessage;
 		}

@@ -15,7 +15,7 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 	
 	if (hub.get_UserByNickName(paramlist[0]) != NULL)
 	{
-		//this->_callback.addReply("RPL_UMODEIS");
+		this->_callback.addReply("RPL_UMODEIS");
 		return this->_callback;
 	}
 	
