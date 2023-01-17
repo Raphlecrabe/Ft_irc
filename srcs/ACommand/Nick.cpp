@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Nick.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/16 12:50:37 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/16 14:10:03 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 	if (check_nick(nickname, hub, this->getCallback()) == -1)
 		return this->_callback;
 
+	std::string param = nickname;
+	Message	newmessage(message.getSender()->getNickname(), "NICK", param);
+	newmessage.addDestinator(message.getSender());
+	_callback.addMessage(newmessage);
+	
 	message.getSender()->setNickname(nickname);
 
-	//Debug
-	Debug::Log << "Nick : nickname has been set to : " << nickname << std::endl;
+	Debug::Log << "Nick : nickname has been set to : " << message.getSender()->getNickname() << std::endl;
 
 	return (this->_callback);
 }

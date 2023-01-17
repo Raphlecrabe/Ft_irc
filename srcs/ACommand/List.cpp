@@ -10,7 +10,6 @@ List::~List() {
 
 Callback	&List::cmdExecute(Message & message, Hub & hub)
 {
-	//Debug
 	Debug::Log << "List : List has been called" << std::endl;
 
 
@@ -29,6 +28,11 @@ Callback	&List::cmdExecute(Message & message, Hub & hub)
 	else
 	{
 		std::vector<std::string> params = Utils::split(message.getParamList()[0], ',');
+		for (unsigned int i = 0; i < params.size(); i++)
+		{
+			Debug::Log << params[i] << ", ";
+		}
+		Debug::Log << std::endl;
 		for (unsigned int i = 0; i < params.size(); i++)
 		{
 			if (params[i].size() == 0)

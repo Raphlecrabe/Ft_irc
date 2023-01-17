@@ -43,7 +43,7 @@ Callback	&Part::cmdExecute(Message & message, Hub & hub)
 		Debug::Log << "Part : removed " << message.getSender()->getName() << " from " << messageparam << std::endl;
 		if (reason == 1)
 			messageparam += " " + message.getParamList()[1];
-		Message	newmessage(message.getSender()->getName(), "PART", messageparam);
+		Message	newmessage(message.getSender()->getNickname(), "PART", messageparam);
 		newmessage.addDestinator(message.getSender());
 		channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
 		_callback.addMessage(newmessage);

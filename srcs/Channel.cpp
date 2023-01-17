@@ -39,6 +39,8 @@ int	Channel::AddUser(User *new_user)
 	if (this->UserIsInChannel(new_user) == 1)
 		return (0);
 	_users.push_back(new_user);
+	if (_users.size() == 1)
+		_channelOperators.push_back(new_user);
 	this->AddFd(new_user->getFd());
 	new_user->AddChannel(this);
 	return (0);
@@ -217,4 +219,9 @@ void	Channel::addChannelOperator(User *user)
 	if (this->isChannelOperator(user) == 1)
 		return ;
 	_channelOperators.push_back(user);
+}
+
+std::vector<User *> const &Channel::getOperators() const
+{
+	return (_channelOperators);
 }

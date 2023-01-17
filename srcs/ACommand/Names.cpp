@@ -28,6 +28,7 @@ Callback	&Names::cmdExecute(Message & message, Hub & hub)
 			continue;
 		}
 		_callback.addReply("RPL_NAMEREPLY", params[i]);
+		_callback.addReply("RPL_ENDOFNAMES", params[i]);
 	}
 	return (_callback);
 }
