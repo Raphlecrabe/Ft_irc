@@ -74,7 +74,7 @@ void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &h
 	else
 		return;
 
-	Message newmessage (hub.getServerName(), "MODE", params);;
+	Message newmessage(hub.getServerName(), "MODE", params);;
 	channel->addAllUsersToMessage(newmessage);
 	this->_callback.addMessage(newmessage);
 }
