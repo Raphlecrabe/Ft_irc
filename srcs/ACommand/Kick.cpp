@@ -43,7 +43,7 @@ Callback	&Kick::cmdExecute(Message & message, Hub & hub)
 		User *user = hub.get_UserByNickName(userparam[i]);
 		if (user == NULL || channel->UserIsInChannel(user) == 0)
 		{
-			std::string replyparam = user->getNickname() + " " + channel->get_name();
+			std::string replyparam = userparam[i] + " " + channel->get_name();
 			_callback.addReply("ERR_USERNOTINCHANNEL", replyparam);
 			continue;
 		}

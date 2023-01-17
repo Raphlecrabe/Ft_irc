@@ -17,7 +17,7 @@ class RPL_List : public AReply{
 			if (hub.getChannelByName(param)->get_topic().size() == 0)
 				messageparam += " :No Topic set";
 			else
-				messageparam += hub.getChannelByName(param)->get_topic();
+				messageparam += " :" + hub.getChannelByName(param)->get_topic();
 			Message newmessage(hub.getServerName(), "322", messageparam);
 			newmessage.addDestinator(message.getSender());
 

@@ -148,10 +148,6 @@ bool	Hub::chanNameIsValid(std::string const & name)
 
 Channel	&Hub::CreateChannel(std::string &name, User *user)
 {
-	if (user->getNumberOfChannels() == CHANNEL_LIMIT)
-		throw Hub::TooManyChannels();
-	if (_numberofchannels == CHANNEL_MAX)
-		throw Hub::ChannelMaxReached();
 	if (chanNameIsValid(name) == false)
 		throw Hub::BadChannelName();
 	Channel	*newchannel = new Channel(name);

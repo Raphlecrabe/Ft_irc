@@ -66,6 +66,7 @@ SANITIZE = -fsanitize=address -g3
 INC_DIR = incs
 
 HEADERS =		Debug.hpp \
+				Define.hpp \
 				Server.hpp \
 				Listener.hpp \
 				Sender.hpp \

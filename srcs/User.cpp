@@ -17,16 +17,6 @@ bool		User::IsRegistered() { return this->_isRegistered; }
 void 		User::Register() { this->_isRegistered = true; }
 
 void User::setNickname(std::string const & nickname) {
-	if (nickname.size() > NICKLEN)
-	{
-		std::string troncnick;
-		for (int i = 0; i < NICKLEN; i++)
-		{
-			troncnick.push_back(nickname[i]);
-		}
-		this->_nickname = troncnick;
-		return ;
-	}
 	this->_nickname = nickname;
 }
 
