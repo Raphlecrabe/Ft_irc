@@ -20,6 +20,7 @@ class User {
 		int	_number_of_channels;
 
 		bool _isAuth; //is the user authenticated ? (= has sent the right password)
+		bool _isRegistered;
 
 	public:
 		User(int fd);
@@ -36,9 +37,9 @@ class User {
 		void setAuth();
 		bool isAuth();
 
-		void setNickname(std::string & nickname);
-		void setName(std::string & name);
-		void setRealname(std::string & realname);
+		void setNickname(std::string const & nickname);
+		void setName(std::string const & name);
+		void setRealname(std::string const & realname);
 		void setNumberOfChannels(int number);
 		void AddChannel(Channel *channel);
 
@@ -46,6 +47,9 @@ class User {
 		Message getQuitMessage(std::string reason);
 
 		bool NicknameIsSet();
+
+		bool IsRegistered();
+		void Register();
 };
 
 # include "Channel.hpp"

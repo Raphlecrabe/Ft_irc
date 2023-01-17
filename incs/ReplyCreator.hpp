@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 10:16:06 by raphael          ###   ########.fr       */
+/*   Updated: 2023/01/16 18:41:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ private:
 	RPL_Endofmotd rpl_endofmotd;
 	ERR_Nosucherver err_nosucherver;
 	ERR_Nomotd err_nomotd;
-	ERR_ChannelModeIs err_channelmodeis;
 	RPL_Liststart rpl_liststart;
 	RPL_List rpl_list;
 	RPL_Listend rpl_listend;
@@ -63,6 +62,8 @@ private:
 	RPL_Info rpl_info;
 	RPL_Endofinfo rpl_endofinfo;
 	Error error;
+	ERR_AlreadyRegistered err_alreadyregistered;
+	RPL_ChannelModeIs rpl_channelmodeis;
 	//reply_here
 
 	void	insert(AReply *newreply);

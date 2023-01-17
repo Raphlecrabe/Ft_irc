@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbelthoi <fbelthoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/13 14:14:27 by fbelthoi         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:41:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # include "RPL_Endofmotd.hpp"
 # include "ERR_Nosucherver.hpp"
 # include "ERR_Nomotd.hpp"
-# include "ERR_ChannelModeIs.hpp"
 # include "RPL_Liststart.hpp"
 # include "RPL_List.hpp"
 # include "RPL_Listend.hpp"
@@ -53,6 +52,8 @@
 # include "RPL_Info.hpp"
 # include "RPL_Endofinfo.hpp"
 # include "Error.hpp"
+# include "ERR_AlreadyRegistered.hpp"
+# include "RPL_ChannelModeIs.hpp"
 //include_here
 
 #endif

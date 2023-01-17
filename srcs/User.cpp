@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-User::User(int fd) : _fd(fd), _isAuth(false) { }
+User::User(int fd) : _fd(fd), _isAuth(false), _isRegistered(false) { }
 
 User::~User() {	}
 
@@ -13,8 +13,10 @@ const std::string & User::getName() const { return this->_name; }
 const std::string & User::getRealname() const { return this->_realname; }
 int			User::getNumberOfChannels() const { return (_number_of_channels); }
 const std::vector<Channel *> & User::getChannels() const {return _channels; }
+bool		User::IsRegistered() { return this->_isRegistered; }
+void 		User::Register() { this->_isRegistered = true; }
 
-void User::setNickname(std::string & nickname) {
+void User::setNickname(std::string const & nickname) {
 	if (nickname.size() > NICKLEN)
 	{
 		std::string troncnick;
@@ -28,8 +30,8 @@ void User::setNickname(std::string & nickname) {
 	this->_nickname = nickname;
 }
 
-void User::setName(std::string & name) { this->_name = name; }
-void User::setRealname(std::string & realname) { this->_realname = realname; }
+void User::setName(std::string const & name) { this->_name = name; }
+void User::setRealname(std::string const & realname) { this->_realname = realname; }
 void User::setNumberOfChannels(int number) { this->_number_of_channels = number; }
 
 void User::setAuth() { _isAuth = true; }

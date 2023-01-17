@@ -26,19 +26,18 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 		return this->_callback;
 	}
 
-	// if (channel->isChannelOperator(message.getSender()) == 0) // check if irc operator? hub.isIrcOperator(message.getSender())
-	// {
-	// 	this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
-	// 	return this->_callback;
-	// }
+	if (channel->isChannelOperator(message.getSender()) == 0)
+	{
+		this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
+		return this->_callback;
+	}
 
 	char modeset = paramlist[1][0];
 	std::string modeflags = paramlist[1].substr(1, paramlist[1].length() - 1);
 
-	if (paramlist.size() <= 2)
-		return this->_callback;
-
-	std::string modeparams = paramlist[2];
+	std::string modeparams = "";
+	if (paramlist.size() > 2)
+		modeparams = paramlist[2];
 
 	this->executeModes(modeset, modeflags, modeparams, channel, hub);
 
@@ -63,15 +62,18 @@ void		Mode::executeModes(char modeset, std::string modeflags, std::string const 
 }
 
 void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &hub) {
-	if (modeset == '-')
+	std::string params = channel->get_name() + " " + modeset + "l";
+	
+	if (modeset == '+' && limit != 0)
+	{
+		channel->SetClientLimit(limit);
+		params += " " + Utils::toString(limit);
+	}
+	else if (modeset == '-')
 		channel->RemoveClientLimit();
 	else
-		channel->SetClientLimit(limit);
+		return;
 
-	std::string mods = "";
-	mods.push_back(modeset);
-
-	std::string params = mods + "l " + Utils::toString(limit);
 	Message newmessage (hub.getServerName(), "MODE", params);;
 	channel->addAllUsersToMessage(newmessage);
 	this->_callback.addMessage(newmessage);

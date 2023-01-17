@@ -13,26 +13,45 @@ UserCmd::~UserCmd() {
 	
 }
 
-Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
-
-	if (message.getSender()->isAuth() == false)
+bool 		UserCmd::checkRegisterState(User * user) {
+	if (user->IsRegistered())
 	{
-		Debug::Log << "USER: wrong password detected for " << message.getSender()->getNickname() << std::endl;
-		_callback.addReply("ERR_PASSWDMISMATCH");
-		_callback.addReply("ERROR", "incorrect password");
-		_callback.setUserDelete(true);
-		//hub.program_to_close(message.getSender()->getFd());
-		return this->_callback;
+		this->_callback.addReply("ERR_ALREADYREGISTERED"); // not created yet
+		return false;
 	}
 
-	Debug::Log << "USER: " << message.getSender()->getNickname() << " has been authentified" << std::endl;
+	return true;
+}
 
+bool 		UserCmd::checkAuthentication(User * user) {
+	if (user->isAuth() == false)
+	{
+		Debug::Log << "USER: wrong password detected for " << user->getNickname() << std::endl;
+		_callback.addReply("ERR_PASSWDMISMATCH");
+		_callback.setUserDelete(true);
+		return false;
+	}
+
+	return true;
+}
+
+void		UserCmd::registerUser(User * user, Message & message) {
 	std::vector<std::string> paramlist = message.getParamList();
-	
-	message.getSender()->setName(paramlist[0]);
-	message.getSender()->setRealname(paramlist[3]);
 
-	(void)hub;
+	int paramlen = paramlist.size();
+	int realnameIndex = 3;
+
+	if (paramlen == 0 || paramlist[0] == "0")
+	{
+		user->setName(user->getNickname());
+		realnameIndex--;
+	} else
+		user->setName(paramlist[0]); // truncate USERNAME if length > USERLEN ?
+
+	if (paramlen < realnameIndex)
+		user->setRealname(user->getNickname());
+	else
+		user->setRealname(paramlist[realnameIndex]);
 
 	this->_callback.addReply("RPL_WELCOME");
 	this->_callback.addReply("RPL_YOURHOST");
@@ -43,6 +62,24 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 	this->_callback.addCommand("LUSERS");
 
 	this->_callback.addCommand("MOTD");
+
+	user->Register();
+}
+
+Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
+	(void)hub;
+
+	User *user = message.getSender();
+
+	if (checkRegisterState(user) == false)
+		return this->_callback;
+
+	if (checkAuthentication(user) == false)
+		return this->_callback;
+
+	Debug::Log << "USER: " << user->getNickname() << " has been authentified" << std::endl;
+
+	registerUser(user, message);
 
 	return this->_callback;
 }
