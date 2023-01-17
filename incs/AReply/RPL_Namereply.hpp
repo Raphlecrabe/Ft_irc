@@ -19,6 +19,8 @@ class RPL_Namereply : public AReply{
 			std::vector<User *>::iterator it;
 			for (it = channelusers.begin(); it != channelusers.end(); it++)
 			{
+				if (channel->isChannelOperator(*it) == 1)
+					messageparam += "@";
 				messageparam += (*it)->getNickname() + " ";
 			}
 			Message	newmessage(hub.getServerName(), "353", messageparam);

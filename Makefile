@@ -58,7 +58,7 @@ NAME	= ircserv
 
 CC		= c++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS	= -Wall -Wextra -Werror
 
 SANITIZE = -fsanitize=address -g3
 

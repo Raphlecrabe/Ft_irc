@@ -25,6 +25,11 @@ Callback	&Topic::cmdExecute(Message & message, Hub & hub)
 		_callback.addReply("ERR_NOSUCHCHANNEL", Paramlist[0]);
 		return(_callback);
 	}
+	if (channel->UserIsInChannel(message.getSender()) == 0)
+	{
+		_callback.addReply("ERR_NOTONCHANNEL", channel->get_name());
+		return (_callback);
+	}	
 	if (istopic == 0)
 	{
 		if (channel->get_topic().size() == 0)

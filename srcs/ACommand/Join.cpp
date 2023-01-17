@@ -1,7 +1,5 @@
 #include "../../incs/ACommand/Join.hpp"
 
-//TO DO Checker si ca marche
-
 Join::Join() : ACommand("JOIN"){
 
 }
@@ -77,7 +75,10 @@ Callback	&Join::cmdExecute(Message & message, Hub & hub)
 		if (channel == NULL)
 			addChannel(hub, message, params[i]);
 		else
+		{
 			joinChannel(channel, message, params[i]);
+			Debug::Log << "JOIN : The number of op is " << channel->getOperators().size() << std::endl;
+		}
 	}
 	return(_callback);
 }
