@@ -14,25 +14,21 @@ UserCmd::~UserCmd() {
 }
 
 bool 		UserCmd::checkRegisterState(User * user) {
-	if (user->IsRegistered())
-	{
-		this->_callback.addReply("ERR_ALREADYREGISTERED"); // not created yet
-		return false;
-	}
+	if (!user->IsRegistered())
+		return true;
 
-	return true;
+	this->_callback.addReply("ERR_ALREADYREGISTERED"); // not created yet
+	return false;
 }
 
 bool 		UserCmd::checkAuthentication(User * user) {
-	if (user->isAuth() == false)
-	{
-		Debug::Log << "USER: wrong password detected for " << user->getNickname() << std::endl;
-		_callback.addReply("ERR_PASSWDMISMATCH");
-		_callback.setUserDelete(true);
-		return false;
-	}
+	if (user->isAuth())
+		return true;
 
-	return true;
+	Debug::Log << "USER: wrong password detected for " << user->getNickname() << std::endl;
+	_callback.addReply("ERR_PASSWDMISMATCH");
+	_callback.setUserDelete(true);
+	return false;
 }
 
 void		UserCmd::registerUser(User * user, Message & message) {

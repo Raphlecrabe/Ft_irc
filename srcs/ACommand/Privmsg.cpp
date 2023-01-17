@@ -47,8 +47,6 @@ void		Privmsg::msgToChannel(Channel *channel, Message& message) {
 	std::string params = channel->get_name() + " :" + message.getParamList()[1];
 
 	Message newmessage(source, "PRIVMSG", params);
-	if (channel->get_users().size() <= 1)
-		return;
 
 	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
 	this->_callback.addMessage(newmessage);

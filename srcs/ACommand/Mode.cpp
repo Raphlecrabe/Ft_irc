@@ -12,6 +12,13 @@ Callback	&Mode::cmdExecute(Message & message, Hub & hub)
 {
 	Debug::Log<< "MODE called, parameters : " << message.getParams() << std::endl;
 	std::vector<std::string> const paramlist = message.getParamList();
+	
+	if (hub.get_UserByNickName(paramlist[0]) != NULL)
+	{
+		this->_callback.addReply("RPL_UMODEIS");
+		return this->_callback;
+	}
+	
 	Channel *channel = hub.getChannelByName(paramlist[0]);
 
 	if (channel == NULL)
@@ -74,7 +81,7 @@ void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &h
 	else
 		return;
 
-	Message newmessage (hub.getServerName(), "MODE", params);;
+	Message newmessage(hub.getServerName(), "MODE", params);;
 	channel->addAllUsersToMessage(newmessage);
 	this->_callback.addMessage(newmessage);
 }

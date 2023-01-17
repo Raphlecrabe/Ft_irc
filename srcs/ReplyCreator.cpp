@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/16 18:41:43 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 11:52:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_motdstart);
 	insert(&rpl_motd);
 	insert(&rpl_endofmotd);
-	insert(&err_nosucherver);
+	insert(&err_nosuchserver);
 	insert(&err_nomotd);
 	insert(&rpl_liststart);
 	insert(&rpl_list);
@@ -56,6 +56,7 @@ ReplyCreator::ReplyCreator()
 	insert(&err_alreadyregistered);
 	insert(&rpl_channelmodeis);
 	insert(&err_nosuchnick);
+	insert(&rpl_umodeis);
 	//insert_here;
 }
 

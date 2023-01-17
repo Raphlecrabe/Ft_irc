@@ -122,7 +122,7 @@ REPLIES =		AReply.hpp \
 				RPL_Motdstart.hpp \
 				RPL_Motd.hpp \
 				RPL_Endofmotd.hpp \
-				ERR_Nosucherver.hpp \
+				ERR_Nosuchserver.hpp \
 				ERR_Nomotd.hpp \
 				RPL_Liststart.hpp \
 				RPL_List.hpp \
@@ -140,6 +140,7 @@ REPLIES =		AReply.hpp \
 				ERR_AlreadyRegistered.hpp \
 				RPL_ChannelModeIs.hpp \
 				ERR_NoSuchNick.hpp \
+				RPL_UModeIs.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

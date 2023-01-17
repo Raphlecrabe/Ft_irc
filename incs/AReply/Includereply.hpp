@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 18:41:41 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 11:52:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # include "RPL_Motdstart.hpp"
 # include "RPL_Motd.hpp"
 # include "RPL_Endofmotd.hpp"
-# include "ERR_Nosucherver.hpp"
+# include "ERR_Nosuchserver.hpp"
 # include "ERR_Nomotd.hpp"
 # include "RPL_Liststart.hpp"
 # include "RPL_List.hpp"
@@ -55,6 +55,7 @@
 # include "ERR_AlreadyRegistered.hpp"
 # include "RPL_ChannelModeIs.hpp"
 # include "ERR_NoSuchNick.hpp"
+# include "RPL_UModeIs.hpp"
 //include_here
 
 #endif

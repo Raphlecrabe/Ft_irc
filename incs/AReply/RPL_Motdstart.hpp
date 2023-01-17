@@ -13,7 +13,7 @@ class RPL_Motdstart : public AReply{
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			(void)param;
 
-			std::string msgparams = ":- " + hub.getServerName() + " Message of the day - ";
+			std::string msgparams = message.getSender()->getNickname() + " :- " + hub.getServerName() + " Message of the day - ";
 
 			Message newmessage(hub.getServerName(), "375", msgparams);
 			newmessage.addDestinator(message.getSender());

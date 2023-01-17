@@ -135,7 +135,7 @@ void		Hub::setMessageOfTheDay(std::string s) {
 
 bool	Hub::chanNameIsValid(std::string const & name)
 {
-	if (name[0] != '#' && name[0] != '&')
+	if (name[0] != '#')
 		return false;
 
 	for (unsigned int i = 1; i < name.size(); i++) {

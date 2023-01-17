@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 18:41:37 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 11:51:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ private:
 	RPL_Motdstart rpl_motdstart;
 	RPL_Motd rpl_motd;
 	RPL_Endofmotd rpl_endofmotd;
-	ERR_Nosucherver err_nosucherver;
+	ERR_Nosuchserver err_nosuchserver;
 	ERR_Nomotd err_nomotd;
 	RPL_Liststart rpl_liststart;
 	RPL_List rpl_list;
@@ -65,6 +65,7 @@ private:
 	ERR_AlreadyRegistered err_alreadyregistered;
 	RPL_ChannelModeIs rpl_channelmodeis;
 	ERR_NoSuchNick err_nosuchnick;
+	RPL_UModeIs rpl_umodeis;
 	//reply_here
 
 	void	insert(AReply *newreply);
