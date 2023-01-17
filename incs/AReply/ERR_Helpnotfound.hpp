@@ -16,7 +16,7 @@ class ERR_Helpnotfound : public AReply{
 			std::string messageparam = message.getSender()->getNickname() + " " + param
 				+ " :No help found on this subject";
 			Message newmessage(hub.getServerName(), "524", messageparam);
-
+			newmessage.addDestinator(message.getSender());
 			return newmessage;
 		}
 };

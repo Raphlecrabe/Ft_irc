@@ -14,7 +14,6 @@
 
 Channel::Channel(std::string &name) : _name(name) 
 {
-	_client_limit = CHANNEL_USER_LIMIT;
 }
 
 Channel::~Channel() 
@@ -143,23 +142,21 @@ int	Channel::UserIsInChannel(User *user)
 }
 
 void Channel::SetClientLimit(int limit) {
-	if (limit <= CHANNEL_USER_LIMIT)
+
+	_client_limit = limit;
+	Debug::Log << "New client limit : " << _client_limit << std::endl;
+	if (_modes.find('l') == _modes.end())
 	{
-		_client_limit = limit;
-		Debug::Log << "New client limit : " << _client_limit << std::endl;
-		if (_modes.find('l') == _modes.end())
-		{
-			std::pair<char, std::string> newmode = std::make_pair<char, std::string>('l', Utils::toString(limit));
-			_modes.insert(newmode);
-		}
-		else
-			_modes['l'] = Utils::toString(limit);
+		std::pair<char, std::string> newmode = std::make_pair<char, std::string>('l', Utils::toString(limit));
+		_modes.insert(newmode);
 	}
+	else
+		_modes['l'] = Utils::toString(limit);
+
 }
 
 void Channel::RemoveClientLimit() {
 	Debug::Log << "Removing client limit channel" << std::endl;
-	_client_limit = CHANNEL_USER_LIMIT;
 	
 	std::map<char, std::string>::iterator it;
 

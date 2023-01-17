@@ -16,7 +16,7 @@ class RPL_IsSupport : public AReply{
 
 			std::string client = message.getSender()->getNickname();
 
-			std::string params = client + " AWAYLEN=200" + " :are supported by this server";
+			std::string params = client + " LIMIT" + " :are supported by this server";
 
 			Message	newmessage(hub.getServerName(), "005", params);
 
