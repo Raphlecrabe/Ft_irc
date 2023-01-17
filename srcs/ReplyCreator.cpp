@@ -55,6 +55,7 @@ ReplyCreator::ReplyCreator()
 	insert(&error);
 	insert(&err_alreadyregistered);
 	insert(&rpl_channelmodeis);
+	insert(&err_nosuchnick);
 	//insert_here;
 }
 

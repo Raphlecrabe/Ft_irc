@@ -33,6 +33,7 @@ Message &Message::operator=(Message const &rhs)
 
 Message::~Message()
 {
+	
 }
 
 std::string Message::Format() const

@@ -43,6 +43,7 @@ SRCS_COMMAND	=	ACommand.cpp \
 					Help.cpp \
 					Info.cpp \
 					Privmsg.cpp \
+					Notice.cpp \
 					#NEW_CMD_HERE
 
 #OBJS
@@ -96,6 +97,7 @@ COMMANDS =		ACommand.hpp \
 				Info.hpp \
 				Privmsg.hpp \
 				Quit.hpp \
+				Notice.hpp \
 				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
@@ -136,6 +138,7 @@ REPLIES =		AReply.hpp \
 				Error.hpp \
 				ERR_AlreadyRegistered.hpp \
 				RPL_ChannelModeIs.hpp \
+				ERR_NoSuchNick.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

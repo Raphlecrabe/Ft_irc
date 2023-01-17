@@ -64,6 +64,7 @@ private:
 	Error error;
 	ERR_AlreadyRegistered err_alreadyregistered;
 	RPL_ChannelModeIs rpl_channelmodeis;
+	ERR_NoSuchNick err_nosuchnick;
 	//reply_here
 
 	void	insert(AReply *newreply);

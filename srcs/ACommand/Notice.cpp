@@ -1,34 +1,31 @@
-#include "../../incs/ACommand/Privmsg.hpp"
+#include "../../incs/ACommand/Notice.hpp"
 
-Privmsg::Privmsg() : ACommand("PRIVMSG"){
+Notice::Notice() : ACommand("NOTICE"){
 
 }
 
-Privmsg::~Privmsg() {
+Notice::~Notice() {
 	
 }
 
-Callback	&Privmsg::cmdExecute(Message & message, Hub & hub) {
+Callback	&Notice::cmdExecute(Message & message, Hub & hub)
+{
 	std::string target = message.getParamList()[0];
 	
-	if (target[0] == '#')
-	{
+	User *destinator = hub.get_UserByNickName(target);
+	if (destinator)
+		msgToUser(destinator, message);
+	else {
 		Channel *channel = hub.getChannelByName(target);
 		if (channel)
 			msgToChannel(channel, message);
-	} else {
-		User *destinator = hub.get_UserByNickName(target);
-		if (destinator)
-			msgToUser(destinator, message);
-		else
-			this->_callback.addReply("ERR_NOSUCHNICK", target);
 	}
 
 	return this->_callback;
 }
 
-void		Privmsg::msgToUser(User *user, Message& message) {
-	Debug::Log << "PRIVMSG: msgToUser: " << user->getNickname() << std::endl;
+void		Notice::msgToUser(User *user, Message& message) {
+	Debug::Log << "NOTICE: msgToUser: " << user->getNickname() << std::endl;
 
 	std::string source = message.getSender()->getNickname();
 
@@ -39,16 +36,14 @@ void		Privmsg::msgToUser(User *user, Message& message) {
 	this->_callback.addMessage(newmessage);
 }
 
-void		Privmsg::msgToChannel(Channel *channel, Message& message) {
-	Debug::Log << "PRIVMSG: msgToChannel: " << channel->get_name() << std::endl;
+void		Notice::msgToChannel(Channel *channel, Message& message) {
+	Debug::Log << "NOTICE: msgToChannel: " << channel->get_name() << std::endl;
 
 	std::string source = message.getSender()->getNickname();
 
 	std::string params = channel->get_name() + " :" + message.getParamList()[1];
 
 	Message newmessage(source, "PRIVMSG", params);
-	if (channel->get_users().size() <= 1)
-		return;
 
 	channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
 	this->_callback.addMessage(newmessage);

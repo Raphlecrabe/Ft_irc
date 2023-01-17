@@ -36,6 +36,7 @@
 # include "Info.hpp"
 # include "Privmsg.hpp"
 # include "Quit.hpp"
+# include "Notice.hpp"
 //include_here
 
 #endif

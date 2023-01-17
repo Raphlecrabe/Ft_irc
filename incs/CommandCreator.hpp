@@ -42,6 +42,7 @@ private:
 	Info	info;
 	Privmsg    privmsg;
 	Quit    quit;
+	Notice    notice;
 	//cmd_here
 
 	void insert(ACommand *);

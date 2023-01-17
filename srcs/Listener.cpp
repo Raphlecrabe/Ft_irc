@@ -20,7 +20,11 @@ Listener::Listener() {
 }
 
 Listener::~Listener() {
-	
+	for (int i = 0; i < _fd_max + 1; i++)
+	{
+		if (IsSet(i))
+			close(i);
+	}
 }
 
 int Listener::init(const char* port) {
