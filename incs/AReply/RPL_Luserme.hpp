@@ -15,7 +15,7 @@ class RPL_Luserme : public AReply{
 		
 			int c = hub.getUserList().size();
 
-			std::string params = ":I have " + Utils::toString(c) + " clients and 0 servers";
+			std::string params = message.getSender()->getNickname() + " :I have " + Utils::toString(c) + " clients and 0 servers";
 
 			Message newmessage(hub.getServerName(), "255", params);
 			newmessage.addDestinator(message.getSender());

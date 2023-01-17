@@ -14,9 +14,9 @@ class RPL_Luserclient : public AReply{
 			
 			(void)param;
 			
-			int	u = hub.getUserList().size(); 
+			int	u = hub.getUserList().size();
 
-			std::string params = ":There are " + Utils::toString(u) + " users and 0 invisible on 1 servers";
+			std::string params = message.getSender()->getNickname() + " :There are " + Utils::toString(u) + " users and 0 invisible on 1 servers";
 			
 			Message newmessage(hub.getServerName(), "251", params);
 			newmessage.addDestinator(message.getSender());
