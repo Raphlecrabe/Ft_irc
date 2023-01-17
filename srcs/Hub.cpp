@@ -209,7 +209,7 @@ int	Hub::isIrcOperator(User *user)
 		if (_ircOperators[i]->getNickname() == user->getNickname())
 			return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	Hub::addIrcOperator(User *user)
