@@ -6,7 +6,7 @@
 /*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 15:44:20 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/16 14:10:03 by raphael          ###   ########.fr       */
+/*   Updated: 2023/01/17 10:06:55 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Callback	&Nick::cmdExecute(Message & message, Hub & hub)
 		return this->_callback;
 
 	std::string param = nickname;
-	Message	newmessage(message.getSender()->getNickname(), "NICK", param);
+	Message	newmessage(hub.getServerName(), "NICK", param);
 	newmessage.addDestinator(message.getSender());
 	_callback.addMessage(newmessage);
 	
