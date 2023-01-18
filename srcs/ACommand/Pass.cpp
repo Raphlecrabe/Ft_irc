@@ -15,7 +15,9 @@ Callback	&Pass::cmdExecute(Message & message, Hub & hub)
 	if (param.size() == 0)
 		this->_callback.addReply("ERR_NEEDMOREPARAMS");
 	else if (param[0] == hub.getServerPassword())
-		message.getSender()->setAuth();
+		message.getSender()->setAuth(true);
+	else
+		message.getSender()->setAuth(false);
 
 	return this->_callback;
 }
