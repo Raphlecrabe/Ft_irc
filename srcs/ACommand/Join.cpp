@@ -43,6 +43,7 @@ int	Join::addChannel(Hub &hub, Message &message, std::string &param)
 	{
 		Channel &channel = hub.CreateChannel(param, message.getSender());
 		addJoinMsgToCallback(message.getSender(), &channel);
+		addReplys(param);
 		Debug::Log << "JOIN: created channel: " << channel.get_name() << std::endl;
 	}
 	catch(const std::exception &e)

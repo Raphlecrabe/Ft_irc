@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includecommand.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:53:48 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 14:39:27 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 13:57:07 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # include "Privmsg.hpp"
 # include "Quit.hpp"
 # include "Notice.hpp"
+# include "Kill.hpp"
 //include_here
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CommandCreator.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:08:32 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/15 14:32:46 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 13:56:42 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ private:
 	Privmsg    privmsg;
 	Quit    quit;
 	Notice    notice;
+	Kill    kill;
 	//cmd_here
 
 	void insert(ACommand *);
