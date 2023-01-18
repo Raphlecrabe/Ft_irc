@@ -10,15 +10,18 @@ Part::~Part() {
 
 Callback	&Part::cmdExecute(Message & message, Hub & hub)
 {
-	std::vector<std::string>	Paramlist = Utils::split(message.getParamList()[0], ',');
-	std::vector<std::string>::iterator	it;
-
-	if (Paramlist.size() == 0)
+	if (message.getParamList().size() == 0)
 	{
 		_callback.addReply("ERR_NEEDMOREPARAMS", "");
 		return (_callback);
 	}
-
+	std::vector<std::string>	Paramlist = Utils::split(message.getParamList()[0], ',');
+	std::vector<std::string>::iterator	it;
+	if (Paramlist.size() == 0 || Paramlist[0].empty() == 1)
+	{
+		_callback.addReply("ERR_NEEDMOREPARAMS", "");
+		return (_callback);
+	}
 	int	reason = 0;
 	if (message.getParamList().size() >= 2)
 		reason = 1;

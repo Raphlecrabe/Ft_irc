@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 13:20:37 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/12 16:51:05 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 15:10:38 by raphael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Utils.hpp"
 #include <sstream>
+#include <iostream>
 
 Utils::Utils()
 {
@@ -27,7 +28,6 @@ std::vector<std::string>	Utils::split(std::string param, char delimiteur)
 	size_t	i = 0;
 	size_t	j = 0;
 	std::string	word;
-
 	if (param.size() == 0)
 	{
 		return (result);

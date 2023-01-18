@@ -13,7 +13,7 @@ Callback	&Names::cmdExecute(Message & message, Hub & hub)
 	Debug::Log << "Names : Names has been called" << std::endl;
 
 
-	if (message.getParamList()[0].size() == 0)
+	if (message.getParamList().size() == 0)
 		return (_callback);
 
 	std::vector<std::string> params = Utils::split(message.getParamList()[0], ',');

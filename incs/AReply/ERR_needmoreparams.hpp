@@ -12,14 +12,13 @@ class ERR_needmoreparams : public AReply{
 
 		Message	getmsg(Hub &hub, Message &message, std::string param) {
 			std::string params;
-			(void)hub;
 			(void)param;
 
 			params += message.getSender()->getNickname() + " ";
 			params += message.getCommand();
 			params += " :Not enough parameters";
 			
-			Message	newmessage(":lebestserver.com", "461", params);
+			Message	newmessage(hub.getServerName(), "461", params);
 
 			newmessage.addDestinator(message.getSender());
 			return (newmessage);
