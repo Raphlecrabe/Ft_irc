@@ -230,3 +230,31 @@ int		Hub::isInConfig(std::string name, std::string password)
 void	Hub::program_to_close(int fd) {
 	_server->program_to_close(fd);
 }
+
+void	Hub::addQuitUsersInMessage(User *user, Message &message)
+{
+	int start = 0;
+	std::string name = "targets";
+	Channel	targets(name);
+
+	for (unsigned int i = 0; i < this->getChannelList().size(); i++)
+	{
+		if (this->getChannelList()[i]->UserIsInChannel(user) != 1)
+			continue;
+		else if (start == 0)
+		{
+			targets = *(this->getChannelList()[i]);
+			targets.addAllUsersToMessage(message);
+			start = 1;
+			continue;
+		}
+		for (unsigned int j = 0; j < this->getChannelList()[i]->get_users().size(); j++)
+		{
+			if (targets.UserIsInChannel(this->getChannelList()[i]->get_users()[j]) != 1)
+			{
+				targets.AddUser(this->getChannelList()[i]->get_users()[j]);
+				message.addDestinator(this->getChannelList()[i]->get_users()[j]);
+			}
+		}
+	}
+}

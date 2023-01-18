@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 12:53:04 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 11:27:16 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 
 	if (Command == NULL)
 	{
-		//Que faire quand on connait pas la commande ?
-		//Et ensuite envoyer un message au serveur ?
 		Debug::Log << "Dispatcher: Command not found: " << cmdname << std::endl;
 		return 0;
 	}
@@ -99,8 +97,8 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	Debug::Log << "Dispatcher: executing commmand " << cmdname << std::endl;
 	
 	Callback	&request = Command->cmdExecute(client_request, _hub);
-	this->_Replyer.TreatReplys(request, client_request);
 	this->_Messager.TreatMessages(request);
+	this->_Replyer.TreatReplys(request, client_request);
 	this->TreatCommands(request, client_request.getSender());
 	
 	if (request.askForDeletingUser())

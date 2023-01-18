@@ -59,6 +59,8 @@ class Hub {
 
 		void 		program_to_close(int fd);
 
+		void	addQuitUsersInMessage(User *user, Message &message);
+
 		//EXCEPTIONS FOR CREATING A CHANNEL
 		class TooManyChannels : public std::exception
 		{
