@@ -24,7 +24,7 @@ void User::setName(std::string const & name) { this->_name = name; }
 void User::setRealname(std::string const & realname) { this->_realname = realname; }
 void User::setNumberOfChannels(int number) { this->_number_of_channels = number; }
 
-void User::setAuth() { _isAuth = true; }
+void User::setAuth(bool a) { _isAuth = a; }
 bool User::isAuth() { return _isAuth; }
 
 void User::AddChannel(Channel *channel)

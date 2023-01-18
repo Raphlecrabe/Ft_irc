@@ -34,7 +34,7 @@ class User {
 		const std::vector<Channel *> & getChannels() const;
 		int					getNumberOfChannels() const;
 
-		void setAuth();
+		void setAuth(bool);
 		bool isAuth();
 
 		void setNickname(std::string const & nickname);
