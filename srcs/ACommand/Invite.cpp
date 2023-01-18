@@ -77,6 +77,14 @@ Callback	&Invite::cmdExecute(Message & message, Hub & hub)
 	if (userTest(message, chanparam, nickparam, channel) == -1)
 		return (_callback);
 
+	//On vérifie que le user existe
+	if (hub.get_UserByNickName(nickparam) == NULL)
+	{
+		std::string replyParam = nickparam + " " + chanparam;
+		_callback.addReply("RPL_INVITING", replyParam);
+		return (_callback);
+	}
+
 	// Generation du message d'invite pour le user cible
 	std::string messageparam = nickparam + " " + channel->get_name();
 	Message newmessage(message.getSender()->getNickname(), "INVITE", messageparam);

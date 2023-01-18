@@ -31,9 +31,8 @@ Callback	&Oper::cmdExecute(Message & message, Hub & hub)
 	_callback.addReply("RPL_YOUREOPER", "");
 	hub.addIrcOperator(message.getSender());
 
-	//TO DO Changer le param en fonction de ce qui est necessaire pour le message MODE
-	std::string param;
-	Message	newmessage(message.getSender()->getNickname(), "MODE", param);
+	std::string param = message.getSender()->getNickname() + " +o";
+	Message	newmessage(hub.getServerName(), "MODE", param);
 	newmessage.addDestinator(message.getSender());
 	_callback.addMessage(newmessage);
 

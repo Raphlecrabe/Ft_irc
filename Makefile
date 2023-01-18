@@ -66,6 +66,7 @@ SANITIZE = -fsanitize=address -g3
 INC_DIR = incs
 
 HEADERS =		Debug.hpp \
+				Define.hpp \
 				Server.hpp \
 				Listener.hpp \
 				Sender.hpp \
@@ -103,6 +104,7 @@ COMMANDS =		ACommand.hpp \
 REPLIES =		AReply.hpp \
 				Includereply.hpp \
 				ERR_erroneusnickname.hpp \
+				ERR_Channelisfull.hpp \
 				ERR_needmoreparams.hpp \
 				ERR_nicknameinuse.hpp \
 				ERR_nonicknamegiven.hpp \
