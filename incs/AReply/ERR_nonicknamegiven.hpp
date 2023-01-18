@@ -18,7 +18,7 @@ class ERR_nonicknamegiven : public AReply{
 			params += message.getSender()->getName();
 			params += " :No nickname given";
 			
-			Message	newmessage(":lebestserver.com", "431", params);
+			Message	newmessage(hub.getServerName(), "431", params);
 
 			newmessage.addDestinator(message.getSender());
 			return (newmessage);

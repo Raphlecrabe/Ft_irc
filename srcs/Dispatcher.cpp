@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/18 16:50:15 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2023/01/18 17:32:47 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 
 		Execute(cmdname, client_request);
 
+		if (sender->NicknameIsSet() == false)
+			return true;
+
 		Message userMsg = it->second;
 
 		on_hold.erase(it);
@@ -97,6 +100,7 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	Debug::Log << "Dispatcher: executing commmand " << cmdname << std::endl;
 	
 	Callback	&request = Command->cmdExecute(client_request, _hub);
+
 	this->_Messager.TreatMessages(request);
 	this->_Replyer.TreatReplys(request, client_request);
 	this->TreatCommands(request, client_request.getSender());

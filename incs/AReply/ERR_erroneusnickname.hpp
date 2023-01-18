@@ -19,7 +19,7 @@ class ERR_erroneusnickname : public AReply{
 			params += param;
 			params += " :Erroneus nickname";
 
-			Message	newmessage(":lebestserver.com", "432", params);
+			Message	newmessage(hub.getServerName(), "432", params);
 
 			newmessage.addDestinator(message.getSender());
 			return (message);

@@ -19,8 +19,7 @@ class ERR_nicknameinuse : public AReply{
 			params += param;
 			params += " :Nickname is already in use";
 
-			Message	newmessage(":lebestserver.com", "433", params);
-
+			Message	newmessage(hub.getServerName(), "433", params);
 			newmessage.addDestinator(message.getSender());
 			return (newmessage);
 		}
