@@ -10,19 +10,24 @@ Quit::~Quit() {
 
 Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 {
-	this->_callback.addReply("ERROR", message.getParamList()[0]);
+	std::vector<std::string> paramList = message.getParamList();
+	std::string param = "";
+	if (paramList.size() > 0)
+		param = paramList[0];
+
+	this->_callback.addReply("ERROR", param);
 
 	_callback.setUserDelete(message.getSender());
 
 	hub.program_to_close(message.getSender()->getFd());
 
-	std::string reason = ":Quit: ";
-	if (message.getParamList().size() > 0)
-		reason += message.getParamList()[0];
+	std::string reason = ":Quit: " + param;
 
 	Message clientsQuitMessage = message.getSender()->getQuitMessage(reason);
 
 	this->_callback.addMessage(clientsQuitMessage);
+
+	hub.RemoveUserByFd(message.getSender()->getFd());
 
 	return this->_callback;
 }

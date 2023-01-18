@@ -105,6 +105,7 @@ void Sender::sendto(Message const & msg) {
 	{
 		int	destfd = (*it)->getFd();
 		std::string str = msg.Format();
+		Debug::Log << "Sender: adding new destinator to mst " << str;
 		sendto(destfd, str);
 	}
 

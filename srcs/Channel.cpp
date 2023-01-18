@@ -222,3 +222,21 @@ std::vector<User *> const &Channel::getOperators() const
 {
 	return (_channelOperators);
 }
+
+void	Channel::removeChannelOperator(User *user)
+{
+	if (this->isChannelOperator(user) == 0)
+		return;
+
+	std::vector<User *>::iterator it;
+	std::vector<User *>::iterator itend = _channelOperators.end();
+
+	for (it = _channelOperators.begin(); it != itend; it++)
+	{
+		if (user->getNickname() == (*it)->getNickname())
+		{
+			_channelOperators.erase(it);
+			break;
+		}
+	}
+}

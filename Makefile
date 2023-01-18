@@ -68,6 +68,7 @@ INC_DIR = incs
 
 HEADERS =		Debug.hpp \
 				Define.hpp \
+				Channel.hpp \
 				Server.hpp \
 				Listener.hpp \
 				Sender.hpp \
@@ -75,17 +76,22 @@ HEADERS =		Debug.hpp \
 				User.hpp \
 				Message.hpp \
 				Replyer.hpp \
-				AReply/AReply.hpp \
-				ACommand/ACommand.hpp \
 				Dispatcher.hpp \
 				Receiver.hpp \
 				CommandCreator.hpp \
 				Callback.hpp \
 				ReplyCreator.hpp \
 				Messager.hpp \
+				Define.hpp \
+				Utils.hpp \
 
 COMMANDS =		ACommand.hpp \
 				Includecommand.hpp \
+				Join.hpp \
+				Nick.hpp \
+				Ping.hpp \
+				Part.hpp \
+				Cap.hpp \
 				Motd.hpp \
 				Lusers.hpp \
 				Pass.hpp \
@@ -97,6 +103,8 @@ COMMANDS =		ACommand.hpp \
 				Oper.hpp \
 				Help.hpp \
 				Info.hpp \
+				Topic.hpp \
+				UserCmd.hpp \
 				Privmsg.hpp \
 				Quit.hpp \
 				Notice.hpp \
@@ -107,10 +115,12 @@ REPLIES =		AReply.hpp \
 				Includereply.hpp \
 				ERR_erroneusnickname.hpp \
 				ERR_Channelisfull.hpp \
+				ERR_Badchanmask.hpp \
 				ERR_needmoreparams.hpp \
 				ERR_nicknameinuse.hpp \
 				ERR_nonicknamegiven.hpp \
 				ERR_notonchannel.hpp \
+				ERR_Channelisfull.hpp \
 				ERR_Nosuchchannel.hpp \
 				RPL_Created.hpp \
 				RPL_IsSupport.hpp \
@@ -145,6 +155,7 @@ REPLIES =		AReply.hpp \
 				ERR_NoSuchNick.hpp \
 				RPL_UModeIs.hpp \
 				ERR_Noprivileges.hpp \
+				ERR_Toomanychannels.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

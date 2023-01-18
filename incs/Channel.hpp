@@ -47,6 +47,7 @@ class Channel {
 
 		int		isChannelOperator(User *user);
 		void	addChannelOperator(User *user);
+		void	removeChannelOperator(User *user);
 		std::vector<User *> const &getOperators() const;
 };
 

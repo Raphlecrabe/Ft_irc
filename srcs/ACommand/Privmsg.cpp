@@ -9,6 +9,9 @@ Privmsg::~Privmsg() {
 }
 
 Callback	&Privmsg::cmdExecute(Message & message, Hub & hub) {
+	if (message.getParamList().size() == 0)
+		return this->_callback;
+	
 	std::string target = message.getParamList()[0];
 	
 	if (target[0] == '#')
