@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:24:13 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/17 11:51:38 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 14:17:50 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ private:
 	RPL_ChannelModeIs rpl_channelmodeis;
 	ERR_NoSuchNick err_nosuchnick;
 	RPL_UModeIs rpl_umodeis;
+	ERR_NOPRIVILEGES	err_noprivileges;
 	//reply_here
 
 	void	insert(AReply *newreply);

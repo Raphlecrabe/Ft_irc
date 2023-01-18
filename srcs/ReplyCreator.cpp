@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReplyCreator.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:27:22 by rmonacho          #+#    #+#             */
-/*   Updated: 2023/01/17 11:52:06 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 14:18:03 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ ReplyCreator::ReplyCreator()
 	insert(&rpl_channelmodeis);
 	insert(&err_nosuchnick);
 	insert(&rpl_umodeis);
+	insert(&err_noprivileges);
 	//insert_here;
 }
 

@@ -12,7 +12,7 @@ Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 {
 	this->_callback.addReply("ERROR", message.getParamList()[0]);
 
-	_callback.setUserDelete(true);
+	_callback.setUserDelete(message.getSender());
 
 	hub.program_to_close(message.getSender()->getFd());
 

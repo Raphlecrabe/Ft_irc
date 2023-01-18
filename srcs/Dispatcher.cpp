@@ -6,7 +6,7 @@
 /*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/18 11:27:16 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2023/01/18 16:50:15 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,11 @@ int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {
 	this->_Replyer.TreatReplys(request, client_request);
 	this->TreatCommands(request, client_request.getSender());
 	
-	if (request.askForDeletingUser())
+	User *toDel = request.GetUserToDelete();
+	if (toDel != NULL)
 	{
-		_hub.RemoveUserByFd(client_request.getSender()->getFd()); //
-		request.setUserDelete(false);
+		_hub.RemoveUserByFd(toDel->getFd()); //
+		request.setUserDelete(NULL);
 		return -1;
 	}
 

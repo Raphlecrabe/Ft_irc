@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:32:58 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 12:53:13 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 16:50:43 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/Callback.hpp"
 
-Callback::Callback() : _userDelete(false) {
+Callback::Callback() : _userToDelete(NULL) {
 	
 }
 
@@ -23,8 +23,8 @@ Callback::~Callback()
 std::vector< s_pair >	const		&Callback::getReplys() const { return (this->_Replys); }
 std::vector<Message>		const	&Callback::getMessages() const { return (this->_Messages); }
 std::vector<std::string> 	const	&Callback::getCommands() const { return (this->_Commands); }
-bool								Callback::askForDeletingUser() const { return (this->_userDelete); }
-void								Callback::setUserDelete(bool b) { this->_userDelete = b; }
+User *								Callback::GetUserToDelete() const { return (this->_userToDelete); }
+void								Callback::setUserDelete(User *u) { this->_userToDelete = u; }
 
 void	Callback::addMessage(Message &message)
 {

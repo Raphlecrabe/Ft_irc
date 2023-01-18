@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Includereply.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:56:51 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/17 11:52:04 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 14:13:19 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # include "RPL_ChannelModeIs.hpp"
 # include "ERR_NoSuchNick.hpp"
 # include "RPL_UModeIs.hpp"
+# include "ERR_Noprivileges.hpp"
 //include_here
 
 #endif

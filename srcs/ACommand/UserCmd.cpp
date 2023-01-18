@@ -27,7 +27,7 @@ bool 		UserCmd::checkAuthentication(User * user) {
 
 	Debug::Log << "USER: wrong password detected for " << user->getNickname() << std::endl;
 	_callback.addReply("ERR_PASSWDMISMATCH");
-	_callback.setUserDelete(true);
+	_callback.setUserDelete(user);
 	return false;
 }
 

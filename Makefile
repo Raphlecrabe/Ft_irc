@@ -60,7 +60,7 @@ NAME	= ircserv
 
 CC		= c++
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SANITIZE = -fsanitize=address -g3
 
@@ -100,7 +100,8 @@ COMMANDS =		ACommand.hpp \
 				Privmsg.hpp \
 				Quit.hpp \
 				Notice.hpp \
-				Kill.hpp \ntttt#NEW_CMDHPP_HERE
+				Kill.hpp \
+				#NEW_CMDHPP_HERE
 
 REPLIES =		AReply.hpp \
 				Includereply.hpp \
@@ -143,6 +144,7 @@ REPLIES =		AReply.hpp \
 				RPL_ChannelModeIs.hpp \
 				ERR_NoSuchNick.hpp \
 				RPL_UModeIs.hpp \
+				ERR_Noprivileges.hpp \
 				#NEW_REPLY_HERE
 
 INCS_HEADERS = ${HEADERS:%=${INC_DIR}/%}

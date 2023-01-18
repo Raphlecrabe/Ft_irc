@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Callback.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:26:32 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/16 12:51:20 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/18 16:49:47 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Callback
 		std::vector<Message>			_Messages;
 		std::vector<std::string>		_Commands;
 		
-		bool							_userDelete;
+		User *							_userToDelete;
 
 	public:
 		Callback();
@@ -36,13 +36,13 @@ class Callback
 		std::vector< s_pair >	const		&getReplys() const;
 		std::vector< Message >		const	&getMessages() const;
 		std::vector<std::string>	const	&getCommands() const;
-		bool								askForDeletingUser() const;
+		User *								GetUserToDelete() const;
 
 		void	addReply(std::string reply);
 		void	addReply(std::string reply, std::string param);
 		void	addMessage(Message &message);
 		void	addCommand(std::string cmd);
-		void	setUserDelete(bool);
+		void	setUserDelete(User *);
 		
 		void	resetReplys();
 		void	resetMessages();
