@@ -75,7 +75,10 @@ Callback	&UserCmd::cmdExecute(Message & message, Hub & hub) {
 
 	Debug::Log << "USER: " << user->getNickname() << " has been authentified" << std::endl;
 
-	registerUser(user, message);
+	if (message.getParamList().size() > 0)
+		registerUser(user, message);
+	else
+		this->_callback.addReply("ERR_NEEDMOREPARAMS");
 
 	return this->_callback;
 }
