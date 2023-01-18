@@ -28,7 +28,7 @@ bool		Mode::isValid(Message & message, Hub & hub) {
 		this->_callback.addReply("ERR_CHANOPRIVSNEEDED", channel->get_name());
 	else
 		return true;
-		
+
 	return false;
 }
 
@@ -61,12 +61,21 @@ void		Mode::executeModes(char modeset, std::string modeflags, std::string const 
 	{
 		Debug::Log << "Checking mode " << modeflags[i] << "..." << std::endl;
 
-	 	if (modeflags[i] == 'l')
+		if (modeflags[i] == '+' || modeflags[i] == '-')
+			this->executeModes(modeflags[i], modeflags.substr(i + 1), modeparam, channel, hub);
+	 	else if (modeflags[i] == 'l')
 		{
 			int limit = Utils::toInt(modeparam);
 			Debug::Log << "Executing mode 'l' with limit " << limit << " on channel " << channel->get_name() << std::endl;
 			this->clientLimitChannel(modeset, limit, channel, hub);
-			break;
+		}
+		else if (modeflags[i] == 'o')
+		{
+			User *user = hub.get_UserByNickName(modeparam);
+			if (user == NULL)
+				return;
+			Debug::Log << "Executing mode 'o' with user " << modeparam << " on channel " << channel->get_name() << std::endl;
+			this->addNewOperator(modeset, user, channel, hub);
 		}
 	}
 }
@@ -84,7 +93,22 @@ void		Mode::clientLimitChannel(char modeset, int limit, Channel *channel, Hub &h
 	else
 		return;
 
-	Message newmessage(hub.getServerName(), "MODE", params);;
+	Message newmessage(hub.getServerName(), "MODE", params);
+	channel->addAllUsersToMessage(newmessage);
+	this->_callback.addMessage(newmessage);
+}
+
+void		Mode::addNewOperator(char modeset, User *user, Channel *channel, Hub &hub) {
+	std::string params = channel->get_name() + " " + modeset + "o " + user->getNickname();
+
+	if (modeset == '+')
+		channel->addChannelOperator(user);
+	else if (modeset == '-')
+		channel->removeChannelOperator(user);
+	else
+		return;
+
+	Message newmessage(hub.getServerName(), "MODE", params);
 	channel->addAllUsersToMessage(newmessage);
 	this->_callback.addMessage(newmessage);
 }
