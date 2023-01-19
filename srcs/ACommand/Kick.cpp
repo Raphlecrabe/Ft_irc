@@ -56,7 +56,9 @@ Callback	&Kick::cmdExecute(Message & message, Hub & hub)
 			channel->addDestinatorsExceptOneInMessage(message.getSender(), kickmessage);
 			kickmessage.addDestinator(message.getSender());
 			_callback.addMessage(kickmessage);
-			channel->RemoveUser(*user);
+			user->RemoveChannel(channel);
+			if (channel->RemoveUser(*user) == -1)
+				hub.removeChannelByName(channel->get_name());
 		}
 	}
 	return (_callback);

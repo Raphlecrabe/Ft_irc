@@ -42,6 +42,7 @@ class User {
 		void setRealname(std::string const & realname);
 		void setNumberOfChannels(int number);
 		void AddChannel(Channel *channel);
+		void RemoveChannel(Channel *channel);
 
 		void RemoveItselfFromChannels();
 		Message getQuitMessage(std::string reason);

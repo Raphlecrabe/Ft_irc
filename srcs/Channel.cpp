@@ -65,9 +65,9 @@ int	Channel::RemoveUser(User &old_user)
 		}
 		it2++;
 	}
+	this->removeChannelOperator(&old_user);
 	if (this->get_users().size() == 0)
 		return (-1);
-		
 	return (0);
 }
 

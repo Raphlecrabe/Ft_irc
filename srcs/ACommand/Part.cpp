@@ -40,6 +40,7 @@ Callback	&Part::cmdExecute(Message & message, Hub & hub)
 			_callback.addReply("ERR_NOTONCHANNEL", *it);
 			continue;
 		}
+		message.getSender()->RemoveChannel(channel);
 		if (channel->RemoveUser(*message.getSender()) == -1)
 			hub.removeChannelByName(channel->get_name());
 

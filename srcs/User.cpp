@@ -33,17 +33,27 @@ void User::AddChannel(Channel *channel)
 	_channels.push_back(channel);
 }
 
+void User::RemoveChannel(Channel *channel)
+{
+	std::vector<Channel *>::iterator it;
+	if (channel == NULL)
+		return ;
+	it = find(this->_channels.begin(), this->_channels.end(), channel);
+	if (it == _channels.end())
+		return ;
+	_channels.erase(it);
+}
+
 void User::RemoveItselfFromChannels() {
 	if (_channels.size() == 0)
 		return;
 
 	std::vector<Channel *>::iterator it;
-
 	for (it = _channels.begin(); it != _channels.end(); it++)
 	{
+		(*it)->removeChannelOperator(this);
 		(*it)->RemoveUser(*this);
 	}
-	
 	_channels.clear();
 }
 
