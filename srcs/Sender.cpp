@@ -20,54 +20,42 @@ Sender::~Sender() {
 }
 
 bool Sender::HasSomethingToSayTo(int fd) {
-	if (_buffers.count(fd) == 0 || _buffers[fd].size() == 0)
+	if (_buffers.count(fd) == 0 || _buffers[fd] == "")
 		return false;
 	return true;
 }
 
 void Sender::Speak(int fd) {
-	//Debug::Log << "Trying to speak to fd " << fd;
-	//Debug::Log << ", buffer count = " << _buffers.count(fd);
-	//Debug::Log << " and size = " << _buffers[fd].size() << std::endl;
 
 	if (HasSomethingToSayTo(fd) == false)
 		return;
 
-	std::vector<std::string>::iterator it;
+	int sent = _send(fd, _buffers[fd]);
 
-	for (it = _buffers[fd].begin(); it != _buffers[fd].end(); it++)
-	{
-		_send(fd, *it);
-	}
+	if (sent == -1)
+		return;
 
-	_buffers[fd].clear();
+	_buffers[fd] = _buffers[fd].substr(sent);
 }
 
-void Sender::_send(int fd, std::string msg) {
+int Sender::_send(int fd, std::string msg) {
 
 	int 			res;
-	unsigned int	sent = 0;
 
 	unsigned int	size = msg.size();
 	const char* 	datas = msg.c_str();
 
-	while (sent != size)
+	res = send(fd, datas, size, 0);
+	Debug::Log << "Sender: sent " << res << " bytes to fd: " << fd << ": " << msg.substr(0, res);
+
+	if (res == -1)
 	{
-		const char *r_datas = &datas[sent];
-		int	r_size = size - sent;
-
-		res = send(fd, r_datas, r_size, 0);
-		Debug::Log << "Sender: sent to fd: " << fd << ": " << r_datas;
-
-		if (res == -1)
-		{
-			Debug::Log << "Sender::SendErrorException" << std::endl;
-			throw Sender::SendErrorException();
-			return;
-		}
-
-		sent += res;
+		Debug::Log << "Sender::SendErrorException" << std::endl;
+		throw Sender::SendErrorException();
+		return -1;
 	}
+
+	return res;
 }
 
 void Sender::sendto(int fd, const char *datas, int size) {
@@ -81,12 +69,11 @@ void Sender::sendto(int fd, const char *datas, int size) {
 void Sender::sendto(int fd, std::string msg) {
 
 	if (_buffers.count(fd) == 0) {
-		std::vector<std::string> datas;
-		std::pair<int, std::vector<std::string> > newpair(fd, datas);
+		std::pair<int, std::string > newpair(fd, "");
 		_buffers.insert(newpair);
 	}
 
-	_buffers[fd].push_back(std::string(msg));
+	_buffers[fd] += msg;
 }
 
 void Sender::sendto(Message const & msg) {
@@ -105,7 +92,7 @@ void Sender::sendto(Message const & msg) {
 	{
 		int	destfd = (*it)->getFd();
 		std::string str = msg.Format();
-		Debug::Log << "Sender: adding new destinator to mst " << str;
+		Debug::Log << "Sender: adding new destinator to msg " << str;
 		sendto(destfd, str);
 	}
 
