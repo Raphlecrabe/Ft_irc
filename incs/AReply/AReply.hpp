@@ -5,6 +5,7 @@
 # include "../Callback.hpp"
 # include "../Hub.hpp"
 # include "../Debug.hpp"
+# include <algorithm>
 # include <string>
 
 class AReply {

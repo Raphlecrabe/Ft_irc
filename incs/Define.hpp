@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Define.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphael <raphael@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:56:28 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/17 11:28:57 by raphael          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:28:45 by rmonacho         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DEFINE_HPP
 
 # include "Debug.hpp"
+# include <algorithm>
 
 # include "Utils.hpp"
 
