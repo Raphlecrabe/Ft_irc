@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dispatcher.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmonacho <rmonacho@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 09:52:35 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/18 17:32:47 by rmonacho         ###   ########lyon.fr   */
+/*   Updated: 2023/01/19 10:32:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,23 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 	{
 		PutUserCommandOnHold(client_request.getSender(), client_request);
 		return true;
-	} else if (cmdname == "NICK" && HasUserCommandOnHold(sender))
+	} else if (cmdname == "NICK")
 	{
-		std::map<User *, Message>::iterator it = on_hold.find(sender);
-
 		Execute(cmdname, client_request);
 
-		if (sender->NicknameIsSet() == false)
-			return true;
+		if (sender->NicknameIsSet() && HasUserCommandOnHold(sender))
+		{
+			std::map<User *, Message>::iterator it = on_hold.find(sender);
 
-		Message userMsg = it->second;
+			Message userMsg = it->second;
 
-		on_hold.erase(it);
+			on_hold.erase(it);
 
-		Debug::Log << "Dispatcher: Executing holded command" << std::endl;
+			Debug::Log << "Dispatcher: Executing holded command" << std::endl;
 
-		Execute("USER", userMsg);
-		
+			Execute("USER", userMsg);
+		}
+
 		return true;
 	}
 

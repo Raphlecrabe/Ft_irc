@@ -20,7 +20,7 @@ class Message {
 		void parseparams();
 
 	public:
-		Message() {};
+		Message();
 		Message(std::string src, std::string cmd, std::string prms);
 		Message(User * sender, std::string datas);
 		Message(Message const &);

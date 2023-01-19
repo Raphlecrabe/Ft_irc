@@ -14,7 +14,7 @@ class RPL_Endofinfo : public AReply{
 			(void)param;
 			std::string messageparam = message.getSender()->getNickname() + " :End of info list";
 			Message newmessage(hub.getServerName(), "374", messageparam);
-
+			newmessage.addDestinator(message.getSender());
 			return newmessage;
 		}
 };
