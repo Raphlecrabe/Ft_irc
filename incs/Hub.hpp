@@ -4,12 +4,18 @@
 # include <iostream>
 # include <map>
 # include <vector>
+
+class Hub;
+class Channel;
+class Message;
+
 # include "Channel.hpp"
 # include "User.hpp"
 # include <string>
 # include <stdexcept>
 
 class Server;
+class User;
 
 class Hub {
 	private:

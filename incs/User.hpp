@@ -4,6 +4,7 @@
 # include <iostream>
 # include "Define.hpp"
 # include <vector>
+# include "Hub.hpp"
 
 class Channel;
 class Message;
@@ -44,7 +45,7 @@ class User {
 		void AddChannel(Channel *channel);
 		void RemoveChannel(Channel *channel);
 
-		void RemoveItselfFromChannels();
+		void RemoveItselfFromChannels(Hub &hub);
 		Message getQuitMessage(std::string reason);
 		void addAllConnectedUsersToMessage(Message & message);
 

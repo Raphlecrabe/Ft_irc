@@ -44,7 +44,7 @@ void User::RemoveChannel(Channel *channel)
 	_channels.erase(it);
 }
 
-void User::RemoveItselfFromChannels() {
+void User::RemoveItselfFromChannels(Hub &hub) {
 	if (_channels.size() == 0)
 		return;
 
@@ -52,7 +52,8 @@ void User::RemoveItselfFromChannels() {
 	for (it = _channels.begin(); it != _channels.end(); it++)
 	{
 		(*it)->removeChannelOperator(this);
-		(*it)->RemoveUser(*this);
+		if ((*it)->RemoveUser(*this) == -1)
+			hub.removeChannelByName((*it)->get_name());
 	}
 	_channels.clear();
 }

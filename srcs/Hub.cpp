@@ -78,7 +78,7 @@ void Hub::RemoveUserByFd(int fd) {
 
 	Debug::Log << "Hub: Removing User from Channels..." << std::endl;
 
-	user->RemoveItselfFromChannels();
+	user->RemoveItselfFromChannels(*this);
 
 	Debug::Log << "Deleting User..." << std::endl;
 

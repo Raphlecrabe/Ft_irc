@@ -46,8 +46,6 @@ Callback	&Kill::cmdExecute(Message & message, Hub & hub)
 	newmessageerror.addDestinator(user);
 	_callback.addMessage(newmessageerror);
 
-	hub.RemoveUserByFd(user->getFd());
-
 	//Closing Connection
 	hub.program_to_close(user->getFd());
 	_callback.setUserDelete(user);

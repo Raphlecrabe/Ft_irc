@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <vector>
+
+class User;
+
 # include "User.hpp"
 
 class Message {

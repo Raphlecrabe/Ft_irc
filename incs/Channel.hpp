@@ -9,6 +9,7 @@
 # include "Message.hpp"
 
 class	Message;
+class	User;
 
 class Channel {
 	private:
