@@ -45,6 +45,7 @@ class User {
 
 		void RemoveItselfFromChannels();
 		Message getQuitMessage(std::string reason);
+		void addAllConnectedUsersToMessage(Message & message);
 
 		bool NicknameIsSet();
 

@@ -4,6 +4,10 @@
 #include <string>
 #include <cstring>
 
+Message::Message() {
+
+}
+
 Message::Message(std::string src, std::string cmd, std::string prms) : _source(src), _command(cmd), _params(prms)
 {
 }

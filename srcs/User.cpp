@@ -51,18 +51,22 @@ Message User::getQuitMessage(std::string reason)
 {
 	Message newmessage(this->_nickname, "QUIT", reason);
 
+	this->addAllConnectedUsersToMessage(newmessage);
+
+	return newmessage;
+}
+
+void	User::addAllConnectedUsersToMessage(Message & message) {
 	if (_channels.size() == 0)
-		return newmessage;
+		return;
 
 	std::vector<Channel *>::iterator it;
 
 	for (it = this->_channels.begin(); it != this->_channels.end(); it++)
 	{
-		Debug::Log << "User: getQuitMessage: adding destinators from channel " << (*it)->get_name() << std::endl;
-		(*it)->addDestinatorsExceptOneInMessage(this, newmessage);
+		Debug::Log << "User: addAllUsersToMessage: adding destinators from channel " << (*it)->get_name() << std::endl;
+		(*it)->addDestinatorsExceptOneInMessage(this, message);
 	}
-
-	return newmessage;
 }
 
 bool 	User::NicknameIsSet() { return _nickname != ""; }
