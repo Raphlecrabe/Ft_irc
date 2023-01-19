@@ -9,8 +9,7 @@
 
 class Sender {
 	private:
-		std::map<int, std::vector<std::string> > _buffers;
-		//std::map<int, std::string> _buffers;
+		std::map<int, std::string> _buffers;
 
 		int _send(int fd, std::string msg);
 	public:

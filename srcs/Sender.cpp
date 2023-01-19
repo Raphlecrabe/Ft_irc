@@ -20,7 +20,7 @@ Sender::~Sender() {
 }
 
 bool Sender::HasSomethingToSayTo(int fd) {
-	if (_buffers.count(fd) == 0 || _buffers[fd].size() == 0)
+	if (_buffers.count(fd) == 0 || _buffers[fd] == "")
 		return false;
 	return true;
 }
@@ -30,16 +30,12 @@ void Sender::Speak(int fd) {
 	if (HasSomethingToSayTo(fd) == false)
 		return;
 
-	std::vector<std::string>::iterator it;
-
-	int sent = _send(fd, _buffers[fd][0]);
+	int sent = _send(fd, _buffers[fd]);
 
 	if (sent == -1)
 		return;
 
-	_buffers[fd][0] = _buffers[fd][0].substr(sent);
-	if (_buffers[fd][0] == "")
-		_buffers[fd].erase(_buffers[fd].begin());
+	_buffers[fd] = _buffers[fd].substr(sent);
 }
 
 int Sender::_send(int fd, std::string msg) {
@@ -50,7 +46,7 @@ int Sender::_send(int fd, std::string msg) {
 	const char* 	datas = msg.c_str();
 
 	res = send(fd, datas, size, 0);
-	Debug::Log << "Sender: sent to fd: " << fd << ": " << msg.substr(0, res);
+	Debug::Log << "Sender: sent " << res << " bytes to fd: " << fd << ": " << msg.substr(0, res);
 
 	if (res == -1)
 	{
@@ -73,12 +69,11 @@ void Sender::sendto(int fd, const char *datas, int size) {
 void Sender::sendto(int fd, std::string msg) {
 
 	if (_buffers.count(fd) == 0) {
-		std::vector<std::string> datas;
-		std::pair<int, std::vector<std::string> > newpair(fd, datas);
+		std::pair<int, std::string > newpair(fd, "");
 		_buffers.insert(newpair);
 	}
 
-	_buffers[fd].push_back(std::string(msg));
+	_buffers[fd] += msg;
 }
 
 void Sender::sendto(Message const & msg) {
@@ -97,7 +92,7 @@ void Sender::sendto(Message const & msg) {
 	{
 		int	destfd = (*it)->getFd();
 		std::string str = msg.Format();
-		Debug::Log << "Sender: adding new destinator to mst " << str;
+		Debug::Log << "Sender: adding new destinator to msg " << str;
 		sendto(destfd, str);
 	}
 
