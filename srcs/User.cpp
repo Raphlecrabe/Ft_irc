@@ -63,6 +63,8 @@ Message User::getQuitMessage(std::string reason)
 
 	this->addAllConnectedUsersToMessage(newmessage);
 
+	newmessage.addDestinator(this);
+
 	return newmessage;
 }
 
