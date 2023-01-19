@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 10:04:19 by raphael           #+#    #+#             */
-/*   Updated: 2023/01/14 17:47:19 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:12:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,5 @@ void	Messager::Sendone(Message message)
 {
 	Debug::Log << "Messager: Sendone: " << message.Format();
 
-	try {
-		this->_sender.sendto(message);
-	} catch (std::exception &e) {
-		Debug::Log << e.what() << std::endl;
-		std::cout << e.what() << std::endl;
-	}
+	this->_sender.sendto(message);
 }

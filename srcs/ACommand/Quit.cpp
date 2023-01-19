@@ -27,7 +27,5 @@ Callback	&Quit::cmdExecute(Message & message, Hub & hub)
 
 	this->_callback.addMessage(clientsQuitMessage);
 
-	hub.RemoveUserByFd(message.getSender()->getFd());
-
 	return this->_callback;
 }

@@ -50,8 +50,7 @@ int Sender::_send(int fd, std::string msg) {
 
 	if (res == -1)
 	{
-		Debug::Log << "Sender::SendErrorException" << std::endl;
-		throw Sender::SendErrorException();
+		Debug::Log << "Sender: Error sending datas" << std::endl;
 		return -1;
 	}
 
@@ -82,7 +81,7 @@ void Sender::sendto(Message const & msg) {
 	
 	if (destinators.size() == 0)
 	{
-		throw Sender::NoDestinatorException();
+		Debug::Log << "Sender: no destinator specified" << std::endl;
 		return;
 	}
 
@@ -96,12 +95,4 @@ void Sender::sendto(Message const & msg) {
 		sendto(destfd, str);
 	}
 
-}
-
-const char* Sender::SendErrorException::what() const throw() {
-	return "Sender exception: <send> returned an error";
-}
-
-const char* Sender::NoDestinatorException::what() const throw() {
-	return "Sender: no destinator specified";
 }

@@ -37,12 +37,7 @@ int	Replyer::Replyone(std::string &name, Message &message, std::string param)
 		return (-1);
 	}
 
-	try {
-		this->_sender.sendto(reply->GetMsg(_hub, message, param));
-	} catch (std::exception &e) {
-		Debug::Log << e.what() << std::endl;
-		std::cout << e.what() << std::endl;
-	}
+	this->_sender.sendto(reply->GetMsg(_hub, message, param));
 
 	return (0);
 }

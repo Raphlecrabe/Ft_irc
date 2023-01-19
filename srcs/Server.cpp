@@ -174,12 +174,7 @@ void		Server::close_connection(int fd) {
 
 void	Server::send(Message &m)
 {
-	try{
-		_sender.sendto(m);
-	} catch (std::exception &e) {
-		Debug::Log << e.what() << std::endl;
-		std::cout << e.what() << std::endl;
-	}
+	_sender.sendto(m);
 }
 
 std::string const &Server::getServerPassword() const { return this->_password; }
