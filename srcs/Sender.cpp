@@ -26,48 +26,40 @@ bool Sender::HasSomethingToSayTo(int fd) {
 }
 
 void Sender::Speak(int fd) {
-	//Debug::Log << "Trying to speak to fd " << fd;
-	//Debug::Log << ", buffer count = " << _buffers.count(fd);
-	//Debug::Log << " and size = " << _buffers[fd].size() << std::endl;
 
 	if (HasSomethingToSayTo(fd) == false)
 		return;
 
 	std::vector<std::string>::iterator it;
 
-	for (it = _buffers[fd].begin(); it != _buffers[fd].end(); it++)
-	{
-		_send(fd, *it);
-	}
+	int sent = _send(fd, _buffers[fd][0]);
 
-	_buffers[fd].clear();
+	if (sent == -1)
+		return;
+
+	_buffers[fd][0] = _buffers[fd][0].substr(sent);
+	if (_buffers[fd][0] == "")
+		_buffers[fd].erase(_buffers[fd].begin());
 }
 
-void Sender::_send(int fd, std::string msg) {
+int Sender::_send(int fd, std::string msg) {
 
 	int 			res;
-	unsigned int	sent = 0;
 
 	unsigned int	size = msg.size();
 	const char* 	datas = msg.c_str();
 
-	while (sent != size)
+	res = send(fd, datas, size, 0);
+	Debug::Log << "Sender: sent to fd: " << fd << ": " << msg.substr(0, res);
+
+	if (res == -1)
 	{
-		const char *r_datas = &datas[sent];
-		int	r_size = size - sent;
-
-		res = send(fd, r_datas, r_size, 0);
-		Debug::Log << "Sender: sent to fd: " << fd << ": " << r_datas;
-
-		if (res == -1)
-		{
-			Debug::Log << "Sender::SendErrorException" << std::endl;
-			throw Sender::SendErrorException();
-			return;
-		}
-
-		sent += res;
+		Debug::Log << "Sender::SendErrorException" << std::endl;
+		throw Sender::SendErrorException();
+		return -1;
 	}
+
+	return res;
 }
 
 void Sender::sendto(int fd, const char *datas, int size) {
