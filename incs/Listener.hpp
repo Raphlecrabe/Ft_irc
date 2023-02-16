@@ -6,6 +6,7 @@
 # include <sys/types.h>
 # include <sys/select.h>
 # include <map>
+# include <sys/time.h>
 
 class Listener {
 	private:
@@ -15,6 +16,8 @@ class Listener {
 		fd_set			_writefds;
 
 		int				_listenerfd;
+
+		struct timeval 	_delay;
 
 		std::map<int, std::string> _buffers;
 

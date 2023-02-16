@@ -59,6 +59,8 @@ Callback	&Kick::cmdExecute(Message & message, Hub & hub)
 			user->RemoveChannel(channel);
 			if (channel->RemoveUser(*user) == -1)
 				hub.removeChannelByName(channel->get_name());
+			else
+				Debug::Log << "Remaining users in channel: " << channel->get_users().size() << std::endl;
 		}
 	}
 	return (_callback);

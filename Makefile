@@ -171,7 +171,7 @@ ${OBJS_DIR}%.o:	${SRCS_DIR}%.cpp ${INCLUDES}
 all:		makedirs ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${FLAGS} ${SANITIZE} ${OBJS} -o ${NAME}
+			${CC} ${FLAGS} ${OBJS} -o ${NAME}
 
 makedirs:
 			@mkdir -p objs/ACommand

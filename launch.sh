@@ -1,2 +1,2 @@
 rm log.txt 2> /dev/null
-./ircserv 4242 42
+./ircserv 1080 42

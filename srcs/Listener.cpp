@@ -14,9 +14,11 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <sstream>
+#include <sys/time.h>
 
 Listener::Listener() {
-
+	this->_delay.tv_sec = 5;
+	this->_delay.tv_usec = 0;
 }
 
 Listener::~Listener() {
@@ -33,7 +35,7 @@ int Listener::init(const char* port) {
 	if (launch_listener(port) == -1)
 	{
 		std::cerr << "Error getting listening socket" << std::endl;
-		return 0;
+		return -1;
 	}
 
 	return 0;
@@ -71,12 +73,16 @@ int		Listener::launch_listener(const char* port) {
 		break;
 	}
 
-	if (list == NULL)
-		return -1;
-
 	freeaddrinfo(ai);
 
+	if (list == NULL)
+	{
+		std::cerr << "No address available at this port" << std::endl;
+		return -1;
+	}
+
 	if (listen(_listenerfd, 10) == -1) {
+		std::cerr << "Listen error" << std::endl;
 		return -1;
 	}
 

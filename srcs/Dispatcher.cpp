@@ -55,13 +55,17 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 	{
 		PutUserCommandOnHold(client_request.getSender(), client_request);
 		return true;
-	} else if (cmdname == "NICK")
-	{
-		Execute(cmdname, client_request);
+	}
 
-		if (sender->NicknameIsSet() && HasUserCommandOnHold(sender))
-		{
-			std::map<User *, Message>::iterator it = on_hold.find(sender);
+	return false;
+}
+
+int Dispatcher::CheckUserCommandOnHold(Message & client_request, int returnValue) {
+	User * sender = client_request.getSender();
+	
+	if (sender->NicknameIsSet() && HasUserCommandOnHold(sender))
+	{
+		std::map<User *, Message>::iterator it = on_hold.find(client_request.getSender());
 
 			Message userMsg = it->second;
 
@@ -69,13 +73,10 @@ bool	Dispatcher::HoldConnectionProtocol(std::string const & cmdname, Message & c
 
 			Debug::Log << "Dispatcher: Executing holded command" << std::endl;
 
-			Execute("USER", userMsg);
-		}
-
-		return true;
+			return Execute("USER", userMsg);
 	}
 
-	return false;
+	return returnValue;
 }
 
 int	Dispatcher::Execute(Message & client_request)
@@ -85,7 +86,12 @@ int	Dispatcher::Execute(Message & client_request)
 	if (HoldConnectionProtocol(cmdname, client_request))
 		return -1;
 
-	return Execute(cmdname, client_request);
+	int returnValue = Execute(cmdname, client_request);
+
+	if (returnValue != -1 && cmdname == "NICK")
+		return CheckUserCommandOnHold(client_request, returnValue);
+
+	return returnValue;
 }
 
 int	Dispatcher::Execute(std::string const &cmdname, Message & client_request) {

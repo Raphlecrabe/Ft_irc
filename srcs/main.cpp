@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 
+bool Server::REQUEST_EXIT = false;
+
 int main(int argc, char **argv)
 {
 	if (argc != 3)
@@ -12,8 +14,9 @@ int main(int argc, char **argv)
 	}
 
 	Server server("AwesomeIrc.com", argv[1], argv[2]);
+
 	server.launch();
 }
 
 // /server del irc
-// /server add 127.0.0.1/4242 -password=42
+// /server add irc 127.0.0.1/4242 -password=42

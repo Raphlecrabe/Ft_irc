@@ -36,6 +36,7 @@ private:
 
 	void PutUserCommandOnHold(User *user, Message &message);
 	bool HasUserCommandOnHold(User *user);
+	int	CheckUserCommandOnHold(Message &client_request, int returnValue);
 
 	bool HoldConnectionProtocol(std::string const &, Message &);
 

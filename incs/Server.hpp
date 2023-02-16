@@ -57,6 +57,8 @@ class Server {
 		std::string	const &getStartTime() const;
 
 		void	program_to_close(int fd);
+
+		static bool REQUEST_EXIT;
 };
 
 #endif

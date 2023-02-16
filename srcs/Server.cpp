@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <sstream>
+#include <csignal>
 
 #include "../incs/Define.hpp"
 #include "../incs/Server.hpp"
@@ -19,22 +20,33 @@
 #include "../incs/Message.hpp"
 #include "../incs/Receiver.hpp"
 
+void requestExit(int sig) {
+	(void)sig;
+	Server::REQUEST_EXIT = true;
+	return;
+}
+
 Server::Server(std::string const &serverName, const char *port, char *password) : 	_hub(this),
 																					_receiver(_sender, _hub),
 																					_serverName(serverName),
 																					_password(password) {
-	
+
 	initTime();
 
-	_listener.init(port);
+	if (_listener.init(port) == -1)
+		std::exit(0);
 
 	this->_networkName = "FT_IRC";
+
+	std::signal(SIGINT, requestExit);
 
 	Debug::Log << "Init server with port " << port << std::endl;
 }
 
 Server::~Server() {
+	std::cout << "Leaving!" << std::endl;
 }
+
 
 void	Server::initTime() {
 	time_t now_c = time(NULL);
@@ -97,7 +109,7 @@ void	Server::receive(int fd) {
 
 void Server::launch() {
 
-	while (true)
+	while (REQUEST_EXIT == false)
 	{
 		int fd_max = _listener.pollfds();
 
