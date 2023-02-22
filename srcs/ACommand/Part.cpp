@@ -40,17 +40,17 @@ Callback	&Part::cmdExecute(Message & message, Hub & hub)
 			_callback.addReply("ERR_NOTONCHANNEL", *it);
 			continue;
 		}
-		message.getSender()->RemoveChannel(channel);
-		if (channel->RemoveUser(*message.getSender()) == -1)
-			hub.removeChannelByName(channel->get_name());
-
-		Debug::Log << "Part : removed " << message.getSender()->getName() << " from " << messageparam << std::endl;
 		if (reason == 1)
 			messageparam += " " + message.getParamList()[1];
 		Message	newmessage(message.getSender()->getNickname(), "PART", messageparam);
-		newmessage.addDestinator(message.getSender());
-		channel->addDestinatorsExceptOneInMessage(message.getSender(), newmessage);
+		channel->addAllUsersToMessage(newmessage);
 		_callback.addMessage(newmessage);
+		message.getSender()->RemoveChannel(channel);
+		if (channel->RemoveUser(*message.getSender()) == -1)
+		{
+			hub.removeChannelByName(channel->get_name());
+		}
+		Debug::Log << "Part : removed " << message.getSender()->getName() << " from " << messageparam << std::endl;
 	}
 	return (_callback);
 }

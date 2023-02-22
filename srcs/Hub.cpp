@@ -177,14 +177,12 @@ Channel	*Hub::getChannelByName(std::string const &name) const
 void	Hub::removeChannelByName(std::string const & name)
 {
 	std::vector<Channel *>::iterator findChannel;
-	std::cout << "Channels: " << _channels.size() << std::endl;
 	for (findChannel = _channels.begin(); findChannel != _channels.end(); findChannel++)
 	{
 		if ((*findChannel)->get_name() == name)
 		{
 			delete *findChannel;
 			_channels.erase(findChannel);
-			std::cout << "Channels2: " << _channels.size() << std::endl;
 			break;
 		}
 	}
