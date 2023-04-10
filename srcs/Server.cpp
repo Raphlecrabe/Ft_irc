@@ -80,13 +80,13 @@ void	Server::receive(int fd) {
 		User *user = _hub.getUserByFd(fd);
 		if (user)
 		{
-			Message newmessage = user->getQuitMessage("connection closed by client");
+			Message newmessage = user->getQuitMessage("connection closed");
 			send(newmessage);
 			_hub.RemoveUserByFd(fd);
 		}
 
-		_listener.close_connection(fd);
-
+		_hub.program_to_close(fd);
+	
 		return;
 	}
 

@@ -119,6 +119,9 @@ bool Listener::recvdatas(int fd) {
 
 	Debug::Log << "Listener: received from fd " << fd << ": " << buf;
 
+	if (_buffers[fd].size() > 500)
+		return false;
+
 	return true;
 }
 
